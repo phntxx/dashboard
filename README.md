@@ -1,6 +1,6 @@
 ﻿# Dashboard
 
-![screenshot](screenshot.png "screenshot")
+![screenshot](screenshot.png 'screenshot')
 
 Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI.
 
@@ -8,9 +8,9 @@ Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/
 
 So what makes this thing better than SUI?
 
-- "Display URL" functionality, in case the URL you want to show is different than the URL you want to be redirected to
-- Theming through JSON
-- Search providers customizable through JSON (SUI has them both in a JSON and hardcoded)
+-   "Display URL" functionality, in case the URL you want to show is different than the URL you want to be redirected to
+-   Theming through JSON
+-   Search providers customizable through JSON (SUI has them both in a JSON and hardcoded)
 
 ## Installation
 
@@ -26,7 +26,8 @@ To get Dashboard to run, just clone the repository, download the dependencies us
 git clone https://github.com/phntxx/dashboard.git
 cd dashboard
 yarn
-yarn start
+yarn build
+yarn serve:production
 ```
 
 alternatively, if you want to work using static files (requires a rebuild for

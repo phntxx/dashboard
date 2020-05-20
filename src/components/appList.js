@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MaterialIcon from 'material-icons-react';
 import styled from 'styled-components';
 
-import appData from './data/apps.json';
-
-import themeData from './data/themes.json'
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import { Button } from './button';
+import { selectedTheme } from '../selectedTheme';
 
 const AppListContainer = styled.div`
     padding: 2rem 0 2rem 0;
@@ -69,25 +67,69 @@ const Description = styled.p`
     color: ${selectedTheme.accentColor};
 `;
 
-const appList = () => (
-    <AppListContainer>
-        <ApplicationsText>Applications</ApplicationsText>
-        <AppsContainer>
-        {
-            appData.apps.map((app) => (
-                <AppContainer>
-                    <IconContainer>
-                        <MaterialIcon icon={app.icon} color={selectedTheme.mainColor}/>
-                    </IconContainer>
-                    <AppDetails>
-                        <Link href={app.URL}>{app.name}</Link>
-                        <Description>{app.displayURL}</Description>
-                    </AppDetails>
-                </AppContainer>
-            ))
-        }
-        </AppsContainer>
-    </AppListContainer>
-);
+const ErrorMessage = styled.p`
+    color: red;
+`;
 
-export default appList;
+function handleResponse(response) {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error('Failed to load app data.');
+}
+
+function useAppData() {
+    const [appData, setAppData] = useState({ apps: [], error: false });
+    const fetchAppData = useCallback(() => {
+        (process.env.NODE_ENV === 'production'
+            ? fetch('/apps.json').then(handleResponse)
+            : import('./data/apps.json')
+        )
+            .then((jsonResponse) => {
+                setAppData({ ...jsonResponse, error: false });
+            })
+            .catch((error) => {
+                setAppData({ apps: [], error: error.message });
+            });
+    }, []);
+    useEffect(() => {
+        fetchAppData();
+    }, [fetchAppData]);
+    return { appData, fetchAppData };
+}
+
+const AppList = () => {
+    const {
+        appData: { apps, error },
+        fetchAppData,
+    } = useAppData();
+    return (
+        <AppListContainer>
+            <ApplicationsText>
+                Applications <Button onClick={fetchAppData}>refresh</Button>
+            </ApplicationsText>
+            <AppsContainer>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
+                {apps.map((app, idx) => {
+                    const { name } = app;
+                    return (
+                        <AppContainer key={[name, idx].join('')}>
+                            <IconContainer>
+                                <MaterialIcon
+                                    icon={app.icon}
+                                    color={selectedTheme.mainColor}
+                                />
+                            </IconContainer>
+                            <AppDetails>
+                                <Link href={app.URL}>{app.name}</Link>
+                                <Description>{app.displayURL}</Description>
+                            </AppDetails>
+                        </AppContainer>
+                    );
+                })}
+            </AppsContainer>
+        </AppListContainer>
+    );
+};
+
+export default AppList;

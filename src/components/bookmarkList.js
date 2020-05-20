@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import bookmarkData from './data/bookmarks.json';
 
-import themeData from './data/themes.json'
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import { selectedTheme } from '../selectedTheme';
 
 const BookmarksText = styled.h3`
     font-family: Roboto, sans-serif;
@@ -54,26 +53,24 @@ const Bookmark = styled.a`
     font-size: 14px;
 `;
 
-const bookmarkList = () => (
+const BookmarkList = () => (
     <BookmarkListContainer>
         <BookmarksText>Bookmarks</BookmarksText>
         <BookmarksContainer>
-
-        {
-            bookmarkData.groups.map((group) => (
-                <BookmarkGroupContainer>
-                    <GroupText>{group.name}</GroupText>
-                    { 
-                        group.items.map((link) => (
-                            <Bookmark href={link.url}>{link.name}</Bookmark>
-                        ))
-                    }
-                </BookmarkGroupContainer>
-            ))
-        }
-
+            {bookmarkData.groups.map(({ name, items }) => {
+                return (
+                    <BookmarkGroupContainer key={name}>
+                        <GroupText>{name}</GroupText>
+                        {items.map(({ url, name: linkName }) => (
+                            <Bookmark key={linkName} href={url}>
+                                {linkName}
+                            </Bookmark>
+                        ))}
+                    </BookmarkGroupContainer>
+                );
+            })}
         </BookmarksContainer>
     </BookmarkListContainer>
 );
 
-export default bookmarkList;
+export default BookmarkList;
