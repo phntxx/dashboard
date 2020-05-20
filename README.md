@@ -2,7 +2,6 @@
 
 ![screenshot](screenshot.png "screenshot")
 
-
 Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI.
 
 ## Features
@@ -14,24 +13,51 @@ So what makes this thing better than SUI?
 - Search providers customizable through JSON (SUI has them both in a JSON and hardcoded)
 
 ## Installation
-Getting Dashboard to run is fairly simple:
 
-    git clone https://github.com/phntxx/dashboard.git
-    cd dashboard
-    yarn
-    yarn start
+Getting Dashboard to run is fairly simple and can be accomplished with two techniques:
 
-Alternatively, if you want to get static files, simply run:
+1. Locally
 
-    git clone https://github.com/phntxx/dashboard.git
-    cd dashboard
-    yarn
-    yarn build
-and then put the files in the build-folder onto your web server.
+**Prerequisites: node, npm, yarn**
+
+To get Dashboard to run, just clone the repository, download the dependencies using yarn, then start using `yarn start`.
+
+```
+git clone https://github.com/phntxx/dashboard.git
+cd dashboard
+yarn
+yarn start
+```
+
+alternatively, if you want to work using static files (requires a rebuild for
+every change in the JSON-files), just replace `yarn start` with `yarn build`.
+Then you can copy the files inside the `build` directory onto the webroot of
+your webserver of choice.
+
+2. Using Docker
+
+Using Docker requires building the container manually. Fortunately, this can be accomplished fairly easily:
+
+```
+git clone https://github.com/phntxx/dashboard.git
+cd dashboard
+docker build -t dashboard:1.0
+
+docker run -d \
+-t \
+-p 3000:3000 \
+-v ./src/components/data:/app/src/components/data \
+dashboard:1.0
+```
+
+**NOTE: The `-t` flag is very important, as the Dockerfile requires standard TTY.**
+
 ## Customization
+
 Dashboard is designed to be customizable. Everything is handled using four .json-files, which can be found at /src/components/data
 
 ### Applications
+
 To add an application, append the following to applications.json or simply edit one of the examples given.
 
 ```
@@ -44,7 +70,7 @@ To add an application, append the following to applications.json or simply edit 
 ...
 ```
 
-   To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there.
+To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there.
 
 ### Bookmarks
 
@@ -73,6 +99,7 @@ To add an bookmark, append the following to bookmarks.json or simply edit one of
 ```
 
 ### Theming:
+
 Dashboard also supports themes with the help of a simple JSON-file: themes.json. To add a theme, append the following to themes.json:
 
 ```
@@ -86,6 +113,7 @@ Dashboard also supports themes with the help of a simple JSON-file: themes.json.
 ```
 
 ### Search Providers:
+
 The searchbar on the top supports shortcuts like "/so", just as SUI does. To add one of your own, simply append the following to search.json
 
 ```
