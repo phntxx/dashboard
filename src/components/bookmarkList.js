@@ -3,18 +3,12 @@ import styled from 'styled-components';
 
 import bookmarkData from './data/bookmarks.json';
 
-import themeData from './data/themes.json'
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import getTheme from './themeManager';
+import { Headline, ListContainer, ItemList, Item } from './elements'
 
-const BookmarksText = styled.h3`
-    font-family: Roboto, sans-serif;
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 20px;
-    color: ${selectedTheme.mainColor};
-`;
+const selectedTheme = getTheme();
 
-const GroupText = styled.h4`
+const Group = styled.h4`
     font-family: Roboto, sans-serif;
     font-weight: 700;
     margin: 0;
@@ -22,27 +16,11 @@ const GroupText = styled.h4`
     color: ${selectedTheme.mainColor};
 `;
 
-const BookmarkListContainer = styled.div`
-    padding: 2rem 0 2rem 0;
-`;
-
-const BookmarksContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-    }
-`;
-
-const BookmarkGroupContainer = styled.div`
+const BookmarkGroup = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1 0 21%;
-    padding-top: 2rem;
-    font-size: 15px;
+    flex: 2 1 auto;
+    padding: 1rem 0 1rem 0;
 `;
 
 const Bookmark = styled.a`
@@ -55,25 +33,25 @@ const Bookmark = styled.a`
 `;
 
 const bookmarkList = () => (
-    <BookmarkListContainer>
-        <BookmarksText>Bookmarks</BookmarksText>
-        <BookmarksContainer>
-
+    <ListContainer>
+        <Headline>Bookmarks</Headline>
+        <ItemList>
         {
-            bookmarkData.groups.map((group) => (
-                <BookmarkGroupContainer>
-                    <GroupText>{group.name}</GroupText>
-                    { 
-                        group.items.map((link) => (
-                            <Bookmark href={link.url}>{link.name}</Bookmark>
-                        ))
-                    }
-                </BookmarkGroupContainer>
+            bookmarkData.groups.map((group, index) => (
+                <Item key={group.name + index}>
+                    <BookmarkGroup>
+                        <Group>{group.name}</Group>
+                        { 
+                            group.items.map((link) => (
+                                <Bookmark key={link.name} href={link.url}>{link.name}</Bookmark>
+                            ))
+                        }
+                    </BookmarkGroup>
+                </Item>
             ))
         }
-
-        </BookmarksContainer>
-    </BookmarkListContainer>
+        </ItemList>
+    </ListContainer>
 );
 
 export default bookmarkList;

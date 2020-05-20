@@ -1,53 +1,15 @@
 {
     "groups": [
         {
-            "name": "Communicate",
+            "name": "Wikis",
             "items": [
                 {
-                    "name": "Discord",
-                    "url": "https://example.com"
+                    "name": "Wikipedia",
+                    "url": "https://en.wikipedia.org/"
                 },
                 {
-                    "name": "Gmail",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Slack",
-                    "url": "https://example.com"
-                }
-            ]
-        },
-        {
-            "name": "Cloud",
-            "items": [
-                {
-                    "name": "Box",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Dropbox",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Drive",
-                    "url": "https://example.com"
-                }
-            ]
-        },
-        {
-            "name": "Design",
-            "items": [
-                {
-                    "name": "Awwwards",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Dribbble",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Muz.li",
-                    "url": "https://example.com"
+                    "name": "Arch Linux Wiki",
+                    "url": "https://archlinux.org/"
                 }
             ]
         },
@@ -56,32 +18,15 @@
             "items": [
                 {
                     "name": "Codepen",
-                    "url": "https://example.com"
+                    "url": "https://codepen.io/"
                 },
                 {
-                    "name": "Devdocs",
-                    "url": "https://example.com"
+                    "name": "JSFiddle",
+                    "url": "https://jsfiddle.net/"
                 },
                 {
-                    "name": "Devhints",
-                    "url": "https://example.com"
-                }
-            ]
-        },
-        {
-            "name": "Lifestyle",
-            "items": [
-                {
-                    "name": "Design Milk",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Dwell",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Freshome",
-                    "url": "https://example.com"
+                    "name": "Pastebin",
+                    "url": "https://pastebin.com/"
                 }
             ]
         },
@@ -89,33 +34,46 @@
             "name": "Media",
             "items": [
                 {
-                    "name": "Spotify",
-                    "url": "https://example.com"
-                },
-                {
-                    "name": "Trakt",
-                    "url": "https://example.com"
+                    "name": "Soundcloud",
+                    "url": "https://soundcloud.com"
                 },
                 {
                     "name": "YouTube",
-                    "url": "https://example.com"
+                    "url": "https://youtube.com"
+                },
+                {
+                    "name": "Twitch",
+                    "url": "https://twitch.tv"
                 }
             ]
         },
         {
-            "name": "Reading",
+            "name": "Social Networks",
             "items": [
                 {
-                    "name": "Instapaper",
-                    "url": "https://example.com"
+                    "name": "Facebook",
+                    "url": "https://facebook.com"
                 },
                 {
-                    "name": "Medium",
-                    "url": "https://example.com"
+                    "name": "Twitter",
+                    "url": "https://twitter.com"
                 },
+                {
+                    "name": "Instagram",
+                    "url": "https://instagram.com"
+                }
+            ]
+        },
+        {
+            "name": "Imageboards",
+            "items": [
                 {
                     "name": "Reddit",
-                    "url": "https://example.com"
+                    "url": "https://reddit.com"
+                },
+                {
+                    "name": "4chan",
+                    "url": "https://4chan.org"
                 }
             ]
         },
@@ -123,16 +81,16 @@
             "name": "Tech",
             "items": [
                 {
-                    "name": "TheNextWeb",
-                    "url": "https://example.com"
+                    "name": "Hackernoon",
+                    "url": "https://hackernoon.com"
                 },
                 {
                     "name": "The Verge",
-                    "url": "https://example.com"
+                    "url": "https://theverge.com"
                 },
                 {
-                    "name": "MIT Technology Review",
-                    "url": "https://example.com"
+                    "name": "Hackernews",
+                    "url": "https://news.ycombinator.com"
                 }
             ]
         }

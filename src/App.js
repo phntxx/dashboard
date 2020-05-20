@@ -7,8 +7,8 @@ import AppList from './components/appList'
 import BookmarkList from './components/bookmarkList'
 import SettingsModal from './components/settingsModal'
 
-import themeData from './components/data/themes.json';
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import getTheme from './components/themeManager';
+const selectedTheme = getTheme();
 
 const GlobalStyle = createGlobalStyle`
   body {

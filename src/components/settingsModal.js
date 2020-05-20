@@ -8,12 +8,10 @@ import searchData from './data/search.json'
 import themeData from './data/themes.json'
 
 import getTheme, { setTheme } from './themeManager'
-
 const selectedTheme = getTheme();
 
 const ModalButton = styled.button`
     float: right;
-
     border: none;
     background: none;
     padding: 10px;
@@ -21,7 +19,6 @@ const ModalButton = styled.button`
 
 const ExitButton = styled.button`
     float: right;
-
     border: none;
     background: none;
 `;
@@ -62,6 +59,27 @@ const Headline = styled.h3`
     font-weight: 900;
     color: ${selectedTheme.mainColor};
     margin-top: 0;
+`;
+
+const Table = styled.table`
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    background: none;
+    color: ${selectedTheme.mainColor};
+`;
+
+const TableRow = styled.tr`
+    border-bottom: 1px solid ${selectedTheme.mainColor};
+`;
+
+const TableCell = styled.td`
+    background: none;
+    padding-top: 0.5rem;
+`;
+
+const HeadCell = styled.th`
+    font-weight: 700;
+    background: none;
 `;
 
 const SelectorStyle = {
@@ -109,28 +127,6 @@ const SelectorStyle = {
     }
 }
 
-
-const Table = styled.table`
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    background: none;
-    color: ${selectedTheme.mainColor};
-`;
-
-const TableRow = styled.tr`
-    border-bottom: 1px solid ${selectedTheme.mainColor};
-`;
-
-const TableCell = styled.td`
-    background: none;
-    padding-top: 0.5rem;
-`;
-
-const HeadCell = styled.th`
-    font-weight: 700;
-    background: none;
-`;
-
 const SettingsModal = () => {
 
     const [modalHidden, setModalHidden] = useState(true);
@@ -153,18 +149,20 @@ const SettingsModal = () => {
                     </FormContainer>
                 </SelectContainer>
                 <Table>
-                    <TableRow>
-                        <HeadCell>Search Provider</HeadCell>
-                        <HeadCell>Prefix</HeadCell>
-                    </TableRow>
-                    {
-                        searchData.providers.map((provider) => (
-                            <TableRow>
-                                <TableCell>{provider.name}</TableCell>
-                                <TableCell>{provider.prefix}</TableCell>
-                            </TableRow>
-                        ))
-                    }
+                    <tbody>
+                        <TableRow>
+                            <HeadCell>Search Provider</HeadCell>
+                            <HeadCell>Prefix</HeadCell>
+                        </TableRow>
+                        {
+                            searchData.providers.map((provider, index) => (
+                                <TableRow key={provider.name + index}>
+                                    <TableCell>{provider.name}</TableCell>
+                                    <TableCell>{provider.prefix}</TableCell>
+                                </TableRow>
+                            ))
+                        }
+                    </tbody>
                 </Table>
             </Modal>
         </>

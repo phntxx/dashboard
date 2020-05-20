@@ -4,90 +4,69 @@ import styled from 'styled-components';
 
 import appData from './data/apps.json';
 
-import themeData from './data/themes.json'
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import getTheme from './themeManager';
 
-const AppListContainer = styled.div`
-    padding: 2rem 0 2rem 0;
-`;
+import { Headline, ListContainer, ItemList, Item } from './elements'
 
-const AppsContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-    }
-`;
-
-const AppContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex: 1 0 21%;
-    padding: 1rem 0 1rem 0;
-
-    @media (max-width: 750px) {
-        flex: 1 0 42%;
-    }
-`;
+const selectedTheme = getTheme();
 
 const IconContainer = styled.div`
-    margin-right: 5px;
+    margin-right: 0.5vh;
 `;
 
-const AppDetails = styled.div`
+const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
 `;
 
-const ApplicationsText = styled.h3`
-    font-family: Roboto, sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin: 0px;
-    font-size: 20px;
-    color: ${selectedTheme.mainColor};
-`;
-
 const Link = styled.a`
     font-family: Roboto, sans-serif;
+    flex: 1 0 auto;
     color: ${selectedTheme.mainColor};
     font-weight: 500;
     text-transform: uppercase;
-    margin: 0px;
+    margin: 0;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1rem;
 `;
 
 const Description = styled.p`
     font-family: Roboto, sans-serif;
     text-transform: uppercase;
-    margin: 0px;
-    font-size: 10px;
+    margin: 0;
+    font-size: 0.65rem;
     font-weight: 400;
     color: ${selectedTheme.accentColor};
 `;
 
+const App = styled.div`
+    display: flex;
+    flex-basis: 25%;
+    padding: 1rem;
+`;
+
 const appList = () => (
-    <AppListContainer>
-        <ApplicationsText>Applications</ApplicationsText>
-        <AppsContainer>
+    <ListContainer>
+        <Headline>Applications</Headline>
+        <ItemList>
         {
-            appData.apps.map((app) => (
-                <AppContainer>
-                    <IconContainer>
-                        <MaterialIcon icon={app.icon} color={selectedTheme.mainColor}/>
-                    </IconContainer>
-                    <AppDetails>
-                        <Link href={app.URL}>{app.name}</Link>
-                        <Description>{app.displayURL}</Description>
-                    </AppDetails>
-                </AppContainer>
+            appData.apps.map((app, index) => (
+                <Item key={app.name + index}>
+                    <App>
+                        <IconContainer>
+                            <MaterialIcon icon={app.icon} color={selectedTheme.mainColor} />
+                        </IconContainer>
+                        <DetailsContainer>
+                            <Link href={app.URL}>{app.name}</Link>
+                            <Description>{app.displayURL}</Description>
+                        </DetailsContainer>
+                    </App>
+                </Item>
             ))
         }
-        </AppsContainer>
-    </AppListContainer>
+        </ItemList>
+    </ListContainer>
 );
 
 export default appList;
+

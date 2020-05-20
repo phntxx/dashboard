@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import themeData from './data/themes.json'
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import getTheme from './themeManager';
+const selectedTheme = getTheme();
 
 const GreeterContainer = styled.div`
     padding: 2rem 0 2rem 0;
@@ -48,11 +48,8 @@ const getExtension = (day) => {
 
 const getDateString = () => {
     let currentDate = new Date();
-
     const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-
     const weekDayNames = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
-
     return weekDayNames[currentDate.getUTCDay()] + ", " + monthNames[currentDate.getUTCMonth()] + " " + currentDate.getDate() + getExtension(currentDate.getDate()) + " " + currentDate.getFullYear();
 }
 

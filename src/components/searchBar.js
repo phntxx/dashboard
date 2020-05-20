@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import searchData from './data/search.json';
 
-import themeData from './data/themes.json';
-const selectedTheme = localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme")) : themeData.themes[0];
+import getTheme from './themeManager';
+const selectedTheme = getTheme();
 
 const SearchInput = styled.input`
     width: 100%;
@@ -46,8 +46,6 @@ const SearchBar = () => {
     const handleSearchQuery = (e) => {
 
         var query = input;
-
-        console.log(query)
 
         if (query.split(" ")[0].includes("/")) {
             handleQueryWithProvider(query)

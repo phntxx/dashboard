@@ -2,56 +2,56 @@
     "apps": [
         {
             "name": "PiHole",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "192.168.1.253",
+            "URL": "/admin/",
             "icon": "vpn_lock"
         },
         {
             "name": "Plex",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "app.plex.tv",
+            "URL": "https://app.plex.tv",
             "icon": "tv"
         },
         {
             "name": "NextCloud",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "phntxx.tech",
+            "URL": "https://phntxx.tech/cloud/",
             "icon": "filter_drama"
         },
         {
             "name": "Ghost",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "phntxx.tech",
+            "URL": "https://phntxx.tech/blog/",
             "icon": "rss_feed"
         },
         {
             "name": "Minecraft",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "phntxx.tech",
+            "URL": "https://phntxx.tech/minecraft/index.html",
             "icon": "games"
         },
         {
             "name": "pfSense",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "phntxx.tech",
+            "URL": "https://phntxx.tech:1111/",
             "icon": "security"
         },
         {
             "name": "ESXi",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "rhsttpba1.ur.de",
+            "URL": "https://rhsttpba1.ur.de",
             "icon": "dns"
         },
         {
             "name": "Tautulli",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "phntxx.tech",
+            "URL": "https://phntxx.tech/tautulli/",
             "icon": "bar_chart"
         },
         {
             "name": "Grafana",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
+            "displayURL": "phntxx.tech",
+            "URL": "https://phntxx.tech/grafana/",
             "icon": "show_chart"
         }
     ]
