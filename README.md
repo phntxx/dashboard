@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+﻿# Dashboard
 
-## Available Scripts
+[screenshot]: ./screenshot.png
 
-In the project directory, you can run:
 
-### `yarn start`
+Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+Getting Dashboard to run is fairly simple:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    git clone https://github.com/phntxx/dashboard.git
+    cd dashboard
+    yarn
+    yarn start
 
-### `yarn test`
+Alternatively, if you want to get static files, simply run:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    git clone https://github.com/phntxx/dashboard.git
+    cd dashboard
+    yarn
+    yarn build
+and then put the files in the build-folder onto your web server.
+## Customization
+Dashboard is designed to be customizable. Everything is handled using four .json-files, which can be found at /src/components/data
 
-### `yarn build`
+### Applications
+To add an application, append the following to applications.json or simply edit one of the examples given.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+    {
+	    "name": "[Name of the Application]",
+	    "displayURL": "[URL you want to show]",
+	    "URL": "[URL to redirect to]",
+	    "icon": "[Icon code]"
+    }
+    ...
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+   To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Bookmarks
 
-### `yarn eject`
+To add an bookmark, append the following to bookmarks.json or simply edit one of the examples given.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+    {
+	    "name": "[Category name]",
+	    "items": [
+	    {
+		    "name": "[Bookmark name]",
+		    "url": "[URL to redirect to]"
+	    },
+	    {
+		    "name": "[Bookmark name]",
+		    "url": "[URL to redirect to]"
+	    },
+	    {
+		    "name": "[Bookmark name]",
+		    "url": "[URL to redirect to]"
+	    }
+	    ...
+    ]
+    },
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Theming:
+Dashboard also supports themes with the help of a simple JSON-file: themes.json. To add a theme, append the following to themes.json:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+    {
+    "label": "[Theme Name]",
+    "value": [Number of the theme],
+    "mainColor": "[Main Color as 6-character hex code]",
+    "accentColor": "[Accent Color as 6-character hex code]",
+    "backgroundColor": "[Background Color as 6-character hex code]"
+    }
+```

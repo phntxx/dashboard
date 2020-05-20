@@ -1,0 +1,140 @@
+{
+    "groups": [
+        {
+            "name": "Communicate",
+            "items": [
+                {
+                    "name": "Discord",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Gmail",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Slack",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Cloud",
+            "items": [
+                {
+                    "name": "Box",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Dropbox",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Drive",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Design",
+            "items": [
+                {
+                    "name": "Awwwards",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Dribbble",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Muz.li",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Dev",
+            "items": [
+                {
+                    "name": "Codepen",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Devdocs",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Devhints",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Lifestyle",
+            "items": [
+                {
+                    "name": "Design Milk",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Dwell",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Freshome",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Media",
+            "items": [
+                {
+                    "name": "Spotify",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Trakt",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "YouTube",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Reading",
+            "items": [
+                {
+                    "name": "Instapaper",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Medium",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "Reddit",
+                    "url": "https://example.com"
+                }
+            ]
+        },
+        {
+            "name": "Tech",
+            "items": [
+                {
+                    "name": "TheNextWeb",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "The Verge",
+                    "url": "https://example.com"
+                },
+                {
+                    "name": "MIT Technology Review",
+                    "url": "https://example.com"
+                }
+            ]
+        }
+    ]
+}

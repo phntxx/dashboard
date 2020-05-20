@@ -1,0 +1,25 @@
+{
+    "themes": [
+        {
+            "label": "Classic",
+            "value": 0,
+            "mainColor": "#000000",
+            "accentColor": "#1e272e",
+            "backgroundColor": "#ffffff"
+        },
+        {
+            "label": "Dark",
+            "value": 1,
+            "mainColor": "#ffffff",
+            "accentColor": "#999999",
+            "backgroundColor": "#000000"
+        },
+        {
+            "label": "Raw",
+            "value": 2,
+            "mainColor": "",
+            "accentColor": "",
+            "backgroundColor": "#ffffff"
+        }
+    ]
+}
