@@ -68,10 +68,10 @@ Dashboard also supports themes with the help of a simple JSON-file: themes.json.
 
 ```
     {
-    "label": "[Theme Name]",
-    "value": [Number of the theme],
-    "mainColor": "[Main Color as 6-character hex code]",
-    "accentColor": "[Accent Color as 6-character hex code]",
-    "backgroundColor": "[Background Color as 6-character hex code]"
+	    "label": "[Theme Name]",
+	    "value": [Number of the theme],
+	    "mainColor": "[Main Color as 6-character hex code]",
+	    "accentColor": "[Accent Color as 6-character hex code]",
+	    "backgroundColor": "[Background Color as 6-character hex code]"
     }
 ```
