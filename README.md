@@ -1,6 +1,6 @@
 ﻿# Dashboard
 
-[screenshot]: https://github.com/phntxx/dashboard/blob/master/screenshot.png
+![screenshot](screenshot.png "screenshot")
 
 
 Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI.
