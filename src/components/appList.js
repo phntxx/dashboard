@@ -1,46 +1,44 @@
-import React from "react";
-import MaterialIcon from "material-icons-react";
-import styled from "styled-components";
+import React, { useCallback, useEffect, useState } from 'react';
+import MaterialIcon from 'material-icons-react';
+import styled from 'styled-components';
 
-import appData from "./data/apps.json";
+import selectedTheme from './themeManager';
 
-import selectedTheme from "./themeManager";
-
-import { Headline, ListContainer, ItemList, Item } from "./elements";
+import { Headline, ListContainer, ItemList, Item, Button } from './elements';
 
 const IconContainer = styled.div`
-  margin-right: 0.5vh;
+    margin-right: 0.5vh;
 `;
 
 const DetailsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `;
 
 const Link = styled.a`
-  font-family: Roboto, sans-serif;
-  flex: 1 0 auto;
-  color: ${selectedTheme.mainColor};
-  font-weight: 500;
-  text-transform: uppercase;
-  margin: 0;
-  text-decoration: none;
-  font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    flex: 1 0 auto;
+    color: ${selectedTheme.mainColor};
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+    text-decoration: none;
+    font-size: 1rem;
 `;
 
 const Description = styled.p`
-  font-family: Roboto, sans-serif;
-  text-transform: uppercase;
-  margin: 0;
-  font-size: 0.65rem;
-  font-weight: 400;
-  color: ${selectedTheme.accentColor};
+    font-family: Roboto, sans-serif;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: ${selectedTheme.accentColor};
 `;
 
 const App = styled.div`
-  display: flex;
-  flex-basis: 25%;
-  padding: 1rem;
+    display: flex;
+    flex-basis: 25%;
+    padding: 1rem;
 `;
 
 const ErrorMessage = styled.p`
@@ -61,10 +59,10 @@ function useAppData() {
             ? fetch('/apps.json').then(handleResponse)
             : import('./data/apps.json')
         )
-            .then((jsonResponse) => {
+            .then(jsonResponse => {
                 setAppData({ ...jsonResponse, error: false });
             })
-            .catch((error) => {
+            .catch(error => {
                 setAppData({ apps: [], error: error.message });
             });
     }, []);
@@ -77,34 +75,36 @@ function useAppData() {
 const AppList = () => {
     const {
         appData: { apps, error },
-        fetchAppData,
+        fetchAppData
     } = useAppData();
     return (
-        <AppListContainer>
-            <ApplicationsText>
+        <ListContainer>
+            <Headline>
                 Applications <Button onClick={fetchAppData}>refresh</Button>
-            </ApplicationsText>
-            <AppsContainer>
+            </Headline>
+            <ItemList>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 {apps.map((app, idx) => {
                     const { name } = app;
                     return (
-                        <AppContainer key={[name, idx].join('')}>
-                            <IconContainer>
-                                <MaterialIcon
-                                    icon={app.icon}
-                                    color={selectedTheme.mainColor}
-                                />
-                            </IconContainer>
-                            <AppDetails>
-                                <Link href={app.URL}>{app.name}</Link>
-                                <Description>{app.displayURL}</Description>
-                            </AppDetails>
-                        </AppContainer>
+                        <Item key={[name, idx].join('')}>
+                            <App>
+                                <IconContainer>
+                                    <MaterialIcon
+                                        icon={app.icon}
+                                        color={selectedTheme.mainColor}
+                                    />
+                                </IconContainer>
+                                <DetailsContainer>
+                                    <Link href={app.URL}>{app.name}</Link>
+                                    <Description>{app.displayURL}</Description>
+                                </DetailsContainer>
+                            </App>
+                        </Item>
                     );
                 })}
-            </AppsContainer>
-        </AppListContainer>
+            </ItemList>
+        </ListContainer>
     );
 };
 

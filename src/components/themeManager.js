@@ -1,25 +1,25 @@
-import themeData from "./data/themes.json";
+import themeData from './data/themes.json';
 
 const setTheme = theme => {
-  localStorage.setItem("theme", theme);
-  window.location.reload();
+    localStorage.setItem('theme', theme);
+    window.location.reload();
 };
 
 const resetTheme = () => {
-  localStorage.removeItem("theme");
+    localStorage.removeItem('theme');
 };
 
 const getTheme = () => {
-  let selectedTheme = themeData.themes[0];
+    let selectedTheme = themeData.themes[0];
 
-  if (
-    localStorage.getItem("theme") &&
-    localStorage.getItem("theme") !== undefined
-  ) {
-    selectedTheme = JSON.parse(localStorage.getItem("theme"));
-  }
+    if (
+        localStorage.getItem('theme') &&
+        localStorage.getItem('theme') !== undefined
+    ) {
+        selectedTheme = JSON.parse(localStorage.getItem('theme'));
+    }
 
-  return selectedTheme;
+    return selectedTheme;
 };
 
 const selectedTheme = getTheme();
