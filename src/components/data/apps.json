@@ -2,56 +2,56 @@
     "apps": [
         {
             "name": "PiHole",
-            "displayURL": "192.168.1.253",
-            "URL": "/admin/",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "vpn_lock"
         },
         {
             "name": "Plex",
-            "displayURL": "app.plex.tv",
-            "URL": "https://app.plex.tv",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "tv"
         },
         {
             "name": "NextCloud",
-            "displayURL": "phntxx.tech",
-            "URL": "https://phntxx.tech/cloud/",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "filter_drama"
         },
         {
             "name": "Ghost",
-            "displayURL": "phntxx.tech",
-            "URL": "https://phntxx.tech/blog/",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "rss_feed"
         },
         {
             "name": "Minecraft",
-            "displayURL": "phntxx.tech",
-            "URL": "https://phntxx.tech/minecraft/index.html",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "games"
         },
         {
             "name": "pfSense",
-            "displayURL": "phntxx.tech",
-            "URL": "https://phntxx.tech:1111/",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "security"
         },
         {
             "name": "ESXi",
-            "displayURL": "rhsttpba1.ur.de",
-            "URL": "https://rhsttpba1.ur.de",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "dns"
         },
         {
             "name": "Tautulli",
-            "displayURL": "phntxx.tech",
-            "URL": "https://phntxx.tech/tautulli/",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "bar_chart"
         },
         {
             "name": "Grafana",
-            "displayURL": "phntxx.tech",
-            "URL": "https://phntxx.tech/grafana/",
+            "displayURL": "example.com",
+            "URL": "https://example.com",
             "icon": "show_chart"
         }
     ]
