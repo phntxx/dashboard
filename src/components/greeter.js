@@ -1,27 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { selectedTheme } from '../selectedTheme';
+import selectedTheme from "./themeManager";
 
 const GreeterContainer = styled.div`
-    padding: 2rem 0 2rem 0;
+  padding: 2rem 0 2rem 0;
 `;
 
 const GreetText = styled.h1`
-    font-family: Roboto, sans-serif;
-    font-weight: 900;
-    font-size: 45px;
-    margin: 0.5rem 0 0.5rem 0;
-    color: ${selectedTheme.mainColor};
+  font-family: Roboto, sans-serif;
+  font-weight: 900;
+  font-size: 45px;
+  margin: 0.5rem 0 0.5rem 0;
+  color: ${selectedTheme.mainColor};
 `;
 
 const DateText = styled.h3`
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    text-transform: uppercase;
-    margin: 0;
-    color: ${selectedTheme.accentColor};
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin: 0;
+  color: ${selectedTheme.accentColor};
 `;
 
 const getGreeting = () => {

@@ -1,76 +1,53 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import bookmarkData from './data/bookmarks.json';
+import bookmarkData from "./data/bookmarks.json";
 
-import { selectedTheme } from '../selectedTheme';
+import selectedTheme from "./themeManager";
+import { Headline, ListContainer, ItemList, Item } from "./elements";
 
-const BookmarksText = styled.h3`
-    font-family: Roboto, sans-serif;
-    text-transform: uppercase;
-    margin: 0;
-    font-size: 20px;
-    color: ${selectedTheme.mainColor};
+const Group = styled.h4`
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  color: ${selectedTheme.mainColor};
 `;
 
-const GroupText = styled.h4`
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    margin: 0;
-    text-transform: uppercase;
-    color: ${selectedTheme.mainColor};
-`;
-
-const BookmarkListContainer = styled.div`
-    padding: 2rem 0 2rem 0;
-`;
-
-const BookmarksContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-    }
-`;
-
-const BookmarkGroupContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 21%;
-    padding-top: 2rem;
-    font-size: 15px;
+const BookmarkGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 auto;
+  padding: 1rem 0 1rem 0;
 `;
 
 const Bookmark = styled.a`
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    text-decoration: none;
-    color: ${selectedTheme.accentColor};
-    padding: 10px 0 0 0;
-    font-size: 14px;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: ${selectedTheme.accentColor};
+  padding: 10px 0 0 0;
+  font-size: 14px;
 `;
 
-const BookmarkList = () => (
-    <BookmarkListContainer>
-        <BookmarksText>Bookmarks</BookmarksText>
-        <BookmarksContainer>
-            {bookmarkData.groups.map(({ name, items }) => {
-                return (
-                    <BookmarkGroupContainer key={name}>
-                        <GroupText>{name}</GroupText>
-                        {items.map(({ url, name: linkName }) => (
-                            <Bookmark key={linkName} href={url}>
-                                {linkName}
-                            </Bookmark>
-                        ))}
-                    </BookmarkGroupContainer>
-                );
-            })}
-        </BookmarksContainer>
-    </BookmarkListContainer>
+const bookmarkList = () => (
+  <ListContainer>
+    <Headline>Bookmarks</Headline>
+    <ItemList>
+      {bookmarkData.groups.map(({ name, items }) => (
+        <Item key={name}>
+          <BookmarkGroup>
+            <Group>{name}</Group>
+            {group.items.map(({ url, name: linkName }) => (
+              <Bookmark key={linkName} href={url}>
+                {linkName}
+              </Bookmark>
+            ))}
+          </BookmarkGroup>
+        </Item>
+      ))}      
+    </ItemList>
+  </ListContainer>
 );
 
-export default BookmarkList;
+export default bookmarkList;

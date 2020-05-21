@@ -1,13 +1,13 @@
-import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
 
-import SearchBar from './components/searchBar';
-import Greeter from './components/greeter';
-import AppList from './components/appList';
-import BookmarkList from './components/bookmarkList';
-import SettingsModal from './components/settingsModal';
+import SearchBar from "./components/searchBar";
+import Greeter from "./components/greeter";
+import AppList from "./components/appList";
+import BookmarkList from "./components/bookmarkList";
+import SettingsModal from "./components/settingsModal";
 
-import { selectedTheme } from './selectedTheme';
+import selectedTheme from "./components/themeManager";
 
 const GlobalStyle = createGlobalStyle`
   body {
