@@ -1,4 +1,10 @@
-import themeData from './data/themes.json';
+const defaultTheme = {
+    label: 'Classic',
+    value: 0,
+    mainColor: '#000000',
+    accentColor: '#1e272e',
+    backgroundColor: '#ffffff'
+};
 
 const setTheme = theme => {
     localStorage.setItem('theme', theme);
@@ -10,7 +16,7 @@ const resetTheme = () => {
 };
 
 const getTheme = () => {
-    let selectedTheme = themeData.themes[0];
+    let selectedTheme = defaultTheme;
 
     if (
         localStorage.getItem('theme') &&

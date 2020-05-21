@@ -2,7 +2,14 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import selectedTheme from './themeManager';
-import { Headline, ListContainer, ItemList, Item, RefreshButton, ErrorMessage } from './elements';
+import {
+    Headline,
+    ListContainer,
+    ItemList,
+    Item,
+    RefreshButton,
+    ErrorMessage
+} from './elements';
 
 const Group = styled.h4`
     font-family: Roboto, sans-serif;
@@ -28,15 +35,18 @@ const Bookmark = styled.a`
     font-size: 14px;
 `;
 
-function handleResponse(response) {
+const handleResponse = response => {
     if (response.ok) {
         return response.json();
     }
     throw new Error('Failed to load app data.');
-}
+};
 
 const useBookmarkData = () => {
-    const [bookmarkData, setBookmarkData] = useState({ groups: [], error: false });
+    const [bookmarkData, setBookmarkData] = useState({
+        groups: [],
+        error: false
+    });
     const fetchBookmarkData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
             ? fetch('/bookmarks.json').then(handleResponse)
@@ -54,7 +64,7 @@ const useBookmarkData = () => {
         fetchBookmarkData();
     }, [fetchBookmarkData]);
     return { bookmarkData, fetchBookmarkData };
-}
+};
 
 const BookmarkList = () => {
     const {
@@ -63,7 +73,7 @@ const BookmarkList = () => {
     } = useBookmarkData();
     return (
         <ListContainer>
-            <Headline>Applications</Headline>
+            <Headline>Bookmarks</Headline>
             <RefreshButton onClick={fetchBookmarkData}>refresh</RefreshButton>
             <ItemList>
                 {error && <ErrorMessage>{error}</ErrorMessage>}

@@ -4,7 +4,14 @@ import styled from 'styled-components';
 
 import selectedTheme from './themeManager';
 
-import { Headline, ListContainer, ItemList, Item, RefreshButton, ErrorMessage } from './elements';
+import {
+    Headline,
+    ListContainer,
+    ItemList,
+    Item,
+    RefreshButton,
+    ErrorMessage
+} from './elements';
 
 const IconContainer = styled.div`
     margin-right: 0.5vh;
@@ -41,14 +48,14 @@ const App = styled.div`
     padding: 1rem;
 `;
 
-function handleResponse(response) {
+const handleResponse = response => {
     if (response.ok) {
         return response.json();
     }
     throw new Error('Failed to load app data.');
-}
+};
 
-function useAppData() {
+const useAppData = () => {
     const [appData, setAppData] = useState({ apps: [], error: false });
     const fetchAppData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
@@ -62,16 +69,12 @@ function useAppData() {
                 setAppData({ apps: [], error: error.message });
             });
     }, []);
-    
-    useEffect(() => {
-        console.log(appData)
-    }, [appData]);
 
     useEffect(() => {
         fetchAppData();
     }, [fetchAppData]);
     return { appData, fetchAppData };
-}
+};
 
 const AppList = () => {
     const {

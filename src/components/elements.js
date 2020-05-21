@@ -28,7 +28,6 @@ export const ItemList = styled.ul`
 `;
 
 export const Item = styled.li`
-    max-height: 100px;
     overflow: hidden;
     position: relative;
     list-style: none;

@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Select from 'react-select';
 
 import searchData from './data/search.json';
-import themeData from './data/themes.json';
 
 import selectedTheme, { setTheme } from './themeManager';
-import { Button, IconButton } from './elements';
+import { Button, IconButton, ErrorMessage } from './elements';
 
 const Modal = styled.div`
     position: absolute;
@@ -103,9 +102,42 @@ const SelectorStyle = {
     }
 };
 
+const handleResponse = response => {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error('Failed to load app data.');
+};
+
+const useThemeData = () => {
+    const [themeData, setThemeData] = useState({ themes: [], error: false });
+    const fetchThemeData = useCallback(() => {
+        (process.env.NODE_ENV === 'production'
+            ? fetch('/themes.json').then(handleResponse)
+            : import('./data/themes.json')
+        )
+            .then(jsonResponse => {
+                setThemeData({ ...jsonResponse, error: false });
+            })
+            .catch(error => {
+                setThemeData({ themes: [], error: error.message });
+            });
+    }, []);
+
+    useEffect(() => {
+        fetchThemeData();
+    }, [fetchThemeData]);
+    return { themeData, fetchThemeData };
+};
+
 const SettingsModal = () => {
     const [modalHidden, setModalHidden] = useState(true);
     const [newTheme, setNewTheme] = useState();
+
+    const {
+        themeData: { themes, error },
+        fetchThemeData
+    } = useThemeData();
 
     return (
         <>
@@ -118,17 +150,19 @@ const SettingsModal = () => {
                     icon="close"
                     onClick={() => setModalHidden(!modalHidden)}
                 />
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <SelectContainer>
                     <Headline>Theme:</Headline>
                     <FormContainer>
                         <Select
-                            options={themeData.themes}
+                            options={themes}
                             defaultValue={selectedTheme}
                             onChange={e => {
                                 setNewTheme(e);
                             }}
                             styles={SelectorStyle}
                         />
+                        <Button onClick={fetchThemeData}>Refresh</Button>
                         <Button
                             onClick={() => setTheme(JSON.stringify(newTheme))}
                         >
