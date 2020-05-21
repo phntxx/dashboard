@@ -4,10 +4,11 @@ import styled from "styled-components";
 
 import Select from "react-select";
 
-import searchData from "./data/search.json";
-import themeData from "./data/themes.json";
+import searchData from './data/search.json';
+import themeData from './data/themes.json';
 
 import selectedTheme, { setTheme } from "./themeManager";
+import { Button } from './button';
 
 const ModalButton = styled.button`
   float: right;
@@ -41,16 +42,6 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-`;
-
-const ApplyButton = styled.button`
-  font-family: Roboto, sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
-  border: 1px solid ${selectedTheme.mainColor};
-  color: ${selectedTheme.mainColor};
-  background: none;
-  margin-left: 1rem;
 `;
 
 const Headline = styled.h3`
@@ -150,9 +141,9 @@ const SettingsModal = () => {
               }}
               styles={SelectorStyle}
             />
-            <ApplyButton onClick={() => setTheme(JSON.stringify(newTheme))}>
+            <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
               Apply
-            </ApplyButton>
+            </Button>
           </FormContainer>
         </SelectContainer>
         <Table>

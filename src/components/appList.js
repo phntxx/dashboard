@@ -43,25 +43,69 @@ const App = styled.div`
   padding: 1rem;
 `;
 
-const appList = () => (
-  <ListContainer>
-    <Headline>Applications</Headline>
-    <ItemList>
-      {appData.apps.map((app, index) => (
-        <Item key={app.name + index}>
-          <App>
-            <IconContainer>
-              <MaterialIcon icon={app.icon} color={selectedTheme.mainColor} />
-            </IconContainer>
-            <DetailsContainer>
-              <Link href={app.URL}>{app.name}</Link>
-              <Description>{app.displayURL}</Description>
-            </DetailsContainer>
-          </App>
-        </Item>
-      ))}
-    </ItemList>
-  </ListContainer>
-);
+const ErrorMessage = styled.p`
+    color: red;
+`;
 
-export default appList;
+function handleResponse(response) {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error('Failed to load app data.');
+}
+
+function useAppData() {
+    const [appData, setAppData] = useState({ apps: [], error: false });
+    const fetchAppData = useCallback(() => {
+        (process.env.NODE_ENV === 'production'
+            ? fetch('/apps.json').then(handleResponse)
+            : import('./data/apps.json')
+        )
+            .then((jsonResponse) => {
+                setAppData({ ...jsonResponse, error: false });
+            })
+            .catch((error) => {
+                setAppData({ apps: [], error: error.message });
+            });
+    }, []);
+    useEffect(() => {
+        fetchAppData();
+    }, [fetchAppData]);
+    return { appData, fetchAppData };
+}
+
+const AppList = () => {
+    const {
+        appData: { apps, error },
+        fetchAppData,
+    } = useAppData();
+    return (
+        <AppListContainer>
+            <ApplicationsText>
+                Applications <Button onClick={fetchAppData}>refresh</Button>
+            </ApplicationsText>
+            <AppsContainer>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
+                {apps.map((app, idx) => {
+                    const { name } = app;
+                    return (
+                        <AppContainer key={[name, idx].join('')}>
+                            <IconContainer>
+                                <MaterialIcon
+                                    icon={app.icon}
+                                    color={selectedTheme.mainColor}
+                                />
+                            </IconContainer>
+                            <AppDetails>
+                                <Link href={app.URL}>{app.name}</Link>
+                                <Description>{app.displayURL}</Description>
+                            </AppDetails>
+                        </AppContainer>
+                    );
+                })}
+            </AppsContainer>
+        </AppListContainer>
+    );
+};
+
+export default AppList;

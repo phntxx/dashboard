@@ -25,73 +25,76 @@ const DateText = styled.h3`
 `;
 
 const getGreeting = () => {
-  // Maybe add some expandability for different greetings?
-  return "Hello World!";
+    // Maybe add some expandability for different greetings?
+    return 'Hello World!';
 };
 
-const getExtension = day => {
-  let extension = "";
+const getExtension = (day) => {
+    let extension = '';
 
-  if ((day > 4 && day <= 20) || (day > 20 && day % 10 >= 4)) {
-    extension = "th";
-  } else if (day % 10 === 1) {
-    extension = "st";
-  } else if (day % 10 === 2) {
-    extension = "nd";
-  } else if (day % 10 === 3) {
-    extension = "rd";
-  }
+    if ((day > 4 && day <= 20) || (day > 20 && day % 10 >= 4)) {
+        extension = 'th';
+    } else if (day % 10 === 1) {
+        extension = 'st';
+    } else if (day % 10 === 2) {
+        extension = 'nd';
+    } else if (day % 10 === 3) {
+        extension = 'rd';
+    }
 
-  return extension;
+    return extension;
 };
+
+const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+];
+
+const weekDayNames = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+];
 
 const getDateString = () => {
-  let currentDate = new Date();
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-  const weekDayNames = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
-  return (
-    weekDayNames[currentDate.getUTCDay()] +
-    ", " +
-    monthNames[currentDate.getUTCMonth()] +
-    " " +
-    currentDate.getDate() +
-    getExtension(currentDate.getDate()) +
-    " " +
-    currentDate.getFullYear()
-  );
+    let currentDate = new Date();
+
+    return (
+        weekDayNames[currentDate.getUTCDay()] +
+        ', ' +
+        monthNames[currentDate.getUTCMonth()] +
+        ' ' +
+        currentDate.getDate() +
+        getExtension(currentDate.getDate()) +
+        ' ' +
+        currentDate.getFullYear()
+    );
 };
 
-const greeter = () => {
-  let date = getDateString();
-  let greeting = getGreeting();
+const Greeter = () => {
+    let date = getDateString();
+    let greeting = getGreeting();
 
-  return (
-    <GreeterContainer>
-      <DateText>{date}</DateText>
-      <GreetText>{greeting}</GreetText>
-    </GreeterContainer>
-  );
+    return (
+        <GreeterContainer>
+            <DateText>{date}</DateText>
+            <GreetText>{greeting}</GreetText>
+        </GreeterContainer>
+    );
 };
 
-export default greeter;
+export default Greeter;

@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "http-server": "^0.12.3",
     "material-icons-react": "^1.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -14,8 +15,12 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
+    "serveAppData": "http-server ./data -c-1",
+    "serveProductionApp": "http-server ./build --proxy http://localhost:8080 --port 3000",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve:dev": "npm-run-all --parallel serveAppData start",
+    "serve:production": "npm-run-all --parallel serveAppData serveProductionApp",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

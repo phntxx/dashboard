@@ -34,18 +34,18 @@ const bookmarkList = () => (
   <ListContainer>
     <Headline>Bookmarks</Headline>
     <ItemList>
-      {bookmarkData.groups.map((group, index) => (
-        <Item key={group.name + index}>
+      {bookmarkData.groups.map(({ name, items }) => (
+        <Item key={name}>
           <BookmarkGroup>
-            <Group>{group.name}</Group>
-            {group.items.map(link => (
-              <Bookmark key={link.name} href={link.url}>
-                {link.name}
+            <Group>{name}</Group>
+            {group.items.map(({ url, name: linkName }) => (
+              <Bookmark key={linkName} href={url}>
+                {linkName}
               </Bookmark>
             ))}
           </BookmarkGroup>
         </Item>
-      ))}
+      ))}      
     </ItemList>
   </ListContainer>
 );
