@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "PiHole",
+            "name": "my pi hole",
             "displayURL": "example.com",
             "URL": "https://example.com",
             "icon": "vpn_lock"

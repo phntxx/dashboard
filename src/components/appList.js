@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import selectedTheme from './themeManager';
 
-import { Headline, ListContainer, ItemList, Item, Button } from './elements';
+import { Headline, ListContainer, ItemList, Item, RefreshButton, ErrorMessage } from './elements';
 
 const IconContainer = styled.div`
     margin-right: 0.5vh;
@@ -41,16 +41,6 @@ const App = styled.div`
     padding: 1rem;
 `;
 
-const ErrorMessage = styled.p`
-    color: red;
-`;
-
-const RefreshButton = styled(Button)`
-    display: relative;
-    top: 0;
-    float: right;
-`;
-
 function handleResponse(response) {
     if (response.ok) {
         return response.json();
@@ -72,6 +62,11 @@ function useAppData() {
                 setAppData({ apps: [], error: error.message });
             });
     }, []);
+    
+    useEffect(() => {
+        console.log(appData)
+    }, [appData]);
+
     useEffect(() => {
         fetchAppData();
     }, [fetchAppData]);

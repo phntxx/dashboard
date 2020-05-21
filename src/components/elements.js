@@ -51,6 +51,16 @@ const StyledButton = styled.button`
     background: none;
 `;
 
+export const RefreshButton = styled(Button)`
+    display: relative;
+    top: 0;
+    float: right;
+`;
+
+export const ErrorMessage = styled.p`
+    color: red;
+`;
+
 export const IconButton = props => {
     if (
         props.icon &&

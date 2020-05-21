@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import bookmarkData from './data/bookmarks.json';
-
 import selectedTheme from './themeManager';
-import { Headline, ListContainer, ItemList, Item } from './elements';
+import { Headline, ListContainer, ItemList, Item, RefreshButton, ErrorMessage } from './elements';
 
 const Group = styled.h4`
     font-family: Roboto, sans-serif;
@@ -30,24 +28,62 @@ const Bookmark = styled.a`
     font-size: 14px;
 `;
 
-const bookmarkList = () => (
-    <ListContainer>
-        <Headline>Bookmarks</Headline>
-        <ItemList>
-            {bookmarkData.groups.map(({ name, items }) => (
-                <Item key={name}>
-                    <BookmarkGroup>
-                        <Group>{name}</Group>
-                        {items.map(({ url, name: linkName }) => (
-                            <Bookmark key={linkName} href={url}>
-                                {linkName}
-                            </Bookmark>
-                        ))}
-                    </BookmarkGroup>
-                </Item>
-            ))}
-        </ItemList>
-    </ListContainer>
-);
+function handleResponse(response) {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error('Failed to load app data.');
+}
 
-export default bookmarkList;
+const useBookmarkData = () => {
+    const [bookmarkData, setBookmarkData] = useState({ groups: [], error: false });
+    const fetchBookmarkData = useCallback(() => {
+        (process.env.NODE_ENV === 'production'
+            ? fetch('/bookmarks.json').then(handleResponse)
+            : import('./data/bookmarks.json')
+        )
+            .then(jsonResponse => {
+                setBookmarkData({ ...jsonResponse, error: false });
+            })
+            .catch(error => {
+                setBookmarkData({ groups: [], error: error.message });
+            });
+    }, []);
+
+    useEffect(() => {
+        fetchBookmarkData();
+    }, [fetchBookmarkData]);
+    return { bookmarkData, fetchBookmarkData };
+}
+
+const BookmarkList = () => {
+    const {
+        bookmarkData: { groups, error },
+        fetchBookmarkData
+    } = useBookmarkData();
+    return (
+        <ListContainer>
+            <Headline>Applications</Headline>
+            <RefreshButton onClick={fetchBookmarkData}>refresh</RefreshButton>
+            <ItemList>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
+                {groups.map((group, idx) => {
+                    return (
+                        <Item key={[group.name, idx].join('')}>
+                            <BookmarkGroup>
+                                <Group>{group.name}</Group>
+                                {group.items.map(({ url, name: linkName }) => (
+                                    <Bookmark key={linkName} href={url}>
+                                        {linkName}
+                                    </Bookmark>
+                                ))}
+                            </BookmarkGroup>
+                        </Item>
+                    );
+                })}
+            </ItemList>
+        </ListContainer>
+    );
+};
+
+export default BookmarkList;
