@@ -10,6 +10,7 @@ export const ListContainer = styled.div`
 `;
 
 export const Headline = styled.h3`
+    display: inline-block;
     font-family: Roboto, sans-serif;
     font-weight: 900;
     text-transform: uppercase;

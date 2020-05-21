@@ -45,6 +45,12 @@ const ErrorMessage = styled.p`
     color: red;
 `;
 
+const RefreshButton = styled(Button)`
+    display: relative;
+    top: 0;
+    float: right;
+`;
+
 function handleResponse(response) {
     if (response.ok) {
         return response.json();
@@ -79,9 +85,8 @@ const AppList = () => {
     } = useAppData();
     return (
         <ListContainer>
-            <Headline>
-                Applications <Button onClick={fetchAppData}>refresh</Button>
-            </Headline>
+            <Headline>Applications</Headline>
+            <RefreshButton onClick={fetchAppData}>refresh</RefreshButton>
             <ItemList>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 {apps.map((app, idx) => {
