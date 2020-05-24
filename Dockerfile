@@ -7,9 +7,9 @@ COPY package.json .
 
 RUN [ "yarn", "install" ]
 
-COPY data .
-COPY src .
-COPY public .
+COPY data /app/data
+COPY src /app/src
+COPY public /app/public
 
 RUN [ "yarn", "build" ]
 
