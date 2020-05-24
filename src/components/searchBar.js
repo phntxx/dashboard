@@ -56,7 +56,7 @@ const SearchBar = () => {
         if (query.split(' ')[0].includes('/')) {
             handleQueryWithProvider(query);
         } else {
-            //window.location = 'https://google.com/search?q=' + query;
+            window.location = 'https://google.com/search?q=' + query;
         }
 
         e.preventDefault();
