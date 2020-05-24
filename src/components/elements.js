@@ -49,12 +49,20 @@ export const Button = styled.button`
     background: none;
     min-height: 3em;
     height: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const StyledButton = styled.button`
     float: right;
     border: none;
     background: none;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export const RefreshButton = styled(Button)`

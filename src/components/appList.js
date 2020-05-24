@@ -31,6 +31,10 @@ const Link = styled.a`
     margin: 0;
     text-decoration: none;
     font-size: 1rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 const Description = styled.p`

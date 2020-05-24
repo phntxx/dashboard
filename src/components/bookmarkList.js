@@ -33,6 +33,10 @@ const Bookmark = styled.a`
     color: ${selectedTheme.accentColor};
     padding: 10px 0 0 0;
     font-size: 14px;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 const useBookmarkData = () => {
