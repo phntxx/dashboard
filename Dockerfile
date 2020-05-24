@@ -1,18 +1,18 @@
-# Get current image of node.js
 FROM node:current-alpine
 
-# Set /app as directory where the app should be at
 WORKDIR /app
 
-# Copy all of the relevant files over to the container
-COPY . .
+COPY yarn.lock .
+COPY package.json .
 
-# Download dependencies, build application
-RUN yarn
+RUN [ "yarn", "install" ]
+
+COPY data .
+COPY src .
+COPY public .
+
 RUN [ "yarn", "build" ]
 
-# Expose the two relevant ports
 EXPOSE 3000 8080
 
-# Serve the app
 CMD [ "yarn", "serve:production" ]
