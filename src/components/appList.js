@@ -5,11 +5,11 @@ import styled from 'styled-components';
 import selectedTheme from './themeManager';
 
 import {
+    handleResponse,
     Headline,
     ListContainer,
     ItemList,
     Item,
-    RefreshButton,
     ErrorMessage
 } from './elements';
 
@@ -48,13 +48,6 @@ const App = styled.div`
     padding: 1rem;
 `;
 
-const handleResponse = response => {
-    if (response.ok) {
-        return response.json();
-    }
-    throw new Error('Failed to load app data.');
-};
-
 const useAppData = () => {
     const [appData, setAppData] = useState({ apps: [], error: false });
     const fetchAppData = useCallback(() => {
@@ -84,7 +77,6 @@ const AppList = () => {
     return (
         <ListContainer>
             <Headline>Applications</Headline>
-            <RefreshButton onClick={fetchAppData}>refresh</RefreshButton>
             <ItemList>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 {apps.map((app, idx) => {

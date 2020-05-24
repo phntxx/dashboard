@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ErrorMessage } from './elements';
+import { handleResponse, ErrorMessage } from './elements';
 
 import selectedTheme from './themeManager';
 
@@ -15,18 +15,12 @@ const SearchInput = styled.input`
     color: ${selectedTheme.mainColor};
 `;
 
-const handleResponse = response => {
-    if (response.ok) {
-        return response.json();
-    }
-    throw new Error('Failed to load app data.');
-};
-
 const useSearchProviders = () => {
     const [searchProviders, setSearchProviders] = useState({
         providers: [],
         error: false
     });
+
     const fetchSearchProviders = useCallback(() => {
         (process.env.NODE_ENV === 'production'
             ? fetch('/search.json').then(handleResponse)
@@ -43,11 +37,14 @@ const useSearchProviders = () => {
     useEffect(() => {
         fetchSearchProviders();
     }, [fetchSearchProviders]);
-    return searchProviders;
+    return { searchProviders, fetchSearchProviders };
 };
 
 const SearchBar = () => {
-    const searchProviders = useSearchProviders();
+    const {
+        searchProviders: { providers, error },
+        fetchSearchProviders
+    } = useSearchProviders();
 
     let [input, setInput] = useState();
 
@@ -70,24 +67,17 @@ const SearchBar = () => {
 
         let searchQuery = queryArray.join(' ');
 
-        var foundProvider = false;
-        searchProviders.providers.forEach(provider => {
-            if (provider.prefix === prefix) {
-                foundProvider = true;
+        providers.forEach(provider => {
+            if (provider.prefix === prefix)
                 window.location = provider.url + searchQuery;
-            }
         });
 
-        if (!foundProvider) {
-            window.location = 'https://google.com/search?q=' + query;
-        }
+        window.location = 'https://google.com/search?q=' + query;
     };
 
     return (
         <form onSubmit={e => handleSearchQuery(e)}>
-            {searchProviders.error && (
-                <ErrorMessage>{searchProviders.error}</ErrorMessage>
-            )}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
             <SearchInput
                 type="text"
                 onChange={e => setInput(e.target.value)}

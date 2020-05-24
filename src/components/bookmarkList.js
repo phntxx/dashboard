@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import selectedTheme from './themeManager';
 import {
+    handleResponse,
     Headline,
     ListContainer,
     ItemList,
     Item,
-    RefreshButton,
     ErrorMessage
 } from './elements';
 
@@ -35,18 +35,12 @@ const Bookmark = styled.a`
     font-size: 14px;
 `;
 
-const handleResponse = response => {
-    if (response.ok) {
-        return response.json();
-    }
-    throw new Error('Failed to load app data.');
-};
-
 const useBookmarkData = () => {
     const [bookmarkData, setBookmarkData] = useState({
         groups: [],
         error: false
     });
+
     const fetchBookmarkData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
             ? fetch('/bookmarks.json').then(handleResponse)
@@ -74,7 +68,6 @@ const BookmarkList = () => {
     return (
         <ListContainer>
             <Headline>Bookmarks</Headline>
-            <RefreshButton onClick={fetchBookmarkData}>refresh</RefreshButton>
             <ItemList>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 {groups.map((group, idx) => {

@@ -20,6 +20,90 @@
             "mainColor": "",
             "accentColor": "",
             "backgroundColor": "#ffffff"
+        },
+        {
+            "label": "Blackboard",
+            "value": 3,
+            "mainColor": "#fffdea",
+            "accentColor": "5c5c5c",
+            "backgroundColor": "#1a1a1a"
+        },
+        {
+            "label": "Gazette",
+            "value": 4,
+            "mainColor": "#000000",
+            "accentColor": "#5c5c5c",
+            "backgroundColor": "#F2F7FF"
+        },
+        {
+            "label": "Espresso",
+            "value": 5,
+            "mainColor": "#d1b59a",
+            "accentColor": "#4e4e4e",
+            "backgroundColor": "#21211f"
+        },
+        {
+            "label": "Cab",
+            "value": 6,
+            "mainColor": "#1f1f1f",
+            "accentColor": "#424242",
+            "backgroundColor": "#f6d305"
+        },
+        {
+            "label": "Cloud",
+            "value": 7,
+            "mainColor": "#35342f",
+            "accentColor": "#37bbe4",
+            "backgroundColor": "#f1f2f0"
+        },
+        {
+            "label": "Lime",
+            "value": 8,
+            "mainColor": "#aabbc3",
+            "accentColor": "#aeea00",
+            "backgroundColor": "#263238"
+        },
+        {
+            "label": "White",
+            "value": 9,
+            "mainColor": "#222222",
+            "accentColor": "#dddddd",
+            "backgroundColor": "#ffffff"
+        },
+        {
+            "label": "Tron",
+            "value": 10,
+            "mainColor": "#effbff",
+            "accentColor": "#6ee2ff",
+            "backgroundColor": "#242b33"
+        },
+        {
+            "label": "Blues",
+            "value": 11,
+            "mainColor": "#eff1fc",
+            "accentColor": "#6677eb",
+            "backgroundColor": "#2b2c56"
+        },
+        {
+            "label": "Passion",
+            "value": 12,
+            "mainColor": "#12005e",
+            "accentColor": "#8e24aa",
+            "backgroundColor": "#f5f5f5"
+        },
+        {
+            "label": "Chalk",
+            "value": 13,
+            "mainColor": "#aabbc3",
+            "accentColor": "#ff869a",
+            "backgroundColor": "#263238"
+        },
+        {
+            "label": "Paper",
+            "value": 14,
+            "mainColor": "#4c432e",
+            "accentColor": "#aa9a73",
+            "backgroundColor": "#f8f6f1"
         }
     ]
 }

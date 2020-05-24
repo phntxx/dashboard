@@ -5,6 +5,13 @@ import MaterialIcon from 'material-icons-react';
 
 // File for elements that are/can be reused across the entire site.
 
+export const handleResponse = response => {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error('Failed to load data.');
+};
+
 export const ListContainer = styled.div`
     padding: 2rem 0 2rem 0;
 `;
@@ -40,8 +47,8 @@ export const Button = styled.button`
     border: 1px solid ${selectedTheme.mainColor};
     color: ${selectedTheme.mainColor};
     background: none;
-    margin-left: 1rem;
     min-height: 3em;
+    height: 100%;
 `;
 
 const StyledButton = styled.button`

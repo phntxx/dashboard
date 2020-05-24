@@ -6,7 +6,17 @@ import Select from 'react-select';
 import searchData from './data/search.json';
 
 import selectedTheme, { setTheme } from './themeManager';
-import { Button, IconButton, ErrorMessage } from './elements';
+import {
+    handleResponse,
+    Button,
+    IconButton,
+    ErrorMessage,
+    Headline as hl
+} from './elements';
+
+const Headline = styled(hl)`
+    padding: 0.5rem 0 0.5rem 0;
+`;
 
 const Modal = styled.div`
     position: absolute;
@@ -24,16 +34,8 @@ const SelectContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-`;
-
-const Headline = styled.h3`
-    font-family: Roboto, sans-serif;
-    font-weight: 900;
-    color: ${selectedTheme.mainColor};
-    margin-top: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
 `;
 
 const Table = styled.table`
@@ -55,6 +57,11 @@ const TableCell = styled.td`
 const HeadCell = styled.th`
     font-weight: 700;
     background: none;
+`;
+
+const InfoText = styled.p`
+    font-weight: 400;
+    padding: 0.5rem 0 0.5rem 0;
 `;
 
 const SelectorStyle = {
@@ -100,13 +107,6 @@ const SelectorStyle = {
             color: selectedTheme.mainColor
         };
     }
-};
-
-const handleResponse = response => {
-    if (response.ok) {
-        return response.json();
-    }
-    throw new Error('Failed to load app data.');
 };
 
 const useThemeData = () => {
@@ -162,11 +162,14 @@ const SettingsModal = () => {
                             }}
                             styles={SelectorStyle}
                         />
-                        <Button onClick={fetchThemeData}>Refresh</Button>
+
                         <Button
                             onClick={() => setTheme(JSON.stringify(newTheme))}
                         >
                             Apply
+                        </Button>
+                        <Button onClick={() => window.location.reload()}>
+                            Refresh
                         </Button>
                     </FormContainer>
                 </SelectContainer>
