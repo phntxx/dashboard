@@ -51,10 +51,12 @@ const SearchBar = () => {
     const handleSearchQuery = e => {
         var query = input;
 
+        console.log(query);
+
         if (query.split(' ')[0].includes('/')) {
             handleQueryWithProvider(query);
         } else {
-            window.location = 'https://google.com/search?q=' + query;
+            //window.location = 'https://google.com/search?q=' + query;
         }
 
         e.preventDefault();
@@ -67,12 +69,16 @@ const SearchBar = () => {
 
         let searchQuery = queryArray.join(' ');
 
+        let providerFound = false;
         providers.forEach(provider => {
-            if (provider.prefix === prefix)
+            if (provider.prefix === prefix) {
+                providerFound = true;
                 window.location = provider.url + searchQuery;
+            }
         });
 
-        window.location = 'https://google.com/search?q=' + query;
+        if (!providerFound)
+            window.location = 'https://google.com/search?q=' + query;
     };
 
     return (

@@ -18,6 +18,8 @@ Getting Dashboard to run is fairly simple and can be accomplished with two techn
 
 1. Locally
 
+Prerequisites: yarn, npm, node
+
 ```
 $ git clone https://github.com/phntxx/dashboard.git
 $ cd dashboard/
