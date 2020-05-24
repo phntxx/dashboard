@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy all of the relevant files over to the container
 COPY . .
 
-# Download dependencies, build container
+# Download dependencies, build application
 RUN yarn
 RUN [ "yarn", "build" ]
 
