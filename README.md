@@ -1,6 +1,6 @@
-﻿# Dashboard
+# Dashboard
 
-![screenshot](screenshot.png 'screenshot')
+![screenshot](https://github.com/phntxx/dashboard/blob/master/screenshot.png 'screenshot')
 
 Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI, such as simple customization through JSON-files and a handy search bar to search the internet more efficiently.
 
@@ -31,15 +31,15 @@ $ yarn serve:production
 2. Using Docker
 
 ```
-$ git clone https://github.com/phntxx/dashboard.git
-$ cd dashboard/
-$ docker build -t dashboard:1.0 .
 $ docker run -d \
 	-v $(pwd)/data:/app/data
 	-p 3000:3000 \
 	--name dashboard \
-	dashboard:1.0
+	phntxx/dashboard
 ```
+
+**Note: You might still need to clone the repository in order to get the JSON-files which are required for the
+app to run**
 
 ## Customization
 
