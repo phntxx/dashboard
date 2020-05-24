@@ -1,5 +1,5 @@
 # Get current image of node.js
-FROM node:current-slim
+FROM node:current-alpine
 
 # Set /app as directory where the app should be at
 WORKDIR /app
