@@ -47,7 +47,7 @@ const useBookmarkData = () => {
 
     const fetchBookmarkData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
-            ? fetch('/bookmarks.json').then(handleResponse)
+            ? fetch('/data/bookmarks.json').then(handleResponse)
             : import('./data/bookmarks.json')
         )
             .then(jsonResponse => {

@@ -56,7 +56,7 @@ const useAppData = () => {
     const [appData, setAppData] = useState({ apps: [], error: false });
     const fetchAppData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
-            ? fetch('/apps.json').then(handleResponse)
+            ? fetch('/data/apps.json').then(handleResponse)
             : import('./data/apps.json')
         )
             .then(jsonResponse => {

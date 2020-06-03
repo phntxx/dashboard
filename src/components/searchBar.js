@@ -23,7 +23,7 @@ const useSearchProviders = () => {
 
     const fetchSearchProviders = useCallback(() => {
         (process.env.NODE_ENV === 'production'
-            ? fetch('/search.json').then(handleResponse)
+            ? fetch('/data/search.json').then(handleResponse)
             : import('./data/search.json')
         )
             .then(jsonResponse => {

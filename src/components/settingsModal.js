@@ -113,7 +113,7 @@ const useThemeData = () => {
     const [themeData, setThemeData] = useState({ themes: [], error: false });
     const fetchThemeData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
-            ? fetch('/themes.json').then(handleResponse)
+            ? fetch('/data/themes.json').then(handleResponse)
             : import('./data/themes.json')
         )
             .then(jsonResponse => {
