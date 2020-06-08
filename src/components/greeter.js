@@ -25,8 +25,18 @@ const DateText = styled.h3`
 `;
 
 const getGreeting = () => {
-    // Maybe add some expandability for different greetings?
-    return 'Hello World!';
+    switch (Math.floor(new Date().getHours() / 6)) {
+        case 0:
+            return 'Goor night!';
+        case 1:
+            return 'Good morning!';
+        case 2:
+            return 'Good afternoon!';
+        case 3:
+            return 'Good evening!';
+        default:
+            break;
+    }
 };
 
 const getExtension = day => {

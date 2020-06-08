@@ -38,6 +38,21 @@ $ docker run -d \
 	phntxx/dashboard
 ```
 
+Sample Docker Compose configuration:
+
+```
+version: "3"
+
+services:
+	dashboard:
+		image: phntxx/dashboard:latest
+		restart: unless-stopped
+		volumes:
+			- [path to data directory]:/app/data
+		ports:
+			- 3000:3000
+```
+
 **Note: You might still need to clone the repository in order to get the JSON-files which are required for the
 app to run**
 
