@@ -78,7 +78,7 @@ To find icons, simply go to the [Material Design Icon Library](https://material.
 
 ### Bookmarks
 
-To add an bookmark, append the following to bookmarks.json or simply edit one of the examples given.
+To add a bookmark, append the following to bookmarks.json or simply edit one of the examples given.
 
 ```
 {
