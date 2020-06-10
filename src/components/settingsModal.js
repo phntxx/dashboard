@@ -59,11 +59,6 @@ const HeadCell = styled.th`
     background: none;
 `;
 
-const InfoText = styled.p`
-    font-weight: 400;
-    padding: 0.5rem 0 0.5rem 0;
-`;
-
 const SelectorStyle = {
     control: provided => ({
         ...provided,
@@ -111,6 +106,7 @@ const SelectorStyle = {
 
 const useThemeData = () => {
     const [themeData, setThemeData] = useState({ themes: [], error: false });
+
     const fetchThemeData = useCallback(() => {
         (process.env.NODE_ENV === 'production'
             ? fetch('/data/themes.json').then(handleResponse)
@@ -135,8 +131,7 @@ const SettingsModal = () => {
     const [newTheme, setNewTheme] = useState();
 
     const {
-        themeData: { themes, error },
-        fetchThemeData
+        themeData: { themes, error }
     } = useThemeData();
 
     return (

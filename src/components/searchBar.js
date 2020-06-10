@@ -42,8 +42,7 @@ const useSearchProviders = () => {
 
 const SearchBar = () => {
     const {
-        searchProviders: { providers, error },
-        fetchSearchProviders
+        searchProviders: { providers, error }
     } = useSearchProviders();
 
     let [input, setInput] = useState();

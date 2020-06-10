@@ -7,7 +7,10 @@ const defaultTheme = {
 };
 
 const setTheme = theme => {
-    localStorage.setItem('theme', theme);
+    if (theme !== undefined) {
+        localStorage.setItem('theme', theme);
+    }
+
     window.location.reload();
 };
 

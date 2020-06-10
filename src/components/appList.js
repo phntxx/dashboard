@@ -75,8 +75,7 @@ const useAppData = () => {
 
 const AppList = () => {
     const {
-        appData: { apps, error },
-        fetchAppData
+        appData: { apps, error }
     } = useAppData();
     return (
         <ListContainer>

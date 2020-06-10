@@ -66,8 +66,7 @@ const useBookmarkData = () => {
 
 const BookmarkList = () => {
     const {
-        bookmarkData: { groups, error },
-        fetchBookmarkData
+        bookmarkData: { groups, error }
     } = useBookmarkData();
     return (
         <ListContainer>
