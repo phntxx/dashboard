@@ -14,8 +14,8 @@ const Bookmark = styled.a`
     font-weight: 400;
     text-decoration: none;
     color: ${selectedTheme.accentColor};
-    padding-top: 10px;
-    font-size: 14px;
+    padding-top: 0.75rem;
+    font-size: 0.9rem;
 
     &:hover {
         text-decoration: underline;

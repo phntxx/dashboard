@@ -7,7 +7,7 @@ import selectedTheme from './themeManager';
 
 const SearchInput = styled.input`
     width: 100%;
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
     border-bottom: 1px solid ${selectedTheme.accentColor};
     background: none;
@@ -18,7 +18,7 @@ const SearchInput = styled.input`
 const useSearchProviders = () => {
     const [searchProviders, setSearchProviders] = useState({
         providers: [],
-        error: false
+        error: false,
     });
 
     const fetchSearchProviders = useCallback(() => {
@@ -26,10 +26,10 @@ const useSearchProviders = () => {
             ? fetch('/data/search.json').then(handleResponse)
             : import('./data/search.json')
         )
-            .then(jsonResponse => {
+            .then((jsonResponse) => {
                 setSearchProviders({ ...jsonResponse, error: false });
             })
-            .catch(error => {
+            .catch((error) => {
                 setSearchProviders({ providers: [], error: error.message });
             });
     }, []);
@@ -42,12 +42,12 @@ const useSearchProviders = () => {
 
 const SearchBar = () => {
     const {
-        searchProviders: { providers, error }
+        searchProviders: { providers, error },
     } = useSearchProviders();
 
     let [input, setInput] = useState();
 
-    const handleSearchQuery = e => {
+    const handleSearchQuery = (e) => {
         var query = input;
 
         console.log(query);
@@ -61,7 +61,7 @@ const SearchBar = () => {
         e.preventDefault();
     };
 
-    const handleQueryWithProvider = query => {
+    const handleQueryWithProvider = (query) => {
         let queryArray = query.split(' ');
         let prefix = queryArray[0];
         queryArray.shift();
@@ -69,7 +69,7 @@ const SearchBar = () => {
         let searchQuery = queryArray.join(' ');
 
         let providerFound = false;
-        providers.forEach(provider => {
+        providers.forEach((provider) => {
             if (provider.prefix === prefix) {
                 providerFound = true;
                 window.location = provider.url + searchQuery;
@@ -81,11 +81,11 @@ const SearchBar = () => {
     };
 
     return (
-        <form onSubmit={e => handleSearchQuery(e)}>
+        <form onSubmit={(e) => handleSearchQuery(e)}>
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <SearchInput
                 type="text"
-                onChange={e => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value)}
             ></SearchInput>
             <button type="submit" hidden />
         </form>

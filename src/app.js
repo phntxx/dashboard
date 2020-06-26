@@ -17,9 +17,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppContainer = styled.div`
-    max-width: 80%;
+    max-width: 85%;
     margin: auto;
-    padding: 10px;
 `;
 
 const App = () => (

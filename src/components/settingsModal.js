@@ -64,7 +64,7 @@ const SelectorStyle = {
         fontWeight: '500',
         color: selectedTheme.mainColor,
         textTransform: 'uppercase',
-        width: '200px',
+        width: '12rem',
         background: 'none',
         borderRadius: '0px',
         border: '1px solid ' + selectedTheme.mainColor,
@@ -77,7 +77,7 @@ const SelectorStyle = {
         ...provided,
         backgroundColor: selectedTheme.backgroundColor,
         border: '1px solid ' + selectedTheme.mainColor,
-        borderRadius: '0px',
+        borderRadius: 0,
         boxShadow: 0,
     }),
     option: (provided) => ({
@@ -85,7 +85,7 @@ const SelectorStyle = {
         fontWeight: '500',
         color: selectedTheme.mainColor,
         textTransform: 'uppercase',
-        borderRadius: '0px',
+        borderRadius: 0,
         boxShadow: 0,
         backgroundColor: selectedTheme.backgroundColor,
         '&:hover': {

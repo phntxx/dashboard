@@ -9,14 +9,14 @@ const GreeterContainer = styled.div`
 
 const GreetText = styled.h1`
     font-weight: 900;
-    font-size: 45px;
+    font-size: 3rem;
     margin: 0.5rem 0;
     color: ${selectedTheme.mainColor};
 `;
 
 const DateText = styled.h3`
     font-weight: 400;
-    font-size: 15px;
+    font-size: 1rem;
     text-transform: uppercase;
     margin: 0;
     color: ${selectedTheme.accentColor};

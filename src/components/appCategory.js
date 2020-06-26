@@ -5,7 +5,6 @@ import { ItemList, Item, SubHeadline } from './elements';
 
 const CategoryHeadline = styled(SubHeadline)`
     padding-top: 1rem;
-    font-size: 1.25rem;
 `;
 
 const CategoryContainer = styled.div`

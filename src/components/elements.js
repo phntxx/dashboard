@@ -20,7 +20,7 @@ export const Headline = styled.h2`
     display: inline-block;
     font-weight: 900;
     text-transform: uppercase;
-    margin: 0px;
+    margin: 0;
     font-size: 1.5rem;
     color: ${selectedTheme.mainColor};
 `;

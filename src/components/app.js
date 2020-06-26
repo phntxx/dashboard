@@ -10,7 +10,7 @@ const AppContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
-    margin-right: 0.5vh;
+    margin-right: 0.5rem;
 `;
 
 const DetailsContainer = styled.div`
