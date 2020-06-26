@@ -19,7 +19,6 @@ const DetailsContainer = styled.div`
 `;
 
 const AppLink = styled.a`
-    font-family: Roboto, sans-serif;
     flex: 1 0 auto;
     color: ${selectedTheme.mainColor};
     font-weight: 500;
@@ -34,7 +33,6 @@ const AppLink = styled.a`
 `;
 
 const AppDescription = styled.p`
-    font-family: Roboto, sans-serif;
     text-transform: uppercase;
     margin: 0;
     font-size: 0.65rem;

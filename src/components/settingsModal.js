@@ -39,7 +39,6 @@ const FormContainer = styled.div`
 `;
 
 const Table = styled.table`
-    font-family: Roboto, sans-serif;
     font-weight: 400;
     background: none;
     color: ${selectedTheme.mainColor};

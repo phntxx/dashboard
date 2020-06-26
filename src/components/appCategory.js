@@ -4,17 +4,17 @@ import { App } from './app';
 import { ItemList, Item, SubHeadline } from './elements';
 
 const CategoryHeadline = styled(SubHeadline)`
+    padding-top: 1rem;
     font-size: 1.25rem;
 `;
 
 const CategoryContainer = styled.div`
     width: 100%;
-    padding-top: 1rem;
 `;
 
-export const Category = ({ name, items }) => (
+export const AppCategory = ({ name, items }) => (
     <CategoryContainer>
-        <CategoryHeadline>{name}</CategoryHeadline>
+        {name && <CategoryHeadline>{name}</CategoryHeadline>}
         <ItemList>
             {items.map((app, idx) => (
                 <Item key={[app.name, idx].join('')}>

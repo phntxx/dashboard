@@ -1,13 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { App } from './app';
-import { Category } from './category';
+import { AppCategory } from './appCategory';
 
 import {
     handleResponse,
     Headline,
     ListContainer,
-    ItemList,
-    Item,
     ErrorMessage,
 } from './elements';
 
@@ -39,29 +36,19 @@ const AppList = () => {
     return (
         <ListContainer>
             <Headline>Applications</Headline>
-
+            {error && <ErrorMessage>{error}</ErrorMessage>}
             {categories &&
-                categories.map((category, idx) => (
-                    <Category
-                        key={[category.name, idx].join('')}
-                        name={category.name}
-                        items={category.items}
+                categories.map(({ name, items }, idx) => (
+                    <AppCategory
+                        key={[name, idx].join('')}
+                        name={name}
+                        items={items}
                     />
                 ))}
-
-            <ItemList>
-                {error && <ErrorMessage>{error}</ErrorMessage>}
-                {apps.map((app, idx) => (
-                    <Item key={[app.name, idx].join('')}>
-                        <App
-                            name={app.name}
-                            icon={app.icon}
-                            url={app.url}
-                            displayURL={app.displayURL}
-                        />
-                    </Item>
-                ))}
-            </ItemList>
+            <AppCategory
+                name={categories ? 'Uncategorized apps' : null}
+                items={apps}
+            />
         </ListContainer>
     );
 };

@@ -1,35 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
 
-import selectedTheme from './themeManager';
 import {
     handleResponse,
     Headline,
-    SubHeadline,
     ListContainer,
     ItemList,
-    Item,
     ErrorMessage,
 } from './elements';
 
-const BookmarkGroup = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 2 1 auto;
-    padding: 1rem 0;
-`;
-
-const Bookmark = styled.a`
-    font-weight: 400;
-    text-decoration: none;
-    color: ${selectedTheme.accentColor};
-    padding-top: 10px;
-    font-size: 14px;
-
-    &:hover {
-        text-decoration: underline;
-    }
-`;
+import { BookmarkGroup } from './bookmarkGroup';
 
 const useBookmarkData = () => {
     const [bookmarkData, setBookmarkData] = useState({
@@ -63,22 +42,15 @@ const BookmarkList = () => {
     return (
         <ListContainer>
             <Headline>Bookmarks</Headline>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
             <ItemList>
-                {error && <ErrorMessage>{error}</ErrorMessage>}
-                {groups.map((group, idx) => {
-                    return (
-                        <Item key={[group.name, idx].join('')}>
-                            <BookmarkGroup>
-                                <SubHeadline>{group.name}</SubHeadline>
-                                {group.items.map(({ url, name: linkName }) => (
-                                    <Bookmark key={linkName} href={url}>
-                                        {linkName}
-                                    </Bookmark>
-                                ))}
-                            </BookmarkGroup>
-                        </Item>
-                    );
-                })}
+                {groups.map(({ name, items }, idx) => (
+                    <BookmarkGroup
+                        key={[name, idx].join('')}
+                        name={name}
+                        items={items}
+                    />
+                ))}
             </ItemList>
         </ListContainer>
     );
