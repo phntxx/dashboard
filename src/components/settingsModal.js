@@ -11,11 +11,11 @@ import {
     Button,
     IconButton,
     ErrorMessage,
-    Headline as hl
+    Headline as hl,
 } from './elements';
 
 const Headline = styled(hl)`
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0;
 `;
 
 const Modal = styled.div`
@@ -60,9 +60,8 @@ const HeadCell = styled.th`
 `;
 
 const SelectorStyle = {
-    control: provided => ({
+    control: (provided) => ({
         ...provided,
-        fontFamily: 'Roboto, sans-serif',
         fontWeight: '500',
         color: selectedTheme.mainColor,
         textTransform: 'uppercase',
@@ -72,19 +71,18 @@ const SelectorStyle = {
         border: '1px solid ' + selectedTheme.mainColor,
         boxShadow: 0,
         '&:hover': {
-            border: '1px solid ' + selectedTheme.mainColor
-        }
+            border: '1px solid ' + selectedTheme.mainColor,
+        },
     }),
-    menu: provided => ({
+    menu: (provided) => ({
         ...provided,
         backgroundColor: selectedTheme.backgroundColor,
         border: '1px solid ' + selectedTheme.mainColor,
         borderRadius: '0px',
-        boxShadow: 0
+        boxShadow: 0,
     }),
-    option: provided => ({
+    option: (provided) => ({
         ...provided,
-        fontFamily: 'Roboto, sans-serif',
         fontWeight: '500',
         color: selectedTheme.mainColor,
         textTransform: 'uppercase',
@@ -93,15 +91,15 @@ const SelectorStyle = {
         backgroundColor: selectedTheme.backgroundColor,
         '&:hover': {
             backgroundColor: selectedTheme.mainColor,
-            color: selectedTheme.backgroundColor
-        }
+            color: selectedTheme.backgroundColor,
+        },
     }),
-    singleValue: provided => {
+    singleValue: (provided) => {
         return {
             ...provided,
-            color: selectedTheme.mainColor
+            color: selectedTheme.mainColor,
         };
-    }
+    },
 };
 
 const useThemeData = () => {
@@ -112,10 +110,10 @@ const useThemeData = () => {
             ? fetch('/data/themes.json').then(handleResponse)
             : import('./data/themes.json')
         )
-            .then(jsonResponse => {
+            .then((jsonResponse) => {
                 setThemeData({ ...jsonResponse, error: false });
             })
-            .catch(error => {
+            .catch((error) => {
                 setThemeData({ themes: [], error: error.message });
             });
     }, []);
@@ -131,7 +129,7 @@ const SettingsModal = () => {
     const [newTheme, setNewTheme] = useState();
 
     const {
-        themeData: { themes, error }
+        themeData: { themes, error },
     } = useThemeData();
 
     return (
@@ -152,7 +150,7 @@ const SettingsModal = () => {
                         <Select
                             options={themes}
                             defaultValue={selectedTheme}
-                            onChange={e => {
+                            onChange={(e) => {
                                 setNewTheme(e);
                             }}
                             styles={SelectorStyle}

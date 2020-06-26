@@ -8,7 +8,7 @@ import {
     ListContainer,
     ItemList,
     Item,
-    ErrorMessage
+    ErrorMessage,
 } from './elements';
 
 const Group = styled.h4`
@@ -23,7 +23,7 @@ const BookmarkGroup = styled.div`
     display: flex;
     flex-direction: column;
     flex: 2 1 auto;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0;
 `;
 
 const Bookmark = styled.a`
@@ -31,7 +31,7 @@ const Bookmark = styled.a`
     font-weight: 400;
     text-decoration: none;
     color: ${selectedTheme.accentColor};
-    padding: 10px 0 0 0;
+    padding-top: 10px;
     font-size: 14px;
 
     &:hover {
@@ -42,7 +42,7 @@ const Bookmark = styled.a`
 const useBookmarkData = () => {
     const [bookmarkData, setBookmarkData] = useState({
         groups: [],
-        error: false
+        error: false,
     });
 
     const fetchBookmarkData = useCallback(() => {
@@ -50,10 +50,10 @@ const useBookmarkData = () => {
             ? fetch('/data/bookmarks.json').then(handleResponse)
             : import('./data/bookmarks.json')
         )
-            .then(jsonResponse => {
+            .then((jsonResponse) => {
                 setBookmarkData({ ...jsonResponse, error: false });
             })
-            .catch(error => {
+            .catch((error) => {
                 setBookmarkData({ groups: [], error: error.message });
             });
     }, []);
@@ -66,7 +66,7 @@ const useBookmarkData = () => {
 
 const BookmarkList = () => {
     const {
-        bookmarkData: { groups, error }
+        bookmarkData: { groups, error },
     } = useBookmarkData();
     return (
         <ListContainer>

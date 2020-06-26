@@ -7,10 +7,11 @@ import selectedTheme from './themeManager';
 import {
     handleResponse,
     Headline,
+    SubHeadline,
     ListContainer,
     ItemList,
     Item,
-    ErrorMessage
+    ErrorMessage,
 } from './elements';
 
 const IconContainer = styled.div`
@@ -46,9 +47,13 @@ const Description = styled.p`
     color: ${selectedTheme.accentColor};
 `;
 
+const CategoryContainer = styled.div`
+    padding: 1rem 0;
+`;
+
 const App = styled.div`
     display: flex;
-    flex-basis: 25%;
+    flex: auto 25%;
     padding: 1rem;
 `;
 
@@ -59,11 +64,11 @@ const useAppData = () => {
             ? fetch('/data/apps.json').then(handleResponse)
             : import('./data/apps.json')
         )
-            .then(jsonResponse => {
+            .then((jsonResponse) => {
                 setAppData({ ...jsonResponse, error: false });
             })
-            .catch(error => {
-                setAppData({ apps: [], error: error.message });
+            .catch((error) => {
+                setAppData({ categories: [], apps: [], error: error.message });
             });
     }, []);
 
@@ -75,32 +80,66 @@ const useAppData = () => {
 
 const AppList = () => {
     const {
-        appData: { apps, error }
+        appData: { categories, apps, error },
     } = useAppData();
     return (
         <ListContainer>
             <Headline>Applications</Headline>
+
+            {categories && (
+                <CategoryContainer>
+                    {categories.map((category, idx) => (
+                        <>
+                            <SubHeadline key={[category.name, idx].join('')}>
+                                {category.name}
+                            </SubHeadline>
+                            <ItemList>
+                                {category.items.map((app, idx) => (
+                                    <Item key={[app.name, idx].join('')}>
+                                        <App>
+                                            <IconContainer>
+                                                <MaterialIcon
+                                                    icon={app.icon}
+                                                    color={
+                                                        selectedTheme.mainColor
+                                                    }
+                                                />
+                                            </IconContainer>
+                                            <DetailsContainer>
+                                                <Link href={app.URL}>
+                                                    {app.name}
+                                                </Link>
+                                                <Description>
+                                                    {app.displayURL}
+                                                </Description>
+                                            </DetailsContainer>
+                                        </App>
+                                    </Item>
+                                ))}
+                            </ItemList>
+                        </>
+                    ))}
+                </CategoryContainer>
+            )}
+
             <ItemList>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
-                {apps.map((app, idx) => {
-                    const { name } = app;
-                    return (
-                        <Item key={[name, idx].join('')}>
-                            <App>
-                                <IconContainer>
-                                    <MaterialIcon
-                                        icon={app.icon}
-                                        color={selectedTheme.mainColor}
-                                    />
-                                </IconContainer>
-                                <DetailsContainer>
-                                    <Link href={app.URL}>{app.name}</Link>
-                                    <Description>{app.displayURL}</Description>
-                                </DetailsContainer>
-                            </App>
-                        </Item>
-                    );
-                })}
+                {apps.map((app, idx) => (
+                    <Item key={[app.name, idx].join('')}>
+                        <App>
+                            <IconContainer>
+                                <MaterialIcon
+                                    icon={app.icon}
+                                    color={selectedTheme.mainColor}
+                                />
+                            </IconContainer>
+                            <DetailsContainer>
+                                <Link href={app.URL}>{app.name}</Link>
+                                <Description>{app.displayURL}</Description>
+                            </DetailsContainer>
+                        </App>
+                    </Item>
+                ))}
             </ItemList>
         </ListContainer>
     );

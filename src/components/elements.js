@@ -5,7 +5,7 @@ import MaterialIcon from 'material-icons-react';
 
 // File for elements that are/can be reused across the entire site.
 
-export const handleResponse = response => {
+export const handleResponse = (response) => {
     if (response.ok) {
         return response.json();
     }
@@ -13,13 +13,21 @@ export const handleResponse = response => {
 };
 
 export const ListContainer = styled.div`
-    padding: 2rem 0 2rem 0;
+    padding: 2rem 0;
 `;
 
 export const Headline = styled.h3`
     display: inline-block;
-    font-family: Roboto, sans-serif;
     font-weight: 900;
+    text-transform: uppercase;
+    margin: 0px;
+    font-size: 1.5rem;
+    color: ${selectedTheme.mainColor};
+`;
+
+export const SubHeadline = styled.h4`
+    display: inline-block;
+    font-weight: 700;
     text-transform: uppercase;
     margin: 0px;
     font-size: 1.5rem;
@@ -41,7 +49,6 @@ export const Item = styled.li`
 `;
 
 export const Button = styled.button`
-    font-family: Roboto, sans-serif;
     text-transform: uppercase;
     font-weight: 400;
     border: 1px solid ${selectedTheme.mainColor};
@@ -75,7 +82,7 @@ export const ErrorMessage = styled.p`
     color: red;
 `;
 
-export const IconButton = props => {
+export const IconButton = (props) => {
     if (
         props.icon &&
         props.icon !== '' &&

@@ -12,6 +12,7 @@ import selectedTheme from './components/themeManager';
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${selectedTheme.backgroundColor};
+    font-family: Roboto, sans-serif;
   }
 `;
 
