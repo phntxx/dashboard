@@ -16,7 +16,7 @@ export const ListContainer = styled.div`
     padding: 2rem 0;
 `;
 
-export const Headline = styled.h3`
+export const Headline = styled.h2`
     display: inline-block;
     font-weight: 900;
     text-transform: uppercase;
@@ -25,12 +25,11 @@ export const Headline = styled.h3`
     color: ${selectedTheme.mainColor};
 `;
 
-export const SubHeadline = styled.h4`
+export const SubHeadline = styled.h3`
     display: inline-block;
     font-weight: 700;
     text-transform: uppercase;
-    margin: 0px;
-    font-size: 1.5rem;
+    margin: 0;
     color: ${selectedTheme.mainColor};
 `;
 

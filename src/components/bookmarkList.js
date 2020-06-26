@@ -5,19 +5,12 @@ import selectedTheme from './themeManager';
 import {
     handleResponse,
     Headline,
+    SubHeadline,
     ListContainer,
     ItemList,
     Item,
     ErrorMessage,
 } from './elements';
-
-const Group = styled.h4`
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    margin: 0;
-    text-transform: uppercase;
-    color: ${selectedTheme.mainColor};
-`;
 
 const BookmarkGroup = styled.div`
     display: flex;
@@ -27,7 +20,6 @@ const BookmarkGroup = styled.div`
 `;
 
 const Bookmark = styled.a`
-    font-family: Roboto, sans-serif;
     font-weight: 400;
     text-decoration: none;
     color: ${selectedTheme.accentColor};
@@ -77,7 +69,7 @@ const BookmarkList = () => {
                     return (
                         <Item key={[group.name, idx].join('')}>
                             <BookmarkGroup>
-                                <Group>{group.name}</Group>
+                                <SubHeadline>{group.name}</SubHeadline>
                                 {group.items.map(({ url, name: linkName }) => (
                                     <Bookmark key={linkName} href={url}>
                                         {linkName}

@@ -1,4 +1,124 @@
 {
+    "categories": [
+        {
+            "name": "Test",
+            "items": [
+                {
+                    "name": "Pihole",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "vpn_lock"
+                },
+                {
+                    "name": "Plex",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "tv"
+                },
+                {
+                    "name": "NextCloud",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "filter_drama"
+                },
+                {
+                    "name": "Ghost",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "rss_feed"
+                },
+                {
+                    "name": "Minecraft",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "games"
+                },
+                {
+                    "name": "pfSense",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "security"
+                },
+                {
+                    "name": "ESXi",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "dns"
+                },
+                {
+                    "name": "Tautulli",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "bar_chart"
+                },
+                {
+                    "name": "Grafana",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "show_chart"
+                }
+            ]
+        },
+        {
+            "name": "Test again",
+            "items": [
+                {
+                    "name": "Pihole",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "vpn_lock"
+                },
+                {
+                    "name": "Plex",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "tv"
+                },
+                {
+                    "name": "NextCloud",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "filter_drama"
+                },
+                {
+                    "name": "Ghost",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "rss_feed"
+                },
+                {
+                    "name": "Minecraft",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "games"
+                },
+                {
+                    "name": "pfSense",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "security"
+                },
+                {
+                    "name": "ESXi",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "dns"
+                },
+                {
+                    "name": "Tautulli",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "bar_chart"
+                },
+                {
+                    "name": "Grafana",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "show_chart"
+                }
+            ]
+        }
+    ],
     "apps": [
         {
             "name": "Pihole",
