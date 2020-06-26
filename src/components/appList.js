@@ -5,7 +5,7 @@ import {
     handleResponse,
     Headline,
     ListContainer,
-    ErrorMessage,
+    ErrorMessage
 } from './elements';
 
 const useAppData = () => {
@@ -15,10 +15,10 @@ const useAppData = () => {
             ? fetch('/data/apps.json').then(handleResponse)
             : import('./data/apps.json')
         )
-            .then((jsonResponse) => {
+            .then(jsonResponse => {
                 setAppData({ ...jsonResponse, error: false });
             })
-            .catch((error) => {
+            .catch(error => {
                 setAppData({ categories: [], apps: [], error: error.message });
             });
     }, []);
@@ -31,7 +31,7 @@ const useAppData = () => {
 
 const AppList = () => {
     const {
-        appData: { categories, apps, error },
+        appData: { categories, apps, error }
     } = useAppData();
     return (
         <ListContainer>
@@ -45,10 +45,12 @@ const AppList = () => {
                         items={items}
                     />
                 ))}
-            <AppCategory
-                name={categories ? 'Uncategorized apps' : null}
-                items={apps}
-            />
+            {apps && (
+                <AppCategory
+                    name={categories ? 'Uncategorized apps' : null}
+                    items={apps}
+                />
+            )}
         </ListContainer>
     );
 };
