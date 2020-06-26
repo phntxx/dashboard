@@ -1,6 +1,6 @@
 # Dashboard
 
-![screenshot](https://github.com/phntxx/dashboard/blob/master/screenshot.png 'screenshot')
+![Alt text](/screenshot.png?raw=true 'screenshot')
 
 Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI, such as simple customization through JSON-files and a handy search bar to search the internet more efficiently.
 
@@ -62,7 +62,7 @@ Dashboard is designed to be customizable. Everything is handled using four .json
 
 ### Applications
 
-To add an application, append the following to applications.json or simply edit one of the examples given.
+To add an application, append the following to apps.json or simply edit one of the examples given.
 
 ```
 {
@@ -75,6 +75,100 @@ To add an application, append the following to applications.json or simply edit 
 ```
 
 To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there.
+
+**NEW FEATURE: CATEGORIES**
+
+To add a category to your dashboard, change apps.json to resemble the following:
+
+```
+{
+	"categories": [
+		...
+	],
+	"apps": [
+		...
+	]
+}
+
+```
+
+Then, a category can be added by entering the following within the "categories" field:
+
+```
+{
+	"name": "[Name of the category]",
+	"items": [
+		[Application goes here]
+	]
+}
+```
+
+In the end, your apps.json file should look something like this:
+
+1. Without categories
+
+```
+{
+	"apps": [
+		{
+			"name": "[Name of the Application]",
+			"displayURL": "[URL you want to show]",
+			"URL": "[URL to redirect to]",
+			"icon": "[Icon code]"
+		},
+		{
+		"name": "[Name of the Application]",
+		"displayURL": "[URL you want to show]",
+		"URL": "[URL to redirect to]",
+		"icon": "[Icon code]"
+		},
+		...
+	]
+}
+```
+
+2. With apps and categories
+
+```
+{
+	"categories": [
+		{
+			"name": "[Name of the category]",
+			"items": [
+				{
+					"name": "[Name of the Application]",
+					"displayURL": "[URL you want to show]",
+					"URL": "[URL to redirect to]",
+					"icon": "[Icon code]"
+				},
+				{
+				"name": "[Name of the Application]",
+				"displayURL": "[URL you want to show]",
+				"URL": "[URL to redirect to]",
+				"icon": "[Icon code]"
+				},
+				...
+			]
+		},
+		...
+	],
+	"apps": [
+		{
+			"name": "[Name of the Application]",
+			"displayURL": "[URL you want to show]",
+			"URL": "[URL to redirect to]",
+			"icon": "[Icon code]"
+		},
+		{
+		"name": "[Name of the Application]",
+		"displayURL": "[URL you want to show]",
+		"URL": "[URL to redirect to]",
+		"icon": "[Icon code]"
+		},
+		...
+	]
+}
+```
 
 ### Bookmarks
 

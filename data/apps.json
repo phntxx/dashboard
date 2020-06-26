@@ -1,11 +1,41 @@
 {
-    "apps": [
+    "categories": [
         {
-            "name": "Pihole",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "vpn_lock"
+            "name": "Networking",
+            "items": [
+                {
+                    "name": "pfSense",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "security"
+                },
+                {
+                    "name": "Pihole",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "vpn_lock"
+                }
+            ]
         },
+        {
+            "name": "Monitoring",
+            "items": [
+                {
+                    "name": "Tautulli",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "bar_chart"
+                },
+                {
+                    "name": "Grafana",
+                    "displayURL": "example.com",
+                    "URL": "https://example.com",
+                    "icon": "show_chart"
+                }
+            ]
+        }
+    ],
+    "apps": [
         {
             "name": "Plex",
             "displayURL": "example.com",
@@ -30,29 +60,12 @@
             "URL": "https://example.com",
             "icon": "games"
         },
-        {
-            "name": "pfSense",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "security"
-        },
+
         {
             "name": "ESXi",
             "displayURL": "example.com",
             "URL": "https://example.com",
             "icon": "dns"
-        },
-        {
-            "name": "Tautulli",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "bar_chart"
-        },
-        {
-            "name": "Grafana",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "show_chart"
         }
     ]
 }
