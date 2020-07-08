@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialIcon from 'material-icons-react';
+import Icon from './icon';
 import styled from 'styled-components';
 import selectedTheme from './themeManager';
 
@@ -43,7 +43,7 @@ const AppDescription = styled.p`
 export const App = ({ name, icon, url, displayURL }) => (
     <AppContainer>
         <IconContainer>
-            <MaterialIcon icon={icon} color={selectedTheme.mainColor} />
+            <Icon name={icon} color={selectedTheme.mainColor} />
         </IconContainer>
         <DetailsContainer>
             <AppLink href={url}>{name}</AppLink>
