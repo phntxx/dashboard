@@ -1,11 +1,11 @@
+import React from "react";
 import styled from "styled-components";
 import selectedTheme from "./themeManager";
 
-const Icon = styled.i`
+export const RawIcon = styled.i`
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -13,19 +13,24 @@ const Icon = styled.i`
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-
-  text-color: ${selectedTheme.mainColor};
-
-  /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
   font-feature-settings: "liga";
 `;
 
-export default Icon;
+interface IIconProps {
+  name: string;
+  size?: string;
+}
+
+export const ComponentIcon = ({ name, size }: IIconProps) => {
+  let IconContainer = styled(RawIcon)`
+    font-size: ${size ? size : "24px"};
+    text-color: ${selectedTheme.mainColor};
+  `;
+
+  return <IconContainer>{name}</IconContainer>;
+};
+
+export default ComponentIcon;
