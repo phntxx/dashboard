@@ -25,7 +25,7 @@ const DateText = styled.h3`
 const getGreeting = () => {
   switch (Math.floor(new Date().getHours() / 6)) {
     case 0:
-      return "Goor night!";
+      return "Good night!";
     case 1:
       return "Good morning!";
     case 2:
@@ -65,7 +65,7 @@ const monthNames = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 
 const weekDayNames = [
@@ -75,7 +75,7 @@ const weekDayNames = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 
 const getDateString = () => {

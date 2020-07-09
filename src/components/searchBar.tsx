@@ -18,7 +18,7 @@ const SearchInput = styled.input`
 const useSearchProviders = () => {
   const [searchProviders, setSearchProviders] = useState({
     providers: [{ prefix: "", url: "" }],
-    error: false
+    error: false,
   });
 
   const fetchSearchProviders = useCallback(() => {
@@ -26,10 +26,10 @@ const useSearchProviders = () => {
       ? fetch("/data/search.json").then(handleResponse)
       : import("./data/search.json")
     )
-      .then(jsonResponse => {
+      .then((jsonResponse) => {
         setSearchProviders({ ...jsonResponse, error: false });
       })
-      .catch(error => {
+      .catch((error) => {
         setSearchProviders({ providers: [], error: error.message });
       });
   }, []);
@@ -42,13 +42,13 @@ const useSearchProviders = () => {
 
 const SearchBar = () => {
   const {
-    searchProviders: { providers, error }
+    searchProviders: { providers, error },
   } = useSearchProviders();
 
-  let [input, setInput] = useState();
+  let [input, setInput] = useState("");
 
   const handleSearchQuery = (e: React.FormEvent) => {
-    var query = input;
+    var query = input || "";
 
     if (query.split(" ")[0].includes("/")) {
       handleQueryWithProvider(query);
@@ -67,7 +67,7 @@ const SearchBar = () => {
     let searchQuery = queryArray.join(" ");
 
     let providerFound = false;
-    providers.forEach(provider => {
+    providers.forEach((provider) => {
       if (provider.prefix === prefix) {
         providerFound = true;
         window.location.href = provider.url + searchQuery;
@@ -79,11 +79,11 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={e => handleSearchQuery(e)}>
+    <form onSubmit={(e) => handleSearchQuery(e)}>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <SearchInput
         type="text"
-        onChange={e => setInput(e.target.value)}
+        onChange={(e) => setInput(e.target.value)}
       ></SearchInput>
       <button type="submit" hidden />
     </form>

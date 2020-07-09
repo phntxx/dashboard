@@ -1,12 +1,20 @@
-const defaultTheme = {
+interface IThemeProps {
+  label: string;
+  value: number;
+  mainColor: string;
+  accentColor: string;
+  backgroundColor: string;
+}
+
+const defaultTheme: IThemeProps = {
   label: "Classic",
   value: 0,
   mainColor: "#000000",
   accentColor: "#1e272e",
-  backgroundColor: "#ffffff"
+  backgroundColor: "#ffffff",
 };
 
-const setTheme = (theme: string) => {
+export const setTheme = (theme: string) => {
   if (theme !== undefined) {
     localStorage.setItem("theme", theme);
   }
@@ -14,7 +22,7 @@ const setTheme = (theme: string) => {
   window.location.reload();
 };
 
-const resetTheme = () => {
+export const resetTheme = () => {
   localStorage.removeItem("theme");
 };
 
@@ -29,7 +37,5 @@ const getTheme = () => {
 };
 
 const selectedTheme = getTheme();
-
-export { setTheme, resetTheme };
 
 export default selectedTheme;

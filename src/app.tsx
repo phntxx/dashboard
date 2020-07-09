@@ -13,13 +13,19 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${selectedTheme.backgroundColor};
     font-family: Roboto, sans-serif;
+  
+    margin: auto;
+    max-width: 95%;
+    max-height: 100%;
+
+    @media (min-width: 1366px) {
+      max-width: 70%;
+    }
+
   }
 `;
 
-const AppContainer = styled.div`
-  max-width: 95%;
-  margin: auto;
-`;
+const AppContainer = styled.div``;
 
 const App = () => (
   <>

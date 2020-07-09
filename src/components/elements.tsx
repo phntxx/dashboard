@@ -35,10 +35,14 @@ export const SubHeadline = styled.h3`
 
 export const ItemList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
   padding: 0;
   list-style: none;
+
+  @media (max-width: 750px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 `;
 
 export const Item = styled.li`
