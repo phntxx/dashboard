@@ -22,7 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serveAppData": "http-server ./ -c-1",
+    "serveProductionApp": "http-server ./build --proxy http://localhost:8080 --port 3000",
+    "serve:dev": "npm-run-all --parallel serveAppData start",
+    "serve:production": "npm-run-all --parallel serveAppData serveProductionApp"
   },
   "eslintConfig": {
     "extends": "react-app"
