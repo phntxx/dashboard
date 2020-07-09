@@ -10,6 +10,9 @@ const AppContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 0.5rem;
 `;
 
@@ -50,7 +53,7 @@ export interface IAppProps {
 export const App = ({ name, icon, url, displayURL }: IAppProps) => (
   <AppContainer>
     <IconContainer>
-      <Icon>{icon}</Icon>
+      <Icon name={icon} />
     </IconContainer>
     <DetailsContainer>
       <AppLink href={url}>{name}</AppLink>
