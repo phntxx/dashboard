@@ -46,17 +46,17 @@ const AppDescription = styled.p`
 export interface IAppProps {
   name: string;
   icon: string;
-  url: string;
+  URL: string;
   displayURL: string;
 }
 
-export const App = ({ name, icon, url, displayURL }: IAppProps) => (
+export const App = ({ name, icon, URL, displayURL }: IAppProps) => (
   <AppContainer>
     <IconContainer>
       <Icon name={icon} />
     </IconContainer>
     <DetailsContainer>
-      <AppLink href={url}>{name}</AppLink>
+      <AppLink href={URL}>{name}</AppLink>
       <AppDescription>{displayURL}</AppDescription>
     </DetailsContainer>
   </AppContainer>

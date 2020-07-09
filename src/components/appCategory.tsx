@@ -25,7 +25,7 @@ export const AppCategory = ({ name, items }: IAppCategoryProps) => (
           <App
             name={app.name}
             icon={app.icon}
-            url={app.url}
+            URL={app.URL}
             displayURL={app.displayURL}
           />
         </Item>

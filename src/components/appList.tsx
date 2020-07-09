@@ -5,24 +5,24 @@ import {
   handleResponse,
   Headline,
   ListContainer,
-  ErrorMessage
+  ErrorMessage,
 } from "./elements";
 
 const useAppData = () => {
   const [appData, setAppData] = useState({
     categories: [],
     apps: [],
-    error: false
+    error: false,
   });
   const fetchAppData = useCallback(() => {
     (process.env.NODE_ENV === "production"
       ? fetch("/data/apps.json").then(handleResponse)
       : import("./data/apps.json")
     )
-      .then(jsonResponse => {
+      .then((jsonResponse) => {
         setAppData({ ...jsonResponse, error: false });
       })
-      .catch(error => {
+      .catch((error) => {
         setAppData({ categories: [], apps: [], error: error.message });
       });
   }, []);
@@ -35,8 +35,9 @@ const useAppData = () => {
 
 const AppList = () => {
   const {
-    appData: { categories, apps, error }
+    appData: { categories, apps, error },
   } = useAppData();
+
   return (
     <ListContainer>
       <Headline>Applications</Headline>
