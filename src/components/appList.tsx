@@ -48,7 +48,7 @@ const AppList = () => {
         ))}
       {apps && (
         <AppCategory
-          name={categories.length > 0 ? "Uncategorized apps" : ""}
+          name={categories > 0 ? "Uncategorized apps" : ""}
           items={apps}
         />
       )}
