@@ -87,9 +87,13 @@ const Imprint = () => {
     imprintData: { name, address, phone, email, url, error },
   } = useImprintData();
 
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
     <>
-      {error ? (
+      {!error ? (
         <ListContainer>
           <Hl>About</Hl>
           <ItemList>

@@ -6,10 +6,9 @@ import Greeter from "./components/greeter";
 import AppList from "./components/appList";
 import BookmarkList from "./components/bookmarkList";
 import Settings from "./components/settings";
+import Imprint from "./components/imprint";
 
 import selectedTheme from "./components/themeManager";
-
-import Imprint from "./components/imprint";
 
 const GlobalStyle = createGlobalStyle`
   body {
