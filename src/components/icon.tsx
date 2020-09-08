@@ -27,7 +27,7 @@ interface IIconProps {
 export const ComponentIcon = ({ name, size }: IIconProps) => {
   let IconContainer = styled(RawIcon)`
     font-size: ${size ? size : "24px"};
-    text-color: ${selectedTheme.mainColor};
+    color: ${selectedTheme.mainColor};
   `;
 
   return <IconContainer>{name}</IconContainer>;

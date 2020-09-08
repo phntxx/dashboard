@@ -5,9 +5,11 @@ import SearchBar from "./components/searchBar";
 import Greeter from "./components/greeter";
 import AppList from "./components/appList";
 import BookmarkList from "./components/bookmarkList";
-import SettingsModal from "./components/settingsModal";
+import Settings from "./components/settings";
 
 import selectedTheme from "./components/themeManager";
+
+import Imprint from "./components/imprint";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,10 +34,11 @@ const App = () => (
     <GlobalStyle />
     <AppContainer>
       <SearchBar />
-      <SettingsModal />
+      <Settings />
       <Greeter />
       <AppList />
       <BookmarkList />
+      <Imprint />
     </AppContainer>
   </>
 );

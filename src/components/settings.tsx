@@ -9,24 +9,14 @@ import selectedTheme, { setTheme } from "./themeManager";
 import {
   handleResponse,
   Button,
-  IconButton,
   ErrorMessage,
   Headline as hl,
 } from "./elements";
 
+import Modal from "./modal";
+
 const Headline = styled(hl)`
   padding: 0.5rem 0;
-`;
-
-const Modal = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  padding: 1rem;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  border: 1px solid ${selectedTheme.mainColor};
-  background-color: ${selectedTheme.backgroundColor};
 `;
 
 const SelectContainer = styled.div`
@@ -123,9 +113,7 @@ const useThemeData = () => {
   return { themeData, fetchThemeData };
 };
 
-const SettingsModal = () => {
-  const [modalHidden, setModalHidden] = useState(true);
-
+const Settings = () => {
   const [newTheme, setNewTheme] = useState();
 
   const {
@@ -137,49 +125,42 @@ const SettingsModal = () => {
   }, [newTheme]);
 
   return (
-    <>
-      <IconButton
-        icon="settings"
-        onClick={() => setModalHidden(!modalHidden)}
-      />
-      <Modal hidden={modalHidden}>
-        <IconButton icon="close" onClick={() => setModalHidden(!modalHidden)} />
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <SelectContainer>
-          <Headline>Theme:</Headline>
-          <FormContainer>
-            <Select
-              options={themes}
-              defaultValue={selectedTheme}
-              onChange={(e: any) => {
-                setNewTheme(e);
-              }}
-              styles={SelectorStyle}
-            />
+    <Modal element="icon" icon="settings">
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+      <SelectContainer>
+        <Headline>Theme:</Headline>
+        <FormContainer>
+          <Select
+            options={themes}
+            defaultValue={selectedTheme}
+            onChange={(e: any) => {
+              setNewTheme(e);
+            }}
+            styles={SelectorStyle}
+          />
 
-            <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
-              Apply
-            </Button>
-            <Button onClick={() => window.location.reload()}>Refresh</Button>
-          </FormContainer>
-        </SelectContainer>
-        <Table>
-          <tbody>
-            <TableRow>
-              <HeadCell>Search Provider</HeadCell>
-              <HeadCell>Prefix</HeadCell>
+          <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
+            Apply
+          </Button>
+          <Button onClick={() => window.location.reload()}>Refresh</Button>
+        </FormContainer>
+      </SelectContainer>
+      <Table>
+        <tbody>
+          <TableRow>
+            <HeadCell>Search Provider</HeadCell>
+            <HeadCell>Prefix</HeadCell>
+          </TableRow>
+          {searchData.providers.map((provider, index) => (
+            <TableRow key={provider.name + index}>
+              <TableCell>{provider.name}</TableCell>
+              <TableCell>{provider.prefix}</TableCell>
             </TableRow>
-            {searchData.providers.map((provider, index) => (
-              <TableRow key={provider.name + index}>
-                <TableCell>{provider.name}</TableCell>
-                <TableCell>{provider.prefix}</TableCell>
-              </TableRow>
-            ))}
-          </tbody>
-        </Table>
-      </Modal>
-    </>
+          ))}
+        </tbody>
+      </Table>
+    </Modal>
   );
 };
 
-export default SettingsModal;
+export default Settings;
