@@ -34,27 +34,31 @@ interface IModalInterface {
   element: string;
   icon?: string;
   text?: string;
+  condition?: boolean;
+  onClose?: () => void;
   children: React.ReactNode;
 }
 
 const Modal = (props: IModalInterface) => {
-  const [modalHidden, setModalHidden] = useState(true);
+  const [modalHidden, setModalHidden] = useState(props.condition ?? true);
+
+  const closeModal = () => {
+    if (props.onClose) props.onClose();
+    setModalHidden(!modalHidden);
+  };
 
   return (
     <>
       {props.element === "icon" && (
-        <IconButton
-          icon={props.icon ? props.icon : ""}
-          onClick={() => setModalHidden(!modalHidden)}
-        />
+        <IconButton icon={props.icon ?? ""} onClick={() => closeModal()} />
       )}
 
       {props.element === "text" && (
-        <Text onClick={() => setModalHidden(!modalHidden)}>{props.text}</Text>
+        <Text onClick={() => closeModal()}>{props.text}</Text>
       )}
 
       <ModalContainer hidden={modalHidden}>
-        <IconButton icon="close" onClick={() => setModalHidden(!modalHidden)} />
+        <IconButton icon="close" onClick={() => closeModal()} />
         {props.children}
       </ModalContainer>
     </>

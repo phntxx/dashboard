@@ -82,6 +82,13 @@ const useImprintData = () => {
   return { imprintData, fetchImprintData };
 };
 
+const onClose = () => {
+  if (window.location.href.endsWith("#imprint")) {
+    let location = window.location.href.replace("#imprint", "");
+    window.location.href = location;
+  }
+};
+
 const Imprint = () => {
   const {
     imprintData: { name, address, phone, email, url, error },
@@ -99,7 +106,12 @@ const Imprint = () => {
           <ItemList>
             <ItemContainer>
               <SHl>Imprint</SHl>
-              <Modal element="text" text="View Imprint">
+              <Modal
+                element="text"
+                text="View Imprint"
+                condition={!window.location.href.endsWith("#imprint")}
+                onClose={() => onClose()}
+              >
                 <Headline>Legal Disclosure</Headline>
                 {error && <ErrorMessage>{error}</ErrorMessage>}
                 <ModalSubHeadline>
