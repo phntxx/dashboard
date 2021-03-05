@@ -1,47 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { AppCategory } from "./appCategory";
+import React from "react";
+import { AppCategory, IAppCategoryProps } from "./appCategory";
+import { IAppProps } from "./app";
 
-import {
-  handleResponse,
-  Headline,
-  ListContainer,
-  ErrorMessage,
-} from "./elements";
+import { Headline, ListContainer } from "./elements";
 
-const useAppData = () => {
-  const [appData, setAppData] = useState({
-    categories: [],
-    apps: [],
-    error: false,
-  });
-  const fetchAppData = useCallback(() => {
-    (process.env.NODE_ENV === "production"
-      ? fetch("/data/apps.json").then(handleResponse)
-      : import("./data/apps.json")
-    )
-      .then((jsonResponse) => {
-        setAppData({ ...jsonResponse, error: false });
-      })
-      .catch((error) => {
-        setAppData({ categories: [], apps: [], error: error.message });
-      });
-  }, []);
+export interface IAppListProps {
+  categories: Array<IAppCategoryProps>;
+  apps: Array<IAppProps>;
+}
 
-  useEffect(() => {
-    fetchAppData();
-  }, [fetchAppData]);
-  return { appData, fetchAppData };
-};
-
-const AppList = () => {
-  const {
-    appData: { categories, apps, error },
-  } = useAppData();
-
+const AppList = ({ categories, apps }: IAppListProps) => {
   return (
     <ListContainer>
       <Headline>Applications</Headline>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
       {categories &&
         categories.map(({ name, items }, idx) => (
           <AppCategory key={[name, idx].join("")} name={name} items={items} />

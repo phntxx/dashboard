@@ -11,7 +11,7 @@ const CategoryContainer = styled.div`
   width: 100%;
 `;
 
-interface IAppCategoryProps {
+export interface IAppCategoryProps {
   name: string;
   items: Array<IAppProps>;
 }

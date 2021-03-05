@@ -1,4 +1,4 @@
-interface IThemeProps {
+export interface IThemeProps {
   label: string;
   value: number;
   mainColor: string;

@@ -22,19 +22,19 @@ const Bookmark = styled.a`
   }
 `;
 
-interface IBookmarkProps {
+export interface IBookmarkProps {
   name: string;
   url: string;
 }
 
-interface IBookmarkGroupProps {
+export interface IBookmarkGroupProps {
   name: string;
-  items: [IBookmarkProps];
+  items: Array<IBookmarkProps>;
 }
 
 export const BookmarkGroup = ({
   name: groupName,
-  items
+  items,
 }: IBookmarkGroupProps) => (
   <Item>
     <GroupContainer>

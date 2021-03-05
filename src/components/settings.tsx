@@ -1,17 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Select from "react-select";
 
-import searchData from "./data/search.json";
-
-import selectedTheme, { setTheme } from "./themeManager";
-import {
-  handleResponse,
-  Button,
-  ErrorMessage,
-  Headline as hl,
-} from "./elements";
+import { ISearchProviderProps } from "./searchBar";
+import selectedTheme, { setTheme, IThemeProps } from "./themeManager";
+import { Button, Headline as hl } from "./elements";
 
 import Modal from "./modal";
 
@@ -91,76 +85,58 @@ const SelectorStyle = {
   },
 };
 
-const useThemeData = () => {
-  const [themeData, setThemeData] = useState({ themes: [], error: false });
+interface ISettingsProps {
+  themes: Array<IThemeProps> | undefined;
+  providers: Array<ISearchProviderProps> | undefined;
+}
 
-  const fetchThemeData = useCallback(() => {
-    (process.env.NODE_ENV === "production"
-      ? fetch("/data/themes.json").then(handleResponse)
-      : import("./data/themes.json")
-    )
-      .then((jsonResponse) => {
-        setThemeData({ ...jsonResponse, error: false });
-      })
-      .catch((error) => {
-        setThemeData({ themes: [], error: error.message });
-      });
-  }, []);
-
-  useEffect(() => {
-    fetchThemeData();
-  }, [fetchThemeData]);
-  return { themeData, fetchThemeData };
-};
-
-const Settings = () => {
+const Settings = ({ themes, providers }: ISettingsProps) => {
   const [newTheme, setNewTheme] = useState();
 
-  const {
-    themeData: { themes, error },
-  } = useThemeData();
+  if (themes && providers) {
+    return (
+      <Modal element="icon" icon="settings">
+        {themes && (
+          <SelectContainer>
+            <Headline>Theme:</Headline>
+            <FormContainer>
+              <Select
+                options={themes}
+                defaultValue={selectedTheme}
+                onChange={(e: any) => {
+                  setNewTheme(e);
+                }}
+                styles={SelectorStyle}
+              />
 
-  useEffect(() => {
-    console.log(newTheme);
-  }, [newTheme]);
-
-  return (
-    <Modal element="icon" icon="settings">
-      {error && <ErrorMessage>{error}</ErrorMessage>}
-      <SelectContainer>
-        <Headline>Theme:</Headline>
-        <FormContainer>
-          <Select
-            options={themes}
-            defaultValue={selectedTheme}
-            onChange={(e: any) => {
-              setNewTheme(e);
-            }}
-            styles={SelectorStyle}
-          />
-
-          <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
-            Apply
-          </Button>
-          <Button onClick={() => window.location.reload()}>Refresh</Button>
-        </FormContainer>
-      </SelectContainer>
-      <Table>
-        <tbody>
-          <TableRow>
-            <HeadCell>Search Provider</HeadCell>
-            <HeadCell>Prefix</HeadCell>
-          </TableRow>
-          {searchData.providers.map((provider, index) => (
-            <TableRow key={provider.name + index}>
-              <TableCell>{provider.name}</TableCell>
-              <TableCell>{provider.prefix}</TableCell>
-            </TableRow>
-          ))}
-        </tbody>
-      </Table>
-    </Modal>
-  );
+              <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
+                Apply
+              </Button>
+              <Button onClick={() => window.location.reload()}>Refresh</Button>
+            </FormContainer>
+          </SelectContainer>
+        )}
+        {providers && (
+          <Table>
+            <tbody>
+              <TableRow>
+                <HeadCell>Search Provider</HeadCell>
+                <HeadCell>Prefix</HeadCell>
+              </TableRow>
+              {providers.map((provider, index) => (
+                <TableRow key={provider.name + index}>
+                  <TableCell>{provider.name}</TableCell>
+                  <TableCell>{provider.prefix}</TableCell>
+                </TableRow>
+              ))}
+            </tbody>
+          </Table>
+        )}
+      </Modal>
+    );
+  } else {
+    return <></>;
+  }
 };
 
 export default Settings;

@@ -1,71 +1,71 @@
 {
-    "categories": [
+  "categories": [
+    {
+      "name": "Networking",
+      "items": [
         {
-            "name": "Networking",
-            "items": [
-                {
-                    "name": "pfSense",
-                    "displayURL": "example.com",
-                    "URL": "https://example.com",
-                    "icon": "security"
-                },
-                {
-                    "name": "Pihole",
-                    "displayURL": "example.com",
-                    "URL": "https://example.com",
-                    "icon": "vpn_lock"
-                }
-            ]
+          "name": "pfSense",
+          "displayURL": "example.com",
+          "URL": "https://example.com",
+          "icon": "security"
         },
         {
-            "name": "Monitoring",
-            "items": [
-                {
-                    "name": "Tautulli",
-                    "displayURL": "example.com",
-                    "URL": "https://example.com",
-                    "icon": "bar_chart"
-                },
-                {
-                    "name": "Grafana",
-                    "displayURL": "example.com",
-                    "URL": "https://example.com",
-                    "icon": "show_chart"
-                }
-            ]
+          "name": "Pihole",
+          "displayURL": "example.com",
+          "URL": "https://example.com",
+          "icon": "vpn_lock"
         }
-    ],
-    "apps": [
+      ]
+    },
+    {
+      "name": "Monitoring",
+      "items": [
         {
-            "name": "Plex",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "tv"
+          "name": "Tautulli",
+          "displayURL": "example.com",
+          "URL": "https://example.com",
+          "icon": "bar_chart"
         },
         {
-            "name": "NextCloud",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "filter_drama"
-        },
-        {
-            "name": "Ghost",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "rss_feed"
-        },
-        {
-            "name": "Minecraft",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "games"
-        },
+          "name": "Grafana",
+          "displayURL": "example.com",
+          "URL": "https://example.com",
+          "icon": "show_chart"
+        }
+      ]
+    }
+  ],
+  "apps": [
+    {
+      "name": "Plex",
+      "displayURL": "example.com",
+      "URL": "https://example.com",
+      "icon": "tv"
+    },
+    {
+      "name": "NextCloud",
+      "displayURL": "example.com",
+      "URL": "https://example.com",
+      "icon": "filter_drama"
+    },
+    {
+      "name": "Ghost",
+      "displayURL": "example.com",
+      "URL": "https://example.com",
+      "icon": "rss_feed"
+    },
+    {
+      "name": "Minecraft",
+      "displayURL": "example.com",
+      "URL": "https://example.com",
+      "icon": "games"
+    },
 
-        {
-            "name": "ESXi",
-            "displayURL": "example.com",
-            "URL": "https://example.com",
-            "icon": "dns"
-        }
-    ]
+    {
+      "name": "ESXi",
+      "displayURL": "example.com",
+      "URL": "https://example.com",
+      "icon": "dns"
+    }
+  ]
 }

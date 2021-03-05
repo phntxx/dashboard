@@ -1,22 +1,24 @@
 {
-  "name": {
-    "text": "John Doe",
-    "link": "#"
-  },
-  "address": {
-    "text": "Null Ave. 1234, 90008 Los Angeles",
-    "link": "#"
-  },
-  "phone": {
-    "text": "+1-202-555-0167",
-    "link": "#"
-  },
-  "email": {
-    "text": "doe.john@example.com",
-    "link": "#"
-  },
-  "url": {
-    "text": "example.com",
-    "link": "#"
+  "imprint": {
+    "name": {
+      "text": "John Doe",
+      "link": "#"
+    },
+    "address": {
+      "text": "Null Ave. 1234, 90008 Los Angeles",
+      "link": "#"
+    },
+    "phone": {
+      "text": "+1-202-555-0167",
+      "link": "#"
+    },
+    "email": {
+      "text": "doe.john@example.com",
+      "link": "#"
+    },
+    "url": {
+      "text": "example.com",
+      "link": "#"
+    }
   }
 }

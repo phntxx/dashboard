@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import React, { useEffect } from "react";
+import { createGlobalStyle } from "styled-components";
 
 import SearchBar from "./components/searchBar";
 import Greeter from "./components/greeter";
@@ -9,6 +9,13 @@ import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
 import selectedTheme from "./components/themeManager";
+import {
+  useAppData,
+  useSearchProviderData,
+  useBookmarkData,
+  useThemeData,
+  useImprintData,
+} from "./components/fetch";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,24 +29,37 @@ const GlobalStyle = createGlobalStyle`
     @media (min-width: 1366px) {
       max-width: 70%;
     }
-
   }
 `;
 
-const AppContainer = styled.div``;
+const App = () => {
+  const { appData } = useAppData();
+  const { searchProviderData } = useSearchProviderData();
+  const { bookmarkData } = useBookmarkData();
+  const { themeData } = useThemeData();
+  const { imprintData } = useImprintData();
 
-const App = () => (
-  <>
-    <GlobalStyle />
-    <AppContainer>
-      <SearchBar />
-      <Settings />
-      <Greeter />
-      <AppList />
-      <BookmarkList />
-      <Imprint />
-    </AppContainer>
-  </>
-);
+  return (
+    <>
+      <GlobalStyle />
+      <div>
+        <SearchBar providers={searchProviderData?.providers} />
+        {!themeData.error && !searchProviderData.error && (
+          <Settings
+            themes={themeData?.themes}
+            providers={searchProviderData?.providers}
+          />
+        )}
+
+        <Greeter />
+        {!appData.error && (
+          <AppList apps={appData.apps} categories={appData.categories} />
+        )}
+        {!bookmarkData.error && <BookmarkList groups={bookmarkData.groups} />}
+        {!imprintData.error && <Imprint imprint={imprintData.imprint} />}
+      </div>
+    </>
+  );
+};
 
 export default App;

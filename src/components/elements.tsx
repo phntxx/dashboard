@@ -5,13 +5,6 @@ import Icon from "./icon";
 
 // File for elements that are/can be reused across the entire site.
 
-export const handleResponse = (response: any) => {
-  if (response.ok) {
-    return response.json();
-  }
-  throw new Error("Failed to load data.");
-};
-
 export const ListContainer = styled.div`
   padding: 2rem 0;
 `;

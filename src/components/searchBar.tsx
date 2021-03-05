@@ -1,7 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
-import { handleResponse, ErrorMessage } from "./elements";
 
 import selectedTheme from "./themeManager";
 
@@ -15,36 +13,17 @@ const SearchInput = styled.input`
   color: ${selectedTheme.mainColor};
 `;
 
-const useSearchProviders = () => {
-  const [searchProviders, setSearchProviders] = useState({
-    providers: [{ prefix: "", url: "" }],
-    error: false,
-  });
+export interface ISearchProviderProps {
+  name: string;
+  url: string;
+  prefix: string;
+}
 
-  const fetchSearchProviders = useCallback(() => {
-    (process.env.NODE_ENV === "production"
-      ? fetch("/data/search.json").then(handleResponse)
-      : import("./data/search.json")
-    )
-      .then((jsonResponse) => {
-        setSearchProviders({ ...jsonResponse, error: false });
-      })
-      .catch((error) => {
-        setSearchProviders({ providers: [], error: error.message });
-      });
-  }, []);
+interface ISearchBarProps {
+  providers: Array<ISearchProviderProps> | undefined;
+}
 
-  useEffect(() => {
-    fetchSearchProviders();
-  }, [fetchSearchProviders]);
-  return { searchProviders, fetchSearchProviders };
-};
-
-const SearchBar = () => {
-  const {
-    searchProviders: { providers, error },
-  } = useSearchProviders();
-
+const SearchBar = ({ providers }: ISearchBarProps) => {
   let [input, setInput] = useState("");
 
   const handleSearchQuery = (e: React.FormEvent) => {
@@ -67,12 +46,14 @@ const SearchBar = () => {
     let searchQuery = queryArray.join(" ");
 
     let providerFound = false;
-    providers.forEach((provider) => {
-      if (provider.prefix === prefix) {
-        providerFound = true;
-        window.location.href = provider.url + searchQuery;
-      }
-    });
+    if (providers) {
+      providers.forEach((provider: ISearchProviderProps) => {
+        if (provider.prefix === prefix) {
+          providerFound = true;
+          window.location.href = provider.url + searchQuery;
+        }
+      });
+    }
 
     if (!providerFound)
       window.location.href = "https://google.com/search?q=" + query;
@@ -80,7 +61,6 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={(e) => handleSearchQuery(e)}>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
       <SearchInput
         type="text"
         onChange={(e) => setInput(e.target.value)}
