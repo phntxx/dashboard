@@ -1,6 +1,13 @@
 # Dashboard
 
-![Alt text](/screenshot.png?raw=true 'screenshot')
+## IMPORTANT: UPDATE
+
+Yesterday, an update has been released that changed a couple of things:
+
+- The serving port has been changed from `3000` to `8080`.
+- The structure of `imprint.json` has been changed. Make sure that the format of your `imprint.json`-file matches the format of the ones within this repository.
+
+![Alt text](/screenshot.png?raw=true "screenshot")
 
 Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/jeroenpardon/sui) and has all the same features as SUI, such as simple customization through JSON-files and a handy search bar to search the internet more efficiently.
 
@@ -8,9 +15,9 @@ Dashboard is just that - a dashboard. It's inspired by [SUI](https://github.com/
 
 So what makes this thing better than SUI?
 
--   "Display URL" functionality, in case the URL you want to show is different than the URL you want to be redirected to
--   Theming through JSON
--   Search providers customizable through JSON (SUI has them both in a JSON and hardcoded)
+- "Display URL" functionality, in case the URL you want to show is different than the URL you want to be redirected to
+- Theming through JSON
+- Search providers customizable through JSON (SUI has them both in a JSON and hardcoded)
 
 ## Installation
 
@@ -50,7 +57,7 @@ services:
 		volumes:
 			- [path to data directory]:/app/data
 		ports:
-			- 3000:3000
+			- 8080:8080
 ```
 
 **Note: You might still need to clone the repository in order to get the JSON-files which are required for the
