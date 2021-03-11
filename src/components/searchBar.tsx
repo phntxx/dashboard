@@ -11,6 +11,10 @@ const SearchInput = styled.input`
   background: none;
   border-radius: 0;
   color: ${selectedTheme.mainColor};
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export interface ISearchProviderProps {
