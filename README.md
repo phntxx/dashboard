@@ -40,7 +40,7 @@ $ yarn serve:production
 ```
 $ docker run -d \
 	-v $(pwd)/data:/app/data
-	-p 3000:3000 \
+	-p 8080:8080 \
 	--name dashboard \
 	phntxx/dashboard
 ```
