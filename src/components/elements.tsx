@@ -50,7 +50,8 @@ export const Button = styled.button`
   border: 1px solid ${selectedTheme.mainColor};
   color: ${selectedTheme.mainColor};
   background: none;
-  min-height: 3em;
+
+  min-height: 2rem;
   height: 100%;
 
   &:hover {
