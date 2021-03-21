@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 import Icon from "./icon";
-
-// File for elements that are/can be reused across the entire site.
 
 export const ListContainer = styled.div`
   padding: 2rem 0;
@@ -50,7 +48,8 @@ export const Button = styled.button`
   border: 1px solid ${selectedTheme.mainColor};
   color: ${selectedTheme.mainColor};
   background: none;
-  min-height: 3em;
+
+  min-height: 2rem;
   height: 100%;
 
   &:hover {
@@ -61,6 +60,7 @@ export const Button = styled.button`
 const StyledButton = styled.button`
   float: right;
   border: none;
+  padding: 0;
   background: none;
 
   &:hover {
@@ -68,21 +68,15 @@ const StyledButton = styled.button`
   }
 `;
 
-export const RefreshButton = styled(Button)`
-  display: relative;
-  top: 0;
-  float: right;
-`;
-
-export const ErrorMessage = styled.p`
-  color: red;
-`;
-
 interface IIconButtonProps {
   icon: string;
   onClick: any;
 }
 
+/**
+ * Renders a button with an icon
+ * @param {IIconProps} props - The props of the given IconButton
+ */
 export const IconButton = ({ icon, onClick }: IIconButtonProps) => (
   <StyledButton onClick={onClick}>
     <Icon name={icon} />

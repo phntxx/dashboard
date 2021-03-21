@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Item, SubHeadline } from "./elements";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
 const GroupContainer = styled.div`
   display: flex;
@@ -32,13 +32,14 @@ export interface IBookmarkGroupProps {
   items: Array<IBookmarkProps>;
 }
 
-export const BookmarkGroup = ({
-  name: groupName,
-  items,
-}: IBookmarkGroupProps) => (
+/**
+ * Renders a given bookmark group
+ * @param {IBookmarkGroupProps} props - The given props of the bookmark group
+ */
+export const BookmarkGroup = ({ name, items }: IBookmarkGroupProps) => (
   <Item>
     <GroupContainer>
-      <SubHeadline>{groupName}</SubHeadline>
+      <SubHeadline>{name}</SubHeadline>
       {items.map(({ name, url }, idx) => (
         <Bookmark key={[name, idx].join("")} href={url}>
           {name}

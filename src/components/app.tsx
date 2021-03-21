@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "./icon";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
 const AppContainer = styled.div`
   display: flex;
@@ -46,17 +46,21 @@ const AppDescription = styled.p`
 export interface IAppProps {
   name: string;
   icon: string;
-  URL: string;
+  url: string;
   displayURL: string;
 }
 
-export const App = ({ name, icon, URL, displayURL }: IAppProps) => (
+/**
+ * Renders a single app shortcut
+ * @param {IAppProps} props - The props of the given app
+ */
+export const App = ({ name, icon, url, displayURL }: IAppProps) => (
   <AppContainer>
     <IconContainer>
       <Icon name={icon} />
     </IconContainer>
     <DetailsContainer>
-      <AppLink href={URL}>{name}</AppLink>
+      <AppLink href={url}>{name}</AppLink>
       <AppDescription>{displayURL}</AppDescription>
     </DetailsContainer>
   </AppContainer>
