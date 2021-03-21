@@ -69,6 +69,8 @@ There's a couple of things you can / need to configure to get Dashboard to look 
 
 If you don't require a specific component, just remove the file from your `data`-directory. Dashboard won't render the components whose files are not present. With no files present, only the greeter will be shown.
 
+If you're running into problems with configuring your files and you can't seem to get them to work, feel free to open an issue, I'd be happy to help! :smile:
+
 ### Apps
 
 To show the apps you want to show, change `apps.json` to resemble the following:

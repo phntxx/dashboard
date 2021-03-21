@@ -28,7 +28,7 @@ export interface IBookmarkProps {
 }
 
 export interface IBookmarkGroupProps {
-  groupName: string;
+  name: string;
   items: Array<IBookmarkProps>;
 }
 
@@ -36,10 +36,10 @@ export interface IBookmarkGroupProps {
  * Renders a given bookmark group
  * @param {IBookmarkGroupProps} props - The given props of the bookmark group
  */
-export const BookmarkGroup = ({ groupName, items }: IBookmarkGroupProps) => (
+export const BookmarkGroup = ({ name, items }: IBookmarkGroupProps) => (
   <Item>
     <GroupContainer>
-      <SubHeadline>{groupName}</SubHeadline>
+      <SubHeadline>{name}</SubHeadline>
       {items.map(({ name, url }, idx) => (
         <Bookmark key={[name, idx].join("")} href={url}>
           {name}

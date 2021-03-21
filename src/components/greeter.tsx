@@ -109,16 +109,11 @@ const getDateString = () => {
 /**
  * Renders the Greeter
  */
-const Greeter = () => {
-  let date = getDateString();
-  let greeting = getGreeting();
-
-  return (
-    <GreeterContainer>
-      <DateText>{date}</DateText>
-      <GreetText>{greeting}</GreetText>
-    </GreeterContainer>
-  );
-};
+const Greeter = () => (
+  <GreeterContainer>
+    <DateText>{getDateString()}</DateText>
+    <GreetText>{getGreeting()}</GreetText>
+  </GreeterContainer>
+);
 
 export default Greeter;

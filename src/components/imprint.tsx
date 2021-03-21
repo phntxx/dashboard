@@ -90,19 +90,24 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
               }
             }}
           >
-            <ModalSubHeadline>
-              Information in accordance with section 5 TMG
+            <div>
+              <ModalSubHeadline>
+                Information in accordance with section 5 TMG
             </ModalSubHeadline>
-            <>
-              {imprint.name && <ImprintField field={imprint.name} />}
-              {imprint.address && <ImprintField field={imprint.address} />}
-              {imprint.email && <ImprintField field={imprint.email} />}
-              {imprint.phone && <ImprintField field={imprint.phone} />}
-              {imprint.url && <ImprintField field={imprint.url} />}
-            </>
-            <Text>
-              {imprint.text}
-            </Text>
+              <>
+                {imprint.name && <ImprintField field={imprint.name} />}
+                {imprint.address && <ImprintField field={imprint.address} />}
+                {imprint.email && <ImprintField field={imprint.email} />}
+                {imprint.phone && <ImprintField field={imprint.phone} />}
+                {imprint.url && <ImprintField field={imprint.url} />}
+              </>
+            </div>
+            <div>
+              <ModalSubHeadline>
+                Imprint
+            </ModalSubHeadline>
+              {imprint.text && <Text>{imprint.text}</Text>}
+            </div>
           </Modal>
         </ItemContainer>
       </ItemList>

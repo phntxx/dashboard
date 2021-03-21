@@ -10,17 +10,15 @@ interface IBookmarkListProps {
  * Renders a given list of categorized bookmarks
  * @param {IBookmarkListProps} props - The props of the given bookmark list
  */
-const BookmarkList = ({ groups }: IBookmarkListProps) => {
-  return (
-    <ListContainer>
-      <Headline>Bookmarks</Headline>
-      <ItemList>
-        {groups.map(({ groupName, items }, idx) => (
-          <BookmarkGroup key={[groupName, idx].join("")} groupName={groupName} items={items} />
-        ))}
-      </ItemList>
-    </ListContainer>
-  );
-};
+const BookmarkList = ({ groups }: IBookmarkListProps) => (
+  <ListContainer>
+    <Headline>Bookmarks</Headline>
+    <ItemList>
+      {groups.map(({ name, items }, idx) => (
+        <BookmarkGroup key={[name, idx].join("")} name={name} items={items} />
+      ))}
+    </ItemList>
+  </ListContainer>
+);
 
 export default BookmarkList;

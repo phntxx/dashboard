@@ -29,7 +29,7 @@ export const AppCategory = ({ name, items }: IAppCategoryProps) => (
           <App
             name={app.name}
             icon={app.icon}
-            URL={app.URL}
+            url={app.url}
             displayURL={app.displayURL}
           />
         </Item>
