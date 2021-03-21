@@ -28,7 +28,6 @@ const GlobalStyle = createGlobalStyle`
 
 /**
  * Renders the entire app by calling individual components
- * @returns
  */
 const App = () => {
 

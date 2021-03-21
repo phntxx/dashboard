@@ -37,7 +37,7 @@ const TitleContainer = styled.div`
   justify-content: space-between;
 `;
 
-interface IModalInterface {
+interface IModalProps {
   element: string;
   icon?: string;
   text?: string;
@@ -47,7 +47,11 @@ interface IModalInterface {
   children: React.ReactNode;
 }
 
-const Modal = ({ element, icon, text, condition, title, onClose, children }: IModalInterface) => {
+/**
+ * Renders a modal with button to hide and un-hide
+ * @param {IModalProps} props - The needed props for the modal
+ */
+const Modal = ({ element, icon, text, condition, title, onClose, children }: IModalProps) => {
   const [modalHidden, setModalHidden] = useState(condition ?? true);
 
   const closeModal = () => {

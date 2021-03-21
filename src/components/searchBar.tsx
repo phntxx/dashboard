@@ -48,6 +48,10 @@ interface ISearchBarProps {
   providers: Array<ISearchProviderProps> | undefined;
 }
 
+/**
+ * Renders a search bar
+ * @param {ISearchBarProps} props - The search providers for the search bar to use 
+ */
 const SearchBar = ({ providers }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);

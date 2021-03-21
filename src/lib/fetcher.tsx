@@ -10,7 +10,13 @@ import { IImprintProps } from "../components/imprint";
 const errorMessage = "Failed to load data.";
 const inProduction = process.env.NODE_ENV === "production";
 
-const handleResponse = (response: any) => {
+/**
+ * Handles the response from the fetch requests
+ * @param {Response} response - The response given by the fetch request
+ * @returns - The response in JSON
+ * @throws - Error with given error message if request failed
+ */
+const handleResponse = (response: Response) => {
   if (response.ok) return response.json();
   throw new Error(errorMessage);
 };
@@ -69,6 +75,7 @@ const defaults = {
       phone: { text: "", link: "" },
       email: { text: "", link: "" },
       url: { text: "", link: "" },
+      text: "",
     },
     error: false,
   },
@@ -97,7 +104,7 @@ const handleError = (status: string, error: Error) => {
 }
 
 /**
- * Fetches all of the data by doing fetch requests
+ * Fetches all of the data by doing fetch requests (only available in production)
  */
 const fetchProduction = Promise.all([
   fetch("/data/apps.json").then(handleResponse).catch((error: Error) => handleError("apps", error)),
@@ -120,7 +127,6 @@ const fetchDevelopment = Promise.all([
 
 /**
  * Fetches app, bookmark, search, theme and imprint data and returns it.
- * @returns all of the data the function was able to fetch and the callback function to refresh the data
  */
 export const useFetcher = () => {
   const [appData, setAppData] = useState<IAppDataProps>(defaults.app);
@@ -159,7 +165,8 @@ export const useFetcher = () => {
     bookmarkData,
     searchProviderData,
     themeData,
-    imprintData, callback
+    imprintData,
+    callback
   };
 };
 

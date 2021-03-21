@@ -3,8 +3,6 @@ import styled from "styled-components";
 import selectedTheme from "../lib/theme";
 import Icon from "./icon";
 
-// File for elements that are/can be reused across the entire site.
-
 export const ListContainer = styled.div`
   padding: 2rem 0;
 `;
@@ -75,6 +73,10 @@ interface IIconButtonProps {
   onClick: any;
 }
 
+/**
+ * Renders a button with an icon
+ * @param {IIconProps} props - The props of the given IconButton
+ */
 export const IconButton = ({ icon, onClick }: IIconButtonProps) => (
   <StyledButton onClick={onClick}>
     <Icon name={icon} />

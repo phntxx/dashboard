@@ -14,15 +14,23 @@ const defaultTheme: IThemeProps = {
   backgroundColor: "#ffffff",
 };
 
+/**
+ * Writes a given theme into localStorage
+ * @param {string} theme - the theme that shall be saved (in stringified JSON)
+ */
 export const setTheme = (theme: string) => {
   if (theme !== undefined) localStorage.setItem("theme", theme);
   window.location.reload();
 };
 
-const getTheme = () => {
+/**
+ * Function that gets the saved theme from localStorage or returns the default
+ * @returns {IThemeProps} the saved theme or the default theme
+ */
+const getTheme = (): IThemeProps => {
   let selectedTheme = defaultTheme;
 
-  if (localStorage.getItem("theme") != null) {
+  if (localStorage.getItem("theme") !== null) {
     selectedTheme = JSON.parse(localStorage.getItem("theme") || "{}");
   }
 

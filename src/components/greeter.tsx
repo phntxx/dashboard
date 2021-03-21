@@ -22,37 +22,6 @@ const DateText = styled.h3`
   color: ${selectedTheme.accentColor};
 `;
 
-const getGreeting = () => {
-  switch (Math.floor(new Date().getHours() / 6)) {
-    case 0:
-      return "Good night!";
-    case 1:
-      return "Good morning!";
-    case 2:
-      return "Good afternoon!";
-    case 3:
-      return "Good evening!";
-    default:
-      break;
-  }
-};
-
-const getExtension = (day: number) => {
-  let extension = "";
-
-  if ((day > 4 && day <= 20) || (day > 20 && day % 10 >= 4)) {
-    extension = "th";
-  } else if (day % 10 === 1) {
-    extension = "st";
-  } else if (day % 10 === 2) {
-    extension = "nd";
-  } else if (day % 10 === 3) {
-    extension = "rd";
-  }
-
-  return extension;
-};
-
 const monthNames = [
   "January",
   "February",
@@ -78,6 +47,50 @@ const weekDayNames = [
   "Saturday",
 ];
 
+/**
+ * Returns a greeting based on the current time
+ * @returns {string} - A greeting
+ */
+const getGreeting = () => {
+  switch (Math.floor(new Date().getHours() / 6)) {
+    case 0:
+      return "Good night!";
+    case 1:
+      return "Good morning!";
+    case 2:
+      return "Good afternoon!";
+    case 3:
+      return "Good evening!";
+    default:
+      break;
+  }
+};
+
+/**
+ * Returns the appropriate extension for a number (eg. 'rd' for '3' to make '3rd')
+ * @param {number} day - The number of a day within a month 
+ * @returns {string} - The extension for that number
+ */
+const getExtension = (day: number) => {
+  let extension = "";
+
+  if ((day > 4 && day <= 20) || (day > 20 && day % 10 >= 4)) {
+    extension = "th";
+  } else if (day % 10 === 1) {
+    extension = "st";
+  } else if (day % 10 === 2) {
+    extension = "nd";
+  } else if (day % 10 === 3) {
+    extension = "rd";
+  }
+
+  return extension;
+};
+
+/**
+ * Generates the current date
+ * @returns {string} - The current date as a string
+ */
 const getDateString = () => {
   let currentDate = new Date();
 
@@ -93,6 +106,9 @@ const getDateString = () => {
   );
 };
 
+/**
+ * Renders the Greeter
+ */
 const Greeter = () => {
   let date = getDateString();
   let greeting = getGreeting();

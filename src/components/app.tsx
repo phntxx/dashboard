@@ -46,22 +46,21 @@ const AppDescription = styled.p`
 export interface IAppProps {
   name: string;
   icon: string;
-  URL: string;
+  url: string;
   displayURL: string;
 }
 
 /**
- * Renders one app in the list
- * @param 
- * @returns 
+ * Renders a single app shortcut
+ * @param {IAppProps} props - The props of the given app
  */
-export const App = ({ name, icon, URL, displayURL }: IAppProps) => (
+export const App = ({ name, icon, url, displayURL }: IAppProps) => (
   <AppContainer>
     <IconContainer>
       <Icon name={icon} />
     </IconContainer>
     <DetailsContainer>
-      <AppLink href={URL}>{name}</AppLink>
+      <AppLink href={url}>{name}</AppLink>
       <AppDescription>{displayURL}</AppDescription>
     </DetailsContainer>
   </AppContainer>

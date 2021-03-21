@@ -16,6 +16,10 @@ export interface IAppCategoryProps {
   items: Array<IAppProps>;
 }
 
+/**
+ * Renders one app category
+ * @param {IAppCategoryProps} props - The props of the given category
+ */
 export const AppCategory = ({ name, items }: IAppCategoryProps) => (
   <CategoryContainer>
     {name && <CategoryHeadline>{name}</CategoryHeadline>}

@@ -9,22 +9,24 @@ export interface IAppListProps {
   apps: Array<IAppProps>;
 }
 
-const AppList = ({ categories, apps }: IAppListProps) => {
-  return (
-    <ListContainer>
-      <Headline>Applications</Headline>
-      {categories &&
-        categories.map(({ name, items }, idx) => (
-          <AppCategory key={[name, idx].join("")} name={name} items={items} />
-        ))}
-      {apps && (
-        <AppCategory
-          name={categories ? "Uncategorized apps" : ""}
-          items={apps}
-        />
-      )}
-    </ListContainer>
-  );
-};
+/**
+ * Renders one list containing all app categories and uncategorized apps
+ * @param {IAppListProps} props - The props of the given list of apps
+ */
+const AppList = ({ categories, apps }: IAppListProps) => (
+  <ListContainer>
+    <Headline>Applications</Headline>
+    {categories &&
+      categories.map(({ name, items }, idx) => (
+        <AppCategory key={[name, idx].join("")} name={name} items={items} />
+      ))}
+    {apps && (
+      <AppCategory
+        name={categories ? "Uncategorized apps" : ""}
+        items={apps}
+      />
+    )}
+  </ListContainer>
+);
 
 export default AppList;

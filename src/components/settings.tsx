@@ -9,13 +9,6 @@ import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
 
-/**
- * Complementary code to get hover pseudo-classes working in React
- * @param color the color of the element on hover
- * @param backgroundColor the background color of the element on hover
- * @param border the border of the element on hover
- * @param borderColor the border color of the element on hover
- */
 interface IHoverProps {
   color?: string;
   backgroundColor?: string;
@@ -125,6 +118,12 @@ interface ISettingsProps {
   providers: Array<ISearchProviderProps> | undefined;
 }
 
+
+/**
+ * Handles the settings-modal
+ * @param {Array<IThemeProps>} themes - the list of themes a user can select between
+ * @param {Array<ISearchProviderProps>} providers - the list of search providers
+ */
 const Settings = ({ themes, providers }: ISettingsProps) => {
   const [newTheme, setNewTheme] = useState();
 
@@ -132,9 +131,6 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
     return (
       <Modal element="icon" icon="settings" title="Settings">
         {themes && (
-
-
-
           <Section>
             <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
@@ -154,7 +150,6 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
           </Section>
         )}
         {providers && (
-
           <Section>
             <SectionHeadline>Search Providers</SectionHeadline>
             <Table>
@@ -172,7 +167,6 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
               </tbody>
             </Table>
           </Section>
-
         )}
       </Modal>
     );
