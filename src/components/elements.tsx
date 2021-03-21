@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 import Icon from "./icon";
 
 // File for elements that are/can be reused across the entire site.
@@ -62,21 +62,12 @@ export const Button = styled.button`
 const StyledButton = styled.button`
   float: right;
   border: none;
+  padding: 0;
   background: none;
 
   &:hover {
     cursor: pointer;
   }
-`;
-
-export const RefreshButton = styled(Button)`
-  display: relative;
-  top: 0;
-  float: right;
-`;
-
-export const ErrorMessage = styled.p`
-  color: red;
 `;
 
 interface IIconButtonProps {

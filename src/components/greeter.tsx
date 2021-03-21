@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
 const GreeterContainer = styled.div`
   padding: 2rem 0;

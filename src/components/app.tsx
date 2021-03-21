@@ -1,7 +1,7 @@
 import React from "react";
 import Icon from "./icon";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
 const AppContainer = styled.div`
   display: flex;
@@ -50,6 +50,11 @@ export interface IAppProps {
   displayURL: string;
 }
 
+/**
+ * Renders one app in the list
+ * @param 
+ * @returns 
+ */
 export const App = ({ name, icon, URL, displayURL }: IAppProps) => (
   <AppContainer>
     <IconContainer>

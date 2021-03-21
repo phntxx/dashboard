@@ -15,15 +15,8 @@ const defaultTheme: IThemeProps = {
 };
 
 export const setTheme = (theme: string) => {
-  if (theme !== undefined) {
-    localStorage.setItem("theme", theme);
-  }
-
+  if (theme !== undefined) localStorage.setItem("theme", theme);
   window.location.reload();
-};
-
-export const resetTheme = () => {
-  localStorage.removeItem("theme");
 };
 
 const getTheme = () => {
@@ -37,5 +30,4 @@ const getTheme = () => {
 };
 
 const selectedTheme = getTheme();
-
 export default selectedTheme;

@@ -1,11 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
-export const RawIcon = styled.i`
+interface IIconProps {
+  name: string;
+  size?: string;
+}
+
+export const Icon = ({ name, size }: IIconProps) => {
+
+  let IconContainer = styled.i`
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
+  font-size: ${size ? size : "24px"};
+  color: ${selectedTheme.mainColor};
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -19,18 +28,7 @@ export const RawIcon = styled.i`
   font-feature-settings: "liga";
 `;
 
-interface IIconProps {
-  name: string;
-  size?: string;
-}
-
-export const ComponentIcon = ({ name, size }: IIconProps) => {
-  let IconContainer = styled(RawIcon)`
-    font-size: ${size ? size : "24px"};
-    color: ${selectedTheme.mainColor};
-  `;
-
   return <IconContainer>{name}</IconContainer>;
 };
 
-export default ComponentIcon;
+export default Icon;

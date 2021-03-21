@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Item, SubHeadline } from "./elements";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
 const GroupContainer = styled.div`
   display: flex;

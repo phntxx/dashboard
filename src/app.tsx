@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createGlobalStyle } from "styled-components";
 
 import SearchBar from "./components/searchBar";
@@ -8,14 +8,8 @@ import BookmarkList from "./components/bookmarkList";
 import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
-import selectedTheme from "./components/themeManager";
-import {
-  useAppData,
-  useSearchProviderData,
-  useBookmarkData,
-  useThemeData,
-  useImprintData,
-} from "./components/fetch";
+import selectedTheme from "./lib/theme";
+import useFetcher from "./lib/fetcher";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,12 +26,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+/**
+ * Renders the entire app by calling individual components
+ * @returns
+ */
 const App = () => {
-  const { appData } = useAppData();
-  const { searchProviderData } = useSearchProviderData();
-  const { bookmarkData } = useBookmarkData();
-  const { themeData } = useThemeData();
-  const { imprintData } = useImprintData();
+
+  const { appData, bookmarkData, searchProviderData, themeData, imprintData } = useFetcher();
 
   return (
     <>

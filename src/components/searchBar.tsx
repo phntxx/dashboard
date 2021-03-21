@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
 import { Button } from "./elements";
 

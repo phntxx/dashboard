@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Select from "react-select";
+import Select, { Styles } from "react-select";
 
 import { ISearchProviderProps } from "./searchBar";
-import selectedTheme, { setTheme, IThemeProps } from "./themeManager";
-import { Button, Headline as hl } from "./elements";
+import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
+import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
 
-const Headline = styled(hl)`
-  padding: 0.5rem 0;
-`;
+/**
+ * Complementary code to get hover pseudo-classes working in React
+ * @param color the color of the element on hover
+ * @param backgroundColor the background color of the element on hover
+ * @param border the border of the element on hover
+ * @param borderColor the border color of the element on hover
+ */
+interface IHoverProps {
+  color?: string;
+  backgroundColor?: string;
+  border?: string;
+  borderColor?: string;
+}
 
-const SelectContainer = styled.div`
-  padding-bottom: 1rem;
-`;
+interface IPseudoProps extends React.CSSProperties {
+  "&:hover": IHoverProps
+}
 
 const FormContainer = styled.div`
   display: grid;
@@ -42,47 +52,72 @@ const HeadCell = styled.th`
   background: none;
 `;
 
-const SelectorStyle = {
-  control: (provided: any) => ({
-    ...provided,
-    fontWeight: "500",
+const Section = styled.div`
+  padding: 1rem 0;
+`;
+
+const SectionHeadline = styled(SubHeadline)`
+  width: 100%;
+  border-bottom: 1px solid ${selectedTheme.accentColor};
+  margin-bottom: 0.5rem;
+`;
+
+const SelectorStyle: Partial<Styles<IThemeProps, false>> = {
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+  container: (base: React.CSSProperties): React.CSSProperties => ({
+    ...base,
+    margin: "0 2px",
+  }),
+  dropdownIndicator: (base: React.CSSProperties): IPseudoProps => ({
+    ...base,
+    color: selectedTheme.mainColor,
+    "&:hover": {
+      color: selectedTheme.mainColor
+    }
+  }),
+  control: (base: React.CSSProperties): IPseudoProps => ({
+    ...base,
+    fontWeight: 500,
     color: selectedTheme.mainColor,
     textTransform: "uppercase",
     width: "12rem",
     background: "none",
-    borderRadius: "0px",
-    border: "1px solid " + selectedTheme.mainColor,
-    boxShadow: 0,
+    borderRadius: 0,
+    border: "1px solid",
+    borderColor: selectedTheme.mainColor,
+    boxShadow: "none",
     "&:hover": {
-      border: "1px solid " + selectedTheme.mainColor,
+      border: "1px solid",
+      borderColor: selectedTheme.mainColor
     },
   }),
-  menu: (provided: any) => ({
-    ...provided,
+  menu: (base: React.CSSProperties): React.CSSProperties => ({
+    ...base,
     backgroundColor: selectedTheme.backgroundColor,
     border: "1px solid " + selectedTheme.mainColor,
     borderRadius: 0,
-    boxShadow: 0,
+    boxShadow: "none",
+    margin: "4px 0"
   }),
-  option: (provided: any) => ({
-    ...provided,
-    fontWeight: "500",
+  option: (base: React.CSSProperties): IPseudoProps => ({
+    ...base,
+    fontWeight: 500,
     color: selectedTheme.mainColor,
     textTransform: "uppercase",
     borderRadius: 0,
-    boxShadow: 0,
+    boxShadow: "none",
     backgroundColor: selectedTheme.backgroundColor,
     "&:hover": {
       backgroundColor: selectedTheme.mainColor,
       color: selectedTheme.backgroundColor,
     },
   }),
-  singleValue: (provided: any) => {
-    return {
-      ...provided,
-      color: selectedTheme.mainColor,
-    };
-  },
+  singleValue: (base: React.CSSProperties): React.CSSProperties => ({
+    ...base,
+    color: selectedTheme.mainColor,
+  }),
 };
 
 interface ISettingsProps {
@@ -95,10 +130,13 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
 
   if (themes && providers) {
     return (
-      <Modal element="icon" icon="settings">
+      <Modal element="icon" icon="settings" title="Settings">
         {themes && (
-          <SelectContainer>
-            <Headline>Theme:</Headline>
+
+
+
+          <Section>
+            <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
               <Select
                 options={themes}
@@ -108,29 +146,33 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
                 }}
                 styles={SelectorStyle}
               />
-
               <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
                 Apply
               </Button>
               <Button onClick={() => window.location.reload()}>Refresh</Button>
             </FormContainer>
-          </SelectContainer>
+          </Section>
         )}
         {providers && (
-          <Table>
-            <tbody>
-              <TableRow>
-                <HeadCell>Search Provider</HeadCell>
-                <HeadCell>Prefix</HeadCell>
-              </TableRow>
-              {providers.map((provider, index) => (
-                <TableRow key={provider.name + index}>
-                  <TableCell>{provider.name}</TableCell>
-                  <TableCell>{provider.prefix}</TableCell>
+
+          <Section>
+            <SectionHeadline>Search Providers</SectionHeadline>
+            <Table>
+              <tbody>
+                <TableRow>
+                  <HeadCell>Search Provider</HeadCell>
+                  <HeadCell>Prefix</HeadCell>
                 </TableRow>
-              ))}
-            </tbody>
-          </Table>
+                {providers.map((provider, index) => (
+                  <TableRow key={provider.name + index}>
+                    <TableCell>{provider.name}</TableCell>
+                    <TableCell>{provider.prefix}</TableCell>
+                  </TableRow>
+                ))}
+              </tbody>
+            </Table>
+          </Section>
+
         )}
       </Modal>
     );

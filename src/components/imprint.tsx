@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./modal";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 import {
   ListContainer,
   ItemList,
@@ -14,11 +14,8 @@ const Headline = styled(Hl)`
   padding: 1rem 0;
 `;
 
-const SubHeadline = styled(SHl)`
+const ModalSubHeadline = styled(SHl)`
   display: block;
-`;
-
-const ModalSubHeadline = styled(SubHeadline)`
   padding: 0.5rem 0;
 `;
 
@@ -80,6 +77,7 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
           <Modal
             element="text"
             text="View Imprint"
+            title="Legal Disclosure"
             condition={!window.location.href.endsWith("#imprint")}
             onClose={() => {
               if (window.location.href.endsWith("#imprint")) {
@@ -88,7 +86,6 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
               }
             }}
           >
-            <Headline>Legal Disclosure</Headline>
             <ModalSubHeadline>
               Information in accordance with section 5 TMG
             </ModalSubHeadline>

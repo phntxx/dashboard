@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import selectedTheme from "./themeManager";
+import selectedTheme from "../lib/theme";
 
-import { IconButton } from "./elements";
+import { Headline, IconButton } from "./elements";
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -30,36 +30,47 @@ const Text = styled.p`
   }
 `;
 
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+`;
+
 interface IModalInterface {
   element: string;
   icon?: string;
   text?: string;
   condition?: boolean;
+  title: string;
   onClose?: () => void;
   children: React.ReactNode;
 }
 
-const Modal = (props: IModalInterface) => {
-  const [modalHidden, setModalHidden] = useState(props.condition ?? true);
+const Modal = ({ element, icon, text, condition, title, onClose, children }: IModalInterface) => {
+  const [modalHidden, setModalHidden] = useState(condition ?? true);
 
   const closeModal = () => {
-    if (props.onClose) props.onClose();
+    if (onClose) onClose();
     setModalHidden(!modalHidden);
   };
 
   return (
     <>
-      {props.element === "icon" && (
-        <IconButton icon={props.icon ?? ""} onClick={() => closeModal()} />
+      {element === "icon" && (
+        <IconButton icon={icon ?? ""} onClick={() => closeModal()} />
       )}
 
-      {props.element === "text" && (
-        <Text onClick={() => closeModal()}>{props.text}</Text>
+      {element === "text" && (
+        <Text onClick={() => closeModal()}>{text}</Text>
       )}
 
       <ModalContainer hidden={modalHidden}>
-        <IconButton icon="close" onClick={() => closeModal()} />
-        {props.children}
+        <TitleContainer>
+          <Headline>{title}</Headline>
+          <IconButton icon="close" onClick={() => closeModal()} />
+        </TitleContainer>
+        {children}
       </ModalContainer>
     </>
   );
