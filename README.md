@@ -84,7 +84,7 @@ To show the apps you want to show, change `apps.json` to resemble the following:
         {
           "name": "[Name of the app]",
           "displayURL": "[URL you want to show]",
-          "URL": "[URL to redirect to]",
+          "url": "[URL to redirect to]",
           "icon": "[Icon code]"
         },
         ...
@@ -96,7 +96,7 @@ To show the apps you want to show, change `apps.json` to resemble the following:
     {
       "name": "[Name of the app]",
       "displayURL": "[URL you want to show]",
-      "URL": "[URL to redirect to]",
+      "url": "[URL to redirect to]",
       "icon": "[Icon code]"
     },
     ...
