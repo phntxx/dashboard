@@ -70,7 +70,7 @@ const StyledButton = styled.button`
 
 interface IIconButtonProps {
   icon: string;
-  onClick: any;
+  onClick: (e: React.FormEvent) => void;
 }
 
 /**

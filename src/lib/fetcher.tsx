@@ -148,7 +148,7 @@ export const useFetcher = () => {
 
   const callback = useCallback(() => {
     (inProduction ? fetchProduction : fetchDevelopment).then(
-      ([appData, bookmarkData, searchData, themeData, imprintData]: any) => {
+      ([appData, bookmarkData, searchData, themeData, imprintData]: [IAppDataProps, IBookmarkDataProps, ISearchProviderDataProps, IThemeDataProps, IImprintDataProps]) => {
         (appData.error) ? setAppData(appData) : setAppData({ ...appData, error: false });
         (bookmarkData.error) ? setBookmarkData(bookmarkData) : setBookmarkData({ ...bookmarkData, error: false });
         (searchData.error) ? setSearchProviderData(searchData) : setSearchProviderData({ ...searchData, error: false });

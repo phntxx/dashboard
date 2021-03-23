@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Select, { Styles } from "react-select";
+import Select, { Styles, ValueType } from "react-select";
 
 import { ISearchProviderProps } from "./searchBar";
 import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
@@ -118,14 +118,13 @@ interface ISettingsProps {
   providers: Array<ISearchProviderProps> | undefined;
 }
 
-
 /**
  * Handles the settings-modal
  * @param {Array<IThemeProps>} themes - the list of themes a user can select between
  * @param {Array<ISearchProviderProps>} providers - the list of search providers
  */
 const Settings = ({ themes, providers }: ISettingsProps) => {
-  const [newTheme, setNewTheme] = useState();
+  const [newTheme, setNewTheme] = useState<IThemeProps>();
 
   if (themes && providers) {
     return (
@@ -137,8 +136,8 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
               <Select
                 options={themes}
                 defaultValue={selectedTheme}
-                onChange={(e: any) => {
-                  setNewTheme(e);
+                onChange={(e: ValueType<IThemeProps, false>) => {
+                  if (e !== null && e !== undefined) setNewTheme(e);
                 }}
                 styles={SelectorStyle}
               />

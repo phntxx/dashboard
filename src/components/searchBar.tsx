@@ -56,9 +56,7 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
-  useEffect(() => {
-    setButtonsHidden(input === "");
-  }, [input]);
+  useEffect(() => setButtonsHidden(input === ""), [input]);
 
   const handleSearchQuery = (e: React.FormEvent) => {
     var query: string = input || "";

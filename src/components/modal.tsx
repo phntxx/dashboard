@@ -52,7 +52,7 @@ interface IModalProps {
  * @param {IModalProps} props - The needed props for the modal
  */
 const Modal = ({ element, icon, text, condition, title, onClose, children }: IModalProps) => {
-  const [modalHidden, setModalHidden] = useState(condition ?? true);
+  const [modalHidden, setModalHidden] = useState<boolean>(condition ?? true);
 
   const closeModal = () => {
     if (onClose) onClose();
