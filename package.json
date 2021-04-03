@@ -1,6 +1,7 @@
 {
   "name": "dashboard",
   "version": "1.0.0",
+  "license": "MIT",
   "repository": "git@github.com:phntxx/dashboard",
   "contributors": [
     "phntxx <hello@phntxx.com>"
