@@ -1,4 +1,3 @@
-import React from "react";
 import { AppCategory, IAppCategoryProps } from "./appCategory";
 import { IAppProps } from "./app";
 

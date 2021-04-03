@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-
 import selectedTheme from "../lib/theme";
 
 const GreeterContainer = styled.div`
@@ -22,48 +20,45 @@ const DateText = styled.h3`
   color: ${selectedTheme.accentColor};
 `;
 
-const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+export interface IGreeterProps {
+  months: Array<string>;
+  days: Array<string>;
+  greetings: Array<IGreetingProps>;
+  dateformat: string;
+}
 
-const weekDayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+interface IGreetingProps {
+  greeting: string;
+  start: number;
+  end: number;
+}
+
+interface IGreeterComponentProps {
+  data: IGreeterProps;
+}
+
+/**
+ * 
+ * @param a the number that's supposed to be checked
+ * @param b the minimum
+ * @param c the maximum
+ */
+const isBetween = (a: number, b: number, c: number): boolean => (a > b && a < c)
 
 /**
  * Returns a greeting based on the current time
  * @returns {string} - A greeting
  */
-const getGreeting = () => {
-  switch (Math.floor(new Date().getHours() / 6)) {
-    case 0:
-      return "Good night!";
-    case 1:
-      return "Good morning!";
-    case 2:
-      return "Good afternoon!";
-    case 3:
-      return "Good evening!";
-    default:
-      break;
-  }
+const getGreeting = (greetings: Array<IGreetingProps>): string => {
+
+  let hours = Math.floor(new Date().getHours())
+  let result = "";
+
+  greetings.forEach(greeting => {
+    if (isBetween(hours, greeting.start, greeting.end)) result = greeting.greeting;
+  })
+
+  return result;
 };
 
 /**
@@ -89,30 +84,28 @@ const getExtension = (day: number) => {
 
 /**
  * Generates the current date
+ * @param {string} format - The format of the date string
  * @returns {string} - The current date as a string
  */
-const getDateString = () => {
+const getDateString = (weekdays: Array<string>, months: Array<string>, format: string) => {
   let currentDate = new Date();
 
-  return (
-    weekDayNames[currentDate.getUTCDay()] +
-    ", " +
-    monthNames[currentDate.getUTCMonth()] +
-    " " +
-    currentDate.getDate() +
-    getExtension(currentDate.getDate()) +
-    " " +
-    currentDate.getFullYear()
-  );
+  let weekday = weekdays[currentDate.getUTCDay()];
+  let day = currentDate.getDate();
+  let month = months[currentDate.getUTCMonth()];
+  let extension = getExtension(day);
+  let year = currentDate.getFullYear();
+
+  return format.replace("%wd", weekday).replace("%d", day.toString()).replace("%e", extension).replace("%m", month).replace("%y", year.toString());
 };
 
 /**
  * Renders the Greeter
  */
-const Greeter = () => (
+const Greeter = ({ data }: IGreeterComponentProps) => (
   <GreeterContainer>
-    <DateText>{getDateString()}</DateText>
-    <GreetText>{getGreeting()}</GreetText>
+    <DateText>{getDateString(data.days, data.months, data.dateformat)}</DateText>
+    <GreetText>{getGreeting(data.greetings)}</GreetText>
   </GreeterContainer>
 );
 

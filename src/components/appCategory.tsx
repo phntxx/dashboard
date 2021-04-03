@@ -31,6 +31,7 @@ export const AppCategory = ({ name, items }: IAppCategoryProps) => (
             icon={app.icon}
             url={app.url}
             displayURL={app.displayURL}
+            newTab={app.newTab}
           />
         </Item>
       ))}

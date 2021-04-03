@@ -1,4 +1,3 @@
-import React from "react";
 import { createGlobalStyle } from "styled-components";
 
 import SearchBar from "./components/searchBar";
@@ -31,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
  */
 const App = () => {
 
-  const { appData, bookmarkData, searchProviderData, themeData, imprintData } = useFetcher();
+  const { appData, bookmarkData, searchProviderData, themeData, imprintData, greeterData } = useFetcher();
 
   return (
     <>
@@ -44,8 +43,7 @@ const App = () => {
             providers={searchProviderData?.providers}
           />
         )}
-
-        <Greeter />
+        <Greeter data={greeterData.greeter} />
         {!appData.error && (
           <AppList apps={appData.apps} categories={appData.categories} />
         )}

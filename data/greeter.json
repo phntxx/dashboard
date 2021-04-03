@@ -1,0 +1,50 @@
+{
+  "greeter": {
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "days": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "greetings": [
+      {
+        "greeting": "Good night!",
+        "start": 0,
+        "end": 6
+      },
+      {
+        "greeting": "Good morning!",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "greeting": "Good afternoon!",
+        "start": 12,
+        "end": 18
+      },
+      {
+        "greeting": "Good evening!",
+        "start": 18,
+        "end": 0
+      }
+    ],
+    "dateformat": "%wd, %m %d%e %y"
+  }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Icon from "./icon";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
@@ -48,20 +48,31 @@ export interface IAppProps {
   icon: string;
   url: string;
   displayURL: string;
+  newTab?: boolean;
 }
 
 /**
  * Renders a single app shortcut
  * @param {IAppProps} props - The props of the given app
  */
-export const App = ({ name, icon, url, displayURL }: IAppProps) => (
-  <AppContainer>
-    <IconContainer>
-      <Icon name={icon} />
-    </IconContainer>
-    <DetailsContainer>
-      <AppLink href={url}>{name}</AppLink>
-      <AppDescription>{displayURL}</AppDescription>
-    </DetailsContainer>
-  </AppContainer>
-);
+export const App = ({ name, icon, url, displayURL, newTab }: IAppProps) => {
+
+  useEffect(() => { console.log(newTab) }, [newTab])
+
+  return (
+    <AppContainer>
+      <IconContainer>
+        <Icon name={icon} />
+      </IconContainer>
+      <DetailsContainer>
+
+        {
+          (newTab !== undefined && newTab) ?
+            <AppLink href={url} target="_blank" rel="noopener noreferrer">{name}</AppLink> : <AppLink href={url}>{name}</AppLink>
+        }
+
+        <AppDescription>{displayURL}</AppDescription>
+      </DetailsContainer>
+    </AppContainer>
+  );
+}

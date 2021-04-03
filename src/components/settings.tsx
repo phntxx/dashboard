@@ -1,24 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import Select, { Styles, ValueType } from "react-select";
+import Select, { ValueType } from "react-select";
 
 import { ISearchProviderProps } from "./searchBar";
 import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
 import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
-
-interface IHoverProps {
-  color?: string;
-  backgroundColor?: string;
-  border?: string;
-  borderColor?: string;
-}
-
-interface IPseudoProps extends React.CSSProperties {
-  "&:hover": IHoverProps
-}
 
 const FormContainer = styled.div`
   display: grid;
@@ -55,22 +44,12 @@ const SectionHeadline = styled(SubHeadline)`
   margin-bottom: 0.5rem;
 `;
 
-const SelectorStyle: Partial<Styles<IThemeProps, false>> = {
-  indicatorSeparator: () => ({
-    display: "none",
-  }),
-  container: (base: React.CSSProperties): React.CSSProperties => ({
+const SelectorStyle: any = {
+  container: (base: any): any => ({
     ...base,
     margin: "0 2px",
   }),
-  dropdownIndicator: (base: React.CSSProperties): IPseudoProps => ({
-    ...base,
-    color: selectedTheme.mainColor,
-    "&:hover": {
-      color: selectedTheme.mainColor
-    }
-  }),
-  control: (base: React.CSSProperties): IPseudoProps => ({
+  control: (base: any): any => ({
     ...base,
     fontWeight: 500,
     color: selectedTheme.mainColor,
@@ -86,7 +65,17 @@ const SelectorStyle: Partial<Styles<IThemeProps, false>> = {
       borderColor: selectedTheme.mainColor
     },
   }),
-  menu: (base: React.CSSProperties): React.CSSProperties => ({
+  dropdownIndicator: (base: any): any => ({
+    ...base,
+    color: selectedTheme.mainColor,
+    "&:hover": {
+      color: selectedTheme.mainColor
+    }
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+  menu: (base: any): any => ({
     ...base,
     backgroundColor: selectedTheme.backgroundColor,
     border: "1px solid " + selectedTheme.mainColor,
@@ -94,7 +83,7 @@ const SelectorStyle: Partial<Styles<IThemeProps, false>> = {
     boxShadow: "none",
     margin: "4px 0"
   }),
-  option: (base: React.CSSProperties): IPseudoProps => ({
+  option: (base: any): any => ({
     ...base,
     fontWeight: 500,
     color: selectedTheme.mainColor,
@@ -107,7 +96,7 @@ const SelectorStyle: Partial<Styles<IThemeProps, false>> = {
       color: selectedTheme.backgroundColor,
     },
   }),
-  singleValue: (base: React.CSSProperties): React.CSSProperties => ({
+  singleValue: (base: any): any => ({
     ...base,
     color: selectedTheme.mainColor,
   }),
