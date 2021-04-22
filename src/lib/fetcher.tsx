@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { ISearchProviderProps } from "../components/searchBar";
+import { ISearchProps } from "../components/searchBar";
 import { IBookmarkGroupProps } from "../components/bookmarkGroup";
 import { IAppCategoryProps } from "../components/appCategory";
 import { IAppProps } from "../components/app";
@@ -22,8 +22,8 @@ const handleResponse = (response: Response) => {
   throw new Error(errorMessage);
 };
 
-export interface ISearchProviderDataProps {
-  providers: Array<ISearchProviderProps>;
+export interface ISearchDataProps {
+  search: ISearchProps;
   error: string | boolean;
 }
 
@@ -67,7 +67,10 @@ const defaults = {
     error: false,
   },
   search: {
-    providers: [],
+    search: {
+      defaultProvider: "https://google.com/search?q=",
+      providers: [],
+    },
     error: false,
   },
   theme: {
@@ -199,7 +202,7 @@ export const useFetcher = () => {
   const [
     searchProviderData,
     setSearchProviderData,
-  ] = useState<ISearchProviderDataProps>(defaults.search);
+  ] = useState<ISearchDataProps>(defaults.search);
 
   const [themeData, setThemeData] = useState<IThemeDataProps>(defaults.theme);
 
@@ -211,7 +214,7 @@ export const useFetcher = () => {
 
   const callback = useCallback(() => {
     (inProduction ? fetchProduction : fetchDevelopment).then(
-      ([appData, bookmarkData, searchData, themeData, imprintData, greeterData]: [IAppDataProps, IBookmarkDataProps, ISearchProviderDataProps, IThemeDataProps, IImprintDataProps, IGreeterDataProps]) => {
+      ([appData, bookmarkData, searchData, themeData, imprintData, greeterData]: [IAppDataProps, IBookmarkDataProps, ISearchDataProps, IThemeDataProps, IImprintDataProps, IGreeterDataProps]) => {
         setAppData((appData.error) ? appData : { ...appData, error: false });
         setBookmarkData((bookmarkData.error) ? bookmarkData : { ...bookmarkData, error: false });
         setSearchProviderData((searchData.error) ? searchData : { ...searchData, error: false });

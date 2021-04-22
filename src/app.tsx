@@ -36,11 +36,11 @@ const App = () => {
     <>
       <GlobalStyle />
       <div>
-        <SearchBar providers={searchProviderData?.providers} />
+        <SearchBar search={searchProviderData?.search} />
         {!themeData.error && !searchProviderData.error && (
           <Settings
             themes={themeData?.themes}
-            providers={searchProviderData?.providers}
+            search={searchProviderData?.search}
           />
         )}
         <Greeter data={greeterData.greeter} />

@@ -44,15 +44,20 @@ export interface ISearchProviderProps {
   prefix: string;
 }
 
-interface ISearchBarProps {
+export interface ISearchProps {
+  defaultProvider: string;
   providers: Array<ISearchProviderProps> | undefined;
+}
+
+interface ISearchBarProps {
+  search: ISearchProps;
 }
 
 /**
  * Renders a search bar
- * @param {ISearchBarProps} props - The search providers for the search bar to use 
+ * @param {ISearchBarProps} search - The search providers for the search bar to use 
  */
-const SearchBar = ({ providers }: ISearchBarProps) => {
+const SearchBar = ({ search }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
@@ -64,7 +69,7 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
     if (query.split(" ")[0].includes("/")) {
       handleQueryWithProvider(query);
     } else {
-      window.location.href = "https://google.com/search?q=" + query;
+      window.location.href = search.defaultProvider + query;
     }
 
     e.preventDefault();
@@ -79,8 +84,8 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
     let searchQuery: string = queryArray.join(" ");
 
     let providerFound: boolean = false;
-    if (providers) {
-      providers.forEach((provider: ISearchProviderProps) => {
+    if (search.providers) {
+      search.providers.forEach((provider: ISearchProviderProps) => {
         if (provider.prefix === prefix) {
           providerFound = true;
           window.location.href = provider.url + searchQuery;
@@ -89,7 +94,7 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
     }
 
     if (!providerFound)
-      window.location.href = "https://google.com/search?q=" + query;
+      window.location.href = search.defaultProvider + query;
   };
 
   return (

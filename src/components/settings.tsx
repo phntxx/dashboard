@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Select, { ValueType } from "react-select";
 
-import { ISearchProviderProps } from "./searchBar";
+import { ISearchProps } from "./searchBar";
 import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
 import { Button, SubHeadline } from "./elements";
 
@@ -17,6 +17,7 @@ const FormContainer = styled.div`
 const Table = styled.table`
   font-weight: 400;
   background: none;
+  width: 100%;
   color: ${selectedTheme.mainColor};
 `;
 
@@ -25,13 +26,12 @@ const TableRow = styled.tr`
 `;
 
 const TableCell = styled.td`
-  background: none;
   padding-top: 0.5rem;
 `;
 
 const HeadCell = styled.th`
   font-weight: 700;
-  background: none;
+  text-align: left;
 `;
 
 const Section = styled.div`
@@ -42,6 +42,16 @@ const SectionHeadline = styled(SubHeadline)`
   width: 100%;
   border-bottom: 1px solid ${selectedTheme.accentColor};
   margin-bottom: 0.5rem;
+`;
+
+const Text = styled.p`
+  font-weight: 700;
+  color: ${selectedTheme.accentColor};
+`;
+
+const Code = styled.p`
+  font-family: monospace;
+  color: ${selectedTheme.accentColor};
 `;
 
 const SelectorStyle: any = {
@@ -104,18 +114,18 @@ const SelectorStyle: any = {
 
 interface ISettingsProps {
   themes: Array<IThemeProps> | undefined;
-  providers: Array<ISearchProviderProps> | undefined;
+  search: ISearchProps | undefined;
 }
 
 /**
  * Handles the settings-modal
  * @param {Array<IThemeProps>} themes - the list of themes a user can select between
- * @param {Array<ISearchProviderProps>} providers - the list of search providers
+ * @param {ISearchProps} search - the list of search providers
  */
-const Settings = ({ themes, providers }: ISettingsProps) => {
+const Settings = ({ themes, search }: ISettingsProps) => {
   const [newTheme, setNewTheme] = useState<IThemeProps>();
 
-  if (themes && providers) {
+  if (themes && search) {
     return (
       <Modal element="icon" icon="settings" title="Settings">
         {themes && (
@@ -137,23 +147,33 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
             </FormContainer>
           </Section>
         )}
-        {providers && (
+        {search && (
           <Section>
             <SectionHeadline>Search Providers</SectionHeadline>
-            <Table>
-              <tbody>
-                <TableRow>
-                  <HeadCell>Search Provider</HeadCell>
-                  <HeadCell>Prefix</HeadCell>
-                </TableRow>
-                {providers.map((provider, index) => (
-                  <TableRow key={provider.name + index}>
-                    <TableCell>{provider.name}</TableCell>
-                    <TableCell>{provider.prefix}</TableCell>
-                  </TableRow>
-                ))}
-              </tbody>
-            </Table>
+            <>
+              <Text>Default Search Provider</Text>
+              <Code>{search.defaultProvider}</Code>
+            </>
+            <>
+              {
+                search.providers && (
+                  <Table>
+                    <tbody>
+                      <TableRow>
+                        <HeadCell>Search Provider</HeadCell>
+                        <HeadCell>Prefix</HeadCell>
+                      </TableRow>
+                      {search.providers.map((provider, index) => (
+                        <TableRow key={provider.name + index}>
+                          <TableCell>{provider.name}</TableCell>
+                          <TableCell>{provider.prefix}</TableCell>
+                        </TableRow>
+                      ))}
+                    </tbody>
+                  </Table>
+                )
+              }
+            </>
           </Section>
         )}
       </Modal>
