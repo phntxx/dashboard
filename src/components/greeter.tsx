@@ -38,32 +38,33 @@ interface IGreeterComponentProps {
 }
 
 /**
- * 
+ *
  * @param a the number that's supposed to be checked
  * @param b the minimum
  * @param c the maximum
  */
-const isBetween = (a: number, b: number, c: number): boolean => (a > b && a < c)
+const isBetween = (a: number, b: number, c: number): boolean =>
+  a >= b && a <= c;
 
 /**
  * Returns a greeting based on the current time
  * @returns {string} - A greeting
  */
 const getGreeting = (greetings: Array<IGreetingProps>): string => {
-
-  let hours = Math.floor(new Date().getHours())
+  let hours = Math.floor(new Date().getHours());
   let result = "";
 
-  greetings.forEach(greeting => {
-    if (isBetween(hours, greeting.start, greeting.end)) result = greeting.greeting;
-  })
+  greetings.forEach((greeting) => {
+    if (isBetween(hours, greeting.start, greeting.end))
+      result = greeting.greeting;
+  });
 
   return result;
 };
 
 /**
  * Returns the appropriate extension for a number (eg. 'rd' for '3' to make '3rd')
- * @param {number} day - The number of a day within a month 
+ * @param {number} day - The number of a day within a month
  * @returns {string} - The extension for that number
  */
 const getExtension = (day: number) => {
@@ -87,7 +88,11 @@ const getExtension = (day: number) => {
  * @param {string} format - The format of the date string
  * @returns {string} - The current date as a string
  */
-const getDateString = (weekdays: Array<string>, months: Array<string>, format: string) => {
+const getDateString = (
+  weekdays: Array<string>,
+  months: Array<string>,
+  format: string
+) => {
   let currentDate = new Date();
 
   let weekday = weekdays[currentDate.getUTCDay()];
@@ -96,7 +101,12 @@ const getDateString = (weekdays: Array<string>, months: Array<string>, format: s
   let extension = getExtension(day);
   let year = currentDate.getFullYear();
 
-  return format.replace("%wd", weekday).replace("%d", day.toString()).replace("%e", extension).replace("%m", month).replace("%y", year.toString());
+  return format
+    .replace("%wd", weekday)
+    .replace("%d", day.toString())
+    .replace("%e", extension)
+    .replace("%m", month)
+    .replace("%y", year.toString());
 };
 
 /**
@@ -104,7 +114,9 @@ const getDateString = (weekdays: Array<string>, months: Array<string>, format: s
  */
 const Greeter = ({ data }: IGreeterComponentProps) => (
   <GreeterContainer>
-    <DateText>{getDateString(data.days, data.months, data.dateformat)}</DateText>
+    <DateText>
+      {getDateString(data.days, data.months, data.dateformat)}
+    </DateText>
     <GreetText>{getGreeting(data.greetings)}</GreetText>
   </GreeterContainer>
 );
