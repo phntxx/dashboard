@@ -32,7 +32,7 @@ jobs:
           command: |
             yarn lint
 
-  frontend:
+  dashboard:
     docker:
       - image: node:latest
     steps:
@@ -52,6 +52,7 @@ jobs:
 
 workflows:
   version: 2
-  tilt:
+  dashboard:
     jobs:
       - style
+      - dashboard
