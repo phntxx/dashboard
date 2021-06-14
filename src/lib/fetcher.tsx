@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { ISearchProviderProps } from "../components/searchBar";
-import { IBookmarkGroupProps } from "../components/bookmarkGroup";
+import { IBookmarkGroupProps } from "../components/bookmarks";
 import { IAppCategoryProps } from "../components/appCategory";
 import { IAppProps } from "../components/app";
 import { IThemeProps } from "./theme";
@@ -99,7 +99,7 @@ const defaults = {
         "September",
         "October",
         "November",
-        "December"
+        "December",
       ],
       days: [
         "Sunday",
@@ -108,34 +108,34 @@ const defaults = {
         "Wednesday",
         "Thursday",
         "Friday",
-        "Saturday"
+        "Saturday",
       ],
       greetings: [
         {
           greeting: "Good night!",
           start: 0,
-          end: 6
+          end: 6,
         },
         {
           greeting: "Good morning!",
           start: 6,
-          end: 12
+          end: 12,
         },
         {
           greeting: "Good afternoon!",
           start: 12,
-          end: 18
+          end: 18,
         },
         {
           greeting: "Good evening!",
           start: 18,
-          end: 0
-        }
+          end: 0,
+        },
       ],
-      dateformat: "%wd, %m %d%e %y"
+      dateformat: "%wd, %m %d%e %y",
     },
     error: false,
-  }
+  },
 };
 
 /**
@@ -146,32 +146,44 @@ const defaults = {
 const handleError = (status: string, error: Error) => {
   switch (status) {
     case "apps":
-      return { ...defaults.app, error: error.message }
+      return { ...defaults.app, error: error.message };
     case "bookmark":
-      return { ...defaults.bookmark, error: error.message }
+      return { ...defaults.bookmark, error: error.message };
     case "searchProvider":
-      return { ...defaults.search, error: error.message }
+      return { ...defaults.search, error: error.message };
     case "theme":
-      return { ...defaults.theme, error: error.message }
+      return { ...defaults.theme, error: error.message };
     case "imprint":
-      return { ...defaults.imprint, error: error.message }
+      return { ...defaults.imprint, error: error.message };
     case "greeter":
-      return { ...defaults.greeter, error: error.message }
+      return { ...defaults.greeter, error: error.message };
     default:
       break;
   }
-}
+};
 
 /**
  * Fetches all of the data by doing fetch requests (only available in production)
  */
 const fetchProduction = Promise.all([
-  fetch("/data/apps.json").then(handleResponse).catch((error: Error) => handleError("apps", error)),
-  fetch("/data/bookmarks.json").then(handleResponse).catch((error: Error) => handleError("bookmark", error)),
-  fetch("/data/search.json").then(handleResponse).catch((error: Error) => handleError("searchProvider", error)),
-  fetch("/data/themes.json").then(handleResponse).catch((error: Error) => handleError("theme", error)),
-  fetch("/data/imprint.json").then(handleResponse).catch((error: Error) => handleError("imprint", error)),
-  fetch("/data/greeter.json").then(handleResponse).catch((error: Error) => handleError("greeter", error))
+  fetch("/data/apps.json")
+    .then(handleResponse)
+    .catch((error: Error) => handleError("apps", error)),
+  fetch("/data/bookmarks.json")
+    .then(handleResponse)
+    .catch((error: Error) => handleError("bookmark", error)),
+  fetch("/data/search.json")
+    .then(handleResponse)
+    .catch((error: Error) => handleError("searchProvider", error)),
+  fetch("/data/themes.json")
+    .then(handleResponse)
+    .catch((error: Error) => handleError("theme", error)),
+  fetch("/data/imprint.json")
+    .then(handleResponse)
+    .catch((error: Error) => handleError("imprint", error)),
+  fetch("/data/greeter.json")
+    .then(handleResponse)
+    .catch((error: Error) => handleError("greeter", error)),
 ]);
 
 /**
@@ -183,7 +195,7 @@ const fetchDevelopment = Promise.all([
   import("../data/search.json"),
   import("../data/themes.json"),
   import("../data/imprint.json"),
-  import("../data/greeter.json")
+  import("../data/greeter.json"),
 ]);
 
 /**
@@ -193,32 +205,56 @@ export const useFetcher = () => {
   const [appData, setAppData] = useState<IAppDataProps>(defaults.app);
 
   const [bookmarkData, setBookmarkData] = useState<IBookmarkDataProps>(
-    defaults.bookmark
+    defaults.bookmark,
   );
 
-  const [
-    searchProviderData,
-    setSearchProviderData,
-  ] = useState<ISearchProviderDataProps>(defaults.search);
+  const [searchProviderData, setSearchProviderData] =
+    useState<ISearchProviderDataProps>(defaults.search);
 
   const [themeData, setThemeData] = useState<IThemeDataProps>(defaults.theme);
 
   const [imprintData, setImprintData] = useState<IImprintDataProps>(
-    defaults.imprint
+    defaults.imprint,
   );
 
-  const [greeterData, setGreeterData] = useState<IGreeterDataProps>(defaults.greeter);
+  const [greeterData, setGreeterData] = useState<IGreeterDataProps>(
+    defaults.greeter,
+  );
 
   const callback = useCallback(() => {
     (inProduction ? fetchProduction : fetchDevelopment).then(
-      ([appData, bookmarkData, searchData, themeData, imprintData, greeterData]: [IAppDataProps, IBookmarkDataProps, ISearchProviderDataProps, IThemeDataProps, IImprintDataProps, IGreeterDataProps]) => {
-        setAppData((appData.error) ? appData : { ...appData, error: false });
-        setBookmarkData((bookmarkData.error) ? bookmarkData : { ...bookmarkData, error: false });
-        setSearchProviderData((searchData.error) ? searchData : { ...searchData, error: false });
-        setThemeData((themeData.error) ? themeData : { ...themeData, error: false });
-        setImprintData((imprintData.error) ? imprintData : { ...imprintData, error: false });
-        setGreeterData((greeterData.error) ? greeterData : { ...greeterData, error: false });
-      }
+      ([
+        appData,
+        bookmarkData,
+        searchData,
+        themeData,
+        imprintData,
+        greeterData,
+      ]: [
+        IAppDataProps,
+        IBookmarkDataProps,
+        ISearchProviderDataProps,
+        IThemeDataProps,
+        IImprintDataProps,
+        IGreeterDataProps,
+      ]) => {
+        setAppData(appData.error ? appData : { ...appData, error: false });
+        setBookmarkData(
+          bookmarkData.error ? bookmarkData : { ...bookmarkData, error: false },
+        );
+        setSearchProviderData(
+          searchData.error ? searchData : { ...searchData, error: false },
+        );
+        setThemeData(
+          themeData.error ? themeData : { ...themeData, error: false },
+        );
+        setImprintData(
+          imprintData.error ? imprintData : { ...imprintData, error: false },
+        );
+        setGreeterData(
+          greeterData.error ? greeterData : { ...greeterData, error: false },
+        );
+      },
     );
   }, []);
 
@@ -231,7 +267,7 @@ export const useFetcher = () => {
     themeData,
     imprintData,
     greeterData,
-    callback
+    callback,
   };
 };
 

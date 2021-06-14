@@ -1,0 +1,57 @@
+version: 2.1
+
+commands:
+  install_dependencies:
+    description: "Installs dependencies and uses CircleCI's cache"
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "yarn.lock" }}
+            - dependencies-
+      - run:
+          command: |
+            yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependencies-{{ checksum "yarn.lock" }}
+
+jobs:
+  style:
+    docker:
+      - image: node:latest
+    steps:
+      - install_dependencies
+      - run:
+          name: prettier
+          command: |
+            yarn prettier --check
+      - run:
+          name: lint
+          command: |
+            yarn lint
+
+  frontend:
+    docker:
+      - image: node:latest
+    steps:
+      - install_dependencies
+      - run:
+          name: typecheck
+          command: |
+            yarn typecheck
+      - run:
+          name: test
+          command: |
+            yarn test
+      - run:
+          name: coverage
+          command: |
+            yarn coverage
+
+workflows:
+  version: 2
+  tilt:
+    jobs:
+      - style

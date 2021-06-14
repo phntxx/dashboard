@@ -16,17 +16,16 @@ const Search = styled.form`
 
 const SearchInput = styled.input`
   width: 100%;
+  margin: 0px;
 
   font-size: 1rem;
 
   border: none;
   border-bottom: 1px solid ${selectedTheme.accentColor};
+  border-radius: 0;
 
   background: none;
-  border-radius: 0;
   color: ${selectedTheme.mainColor};
-
-  margin: 0px;
 
   :focus {
     outline: none;
@@ -50,7 +49,7 @@ interface ISearchBarProps {
 
 /**
  * Renders a search bar
- * @param {ISearchBarProps} props - The search providers for the search bar to use 
+ * @param {ISearchBarProps} props - The search providers for the search bar to use
  */
 const SearchBar = ({ providers }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");

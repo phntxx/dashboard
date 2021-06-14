@@ -1,0 +1,16 @@
+coverage:
+  status:
+    project:
+      default: off
+      dashboard:
+        target: 80%
+        flags: dashboard
+
+flags:
+  dashboard:
+    paths:
+      - src/
+      - data/
+
+ignore:
+  - node_modules

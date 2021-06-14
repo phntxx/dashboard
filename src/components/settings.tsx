@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import Select, { ValueType } from "react-select";
@@ -62,15 +62,15 @@ const SelectorStyle: any = {
     boxShadow: "none",
     "&:hover": {
       border: "1px solid",
-      borderColor: selectedTheme.mainColor
+      borderColor: selectedTheme.mainColor,
     },
   }),
   dropdownIndicator: (base: any): any => ({
     ...base,
     color: selectedTheme.mainColor,
     "&:hover": {
-      color: selectedTheme.mainColor
-    }
+      color: selectedTheme.mainColor,
+    },
   }),
   indicatorSeparator: () => ({
     display: "none",
@@ -81,7 +81,7 @@ const SelectorStyle: any = {
     border: "1px solid " + selectedTheme.mainColor,
     borderRadius: 0,
     boxShadow: "none",
-    margin: "4px 0"
+    margin: "4px 0",
   }),
   option: (base: any): any => ({
     ...base,
@@ -115,7 +115,7 @@ interface ISettingsProps {
 const Settings = ({ themes, providers }: ISettingsProps) => {
   const [newTheme, setNewTheme] = useState<IThemeProps>();
 
-  if (themes && providers) {
+  if (themes || providers) {
     return (
       <Modal element="icon" icon="settings" title="Settings">
         {themes && (

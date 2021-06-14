@@ -38,17 +38,18 @@ interface IGreeterComponentProps {
 }
 
 /**
- *
- * @param a the number that's supposed to be checked
- * @param b the minimum
- * @param c the maximum
+ * Checks if a number is between two numbers
+ * @param {number} a number that's supposed to be checked
+ * @param {number} b minimum
+ * @param {number} c maximum
  */
 const isBetween = (a: number, b: number, c: number): boolean =>
   a >= b && a <= c;
 
 /**
  * Returns a greeting based on the current time
- * @returns {string} - A greeting
+ * @param {Array<IGreetingProps>} greetings a list of greetings with start and end date
+ * @returns {string} a greeting
  */
 const getGreeting = (greetings: Array<IGreetingProps>): string => {
   let hours = Math.floor(new Date().getHours());
@@ -64,8 +65,8 @@ const getGreeting = (greetings: Array<IGreetingProps>): string => {
 
 /**
  * Returns the appropriate extension for a number (eg. 'rd' for '3' to make '3rd')
- * @param {number} day - The number of a day within a month
- * @returns {string} - The extension for that number
+ * @param {number} day number of a day within a month
+ * @returns {string} extension for that number
  */
 const getExtension = (day: number) => {
   let extension = "";
@@ -85,13 +86,13 @@ const getExtension = (day: number) => {
 
 /**
  * Generates the current date
- * @param {string} format - The format of the date string
- * @returns {string} - The current date as a string
+ * @param {string} format format of the date string
+ * @returns {string} current date as a string
  */
 const getDateString = (
   weekdays: Array<string>,
   months: Array<string>,
-  format: string
+  format: string,
 ) => {
   let currentDate = new Date();
 
@@ -111,6 +112,8 @@ const getDateString = (
 
 /**
  * Renders the Greeter
+ * @param {IGreeterComponentProps} data required greeter data
+ * @returns {React.ReactNode} the greeter
  */
 const Greeter = ({ data }: IGreeterComponentProps) => (
   <GreeterContainer>
