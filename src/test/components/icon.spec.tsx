@@ -12,6 +12,11 @@ it("Icon test", () => {
   expect(asFragment).toMatchSnapshot();
 });
 
+it("Icon test (no size)", () => {
+  const { asFragment } = render(<Icon name={props.name} />);
+  expect(asFragment).toMatchSnapshot();
+});
+
 it("IconButton test", () => {
   const { asFragment } = render(
     <IconButton icon={props.name} onClick={props.onClick} />,

@@ -27,7 +27,7 @@ export const setTheme = (theme: string) => {
  * Function that gets the saved theme from localStorage or returns the default
  * @returns {IThemeProps} the saved theme or the default theme
  */
-const getTheme = (): IThemeProps => {
+export const getTheme = (): IThemeProps => {
   let selectedTheme = defaultTheme;
 
   if (localStorage.getItem("theme") !== null) {

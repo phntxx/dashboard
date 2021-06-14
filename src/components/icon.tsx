@@ -38,6 +38,8 @@ const IconContainer = styled.i`
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
+  font-size: ${(props) => props.theme};
+  color: ${(props) => props.color};
 `;
 
 /**
@@ -45,14 +47,11 @@ const IconContainer = styled.i`
  * @param {IIconProps} props props needed for the given icon
  * @returns {React.ReactNode} the icon node
  */
-export const Icon = ({ name, size }: IIconProps) => {
-  let Container = styled(IconContainer)`
-    font-size: ${size ? size : "24px"};
-    color: ${selectedTheme.mainColor};
-  `;
-
-  return <Container>{name}</Container>;
-};
+export const Icon = ({ name, size }: IIconProps) => (
+  <IconContainer color={selectedTheme.mainColor} theme={size}>
+    {name}
+  </IconContainer>
+);
 
 /**
  * Renders a button with an icon

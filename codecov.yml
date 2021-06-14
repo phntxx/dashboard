@@ -9,8 +9,5 @@ coverage:
 flags:
   dashboard:
     paths:
-      - src/
-      - data/
-
-ignore:
-  - node_modules
+      - src/components/
+      - src/lib/
