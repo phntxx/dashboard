@@ -9,7 +9,7 @@ const props: IAppProps = {
   newTab: false,
 };
 
-it("should take a snapshot", () => {
+it("App snapshot test", () => {
   const { asFragment } = render(
     <App
       name={props.name}

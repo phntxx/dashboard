@@ -20,6 +20,10 @@ const DateText = styled.h3`
   color: ${selectedTheme.accentColor};
 `;
 
+export interface IGreeterComponentProps {
+  data: IGreeterProps;
+}
+
 export interface IGreeterProps {
   months: Array<string>;
   days: Array<string>;
@@ -33,17 +37,13 @@ interface IGreetingProps {
   end: number;
 }
 
-interface IGreeterComponentProps {
-  data: IGreeterProps;
-}
-
 /**
  * Checks if a number is between two numbers
  * @param {number} a number that's supposed to be checked
  * @param {number} b minimum
  * @param {number} c maximum
  */
-const isBetween = (a: number, b: number, c: number): boolean =>
+export const isBetween = (a: number, b: number, c: number): boolean =>
   a >= b && a <= c;
 
 /**
@@ -51,7 +51,7 @@ const isBetween = (a: number, b: number, c: number): boolean =>
  * @param {Array<IGreetingProps>} greetings a list of greetings with start and end date
  * @returns {string} a greeting
  */
-const getGreeting = (greetings: Array<IGreetingProps>): string => {
+export const getGreeting = (greetings: Array<IGreetingProps>): string => {
   let hours = Math.floor(new Date().getHours());
   let result = "";
 
@@ -68,17 +68,17 @@ const getGreeting = (greetings: Array<IGreetingProps>): string => {
  * @param {number} day number of a day within a month
  * @returns {string} extension for that number
  */
-const getExtension = (day: number) => {
+export const getExtension = (day: number) => {
   let extension = "";
 
-  if ((day > 4 && day <= 20) || (day > 20 && day % 10 >= 4)) {
-    extension = "th";
-  } else if (day % 10 === 1) {
+  if (day % 10 === 1) {
     extension = "st";
   } else if (day % 10 === 2) {
     extension = "nd";
   } else if (day % 10 === 3) {
     extension = "rd";
+  } else if (isBetween(day, 4, 20) || (day > 20 && day % 10 >= 4)) {
+    extension = "th";
   }
 
   return extension;
@@ -89,7 +89,7 @@ const getExtension = (day: number) => {
  * @param {string} format format of the date string
  * @returns {string} current date as a string
  */
-const getDateString = (
+export const getDateString = (
   weekdays: Array<string>,
   months: Array<string>,
   format: string,

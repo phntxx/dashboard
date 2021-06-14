@@ -21,7 +21,7 @@ const props: IAppCategoryProps = {
   ],
 };
 
-it("should take a snapshot", () => {
+it("AppCategory snapshot test", () => {
   const { asFragment } = render(
     <AppCategory name={props.name} items={props.items} />,
   );

@@ -34,7 +34,7 @@ const props: IAppListProps = {
   ],
 };
 
-it("should take a snapshot", () => {
+it("AppList snapshot test", () => {
   const { asFragment } = render(
     <AppList categories={props.categories} apps={props.apps} />,
   );
