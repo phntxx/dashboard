@@ -7,7 +7,6 @@
 
 # testing
 /coverage
-__snapshots__
 
 # building
 /build
