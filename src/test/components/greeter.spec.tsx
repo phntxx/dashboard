@@ -1,5 +1,9 @@
 import { render } from "@testing-library/react";
-import Greeter, { IGreeterProps, isBetween, getExtension } from "../../components/greeter";
+import Greeter, {
+  IGreeterProps,
+  isBetween,
+  getExtension,
+} from "../../components/greeter";
 
 const props: IGreeterProps = {
   months: [
@@ -14,7 +18,7 @@ const props: IGreeterProps = {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ],
   days: [
     "Sunday",
@@ -23,7 +27,7 @@ const props: IGreeterProps = {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ],
   greetings: [
     {
@@ -39,33 +43,33 @@ const props: IGreeterProps = {
     {
       greeting: "Good afternoon!",
       start: 12,
-      end: 18
+      end: 18,
     },
     {
       greeting: "Good evening!",
       start: 18,
-      end: 24
-    }
+      end: 24,
+    },
   ],
-  dateformat: "%wd, %m %d%e %y"
-}
+  dateformat: "%wd, %m %d%e %y",
+};
 
-it('isBetween test', () => {
-  expect(isBetween(5,1,3)).toBeFalsy
-  expect(isBetween(64,1,8)).toBeFalsy
-  expect(isBetween(-1,-5,-3)).toBeFalsy
-  expect(isBetween(4,4,4)).toBeTruthy
-  expect(isBetween(3,1,8)).toBeTruthy
-  expect(isBetween(-3,-5,-1)).toBeTruthy
-})
+it("isBetween test", () => {
+  expect(isBetween(5, 1, 3)).toBeFalsy;
+  expect(isBetween(64, 1, 8)).toBeFalsy;
+  expect(isBetween(-1, -5, -3)).toBeFalsy;
+  expect(isBetween(4, 4, 4)).toBeTruthy;
+  expect(isBetween(3, 1, 8)).toBeTruthy;
+  expect(isBetween(-3, -5, -1)).toBeTruthy;
+});
 
-it('getExtension test', () => {
-  expect(getExtension(1)).toEqual("st")
-  expect(getExtension(2)).toEqual("nd")
-  expect(getExtension(3)).toEqual("rd")
-  expect(getExtension(4)).toEqual("th")
-  expect(getExtension(55)).toEqual("th")
-})
+it("getExtension test", () => {
+  expect(getExtension(1)).toEqual("st");
+  expect(getExtension(2)).toEqual("nd");
+  expect(getExtension(3)).toEqual("rd");
+  expect(getExtension(4)).toEqual("th");
+  expect(getExtension(55)).toEqual("th");
+});
 
 it("Greeter snapshot test", () => {
   const { asFragment } = render(<Greeter data={props} />);
