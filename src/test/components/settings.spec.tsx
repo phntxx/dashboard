@@ -71,7 +71,6 @@ const propsList = [
 
 describe("settings.tsx", () => {
   const location: Location = window.location;
-  8;
 
   beforeEach(() => {
     // @ts-ignore

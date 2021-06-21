@@ -26,6 +26,8 @@ const props: IImprintProps = {
 };
 
 describe("imprint.tsx", () => {
+  const location: Location = window.location;
+
   beforeEach(() => {
     // @ts-ignore
     delete window.location;
