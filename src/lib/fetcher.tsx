@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { ISearchProviderProps } from "../components/searchBar";
+import { ISearchProps } from "../components/searchBar";
 import { IBookmarkGroupProps } from "../components/bookmarks";
 import { IAppCategoryProps } from "../components/appCategory";
 import { IAppProps } from "../components/app";
@@ -22,8 +22,8 @@ export const handleResponse = (response: Response) => {
   throw new Error(errorMessage);
 };
 
-export interface ISearchProviderDataProps {
-  providers: Array<ISearchProviderProps>;
+export interface ISearchDataProps {
+  search: ISearchProps;
   error: string | boolean;
 }
 
@@ -67,7 +67,10 @@ export const defaults = {
     error: false,
   },
   search: {
-    providers: [],
+    search: {
+      defaultProvider: "https://google.com/search?q=",
+      providers: [],
+    },
     error: false,
   },
   theme: {
@@ -209,7 +212,7 @@ export const useFetcher = () => {
   );
 
   const [searchProviderData, setSearchProviderData] =
-    useState<ISearchProviderDataProps>(defaults.search);
+    useState<ISearchDataProps>(defaults.search);
 
   const [themeData, setThemeData] = useState<IThemeDataProps>(defaults.theme);
 
@@ -233,7 +236,7 @@ export const useFetcher = () => {
       ]: [
         IAppDataProps,
         IBookmarkDataProps,
-        ISearchProviderDataProps,
+        ISearchDataProps,
         IThemeDataProps,
         IImprintDataProps,
         IGreeterDataProps,

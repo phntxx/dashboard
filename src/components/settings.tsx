@@ -3,12 +3,8 @@ import styled from "styled-components";
 
 import Select, { ValueType } from "react-select";
 
-import { ISearchProviderProps } from "./searchBar";
-import selectedTheme, {
-  defaultTheme,
-  setTheme,
-  IThemeProps,
-} from "../lib/theme";
+import { ISearchProps } from "./searchBar";
+import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
 import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
@@ -21,6 +17,7 @@ export const FormContainer = styled.div`
 export const Table = styled.table`
   font-weight: 400;
   background: none;
+  width: 100%;
   color: ${selectedTheme.mainColor};
 `;
 
@@ -35,7 +32,7 @@ export const TableCell = styled.td`
 
 export const HeadCell = styled.th`
   font-weight: 700;
-  background: none;
+  text-align: left;
 `;
 
 export const Section = styled.div`
@@ -46,6 +43,16 @@ export const SectionHeadline = styled(SubHeadline)`
   width: 100%;
   border-bottom: 1px solid ${selectedTheme.accentColor};
   margin-bottom: 0.5rem;
+`;
+
+const Text = styled.p`
+  font-weight: 700;
+  color: ${selectedTheme.accentColor};
+`;
+
+const Code = styled.p`
+  font-family: monospace;
+  color: ${selectedTheme.accentColor};
 `;
 
 export const SelectorStyle: any = {
@@ -108,18 +115,18 @@ export const SelectorStyle: any = {
 
 interface ISettingsProps {
   themes: Array<IThemeProps> | undefined;
-  providers: Array<ISearchProviderProps> | undefined;
+  search: ISearchProps | undefined;
 }
 
 /**
  * Handles the settings-modal
  * @param {Array<IThemeProps>} themes - the list of themes a user can select between
- * @param {Array<ISearchProviderProps>} providers - the list of search providers
+ * @param {ISearchProps} search - the list of search providers
  */
-const Settings = ({ themes, providers }: ISettingsProps) => {
-  const [newTheme, setNewTheme] = useState<IThemeProps>(defaultTheme);
+const Settings = ({ themes, search }: ISettingsProps) => {
+  const [newTheme, setNewTheme] = useState<IThemeProps>();
 
-  if (themes || providers) {
+  if (themes || search) {
     return (
       <Modal element="icon" icon="settings" title="Settings">
         {themes && (
@@ -137,7 +144,9 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
               />
               <Button
                 data-testid="button-submit"
-                onClick={() => setTheme(newTheme)}
+                onClick={() => {
+                  if (newTheme) setTheme(newTheme);
+                }}
               >
                 Apply
               </Button>
@@ -150,23 +159,31 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
             </FormContainer>
           </Section>
         )}
-        {providers && (
+        {search && (
           <Section>
             <SectionHeadline>Search Providers</SectionHeadline>
-            <Table>
-              <tbody>
-                <TableRow>
-                  <HeadCell>Search Provider</HeadCell>
-                  <HeadCell>Prefix</HeadCell>
-                </TableRow>
-                {providers.map((provider, index) => (
-                  <TableRow key={provider.name + index}>
-                    <TableCell>{provider.name}</TableCell>
-                    <TableCell>{provider.prefix}</TableCell>
-                  </TableRow>
-                ))}
-              </tbody>
-            </Table>
+            <>
+              <Text>Default Search Provider</Text>
+              <Code>{search.defaultProvider}</Code>
+            </>
+            <>
+              {search.providers && (
+                <Table>
+                  <tbody>
+                    <TableRow>
+                      <HeadCell>Search Provider</HeadCell>
+                      <HeadCell>Prefix</HeadCell>
+                    </TableRow>
+                    {search.providers.map((provider, index) => (
+                      <TableRow key={provider.name + index}>
+                        <TableCell>{provider.name}</TableCell>
+                        <TableCell>{provider.prefix}</TableCell>
+                      </TableRow>
+                    ))}
+                  </tbody>
+                </Table>
+              )}
+            </>
           </Section>
         )}
       </Modal>

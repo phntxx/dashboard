@@ -26,14 +26,15 @@ const props: IImprintProps = {
 };
 
 describe("imprint.tsx", () => {
+  const location: Location = window.location;
+
   beforeEach(() => {
-    delete global.window.location;
-    global.window = Object.create(window);
-    global.window.location = {
-      port: "123",
-      protocol: "http:",
-      hostname: "localhost",
-      href: "test",
+    // @ts-ignore
+    delete window.location;
+
+    window.location = {
+      ...location,
+      reload: jest.fn(),
     };
   });
 

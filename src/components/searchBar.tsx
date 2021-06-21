@@ -43,12 +43,17 @@ export interface ISearchProviderProps {
   prefix: string;
 }
 
-export interface ISearchBarProps {
+export interface ISearchProps {
+  defaultProvider: string;
   providers: Array<ISearchProviderProps> | undefined;
 }
 
+interface ISearchBarProps {
+  search: ISearchProps;
+}
+
 export const handleQueryWithProvider = (
-  providers: Array<ISearchProviderProps> | undefined,
+  search: ISearchProps,
   query: string,
 ) => {
   let queryArray: Array<string> = query.split(" ");
@@ -59,8 +64,8 @@ export const handleQueryWithProvider = (
   let searchQuery: string = queryArray.join(" ");
 
   let providerFound: boolean = false;
-  if (providers) {
-    providers.forEach((provider: ISearchProviderProps) => {
+  if (search.providers) {
+    search.providers.forEach((provider: ISearchProviderProps) => {
       if (provider.prefix === prefix) {
         providerFound = true;
         window.location.href = provider.url + searchQuery;
@@ -68,15 +73,14 @@ export const handleQueryWithProvider = (
     });
   }
 
-  if (!providerFound)
-    window.location.href = "https://google.com/search?q=" + query;
+  if (!providerFound) window.location.href = search.defaultProvider + query;
 };
 
 /**
  * Renders a search bar
- * @param {ISearchBarProps} props - The search providers for the search bar to use
+ * @param {ISearchBarProps} search - The search providers for the search bar to use
  */
-const SearchBar = ({ providers }: ISearchBarProps) => {
+const SearchBar = ({ search }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
@@ -86,9 +90,9 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
     var query: string = input || "";
 
     if (query.split(" ")[0].includes("/")) {
-      handleQueryWithProvider(providers, query);
+      handleQueryWithProvider(search, query);
     } else {
-      window.location.href = "https://google.com/search?q=" + query;
+      window.location.href = search.defaultProvider + query;
     }
 
     e.preventDefault();
