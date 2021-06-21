@@ -6,7 +6,7 @@ export interface IThemeProps {
   backgroundColor: string;
 }
 
-const defaultTheme: IThemeProps = {
+export const defaultTheme: IThemeProps = {
   label: "Classic",
   value: 0,
   mainColor: "#000000",
@@ -18,8 +18,8 @@ const defaultTheme: IThemeProps = {
  * Writes a given theme into localStorage
  * @param {string} theme - the theme that shall be saved (in stringified JSON)
  */
-export const setTheme = (theme: string) => {
-  if (theme !== undefined) localStorage.setItem("theme", theme);
+export const setTheme = (theme: IThemeProps) => {
+  localStorage.setItem("theme", JSON.stringify(theme));
   window.location.reload();
 };
 
@@ -30,9 +30,8 @@ export const setTheme = (theme: string) => {
 export const getTheme = (): IThemeProps => {
   let selectedTheme = defaultTheme;
 
-  if (localStorage.getItem("theme") !== null) {
-    selectedTheme = JSON.parse(localStorage.getItem("theme") || "{}");
-  }
+  let theme = localStorage.getItem("theme");
+  if (theme !== null) selectedTheme = JSON.parse(theme || "{}");
 
   return selectedTheme;
 };

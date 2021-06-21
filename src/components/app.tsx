@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Icon from "./icon";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";

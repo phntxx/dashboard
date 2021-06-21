@@ -17,7 +17,7 @@ const inProduction = process.env.NODE_ENV === "production";
  * @returns - The response in JSON
  * @throws - Error with given error message if request failed
  */
-const handleResponse = (response: Response) => {
+export const handleResponse = (response: Response) => {
   if (response.ok) return response.json();
   throw new Error(errorMessage);
 };
@@ -56,7 +56,7 @@ export interface IGreeterDataProps {
 /**
  * Default values for the respective state variables
  */
-const defaults = {
+export const defaults = {
   app: {
     categories: [],
     apps: [],
@@ -143,7 +143,7 @@ const defaults = {
  * @param {string} type - The type of fetch request that threw an error
  * @param {Error} error - The error itself
  */
-const handleError = (status: string, error: Error) => {
+export const handleError = (status: string, error: Error) => {
   switch (status) {
     case "apps":
       return { ...defaults.app, error: error.message };
@@ -165,7 +165,7 @@ const handleError = (status: string, error: Error) => {
 /**
  * Fetches all of the data by doing fetch requests (only available in production)
  */
-const fetchProduction = Promise.all([
+export const fetchProduction = Promise.all([
   fetch("/data/apps.json")
     .then(handleResponse)
     .catch((error: Error) => handleError("apps", error)),
@@ -189,7 +189,7 @@ const fetchProduction = Promise.all([
 /**
  * Fetches all of the data by importing it (only available in development)
  */
-const fetchDevelopment = Promise.all([
+export const fetchDevelopment = Promise.all([
   import("../data/apps.json"),
   import("../data/bookmarks.json"),
   import("../data/search.json"),

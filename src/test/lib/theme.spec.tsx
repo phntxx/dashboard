@@ -1,8 +1,4 @@
-import selectedTheme, {
-  getTheme,
-  IThemeProps,
-  setTheme,
-} from "../../lib/theme";
+import { getTheme, IThemeProps, setTheme } from "../../lib/theme";
 
 const props: IThemeProps = {
   label: "Classic",
@@ -12,33 +8,47 @@ const props: IThemeProps = {
   backgroundColor: "#ffffff",
 };
 
-const theme = JSON.stringify(props);
+const location: Location = window.location;
+const setup = () => {
+  Object.defineProperty(window, "localStorage", {
+    value: {
+      getItem: jest.fn(() => JSON.stringify(props)),
+      setItem: jest.fn(() => null),
+    },
+    writable: true,
+  });
+
+  // @ts-ignore
+  delete window.location;
+
+  window.location = {
+    ...location,
+    reload: jest.fn(),
+  };
+};
 
 describe("theme.tsx", () => {
-  beforeEach(() => {
-    Object.defineProperty(window, "localStorage", {
-      value: {
-        getItem: jest.fn(() => null),
-        setItem: jest.fn(() => null),
-      },
-      writable: true,
-    });
-  });
-
   it("setTheme test", () => {
-    setTheme(theme);
+    setup();
 
+    setTheme(props);
     expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
-    expect(window.localStorage.setItem).toHaveBeenCalledWith("theme", theme);
+    expect(window.localStorage.setItem).toHaveBeenCalledWith(
+      "theme",
+      JSON.stringify(props),
+    );
+    expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
 
-  it("getTheme test", () => {
-    const themeTest = getTheme();
+  it("Tests getTheme", () => {
+    setup();
+
+    let themeTest = getTheme();
     expect(themeTest).toEqual(props);
   });
 
-  it("selectedTheme test", () => {
-    const themeTest = selectedTheme;
-    expect(themeTest).toEqual(props);
+  it("Tests getTheme with empty parameters", () => {
+    localStorage.setItem("theme", "");
+    expect(getTheme()).toEqual({});
   });
 });

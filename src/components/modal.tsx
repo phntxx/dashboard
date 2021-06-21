@@ -38,7 +38,7 @@ const TitleContainer = styled.div`
   justify-content: space-between;
 `;
 
-interface IModalProps {
+export interface IModalProps {
   element: string;
   icon?: string;
   text?: string;
@@ -72,15 +72,27 @@ const Modal = ({
   return (
     <>
       {element === "icon" && (
-        <IconButton icon={icon ?? ""} onClick={() => closeModal()} />
+        <IconButton
+          icon={icon ?? ""}
+          testid="toggle-button"
+          onClick={() => closeModal()}
+        />
       )}
 
-      {element === "text" && <Text onClick={() => closeModal()}>{text}</Text>}
+      {element === "text" && (
+        <Text data-testid="toggle-button" onClick={() => closeModal()}>
+          {text}
+        </Text>
+      )}
 
       <ModalContainer hidden={modalHidden}>
         <TitleContainer>
           <Headline>{title}</Headline>
-          <IconButton icon="close" onClick={() => closeModal()} />
+          <IconButton
+            icon="close"
+            testid="close-button"
+            onClick={() => closeModal()}
+          />
         </TitleContainer>
         {children}
       </ModalContainer>

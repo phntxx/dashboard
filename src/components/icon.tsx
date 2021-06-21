@@ -8,6 +8,7 @@ interface IIconProps {
 }
 
 interface IIconButtonProps {
+  testid?: string;
   icon: string;
   onClick: (e: React.FormEvent) => void;
 }
@@ -38,7 +39,7 @@ const IconContainer = styled.i`
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
-  font-size: ${(props) => props.theme};
+  font-size: ${(props) => props.about};
   color: ${(props) => props.color};
 `;
 
@@ -48,7 +49,7 @@ const IconContainer = styled.i`
  * @returns {React.ReactNode} the icon node
  */
 export const Icon = ({ name, size }: IIconProps) => (
-  <IconContainer color={selectedTheme.mainColor} theme={size}>
+  <IconContainer color={selectedTheme.mainColor} about={size}>
     {name}
   </IconContainer>
 );
@@ -58,8 +59,8 @@ export const Icon = ({ name, size }: IIconProps) => (
  * @param {IIconProps} props - The props of the given IconButton
  * @returns {React.ReactNode} the icon button node
  */
-export const IconButton = ({ icon, onClick }: IIconButtonProps) => (
-  <StyledButton onClick={onClick}>
+export const IconButton = ({ testid, icon, onClick }: IIconButtonProps) => (
+  <StyledButton data-testid={testid} onClick={onClick}>
     <Icon name={icon} />
   </StyledButton>
 );

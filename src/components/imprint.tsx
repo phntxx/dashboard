@@ -41,7 +41,7 @@ export interface IImprintProps {
   text: string;
 }
 
-interface IImprintComponentProps {
+export interface IImprintComponentProps {
   imprint: IImprintProps;
 }
 
@@ -59,7 +59,7 @@ interface IImprintFieldProps {
  * @param {IImprintFieldComponentProps} props data for the field
  * @returns {React.ReactNode} the imprint field component
  */
-const ImprintField = ({ field }: IImprintFieldComponentProps) => (
+export const ImprintField = ({ field }: IImprintFieldComponentProps) => (
   <Link href={field.link}>{field.text}</Link>
 );
 
@@ -82,8 +82,10 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
             condition={!window.location.href.endsWith("#imprint")}
             onClose={() => {
               if (window.location.href.endsWith("#imprint")) {
-                let location = window.location.href.replace("#imprint", "");
-                window.location.href = location;
+                window.location.href = window.location.href.replace(
+                  "#imprint",
+                  "",
+                );
               }
             }}
           >

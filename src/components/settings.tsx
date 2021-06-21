@@ -4,47 +4,51 @@ import styled from "styled-components";
 import Select, { ValueType } from "react-select";
 
 import { ISearchProviderProps } from "./searchBar";
-import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
+import selectedTheme, {
+  defaultTheme,
+  setTheme,
+  IThemeProps,
+} from "../lib/theme";
 import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
 
-const FormContainer = styled.div`
+export const FormContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
 `;
 
-const Table = styled.table`
+export const Table = styled.table`
   font-weight: 400;
   background: none;
   color: ${selectedTheme.mainColor};
 `;
 
-const TableRow = styled.tr`
+export const TableRow = styled.tr`
   border-bottom: 1px solid ${selectedTheme.mainColor};
 `;
 
-const TableCell = styled.td`
+export const TableCell = styled.td`
   background: none;
   padding-top: 0.5rem;
 `;
 
-const HeadCell = styled.th`
+export const HeadCell = styled.th`
   font-weight: 700;
   background: none;
 `;
 
-const Section = styled.div`
+export const Section = styled.div`
   padding: 1rem 0;
 `;
 
-const SectionHeadline = styled(SubHeadline)`
+export const SectionHeadline = styled(SubHeadline)`
   width: 100%;
   border-bottom: 1px solid ${selectedTheme.accentColor};
   margin-bottom: 0.5rem;
 `;
 
-const SelectorStyle: any = {
+export const SelectorStyle: any = {
   container: (base: any): any => ({
     ...base,
     margin: "0 2px",
@@ -113,7 +117,7 @@ interface ISettingsProps {
  * @param {Array<ISearchProviderProps>} providers - the list of search providers
  */
 const Settings = ({ themes, providers }: ISettingsProps) => {
-  const [newTheme, setNewTheme] = useState<IThemeProps>();
+  const [newTheme, setNewTheme] = useState<IThemeProps>(defaultTheme);
 
   if (themes || providers) {
     return (
@@ -123,6 +127,7 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
             <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
               <Select
+                classNamePrefix="list"
                 options={themes}
                 defaultValue={selectedTheme}
                 onChange={(e: ValueType<IThemeProps, false>) => {
@@ -130,10 +135,18 @@ const Settings = ({ themes, providers }: ISettingsProps) => {
                 }}
                 styles={SelectorStyle}
               />
-              <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
+              <Button
+                data-testid="button-submit"
+                onClick={() => setTheme(newTheme)}
+              >
                 Apply
               </Button>
-              <Button onClick={() => window.location.reload()}>Refresh</Button>
+              <Button
+                data-testid="button-refresh"
+                onClick={() => window.location.reload()}
+              >
+                Refresh
+              </Button>
             </FormContainer>
           </Section>
         )}

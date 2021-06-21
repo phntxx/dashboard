@@ -43,9 +43,34 @@ export interface ISearchProviderProps {
   prefix: string;
 }
 
-interface ISearchBarProps {
+export interface ISearchBarProps {
   providers: Array<ISearchProviderProps> | undefined;
 }
+
+export const handleQueryWithProvider = (
+  providers: Array<ISearchProviderProps> | undefined,
+  query: string,
+) => {
+  let queryArray: Array<string> = query.split(" ");
+  let prefix: string = queryArray[0];
+
+  queryArray.shift();
+
+  let searchQuery: string = queryArray.join(" ");
+
+  let providerFound: boolean = false;
+  if (providers) {
+    providers.forEach((provider: ISearchProviderProps) => {
+      if (provider.prefix === prefix) {
+        providerFound = true;
+        window.location.href = provider.url + searchQuery;
+      }
+    });
+  }
+
+  if (!providerFound)
+    window.location.href = "https://google.com/search?q=" + query;
+};
 
 /**
  * Renders a search bar
@@ -61,7 +86,7 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
     var query: string = input || "";
 
     if (query.split(" ")[0].includes("/")) {
-      handleQueryWithProvider(query);
+      handleQueryWithProvider(providers, query);
     } else {
       window.location.href = "https://google.com/search?q=" + query;
     }
@@ -69,32 +94,11 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
     e.preventDefault();
   };
 
-  const handleQueryWithProvider = (query: string) => {
-    let queryArray: Array<string> = query.split(" ");
-    let prefix: string = queryArray[0];
-
-    queryArray.shift();
-
-    let searchQuery: string = queryArray.join(" ");
-
-    let providerFound: boolean = false;
-    if (providers) {
-      providers.forEach((provider: ISearchProviderProps) => {
-        if (provider.prefix === prefix) {
-          providerFound = true;
-          window.location.href = provider.url + searchQuery;
-        }
-      });
-    }
-
-    if (!providerFound)
-      window.location.href = "https://google.com/search?q=" + query;
-  };
-
   return (
     <Search onSubmit={(e) => handleSearchQuery(e)}>
       <SearchInput
         type="text"
+        data-testid="search-input"
         value={input}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setInput(e.target.value)
@@ -102,12 +106,17 @@ const SearchBar = ({ providers }: ISearchBarProps) => {
       ></SearchInput>
       <SearchButton
         type="button"
+        data-testid="search-clear"
         onClick={() => setInput("")}
         hidden={buttonsHidden}
       >
         Clear
       </SearchButton>
-      <SearchButton type="submit" hidden={buttonsHidden}>
+      <SearchButton
+        type="submit"
+        data-testid="search-submit"
+        hidden={buttonsHidden}
+      >
         Search
       </SearchButton>
     </Search>
