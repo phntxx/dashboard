@@ -2,29 +2,32 @@ import { fireEvent, render } from "@testing-library/react";
 import SearchBar, {
   handleQueryWithProvider,
   ISearchProviderProps,
-  ISearchBarProps,
+  ISearchProps,
 } from "../../components/searchBar";
 
-const providers: Array<ISearchProviderProps> = [
-  {
-    name: "Allmusic",
-    url: "https://www.allmusic.com/search/all/",
-    prefix: "/a",
-  },
-  {
-    name: "Discogs",
-    url: "https://www.discogs.com/search/?q=",
-    prefix: "/di",
-  },
-  {
-    name: "Duck Duck Go",
-    url: "https://duckduckgo.com/?q=",
-    prefix: "/d",
-  },
-];
+const props: ISearchProps = {
+  defaultProvider: "https://test.com?q=",
+  providers: [
+    {
+      name: "Allmusic",
+      url: "https://www.allmusic.com/search/all/",
+      prefix: "/a",
+    },
+    {
+      name: "Discogs",
+      url: "https://www.discogs.com/search/?q=",
+      prefix: "/di",
+    },
+    {
+      name: "Duck Duck Go",
+      url: "https://duckduckgo.com/?q=",
+      prefix: "/d",
+    },
+  ],
+};
 
 const setup = () => {
-  const searchBar = render(<SearchBar providers={providers} />);
+  const searchBar = render(<SearchBar search={props} />);
   const input = searchBar.getByTestId("search-input");
   const clearButton = searchBar.getByTestId("search-clear");
   const submitButton = searchBar.getByTestId("search-submit");
@@ -37,37 +40,44 @@ const setup = () => {
   };
 };
 
+const location: Location = window.location;
+
 describe("searchBar.tsx", () => {
   beforeEach(() => {
-    delete global.window.location;
-    global.window = Object.create(window);
-    global.window.location = {
-      port: "123",
-      protocol: "http:",
-      hostname: "localhost",
+    // @ts-ignore
+    delete window.location;
+
+    window.location = {
+      ...location,
+      reload: jest.fn(),
     };
   });
 
   it("Tests SearchBar rendering", () => {
-    const { asFragment } = render(<SearchBar providers={providers} />);
+    const { asFragment } = render(<SearchBar search={props} />);
     expect(asFragment).toMatchSnapshot();
   });
 
   it("Tests handleQueryWithProvider", () => {
-    providers.forEach((provider: ISearchProviderProps) => {
-      handleQueryWithProvider(providers, provider.prefix + " test");
+    props.providers?.forEach((provider: ISearchProviderProps) => {
+      handleQueryWithProvider(props, provider.prefix + " test");
       expect(window.location.href).toEqual(provider.url + "test");
     });
   });
 
   it("Tests handleQueryWithProvider default", () => {
-    handleQueryWithProvider(providers, "test");
-    expect(window.location.href).toEqual("https://google.com/search?q=test");
+    handleQueryWithProvider(props, "test");
+    expect(window.location.href).toEqual(props.defaultProvider + "test");
   });
 
   it("Tests handleQueryWithProvider without providers", () => {
-    handleQueryWithProvider(undefined, "test");
-    expect(window.location.href).toEqual("https://google.com/search?q=test");
+    const test: ISearchProps = {
+      defaultProvider: "https://test.com?q=",
+      providers: undefined,
+    };
+
+    handleQueryWithProvider(test, "test");
+    expect(window.location.href).toEqual(test.defaultProvider + "test");
   });
 
   it("Tests SearchBar component with default search", () => {
@@ -75,7 +85,7 @@ describe("searchBar.tsx", () => {
     fireEvent.change(input, { target: { value: "test" } });
     fireEvent.click(submitButton);
 
-    expect(window.location.href).toEqual("https://google.com/search?q=test");
+    expect(window.location.href).toEqual(props.defaultProvider + "test");
   });
 
   it("Tests SearchBar component with other search", () => {
@@ -96,6 +106,6 @@ describe("searchBar.tsx", () => {
     fireEvent.click(clearButton);
     fireEvent.click(submitButton);
 
-    expect(window.location.href).toEqual("https://google.com/search?q=");
+    expect(window.location.href).toEqual(props.defaultProvider);
   });
 });

@@ -9,7 +9,7 @@ import Settings, {
   SectionHeadline,
   SelectorStyle,
 } from "../../components/settings";
-import { ISearchProviderProps } from "../../components/searchBar";
+import { ISearchProps } from "../../components/searchBar";
 import { IThemeProps } from "../../lib/theme";
 
 const themes: Array<IThemeProps> = [
@@ -29,40 +29,43 @@ const themes: Array<IThemeProps> = [
   },
 ];
 
-const providers: Array<ISearchProviderProps> = [
-  {
-    name: "Allmusic",
-    url: "https://www.allmusic.com/search/all/",
-    prefix: "/a",
-  },
-  {
-    name: "Discogs",
-    url: "https://www.discogs.com/search/?q=",
-    prefix: "/di",
-  },
-  {
-    name: "Duck Duck Go",
-    url: "https://duckduckgo.com/?q=",
-    prefix: "/d",
-  },
-];
+const search: ISearchProps = {
+  defaultProvider: "https://test.com?q=",
+  providers: [
+    {
+      name: "Allmusic",
+      url: "https://www.allmusic.com/search/all/",
+      prefix: "/a",
+    },
+    {
+      name: "Discogs",
+      url: "https://www.discogs.com/search/?q=",
+      prefix: "/di",
+    },
+    {
+      name: "Duck Duck Go",
+      url: "https://duckduckgo.com/?q=",
+      prefix: "/d",
+    },
+  ],
+};
 
 const propsList = [
   {
     themes: themes,
-    providers: providers,
+    search: search,
   },
   {
     themes: themes,
-    providers: undefined,
+    search: undefined,
   },
   {
     themes: undefined,
-    providers: providers,
+    search: search,
   },
   {
     themes: undefined,
-    providers: undefined,
+    search: undefined,
   },
 ];
 
@@ -115,7 +118,7 @@ describe("settings.tsx", () => {
   it("Tests settings rendering", () => {
     propsList.forEach((props) => {
       const settings = render(
-        <Settings themes={props.themes} providers={props.providers} />,
+        <Settings themes={props.themes} search={props.search} />,
       );
 
       expect(settings.asFragment).toMatchSnapshot();
@@ -125,10 +128,7 @@ describe("settings.tsx", () => {
   // TODO: Finish this test
   it("Tests theme setting", () => {
     const settings = render(
-      <Settings
-        themes={propsList[0].themes}
-        providers={propsList[0].providers}
-      />,
+      <Settings themes={propsList[0].themes} search={propsList[0].search} />,
     );
 
     const toggleButton = settings.getByTestId("toggle-button");
