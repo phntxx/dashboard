@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
 import Icon from "./icon";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
 
-const AppContainer = styled.div`
+const AppContainer = styled.a`
   display: flex;
-  flex: auto 25%;
+  flex: 1 0 auto;
   padding: 1rem;
+  color: ${selectedTheme.mainColor};
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
 `;
 
 const IconContainer = styled.div`
@@ -21,16 +26,8 @@ const DetailsContainer = styled.div`
   flex-direction: column;
 `;
 
-const AppLink = styled.a`
-  flex: 1 0 auto;
-  color: ${selectedTheme.mainColor};
-  font-weight: 500;
-  text-transform: uppercase;
-  margin: 0;
-  text-decoration: none;
-  font-size: 1rem;
-
-  &:hover {
+const AppName = styled.div`
+  a:hover & {
     text-decoration: underline;
   }
 `;
@@ -53,26 +50,29 @@ export interface IAppProps {
 
 /**
  * Renders a single app shortcut
- * @param {IAppProps} props - The props of the given app
+ * @param {IAppProps} props the props of the given app
+ * @returns {React.ReactNode} the child node for the given app
  */
-export const App = ({ name, icon, url, displayURL, newTab }: IAppProps) => {
-
-  useEffect(() => { console.log(newTab) }, [newTab])
+const App = ({ name, icon, url, displayURL, newTab }: IAppProps) => {
+  const linkAttrs =
+    newTab !== undefined && newTab
+      ? {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        }
+      : {};
 
   return (
-    <AppContainer>
+    <AppContainer href={url} {...linkAttrs}>
       <IconContainer>
         <Icon name={icon} />
       </IconContainer>
       <DetailsContainer>
-
-        {
-          (newTab !== undefined && newTab) ?
-            <AppLink href={url} target="_blank" rel="noopener noreferrer">{name}</AppLink> : <AppLink href={url}>{name}</AppLink>
-        }
-
+        <AppName>{name}</AppName>
         <AppDescription>{displayURL}</AppDescription>
       </DetailsContainer>
     </AppContainer>
   );
-}
+};
+
+export default App;

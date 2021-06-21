@@ -1,7 +1,5 @@
-import React from "react";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
-import Icon from "./icon";
 
 export const ListContainer = styled.div`
   padding: 2rem 0;
@@ -56,29 +54,3 @@ export const Button = styled.button`
     cursor: pointer;
   }
 `;
-
-const StyledButton = styled.button`
-  float: right;
-  border: none;
-  padding: 0;
-  background: none;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-interface IIconButtonProps {
-  icon: string;
-  onClick: (e: React.FormEvent) => void;
-}
-
-/**
- * Renders a button with an icon
- * @param {IIconProps} props - The props of the given IconButton
- */
-export const IconButton = ({ icon, onClick }: IIconButtonProps) => (
-  <StyledButton onClick={onClick}>
-    <Icon name={icon} />
-  </StyledButton>
-);

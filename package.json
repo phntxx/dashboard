@@ -8,14 +8,13 @@
   ],
   "private": false,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^13.0.6",
-    "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
     "@types/react-dom": "^17.0.3",
     "@types/react-select": "^4.0.13",
     "@types/styled-components": "^5.1.9",
+    "browserslist": "^4.16.6",
+    "http-server": "^0.12.3",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3",
@@ -23,11 +22,28 @@
     "styled-components": "^5.2.1",
     "typescript": "^4.2.3"
   },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.0.6",
+    "@types/jest": "^26.0.22",
+    "codecov": "^3.8.2",
+    "eslint": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "coverage": "codecov -f coverage/*.json -F dashboard",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "typecheck": "tsc --noEmit",
+    "eject": "react-scripts eject",
+    "lint": "eslint --config .eslintrc.js",
+    "prettier": "prettier --config .prettierrc.js '{data,src}/**/*.{json,ts,tsx}'",
+    "http-server:data": "http-server ./ -c-1",
+    "http-server:app": "http-server ./build --proxy http://localhost:8080 --port 3000",
+    "serve:production": "npm-run-all --parallel http-server:data http-server:app"
   },
   "eslintConfig": {
     "extends": "react-app"

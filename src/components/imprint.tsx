@@ -2,12 +2,7 @@ import React from "react";
 import Modal from "./modal";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
-import {
-  ListContainer,
-  ItemList,
-  Headline,
-  SubHeadline,
-} from "./elements";
+import { ListContainer, ItemList, Headline, SubHeadline } from "./elements";
 
 const ModalSubHeadline = styled(SubHeadline)`
   display: block;
@@ -37,11 +32,6 @@ const ItemContainer = styled.div`
   padding: 1rem 0;
 `;
 
-interface IImprintFieldProps {
-  text: string;
-  link: string;
-}
-
 export interface IImprintProps {
   name: IImprintFieldProps;
   address: IImprintFieldProps;
@@ -51,25 +41,32 @@ export interface IImprintProps {
   text: string;
 }
 
+export interface IImprintComponentProps {
+  imprint: IImprintProps;
+}
+
 interface IImprintFieldComponentProps {
   field: IImprintFieldProps;
 }
 
-interface IImprintComponentProps {
-  imprint: IImprintProps;
+interface IImprintFieldProps {
+  text: string;
+  link: string;
 }
 
 /**
  * Renders an imprint field
- * @param {IImprintFieldComponentProps} props - The data for the field
+ * @param {IImprintFieldComponentProps} props data for the field
+ * @returns {React.ReactNode} the imprint field component
  */
-const ImprintField = ({ field }: IImprintFieldComponentProps) => (
+export const ImprintField = ({ field }: IImprintFieldComponentProps) => (
   <Link href={field.link}>{field.text}</Link>
 );
 
 /**
  * Renders the imprint component
- * @param {IImprintProps} props - The contents of the imprint
+ * @param {IImprintProps} props contents of the imprint
+ * @returns {React.ReactNode} the imprint node
  */
 const Imprint = ({ imprint }: IImprintComponentProps) => (
   <>
@@ -85,15 +82,17 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
             condition={!window.location.href.endsWith("#imprint")}
             onClose={() => {
               if (window.location.href.endsWith("#imprint")) {
-                let location = window.location.href.replace("#imprint", "");
-                window.location.href = location;
+                window.location.href = window.location.href.replace(
+                  "#imprint",
+                  "",
+                );
               }
             }}
           >
             <div>
               <ModalSubHeadline>
                 Information in accordance with section 5 TMG
-            </ModalSubHeadline>
+              </ModalSubHeadline>
               <>
                 {imprint.name && <ImprintField field={imprint.name} />}
                 {imprint.address && <ImprintField field={imprint.address} />}
@@ -103,9 +102,7 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
               </>
             </div>
             <div>
-              <ModalSubHeadline>
-                Imprint
-            </ModalSubHeadline>
+              <ModalSubHeadline>Imprint</ModalSubHeadline>
               {imprint.text && <Text>{imprint.text}</Text>}
             </div>
           </Modal>

@@ -42,7 +42,7 @@
       {
         "greeting": "Good evening!",
         "start": 18,
-        "end": 0
+        "end": 24
       }
     ],
     "dateformat": "%wd, %m %d%e %y"

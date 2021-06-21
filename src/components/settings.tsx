@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 import Select, { ValueType } from "react-select";
@@ -9,36 +9,37 @@ import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
 
-const FormContainer = styled.div`
+export const FormContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
 `;
 
-const Table = styled.table`
+export const Table = styled.table`
   font-weight: 400;
   background: none;
   width: 100%;
   color: ${selectedTheme.mainColor};
 `;
 
-const TableRow = styled.tr`
+export const TableRow = styled.tr`
   border-bottom: 1px solid ${selectedTheme.mainColor};
 `;
 
-const TableCell = styled.td`
+export const TableCell = styled.td`
+  background: none;
   padding-top: 0.5rem;
 `;
 
-const HeadCell = styled.th`
+export const HeadCell = styled.th`
   font-weight: 700;
   text-align: left;
 `;
 
-const Section = styled.div`
+export const Section = styled.div`
   padding: 1rem 0;
 `;
 
-const SectionHeadline = styled(SubHeadline)`
+export const SectionHeadline = styled(SubHeadline)`
   width: 100%;
   border-bottom: 1px solid ${selectedTheme.accentColor};
   margin-bottom: 0.5rem;
@@ -54,7 +55,7 @@ const Code = styled.p`
   color: ${selectedTheme.accentColor};
 `;
 
-const SelectorStyle: any = {
+export const SelectorStyle: any = {
   container: (base: any): any => ({
     ...base,
     margin: "0 2px",
@@ -72,15 +73,15 @@ const SelectorStyle: any = {
     boxShadow: "none",
     "&:hover": {
       border: "1px solid",
-      borderColor: selectedTheme.mainColor
+      borderColor: selectedTheme.mainColor,
     },
   }),
   dropdownIndicator: (base: any): any => ({
     ...base,
     color: selectedTheme.mainColor,
     "&:hover": {
-      color: selectedTheme.mainColor
-    }
+      color: selectedTheme.mainColor,
+    },
   }),
   indicatorSeparator: () => ({
     display: "none",
@@ -91,7 +92,7 @@ const SelectorStyle: any = {
     border: "1px solid " + selectedTheme.mainColor,
     borderRadius: 0,
     boxShadow: "none",
-    margin: "4px 0"
+    margin: "4px 0",
   }),
   option: (base: any): any => ({
     ...base,
@@ -125,7 +126,7 @@ interface ISettingsProps {
 const Settings = ({ themes, search }: ISettingsProps) => {
   const [newTheme, setNewTheme] = useState<IThemeProps>();
 
-  if (themes && search) {
+  if (themes || search) {
     return (
       <Modal element="icon" icon="settings" title="Settings">
         {themes && (
@@ -133,6 +134,7 @@ const Settings = ({ themes, search }: ISettingsProps) => {
             <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
               <Select
+                classNamePrefix="list"
                 options={themes}
                 defaultValue={selectedTheme}
                 onChange={(e: ValueType<IThemeProps, false>) => {
@@ -140,10 +142,20 @@ const Settings = ({ themes, search }: ISettingsProps) => {
                 }}
                 styles={SelectorStyle}
               />
-              <Button onClick={() => setTheme(JSON.stringify(newTheme))}>
+              <Button
+                data-testid="button-submit"
+                onClick={() => {
+                  if (newTheme) setTheme(newTheme);
+                }}
+              >
                 Apply
               </Button>
-              <Button onClick={() => window.location.reload()}>Refresh</Button>
+              <Button
+                data-testid="button-refresh"
+                onClick={() => window.location.reload()}
+              >
+                Refresh
+              </Button>
             </FormContainer>
           </Section>
         )}
@@ -155,24 +167,22 @@ const Settings = ({ themes, search }: ISettingsProps) => {
               <Code>{search.defaultProvider}</Code>
             </>
             <>
-              {
-                search.providers && (
-                  <Table>
-                    <tbody>
-                      <TableRow>
-                        <HeadCell>Search Provider</HeadCell>
-                        <HeadCell>Prefix</HeadCell>
+              {search.providers && (
+                <Table>
+                  <tbody>
+                    <TableRow>
+                      <HeadCell>Search Provider</HeadCell>
+                      <HeadCell>Prefix</HeadCell>
+                    </TableRow>
+                    {search.providers.map((provider, index) => (
+                      <TableRow key={provider.name + index}>
+                        <TableCell>{provider.name}</TableCell>
+                        <TableCell>{provider.prefix}</TableCell>
                       </TableRow>
-                      {search.providers.map((provider, index) => (
-                        <TableRow key={provider.name + index}>
-                          <TableCell>{provider.name}</TableCell>
-                          <TableCell>{provider.prefix}</TableCell>
-                        </TableRow>
-                      ))}
-                    </tbody>
-                  </Table>
-                )
-              }
+                    ))}
+                  </tbody>
+                </Table>
+              )}
             </>
           </Section>
         )}

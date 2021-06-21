@@ -16,17 +16,16 @@ const Search = styled.form`
 
 const SearchInput = styled.input`
   width: 100%;
+  margin: 0px;
 
   font-size: 1rem;
 
   border: none;
   border-bottom: 1px solid ${selectedTheme.accentColor};
+  border-radius: 0;
 
   background: none;
-  border-radius: 0;
   color: ${selectedTheme.mainColor};
-
-  margin: 0px;
 
   :focus {
     outline: none;
@@ -53,9 +52,33 @@ interface ISearchBarProps {
   search: ISearchProps;
 }
 
+export const handleQueryWithProvider = (
+  search: ISearchProps,
+  query: string,
+) => {
+  let queryArray: Array<string> = query.split(" ");
+  let prefix: string = queryArray[0];
+
+  queryArray.shift();
+
+  let searchQuery: string = queryArray.join(" ");
+
+  let providerFound: boolean = false;
+  if (search.providers) {
+    search.providers.forEach((provider: ISearchProviderProps) => {
+      if (provider.prefix === prefix) {
+        providerFound = true;
+        window.location.href = provider.url + searchQuery;
+      }
+    });
+  }
+
+  if (!providerFound) window.location.href = search.defaultProvider + query;
+};
+
 /**
  * Renders a search bar
- * @param {ISearchBarProps} search - The search providers for the search bar to use 
+ * @param {ISearchBarProps} search - The search providers for the search bar to use
  */
 const SearchBar = ({ search }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
@@ -67,7 +90,7 @@ const SearchBar = ({ search }: ISearchBarProps) => {
     var query: string = input || "";
 
     if (query.split(" ")[0].includes("/")) {
-      handleQueryWithProvider(query);
+      handleQueryWithProvider(search, query);
     } else {
       window.location.href = search.defaultProvider + query;
     }
@@ -75,32 +98,11 @@ const SearchBar = ({ search }: ISearchBarProps) => {
     e.preventDefault();
   };
 
-  const handleQueryWithProvider = (query: string) => {
-    let queryArray: Array<string> = query.split(" ");
-    let prefix: string = queryArray[0];
-
-    queryArray.shift();
-
-    let searchQuery: string = queryArray.join(" ");
-
-    let providerFound: boolean = false;
-    if (search.providers) {
-      search.providers.forEach((provider: ISearchProviderProps) => {
-        if (provider.prefix === prefix) {
-          providerFound = true;
-          window.location.href = provider.url + searchQuery;
-        }
-      });
-    }
-
-    if (!providerFound)
-      window.location.href = search.defaultProvider + query;
-  };
-
   return (
     <Search onSubmit={(e) => handleSearchQuery(e)}>
       <SearchInput
         type="text"
+        data-testid="search-input"
         value={input}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setInput(e.target.value)
@@ -108,12 +110,17 @@ const SearchBar = ({ search }: ISearchBarProps) => {
       ></SearchInput>
       <SearchButton
         type="button"
+        data-testid="search-clear"
         onClick={() => setInput("")}
         hidden={buttonsHidden}
       >
         Clear
       </SearchButton>
-      <SearchButton type="submit" hidden={buttonsHidden}>
+      <SearchButton
+        type="submit"
+        data-testid="search-submit"
+        hidden={buttonsHidden}
+      >
         Search
       </SearchButton>
     </Search>

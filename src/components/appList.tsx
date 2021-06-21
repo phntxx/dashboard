@@ -1,4 +1,4 @@
-import { AppCategory, IAppCategoryProps } from "./appCategory";
+import AppCategory, { IAppCategoryProps } from "./appCategory";
 import { IAppProps } from "./app";
 
 import { Headline, ListContainer } from "./elements";
@@ -10,7 +10,8 @@ export interface IAppListProps {
 
 /**
  * Renders one list containing all app categories and uncategorized apps
- * @param {IAppListProps} props - The props of the given list of apps
+ * @param {IAppListProps} props props of the given list of apps
+ * @returns {React.ReactNode} the app list component
  */
 const AppList = ({ categories, apps }: IAppListProps) => (
   <ListContainer>
@@ -20,10 +21,7 @@ const AppList = ({ categories, apps }: IAppListProps) => (
         <AppCategory key={[name, idx].join("")} name={name} items={items} />
       ))}
     {apps && (
-      <AppCategory
-        name={categories ? "Uncategorized apps" : ""}
-        items={apps}
-      />
+      <AppCategory name={categories ? "Uncategorized apps" : ""} items={apps} />
     )}
   </ListContainer>
 );

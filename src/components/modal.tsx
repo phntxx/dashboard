@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
 
-import { Headline, IconButton } from "./elements";
+import { Headline } from "./elements";
+import { IconButton } from "./icon";
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -37,7 +38,7 @@ const TitleContainer = styled.div`
   justify-content: space-between;
 `;
 
-interface IModalProps {
+export interface IModalProps {
   element: string;
   icon?: string;
   text?: string;
@@ -49,9 +50,18 @@ interface IModalProps {
 
 /**
  * Renders a modal with button to hide and un-hide
- * @param {IModalProps} props - The needed props for the modal
+ * @param {IModalProps} props needed props for the modal
+ * @returns {React.ReactNode} the modal component
  */
-const Modal = ({ element, icon, text, condition, title, onClose, children }: IModalProps) => {
+const Modal = ({
+  element,
+  icon,
+  text,
+  condition,
+  title,
+  onClose,
+  children,
+}: IModalProps) => {
   const [modalHidden, setModalHidden] = useState<boolean>(condition ?? true);
 
   const closeModal = () => {
@@ -62,17 +72,27 @@ const Modal = ({ element, icon, text, condition, title, onClose, children }: IMo
   return (
     <>
       {element === "icon" && (
-        <IconButton icon={icon ?? ""} onClick={() => closeModal()} />
+        <IconButton
+          icon={icon ?? ""}
+          testid="toggle-button"
+          onClick={() => closeModal()}
+        />
       )}
 
       {element === "text" && (
-        <Text onClick={() => closeModal()}>{text}</Text>
+        <Text data-testid="toggle-button" onClick={() => closeModal()}>
+          {text}
+        </Text>
       )}
 
       <ModalContainer hidden={modalHidden}>
         <TitleContainer>
           <Headline>{title}</Headline>
-          <IconButton icon="close" onClick={() => closeModal()} />
+          <IconButton
+            icon="close"
+            testid="close-button"
+            onClick={() => closeModal()}
+          />
         </TitleContainer>
         {children}
       </ModalContainer>
