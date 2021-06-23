@@ -10,7 +10,7 @@ import Imprint from "./components/imprint";
 import selectedTheme from "./lib/theme";
 import useFetcher from "./lib/fetcher";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${selectedTheme.backgroundColor};
     font-family: Roboto, sans-serif;

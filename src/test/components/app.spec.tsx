@@ -6,19 +6,47 @@ const props: IAppProps = {
   icon: "bug_report",
   url: "#",
   displayURL: "test",
-  newTab: false,
 };
 
-it("App snapshot test", () => {
-  const { asFragment } = render(
-    <App
-      name={props.name}
-      icon={props.icon}
-      url={props.url}
-      displayURL={props.displayURL}
-      newTab={props.newTab}
-    />,
-  );
+describe("app.tsx", () => {
+  it("Tests app rendering with newTab=true", () => {
+    const { asFragment } = render(
+      <App
+        name={props.name}
+        icon={props.icon}
+        url={props.url}
+        displayURL={props.displayURL}
+        newTab={true}
+      />,
+    );
 
-  expect(asFragment).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests app rendering with newTab=false", () => {
+    const { asFragment } = render(
+      <App
+        name={props.name}
+        icon={props.icon}
+        url={props.url}
+        displayURL={props.displayURL}
+        newTab={false}
+      />,
+    );
+
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests app rendering without newTab", () => {
+    const { asFragment } = render(
+      <App
+        name={props.name}
+        icon={props.icon}
+        url={props.url}
+        displayURL={props.displayURL}
+      />,
+    );
+
+    expect(asFragment).toMatchSnapshot();
+  });
 });
