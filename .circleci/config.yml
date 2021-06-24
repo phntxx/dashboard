@@ -44,7 +44,7 @@ jobs:
       - run:
           name: test
           command: |
-            yarn test --watchAll --coverage
+            yarn test --coverage
       - run:
           name: coverage
           command: |
