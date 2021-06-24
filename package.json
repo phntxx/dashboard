@@ -34,7 +34,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "coverage": "codecov -f coverage/*.json -F dashboard",
-    "test": "react-scripts test --watchAll --coverage --runInBand",
+    "test": "react-scripts test",
     "typecheck": "tsc --noEmit",
     "eject": "react-scripts eject",
     "lint": "eslint --config .eslintrc.js",
