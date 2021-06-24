@@ -1,4 +1,3 @@
-import React from "react";
 import Modal from "./modal";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
@@ -63,6 +62,12 @@ export const ImprintField = ({ field }: IImprintFieldComponentProps) => (
   <Link href={field.link}>{field.text}</Link>
 );
 
+export const onClose = () => {
+  if (window.location.href.endsWith("#imprint")) {
+    window.location.href = window.location.href.replace("#imprint", "");
+  }
+};
+
 /**
  * Renders the imprint component
  * @param {IImprintProps} props contents of the imprint
@@ -80,14 +85,7 @@ const Imprint = ({ imprint }: IImprintComponentProps) => (
             text="View Imprint"
             title="Legal Disclosure"
             condition={!window.location.href.endsWith("#imprint")}
-            onClose={() => {
-              if (window.location.href.endsWith("#imprint")) {
-                window.location.href = window.location.href.replace(
-                  "#imprint",
-                  "",
-                );
-              }
-            }}
+            onClose={onClose}
           >
             <div>
               <ModalSubHeadline>

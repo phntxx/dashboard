@@ -34,10 +34,27 @@ const props: IAppListProps = {
   ],
 };
 
-it("AppList snapshot test", () => {
-  const { asFragment } = render(
-    <AppList categories={props.categories} apps={props.apps} />,
-  );
+describe("appList.tsx", () => {
+  it("Tests AppList rendering with categories and apps", () => {
+    const { asFragment } = render(
+      <AppList categories={props.categories} apps={props.apps} />,
+    );
 
-  expect(asFragment).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests AppList rendering with categories", () => {
+    const { asFragment } = render(<AppList categories={props.categories} />);
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests AppList rendering with apps", () => {
+    const { asFragment } = render(<AppList apps={props.apps} />);
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests AppList rendering with neither", () => {
+    const { asFragment } = render(<AppList />);
+    expect(asFragment).toMatchSnapshot();
+  });
 });

@@ -64,11 +64,11 @@ it("isBetween test", () => {
 });
 
 it("getExtension test", () => {
+  expect(getExtension(0)).toEqual("");
   expect(getExtension(1)).toEqual("st");
   expect(getExtension(2)).toEqual("nd");
   expect(getExtension(3)).toEqual("rd");
-  expect(getExtension(4)).toEqual("th");
-  expect(getExtension(55)).toEqual("th");
+  expect(getExtension(15)).toEqual("th");
 });
 
 it("Greeter snapshot test", () => {

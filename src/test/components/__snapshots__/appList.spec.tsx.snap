@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppList snapshot test 1`] = `[Function]`;
+exports[`appList.tsx Tests AppList rendering with apps 1`] = `[Function]`;
+
+exports[`appList.tsx Tests AppList rendering with categories 1`] = `[Function]`;
+
+exports[`appList.tsx Tests AppList rendering with categories and apps 1`] = `[Function]`;
+
+exports[`appList.tsx Tests AppList rendering with neither 1`] = `[Function]`;

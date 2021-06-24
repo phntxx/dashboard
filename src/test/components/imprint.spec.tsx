@@ -1,5 +1,9 @@
 import { fireEvent, render } from "@testing-library/react";
-import Imprint, { IImprintProps, ImprintField } from "../../components/imprint";
+import Imprint, {
+  IImprintProps,
+  ImprintField,
+  onClose,
+} from "../../components/imprint";
 
 const props: IImprintProps = {
   name: {
@@ -43,15 +47,16 @@ describe("imprint.tsx", () => {
     expect(asFragment).toMatchSnapshot();
   });
 
-  it("Tests #imprint", () => {
+  it("Tests onClose with #imprint", () => {
     const location = window.location.href;
     window.location.href = location + "#imprint";
+    onClose();
+    expect(window.location.href).toEqual(location);
+  });
 
-    const imprintModal = render(<Imprint imprint={props} />);
-
-    fireEvent.click(imprintModal.getByTestId("toggle-button"));
-    //fireEvent.click(imprintModal.getByTestId("close-button"));
-
+  it("Tests onClose without #imprint", () => {
+    const location = window.location.href;
+    onClose();
     expect(window.location.href).toEqual(location);
   });
 
