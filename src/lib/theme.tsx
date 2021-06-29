@@ -1,6 +1,6 @@
-export interface IThemeProps {
-  label: string;
-  value: number;
+import { IItemProps } from "../components/select";
+
+export interface IThemeProps extends IItemProps {
   mainColor: string;
   accentColor: string;
   backgroundColor: string;

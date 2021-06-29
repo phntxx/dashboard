@@ -27,7 +27,7 @@ const DetailsContainer = styled.div`
 `;
 
 const AppName = styled.div`
-  a:hover & {
+  a:hover {
     text-decoration: underline;
   }
 `;

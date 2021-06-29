@@ -7,7 +7,6 @@ import Settings, {
   HeadCell,
   Section,
   SectionHeadline,
-  SelectorStyle,
 } from "../../components/settings";
 import { ISearchProps } from "../../components/searchBar";
 import { IThemeProps } from "../../lib/theme";
@@ -22,7 +21,7 @@ const themes: Array<IThemeProps> = [
   },
   {
     label: "Classic",
-    value: 0,
+    value: 1,
     mainColor: "#000000",
     accentColor: "#1e272e",
     backgroundColor: "#ffffff",
@@ -116,27 +115,36 @@ describe("settings.tsx", () => {
 
   it("Tests settings rendering", () => {
     propsList.forEach((props) => {
-      const settings = render(
+      const { asFragment } = render(
         <Settings themes={props.themes} search={props.search} />,
       );
 
-      expect(settings.asFragment).toMatchSnapshot();
+      expect(asFragment).toMatchSnapshot();
     });
   });
 
-  // TODO: Finish this test
-  it("Tests theme setting", () => {
-    const settings = render(
-      <Settings themes={propsList[0].themes} search={propsList[0].search} />,
-    );
+  it("Tests submit button", () => {
+    const settings = render(<Settings themes={themes} search={search} />);
 
-    const toggleButton = settings.getByTestId("toggle-button");
+    fireEvent.click(settings.getByTestId("button-refresh"));
+    expect(window.location.reload).toHaveBeenCalledTimes(1);
+  });
 
-    const submitButton = settings.getByTestId("button-submit");
-    const refreshButton = settings.getByTestId("button-refresh");
+  it("Tests theme selection", () => {
+    const settings = render(<Settings themes={themes} search={search} />);
 
-    fireEvent.click(toggleButton);
+    fireEvent.change(settings.getByTestId("select"), { target: { value: 0 } });
 
-    fireEvent.click(submitButton);
+    fireEvent.click(settings.getByTestId("button-submit"));
+    expect(window.location.reload).toHaveBeenCalledTimes(1);
+  });
+
+  it("Tests theme selection", () => {
+    const settings = render(<Settings themes={themes} search={search} />);
+
+    fireEvent.change(settings.getByTestId("select"), { target: { value: 5 } });
+
+    fireEvent.click(settings.getByTestId("button-submit"));
+    expect(window.location.reload).toHaveBeenCalledTimes(0);
   });
 });

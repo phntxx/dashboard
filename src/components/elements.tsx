@@ -42,6 +42,7 @@ export const Item = styled.li`
 
 export const Button = styled.button`
   text-transform: uppercase;
+  font-family: Roboto, sans-serif;
   font-weight: 400;
   border: 1px solid ${selectedTheme.mainColor};
   color: ${selectedTheme.mainColor};

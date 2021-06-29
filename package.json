@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "repository": "git@github.com:phntxx/dashboard",
-  "contributors": ["phntxx <hello@phntxx.com>"],
+  "contributors": [
+    "phntxx <hello@phntxx.com>"
+  ],
   "private": false,
   "dependencies": {
     "@types/node": "^14.14.37",
     "@types/react-dom": "^17.0.3",
-    "@types/react-select": "^4.0.13",
     "@types/styled-components": "^5.1.9",
     "browserslist": "^4.16.6",
     "http-server": "^0.12.3",
@@ -16,7 +17,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3",
-    "react-select": "^4.3.0",
     "styled-components": "^5.2.1",
     "typescript": "^4.2.3"
   },
@@ -47,7 +47,11 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

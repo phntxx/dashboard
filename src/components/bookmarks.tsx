@@ -50,8 +50,8 @@ export const BookmarkGroup = ({ name, items }: IBookmarkGroupProps) => (
   <Item>
     <GroupContainer>
       <SubHeadline>{name}</SubHeadline>
-      {items.map(({ name, url }, idx) => (
-        <Bookmark key={[name, idx].join("")} href={url}>
+      {items.map(({ name, url }, index) => (
+        <Bookmark key={[name, index].join("")} href={url}>
           {name}
         </Bookmark>
       ))}
@@ -68,8 +68,8 @@ const BookmarkList = ({ groups }: IBookmarkListProps) => (
   <ListContainer>
     <Headline>Bookmarks</Headline>
     <ItemList>
-      {groups.map(({ name, items }, idx) => (
-        <BookmarkGroup key={[name, idx].join("")} name={name} items={items} />
+      {groups.map(({ name, items }, index) => (
+        <BookmarkGroup key={[name, index].join("")} name={name} items={items} />
       ))}
     </ItemList>
   </ListContainer>

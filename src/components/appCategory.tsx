@@ -24,14 +24,14 @@ const AppCategory = ({ name, items }: IAppCategoryProps) => (
   <CategoryContainer>
     {name && <CategoryHeadline>{name}</CategoryHeadline>}
     <ItemList>
-      {items.map((app, idx) => (
-        <Item key={[app.name, idx].join("")}>
+      {items.map(({ name, icon, displayURL, newTab, url }, index) => (
+        <Item key={[name, index].join("")}>
           <App
-            name={app.name}
-            icon={app.icon}
-            url={app.url}
-            displayURL={app.displayURL}
-            newTab={app.newTab}
+            name={name}
+            icon={icon}
+            url={url}
+            displayURL={displayURL}
+            newTab={newTab}
           />
         </Item>
       ))}

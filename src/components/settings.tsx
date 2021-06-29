@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import Select, { ValueType } from "react-select";
+import Select, { IItemProps } from "./select";
 
 import { ISearchProps } from "./searchBar";
 import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
@@ -55,63 +55,21 @@ const Code = styled.p`
   color: ${selectedTheme.accentColor};
 `;
 
-export const SelectorStyle: any = {
-  container: (base: any): any => ({
-    ...base,
-    margin: "0 2px",
-  }),
-  control: (base: any): any => ({
-    ...base,
-    fontWeight: 500,
-    color: selectedTheme.mainColor,
-    textTransform: "uppercase",
-    width: "12rem",
-    background: "none",
-    borderRadius: 0,
-    border: "1px solid",
-    borderColor: selectedTheme.mainColor,
-    boxShadow: "none",
-    "&:hover": {
-      border: "1px solid",
-      borderColor: selectedTheme.mainColor,
-    },
-  }),
-  dropdownIndicator: (base: any): any => ({
-    ...base,
-    color: selectedTheme.mainColor,
-    "&:hover": {
-      color: selectedTheme.mainColor,
-    },
-  }),
-  indicatorSeparator: () => ({
-    display: "none",
-  }),
-  menu: (base: any): any => ({
-    ...base,
-    backgroundColor: selectedTheme.backgroundColor,
-    border: "1px solid " + selectedTheme.mainColor,
-    borderRadius: 0,
-    boxShadow: "none",
-    margin: "4px 0",
-  }),
-  option: (base: any): any => ({
-    ...base,
-    fontWeight: 500,
-    color: selectedTheme.mainColor,
-    textTransform: "uppercase",
-    borderRadius: 0,
-    boxShadow: "none",
-    backgroundColor: selectedTheme.backgroundColor,
-    "&:hover": {
-      backgroundColor: selectedTheme.mainColor,
-      color: selectedTheme.backgroundColor,
-    },
-  }),
-  singleValue: (base: any): any => ({
-    ...base,
-    color: selectedTheme.mainColor,
-  }),
-};
+const ThemeSelect = styled(Select)`
+  -webkit-appearance: button;
+  -moz-appearance: button;
+
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  border: 1px solid ${selectedTheme.mainColor};
+  color: ${selectedTheme.mainColor};
+  background: none;
+
+  & > option {
+    background-color: ${selectedTheme.backgroundColor};
+  }
+`;
 
 interface ISettingsProps {
   themes: Array<IThemeProps> | undefined;
@@ -133,15 +91,10 @@ const Settings = ({ themes, search }: ISettingsProps) => {
           <Section>
             <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
-              <Select
-                classNamePrefix="list"
-                options={themes}
-                defaultValue={selectedTheme}
-                onChange={(e: ValueType<IThemeProps, false>) => {
-                  if (e !== null && e !== undefined) setNewTheme(e);
-                }}
-                styles={SelectorStyle}
-              />
+              <ThemeSelect
+                items={themes}
+                onChange={(theme: IThemeProps) => setNewTheme(theme)}
+              ></ThemeSelect>
               <Button
                 data-testid="button-submit"
                 onClick={() => {
@@ -174,10 +127,10 @@ const Settings = ({ themes, search }: ISettingsProps) => {
                       <HeadCell>Search Provider</HeadCell>
                       <HeadCell>Prefix</HeadCell>
                     </TableRow>
-                    {search.providers.map((provider, index) => (
-                      <TableRow key={provider.name + index}>
-                        <TableCell>{provider.name}</TableCell>
-                        <TableCell>{provider.prefix}</TableCell>
+                    {search.providers.map(({ name, prefix }, index) => (
+                      <TableRow key={name + index}>
+                        <TableCell>{name}</TableCell>
+                        <TableCell>{prefix}</TableCell>
                       </TableRow>
                     ))}
                   </tbody>

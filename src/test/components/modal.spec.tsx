@@ -75,4 +75,11 @@ describe("modal.tsx", () => {
     fireEvent.click(modal.getByTestId("close-button"));
     expect(invalidIconProps.onClose).toHaveBeenCalledTimes(2);
   });
+
+  it("Tests modal without onClose behaviour", () => {
+    const modal = setup(noneProps);
+    expect(modal.asFragment).toMatchSnapshot();
+    fireEvent.click(modal.getByTestId("close-button"));
+    expect(iconProps.onClose).toHaveBeenCalledTimes(0);
+  });
 });

@@ -4,7 +4,7 @@ import Icon, { IconButton } from "../../components/icon";
 const props = {
   name: "bug_report",
   size: "20px",
-  onClick: () => console.log("test"),
+  onClick: jest.fn(),
 };
 
 it("Icon test", () => {
@@ -18,13 +18,12 @@ it("Icon test (no size)", () => {
 });
 
 it("IconButton test", () => {
-  const { asFragment } = render(
+  const iconButton = render(
     <IconButton icon={props.name} onClick={props.onClick} />,
   );
-  expect(asFragment).toMatchSnapshot();
 
-  const handleClick = jest.fn();
-  render(<IconButton icon="question_answer" onClick={handleClick} />);
-  fireEvent.click(screen.getByText(/question_answer/i));
-  expect(handleClick).toHaveBeenCalledTimes(1);
+  expect(iconButton.asFragment).toMatchSnapshot();
+
+  fireEvent.click(screen.getByText(/bug_report/i));
+  expect(props.onClick).toHaveBeenCalledTimes(1);
 });

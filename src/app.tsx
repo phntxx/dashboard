@@ -43,13 +43,12 @@ const App = () => {
       <GlobalStyle />
       <div>
         <SearchBar search={searchProviderData?.search} />
-        {!themeData.error ||
-          (!searchProviderData.error && (
-            <Settings
-              themes={themeData?.themes}
-              search={searchProviderData?.search}
-            />
-          ))}
+        {(!themeData.error || !searchProviderData.error) && (
+          <Settings
+            themes={themeData?.themes}
+            search={searchProviderData?.search}
+          />
+        )}
         <Greeter data={greeterData.greeter} />
         {!appData.error && (
           <AppList apps={appData.apps} categories={appData.categories} />

@@ -19,8 +19,12 @@ const AppList = ({ categories, apps }: IAppListProps) => {
       <ListContainer>
         <Headline>Applications</Headline>
         {categories &&
-          categories.map(({ name, items }, idx) => (
-            <AppCategory key={[name, idx].join("")} name={name} items={items} />
+          categories.map(({ name, items }, index) => (
+            <AppCategory
+              key={[name, index].join("")}
+              name={name}
+              items={items}
+            />
           ))}
         {apps && (
           <AppCategory
