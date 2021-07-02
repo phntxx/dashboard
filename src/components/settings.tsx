@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import Select, { IItemProps } from "./select";
+import Select from "./select";
 
 import { ISearchProps } from "./searchBar";
 import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
