@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Icon from "./icon";
 import styled from "styled-components";
 import selectedTheme from "../lib/theme";
@@ -28,7 +27,7 @@ const DetailsContainer = styled.div`
 `;
 
 const AppName = styled.div`
-  a:hover & {
+  a:hover {
     text-decoration: underline;
   }
 `;
@@ -51,16 +50,17 @@ export interface IAppProps {
 
 /**
  * Renders a single app shortcut
- * @param {IAppProps} props - The props of the given app
+ * @param {IAppProps} props the props of the given app
+ * @returns {React.ReactNode} the child node for the given app
  */
-export const App = ({ name, icon, url, displayURL, newTab }: IAppProps) => {
-
-  useEffect(() => { console.log(newTab) }, [newTab])
-
-  const linkAttrs = (newTab !== undefined && newTab) ? {
-    target: '_blank',
-    rel: 'noopener noreferrer',
-  } : {};
+const App = ({ name, icon, url, displayURL, newTab }: IAppProps) => {
+  const linkAttrs =
+    newTab !== undefined && newTab
+      ? {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        }
+      : {};
 
   return (
     <AppContainer href={url} {...linkAttrs}>
@@ -73,4 +73,6 @@ export const App = ({ name, icon, url, displayURL, newTab }: IAppProps) => {
       </DetailsContainer>
     </AppContainer>
   );
-}
+};
+
+export default App;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`settings.tsx Tests forms 1`] = `[Function]`;
+
+exports[`settings.tsx Tests sections 1`] = `[Function]`;
+
+exports[`settings.tsx Tests settings rendering 1`] = `[Function]`;
+
+exports[`settings.tsx Tests settings rendering 2`] = `[Function]`;
+
+exports[`settings.tsx Tests settings rendering 3`] = `[Function]`;
+
+exports[`settings.tsx Tests settings rendering 4`] = `[Function]`;
+
+exports[`settings.tsx Tests tables 1`] = `[Function]`;

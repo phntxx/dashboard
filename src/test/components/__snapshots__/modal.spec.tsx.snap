@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal.tsx Tests modal with icon 1`] = `[Function]`;
+
+exports[`modal.tsx Tests modal with icon button 1`] = `[Function]`;
+
+exports[`modal.tsx Tests modal with neither 1`] = `[Function]`;
+
+exports[`modal.tsx Tests modal with text button 1`] = `[Function]`;
+
+exports[`modal.tsx Tests modal without onClose behaviour 1`] = `[Function]`;
