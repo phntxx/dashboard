@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 import selectedTheme from "../lib/theme";
@@ -84,6 +84,9 @@ const SearchBar = ({ search }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => inputRef.current?.focus(), []);
   useEffect(() => setButtonsHidden(input === ""), [input]);
 
   const handleSearchQuery = (e: React.FormEvent) => {
@@ -101,6 +104,7 @@ const SearchBar = ({ search }: ISearchBarProps) => {
   return (
     <Search onSubmit={(e) => handleSearchQuery(e)}>
       <SearchInput
+        ref={inputRef}
         type="text"
         data-testid="search-input"
         value={input}
