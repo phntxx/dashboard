@@ -6,7 +6,6 @@ import {
   ListContainer,
   SubHeadline,
 } from "./elements";
-import selectedTheme from "../lib/theme";
 
 const GroupContainer = styled.div`
   display: flex;
@@ -18,7 +17,7 @@ const GroupContainer = styled.div`
 const Bookmark = styled.a`
   font-weight: 400;
   text-decoration: none;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
   padding-top: 0.75rem;
   font-size: 0.9rem;
 

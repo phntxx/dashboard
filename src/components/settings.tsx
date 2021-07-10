@@ -4,25 +4,24 @@ import styled from "styled-components";
 import Select from "./select";
 
 import { ISearchProps } from "./searchBar";
-import selectedTheme, { setTheme, IThemeProps } from "../lib/theme";
+import { setTheme, IThemeProps, getTheme } from "../lib/theme";
 import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";
 
 export const FormContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto;
+  margin-bottom: 1em;
 `;
 
 export const Table = styled.table`
   font-weight: 400;
   background: none;
   width: 100%;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 export const TableRow = styled.tr`
-  border-bottom: 1px solid ${selectedTheme.mainColor};
+  border-bottom: 1px solid ${(props) => props.theme.mainColor};
 `;
 
 export const TableCell = styled.td`
@@ -41,18 +40,23 @@ export const Section = styled.div`
 
 export const SectionHeadline = styled(SubHeadline)`
   width: 100%;
-  border-bottom: 1px solid ${selectedTheme.accentColor};
+  border-bottom: 1px solid ${(props) => props.theme.accentColor};
   margin-bottom: 0.5rem;
 `;
 
 const Text = styled.p`
   font-weight: 700;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
 `;
 
 const Code = styled.p`
   font-family: monospace;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
+`;
+
+const ThemeHeader = styled.p`
+  grid-column: 1 / 4;
+  color: ${(props) => props.theme.accentColor};
 `;
 
 const ThemeSelect = styled(Select)`
@@ -62,12 +66,12 @@ const ThemeSelect = styled(Select)`
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
   font-weight: 400;
-  border: 1px solid ${selectedTheme.mainColor};
-  color: ${selectedTheme.mainColor};
+  border: 1px solid ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.mainColor};
   background: none;
 
   & > option {
-    background-color: ${selectedTheme.backgroundColor};
+    background-color: ${(props) => props.theme.backgroundColor};
   }
 `;
 
@@ -82,7 +86,12 @@ interface ISettingsProps {
  * @param {ISearchProps} search - the list of search providers
  */
 const Settings = ({ themes, search }: ISettingsProps) => {
-  const [newTheme, setNewTheme] = useState<IThemeProps>();
+  const [newLightTheme, setNewLightTheme] = useState<IThemeProps>();
+  const [newDarkTheme, setNewDarkTheme] = useState<IThemeProps>();
+
+  const currentLightTheme = getTheme("light").label;
+  const currentDarkTheme = getTheme("dark").label;
+  console.log(currentLightTheme, currentDarkTheme);
 
   if (themes || search) {
     return (
@@ -91,25 +100,34 @@ const Settings = ({ themes, search }: ISettingsProps) => {
           <Section>
             <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
+              <ThemeHeader>Light</ThemeHeader>
               <ThemeSelect
                 items={themes}
-                onChange={(theme: IThemeProps) => setNewTheme(theme)}
+                onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
+                current={currentLightTheme}
               ></ThemeSelect>
-              <Button
-                data-testid="button-submit"
-                onClick={() => {
-                  if (newTheme) setTheme(newTheme);
-                }}
-              >
-                Apply
-              </Button>
-              <Button
-                data-testid="button-refresh"
-                onClick={() => window.location.reload()}
-              >
-                Refresh
-              </Button>
+              <ThemeHeader>Dark</ThemeHeader>
+              <ThemeSelect
+                items={themes}
+                onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
+                current={currentDarkTheme}
+              ></ThemeSelect>
             </FormContainer>
+            <Button
+              data-testid="button-submit"
+              onClick={() => {
+                if (newLightTheme) setTheme("light", newLightTheme);
+                if (newDarkTheme) setTheme("dark", newDarkTheme);
+              }}
+            >
+              Apply
+            </Button>
+            <Button
+              data-testid="button-refresh"
+              onClick={() => window.location.reload()}
+            >
+              Refresh
+            </Button>
           </Section>
         )}
         {search && (

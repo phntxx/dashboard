@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 
 import { Headline } from "./elements";
 import { IconButton } from "./icon";
@@ -12,8 +11,8 @@ const ModalContainer = styled.div`
   padding: 1rem;
   transform: translate(-50%, -50%);
   z-index: 10;
-  border: 1px solid ${selectedTheme.mainColor};
-  background-color: ${selectedTheme.backgroundColor};
+  border: 1px solid ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 const Text = styled.p`
@@ -22,7 +21,7 @@ const Text = styled.p`
 
   font-weight: 400;
   text-decoration: none;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
   padding-top: 0.75rem;
   font-size: 0.9rem;
 

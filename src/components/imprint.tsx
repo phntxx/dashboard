@@ -1,6 +1,5 @@
 import Modal from "./modal";
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 import { ListContainer, ItemList, Headline, SubHeadline } from "./elements";
 
 const ModalSubHeadline = styled(SubHeadline)`
@@ -12,14 +11,14 @@ const Text = styled.p`
   padding: 0;
   margin: 0;
 
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 const Link = styled.a`
   display: block;
   padding: 0;
 
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
   text-decoration: none;
 
   &:hover {

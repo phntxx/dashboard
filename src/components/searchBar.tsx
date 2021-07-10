@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import selectedTheme from "../lib/theme";
-
 import { Button } from "./elements";
 
 const Search = styled.form`
@@ -21,11 +19,11 @@ const SearchInput = styled.input`
   font-size: 1rem;
 
   border: none;
-  border-bottom: 1px solid ${selectedTheme.accentColor};
+  border-bottom: 1px solid ${(props) => props.theme.accentColor};
   border-radius: 0;
 
   background: none;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 
   :focus {
     outline: none;
