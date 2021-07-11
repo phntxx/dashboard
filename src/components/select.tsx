@@ -8,7 +8,9 @@ export interface IItemProps {
 export interface ISelectProps {
   items: Array<IItemProps>;
   onChange: (item: any) => void;
+  current?: string;
   className?: string;
+  testId?: string;
 }
 
 const update = (
@@ -19,15 +21,22 @@ const update = (
   onChange(items.find((item) => item.value.toString() === e.target.value));
 };
 
-const Select = ({ items, onChange, className }: ISelectProps) => (
+const Select = ({
+  items,
+  onChange,
+  current,
+  className,
+  testId,
+}: ISelectProps) => (
   <select
-    data-testid="select"
+    data-testid={"select" + (testId ? "-" + testId : "")}
     onChange={(e) => update(items, onChange, e)}
     className={className}
+    defaultValue={current}
   >
     {items.map(({ label, value }, index) => (
       <option
-        data-testid={"option-" + index}
+        data-testid={"option-" + (testId ? testId + "-" : "") + index}
         key={[label, index].join("")}
         value={value.toString()}
       >

@@ -30,6 +30,7 @@ const themes: Array<IThemeProps> = [
 
 const search: ISearchProps = {
   defaultProvider: "https://test.com?q=",
+  placeholder: "",
   providers: [
     {
       name: "Allmusic",
@@ -130,10 +131,23 @@ describe("settings.tsx", () => {
     expect(window.location.reload).toHaveBeenCalledTimes(1);
   });
 
-  it("Tests theme selection", () => {
+  it("Tests light theme selection", () => {
     const settings = render(<Settings themes={themes} search={search} />);
 
-    fireEvent.change(settings.getByTestId("select"), { target: { value: 0 } });
+    fireEvent.change(settings.getByTestId("select-light"), {
+      target: { value: 0 },
+    });
+
+    fireEvent.click(settings.getByTestId("button-submit"));
+    expect(window.location.reload).toHaveBeenCalledTimes(1);
+  });
+
+  it("Tests dark theme selection", () => {
+    const settings = render(<Settings themes={themes} search={search} />);
+
+    fireEvent.change(settings.getByTestId("select-dark"), {
+      target: { value: 0 },
+    });
 
     fireEvent.click(settings.getByTestId("button-submit"));
     expect(window.location.reload).toHaveBeenCalledTimes(1);
@@ -142,7 +156,9 @@ describe("settings.tsx", () => {
   it("Tests theme selection", () => {
     const settings = render(<Settings themes={themes} search={search} />);
 
-    fireEvent.change(settings.getByTestId("select"), { target: { value: 5 } });
+    fireEvent.change(settings.getByTestId("select-light"), {
+      target: { value: 5 },
+    });
 
     fireEvent.click(settings.getByTestId("button-submit"));
     expect(window.location.reload).toHaveBeenCalledTimes(0);

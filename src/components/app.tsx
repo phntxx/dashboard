@@ -1,12 +1,11 @@
 import Icon from "./icon";
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 
 const AppContainer = styled.a`
   display: flex;
   flex: 1 0 auto;
   padding: 1rem;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
   font-weight: 500;
   text-transform: uppercase;
   margin: 0;
@@ -37,7 +36,7 @@ const AppDescription = styled.p`
   margin: 0;
   font-size: 0.65rem;
   font-weight: 400;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
 `;
 
 export interface IAppProps {

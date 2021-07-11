@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 
 const GreeterContainer = styled.div`
   padding: 2rem 0;
@@ -9,7 +8,7 @@ const GreetText = styled.h1`
   font-weight: 900;
   font-size: 3rem;
   margin: 0.5rem 0;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 const DateText = styled.h3`
@@ -17,7 +16,7 @@ const DateText = styled.h3`
   font-size: 1rem;
   text-transform: uppercase;
   margin: 0;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
 `;
 
 export interface IGreeterComponentProps {
@@ -69,7 +68,7 @@ export const getGreeting = (greetings: Array<IGreetingProps>): string => {
  * @returns {string} extension for that number
  */
 export const getExtension = (day: number) => {
-  let extension = "";
+  let extension = "th";
 
   if (day % 10 === 1) {
     extension = "st";
@@ -77,8 +76,6 @@ export const getExtension = (day: number) => {
     extension = "nd";
   } else if (day % 10 === 3) {
     extension = "rd";
-  } else if (isBetween(day, 4, 20) || (day > 20 && day % 10 >= 4)) {
-    extension = "th";
   }
 
   return extension;
