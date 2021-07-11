@@ -68,6 +68,7 @@ export const defaults = {
   },
   search: {
     search: {
+      placeholder: '',
       defaultProvider: "https://google.com/search?q=",
       providers: [],
     },

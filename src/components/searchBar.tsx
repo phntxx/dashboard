@@ -42,6 +42,7 @@ export interface ISearchProviderProps {
 }
 
 export interface ISearchProps {
+  placeholder: string;
   defaultProvider: string;
   providers: Array<ISearchProviderProps> | undefined;
 }
@@ -102,6 +103,7 @@ const SearchBar = ({ search }: ISearchBarProps) => {
         type="text"
         data-testid="search-input"
         value={input}
+        placeholder={search.placeholder}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setInput(e.target.value)
         }
