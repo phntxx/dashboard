@@ -68,7 +68,7 @@ export const getGreeting = (greetings: Array<IGreetingProps>): string => {
  * @returns {string} extension for that number
  */
 export const getExtension = (day: number) => {
-  let extension = "";
+  let extension = "th";
 
   if (day % 10 === 1) {
     extension = "st";
@@ -76,8 +76,6 @@ export const getExtension = (day: number) => {
     extension = "nd";
   } else if (day % 10 === 3) {
     extension = "rd";
-  } else if (isBetween(day, 4, 20) || (day > 20 && day % 10 >= 4)) {
-    extension = "th";
   }
 
   return extension;

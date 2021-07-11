@@ -28,13 +28,25 @@ const setup = () => {
 };
 
 describe("theme.tsx", () => {
-  it("setTheme test", () => {
+  it("setTheme light test", () => {
     setup();
 
-    setTheme(props);
-    expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
+    setTheme("light", props);
+    expect(window.localStorage.setItem).toHaveBeenCalledTimes(2);
     expect(window.localStorage.setItem).toHaveBeenCalledWith(
-      "theme",
+      "light-theme",
+      JSON.stringify(props),
+    );
+    expect(window.location.reload).toHaveBeenCalledTimes(1);
+  });
+
+  it("setTheme dark test", () => {
+    setup();
+
+    setTheme("dark", props);
+    expect(window.localStorage.setItem).toHaveBeenCalledTimes(2);
+    expect(window.localStorage.setItem).toHaveBeenCalledWith(
+      "dark-theme",
       JSON.stringify(props),
     );
     expect(window.location.reload).toHaveBeenCalledTimes(1);

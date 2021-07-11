@@ -91,7 +91,6 @@ const Settings = ({ themes, search }: ISettingsProps) => {
 
   const currentLightTheme = getTheme("light").label;
   const currentDarkTheme = getTheme("dark").label;
-  console.log(currentLightTheme, currentDarkTheme);
 
   if (themes || search) {
     return (
@@ -105,12 +104,14 @@ const Settings = ({ themes, search }: ISettingsProps) => {
                 items={themes}
                 onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
                 current={currentLightTheme}
+                testId="light"
               ></ThemeSelect>
               <ThemeHeader>Dark</ThemeHeader>
               <ThemeSelect
                 items={themes}
                 onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
                 current={currentDarkTheme}
+                testId="dark"
               ></ThemeSelect>
             </FormContainer>
             <Button

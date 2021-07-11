@@ -7,6 +7,7 @@ import SearchBar, {
 
 const props: ISearchProps = {
   defaultProvider: "https://test.com?q=",
+  placeholder: "",
   providers: [
     {
       name: "Allmusic",
@@ -73,6 +74,7 @@ describe("searchBar.tsx", () => {
   it("Tests handleQueryWithProvider without providers", () => {
     const test: ISearchProps = {
       defaultProvider: "https://test.com?q=",
+      placeholder: "",
       providers: undefined,
     };
 

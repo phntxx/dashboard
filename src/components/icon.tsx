@@ -48,9 +48,7 @@ const IconContainer = styled.i`
  * @returns {React.ReactNode} the icon node
  */
 export const Icon = ({ name, size }: IIconProps) => (
-  <IconContainer about={size}>
-    {name}
-  </IconContainer>
+  <IconContainer about={size}>{name}</IconContainer>
 );
 
 /**

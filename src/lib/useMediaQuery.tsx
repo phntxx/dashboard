@@ -17,7 +17,7 @@ const useMediaQuery = (query: string) => {
   }, [matches, query]);
 
   return matches;
-}
+};
 
 export const IsDark = () => useMediaQuery("(prefers-color-scheme: dark");
 
