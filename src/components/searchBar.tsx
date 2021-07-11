@@ -42,6 +42,7 @@ export interface ISearchProviderProps {
 }
 
 export interface ISearchProps {
+  autofocus: boolean;
   placeholder: string;
   defaultProvider: string;
   providers: Array<ISearchProviderProps> | undefined;
@@ -85,7 +86,9 @@ const SearchBar = ({ search }: ISearchBarProps) => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => inputRef.current?.focus(), []);
+  useEffect(() => {
+    if (search.autofocus) inputRef.current?.focus();
+  }, [search]);
   useEffect(() => setButtonsHidden(input === ""), [input]);
 
   const handleSearchQuery = (e: React.FormEvent) => {
