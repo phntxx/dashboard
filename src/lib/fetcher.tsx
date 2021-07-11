@@ -236,13 +236,13 @@ export const useFetcher = () => {
         imprintData,
         greeterData,
       ]: [
-        IAppDataProps,
-        IBookmarkDataProps,
-        ISearchDataProps,
-        IThemeDataProps,
-        IImprintDataProps,
-        IGreeterDataProps,
-      ]) => {
+          IAppDataProps,
+          IBookmarkDataProps,
+          ISearchDataProps,
+          IThemeDataProps,
+          IImprintDataProps,
+          IGreeterDataProps,
+        ]) => {
         setAppData(appData.error ? appData : { ...appData, error: false });
         setBookmarkData(
           bookmarkData.error ? bookmarkData : { ...bookmarkData, error: false },
