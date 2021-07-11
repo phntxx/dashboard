@@ -70,6 +70,39 @@ $ yarn build
 $ yarn serve:production
 ```
 
+### Manual install
+```bash
+$ git clone https://github.com/phntxx/dashboard.git
+$ cd dashboard/
+$ yarn
+$ yarn build
+$ cp -R build/* .
+```
+
+#### `/etc/nginx/conf.d/dashboard.conf`
+```
+server {
+        server_name localhost;
+        listen 8080;
+        root /var/www/dashboard/html/;
+
+        location / {
+                index index.html index.htm;
+        }
+}
+```
+
+```bash
+$ cd ..
+$ mkdir /var/www/dashboard
+$ mv dashboard/ html
+$ mv html/ /var/www/dashboard
+$ chown -R www-data:www-data
+$ systemctl nginx reload
+```
+
+
+
 ## Configuration
 
 There's a couple of things you can / need to configure to get Dashboard to look and behave just as you want it to.
