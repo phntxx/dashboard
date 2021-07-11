@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 
 const GreeterContainer = styled.div`
   padding: 2rem 0;
@@ -9,7 +8,7 @@ const GreetText = styled.h1`
   font-weight: 900;
   font-size: 3rem;
   margin: 0.5rem 0;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 const DateText = styled.h3`
@@ -17,7 +16,7 @@ const DateText = styled.h3`
   font-size: 1rem;
   text-transform: uppercase;
   margin: 0;
-  color: ${selectedTheme.accentColor};
+  color: ${(props) => props.theme.accentColor};
 `;
 
 export interface IGreeterComponentProps {

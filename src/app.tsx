@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import SearchBar from "./components/searchBar";
 import Greeter from "./components/greeter";
@@ -7,12 +7,13 @@ import BookmarkList from "./components/bookmarks";
 import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
-import selectedTheme from "./lib/theme";
+import { IThemeProps, getTheme, setScheme } from "./lib/theme";
 import useFetcher from "./lib/fetcher";
+import useMediaQuery from "./lib/useMediaQuery";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ theme: IThemeProps }>`
   body {
-    background-color: ${selectedTheme.backgroundColor};
+    background-color: ${(props) => props.theme.backgroundColor};
     font-family: Roboto, sans-serif;
   
     margin: auto;
@@ -38,8 +39,16 @@ const App = () => {
     greeterData,
   } = useFetcher();
 
+  const theme = getTheme();
+  let isDark = useMediaQuery("(prefers-color-scheme: dark)");
+  if (isDark) {
+    setScheme("dark-theme");
+  } else {
+    setScheme("light-theme");
+  }
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div>
         <SearchBar search={searchProviderData?.search} />
@@ -56,7 +65,7 @@ const App = () => {
         {!bookmarkData.error && <BookmarkList groups={bookmarkData.groups} />}
         {!imprintData.error && <Imprint imprint={imprintData.imprint} />}
       </div>
-    </>
+    </ThemeProvider>
   );
 };
 

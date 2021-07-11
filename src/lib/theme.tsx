@@ -15,22 +15,46 @@ export const defaultTheme: IThemeProps = {
 };
 
 /**
+ * Writes the color scheme into localStorage
+ * @param {string} scheme
+ */
+export const setScheme = (scheme: string) => {
+  localStorage.setItem("theme", scheme);
+};
+
+/**
  * Writes a given theme into localStorage
+ * @param {string} scheme - the color scheme (light or dark) to save the theme to
  * @param {string} theme - the theme that shall be saved (in stringified JSON)
  */
-export const setTheme = (theme: IThemeProps) => {
-  localStorage.setItem("theme", JSON.stringify(theme));
+export const setTheme = (scheme: string, theme: IThemeProps) => {
+  if (scheme === "light") {
+    localStorage.setItem("light-theme", JSON.stringify(theme));
+    localStorage.setItem("theme", "light-theme");
+  }
+  if (scheme === "dark") {
+    localStorage.setItem("dark-theme", JSON.stringify(theme));
+    localStorage.setItem("theme", "dark-theme");
+  }
   window.location.reload();
 };
 
 /**
  * Function that gets the saved theme from localStorage or returns the default
+ * @param {string} [scheme] the color scheme to retrieve the theme for
  * @returns {IThemeProps} the saved theme or the default theme
  */
-export const getTheme = (): IThemeProps => {
+export const getTheme = (scheme?: string): IThemeProps => {
+  let currentScheme = localStorage.getItem("theme");
   let selectedTheme = defaultTheme;
 
-  let theme = localStorage.getItem("theme");
+  if (scheme === "light") {
+    currentScheme = "light-theme";
+  } else if (scheme === "dark") {
+    currentScheme = "dark-theme";
+  }
+
+  let theme = currentScheme === "dark-theme" ? localStorage.getItem("dark-theme") : localStorage.getItem("light-theme");
   if (theme !== null) selectedTheme = JSON.parse(theme || "{}");
 
   return selectedTheme;

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 
 interface IIconProps {
   name: string;
@@ -40,7 +39,7 @@ const IconContainer = styled.i`
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
   font-size: ${(props) => props.about};
-  color: ${(props) => props.color};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 /**
@@ -49,7 +48,7 @@ const IconContainer = styled.i`
  * @returns {React.ReactNode} the icon node
  */
 export const Icon = ({ name, size }: IIconProps) => (
-  <IconContainer color={selectedTheme.mainColor} about={size}>
+  <IconContainer about={size}>
     {name}
   </IconContainer>
 );

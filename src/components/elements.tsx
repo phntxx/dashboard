@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import selectedTheme from "../lib/theme";
 
 export const ListContainer = styled.div`
   padding: 2rem 0;
@@ -11,7 +10,7 @@ export const Headline = styled.h2`
   text-transform: uppercase;
   margin: 0;
   font-size: 1.5rem;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 export const SubHeadline = styled.h3`
@@ -19,7 +18,7 @@ export const SubHeadline = styled.h3`
   font-weight: 700;
   text-transform: uppercase;
   margin: 0;
-  color: ${selectedTheme.mainColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 export const ItemList = styled.ul`
@@ -44,8 +43,8 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
   font-weight: 400;
-  border: 1px solid ${selectedTheme.mainColor};
-  color: ${selectedTheme.mainColor};
+  border: 1px solid ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.mainColor};
   background: none;
 
   min-height: 2rem;
