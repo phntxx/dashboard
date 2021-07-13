@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "repository": "git@github.com:phntxx/dashboard",
-  "contributors": [
-    "phntxx <hello@phntxx.com>"
-  ],
+  "contributors": ["phntxx <hello@phntxx.com>"],
   "private": false,
   "dependencies": {
     "@types/node": "^14.14.37",
@@ -47,11 +45,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

@@ -2,13 +2,13 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import SearchBar from "./components/searchBar";
 import Greeter from "./components/greeter";
-import AppList from "./components/appList";
+import { AppList } from "./components/apps";
 import BookmarkList from "./components/bookmarks";
 import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
 import { IThemeProps, getTheme, setScheme } from "./lib/useTheme";
-import useFetcher from "./lib/fetcher";
+import useFetch from "./lib/useFetch";
 import useMediaQuery from "./lib/useMediaQuery";
 
 export const GlobalStyle = createGlobalStyle<{ theme: IThemeProps }>`
@@ -33,37 +33,26 @@ const App = () => {
   const {
     appData,
     bookmarkData,
-    searchProviderData,
+    searchData,
     themeData,
     imprintData,
     greeterData,
-  } = useFetcher();
+  } = useFetch();
 
   const theme = getTheme();
   let isDark = useMediaQuery("(prefers-color-scheme: dark)");
-  if (isDark) {
-    setScheme("dark-theme");
-  } else {
-    setScheme("light-theme");
-  }
+  setScheme(isDark ? "dark-theme" : "light-theme");
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div>
-        <SearchBar search={searchProviderData?.search} />
-        {(!themeData.error || !searchProviderData.error) && (
-          <Settings
-            themes={themeData?.themes}
-            search={searchProviderData?.search}
-          />
-        )}
-        <Greeter data={greeterData.greeter} />
-        {!appData.error && (
-          <AppList apps={appData.apps} categories={appData.categories} />
-        )}
-        {!bookmarkData.error && <BookmarkList groups={bookmarkData.groups} />}
-        {!imprintData.error && <Imprint imprint={imprintData.imprint} />}
+        <SearchBar search={searchData} />
+        <Settings themes={themeData} search={searchData} />
+        <Greeter greeter={greeterData} />
+        <AppList apps={appData?.apps} categories={appData?.categories} />
+        <BookmarkList groups={bookmarkData} />
+        <Imprint imprint={imprintData} />
       </div>
     </ThemeProvider>
   );

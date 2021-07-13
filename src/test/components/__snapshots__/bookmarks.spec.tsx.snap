@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookmarkGroup snapshot test 1`] = `[Function]`;
+exports[`bookmarks.tsx Tests BookmarkGroup rendering 1`] = `[Function]`;
 
-exports[`BookmarkList snapshot test 1`] = `[Function]`;
+exports[`bookmarks.tsx Tests BookmarkList rendering with props 1`] = `[Function]`;
+
+exports[`bookmarks.tsx Tests BookmarkList rendering without props 1`] = `[Function]`;

@@ -6,26 +6,16 @@ import Imprint, {
 } from "../../components/imprint";
 
 const props: IImprintProps = {
-  name: {
-    text: "Test Name",
-    link: "#",
-  },
-  address: {
-    text: "Test Address",
-    link: "#",
-  },
-  phone: {
-    text: "Test Phone",
-    link: "#",
-  },
-  email: {
-    text: "Test Email",
-    link: "#",
-  },
-  url: {
-    text: "Test URL",
-    link: "#",
-  },
+  fields: [
+    {
+      text: "Test Field",
+      link: "#",
+    },
+    {
+      text: "Test Field",
+      link: "#",
+    },
+  ],
   text: "This is a test!",
 };
 
@@ -42,8 +32,13 @@ describe("imprint.tsx", () => {
     };
   });
 
-  it("Tests Imprint", () => {
+  it("Tests Imprint rendering with props", () => {
     const { asFragment } = render(<Imprint imprint={props} />);
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests imprint rendering without props", () => {
+    const { asFragment } = render(<Imprint />);
     expect(asFragment).toMatchSnapshot();
   });
 
@@ -61,7 +56,7 @@ describe("imprint.tsx", () => {
   });
 
   it("Tests ImprintField", () => {
-    const { asFragment } = render(<ImprintField field={props.name} />);
+    const { asFragment } = render(<ImprintField field={props.fields[0]} />);
     expect(asFragment).toMatchSnapshot();
   });
 });

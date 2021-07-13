@@ -19,21 +19,28 @@ const bookmarkListProps: IBookmarkListProps = {
   groups: [bookmarkGroupProps, bookmarkGroupProps],
 };
 
-it("BookmarkGroup snapshot test", () => {
-  const { asFragment } = render(
-    <BookmarkGroup
-      name={bookmarkGroupProps.name}
-      items={bookmarkGroupProps.items}
-    />,
-  );
+describe("bookmarks.tsx", () => {
+  it("Tests BookmarkGroup rendering", () => {
+    const { asFragment } = render(
+      <BookmarkGroup
+        name={bookmarkGroupProps.name}
+        items={bookmarkGroupProps.items}
+      />,
+    );
 
-  expect(asFragment).toMatchSnapshot();
-});
+    expect(asFragment).toMatchSnapshot();
+  });
 
-it("BookmarkList snapshot test", () => {
-  const { asFragment } = render(
-    <BookmarkList groups={bookmarkListProps.groups} />,
-  );
+  it("Tests BookmarkList rendering with props", () => {
+    const { asFragment } = render(
+      <BookmarkList groups={bookmarkListProps.groups} />,
+    );
 
-  expect(asFragment).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests BookmarkList rendering without props", () => {
+    const { asFragment } = render(<BookmarkList />);
+    expect(asFragment).toMatchSnapshot();
+  });
 });

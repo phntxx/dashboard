@@ -1,8 +1,7 @@
 import { ISearchProps } from "../components/searchBar";
 import { IBookmarkGroupProps } from "../components/bookmarks";
-import { IAppCategoryProps } from "../components/appCategory";
-import { IAppProps } from "../components/app";
-import { IThemeProps } from "./theme";
+import { IAppProps, IAppCategoryProps } from "../components/apps";
+import { IThemeProps } from "./useTheme";
 import { IImprintProps } from "../components/imprint";
 import { IGreeterProps } from "../components/greeter";
 

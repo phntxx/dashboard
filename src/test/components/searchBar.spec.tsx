@@ -54,8 +54,13 @@ describe("searchBar.tsx", () => {
     };
   });
 
-  it("Tests SearchBar rendering", () => {
+  it("Tests SearchBar rendering with props", () => {
     const { asFragment } = render(<SearchBar search={props} />);
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("Tests SearchBar rendering without props", () => {
+    const { asFragment } = render(<SearchBar />);
     expect(asFragment).toMatchSnapshot();
   });
 

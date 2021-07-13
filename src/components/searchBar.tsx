@@ -48,7 +48,7 @@ export interface ISearchProps {
 }
 
 interface ISearchBarProps {
-  search: ISearchProps;
+  search?: ISearchProps;
 }
 
 export const handleQueryWithProvider = (
@@ -79,7 +79,13 @@ export const handleQueryWithProvider = (
  * Renders a search bar
  * @param {ISearchBarProps} search - The search providers for the search bar to use
  */
-const SearchBar = ({ search }: ISearchBarProps) => {
+const SearchBar = ({
+  search = {
+    placeholder: "",
+    defaultProvider: "",
+    providers: [],
+  },
+}: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 

@@ -54,11 +54,6 @@ const Code = styled.p`
   color: ${(props) => props.theme.accentColor};
 `;
 
-const ThemeHeader = styled.p`
-  grid-column: 1 / 4;
-  color: ${(props) => props.theme.accentColor};
-`;
-
 const ThemeSelect = styled(Select)`
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -66,6 +61,7 @@ const ThemeSelect = styled(Select)`
   text-transform: uppercase;
   font-family: Roboto, sans-serif;
   font-weight: 400;
+  border-radius: 0;
   border: 1px solid ${(props) => props.theme.mainColor};
   color: ${(props) => props.theme.mainColor};
   background: none;
@@ -76,8 +72,8 @@ const ThemeSelect = styled(Select)`
 `;
 
 interface ISettingsProps {
-  themes: Array<IThemeProps> | undefined;
-  search: ISearchProps | undefined;
+  themes?: Array<IThemeProps>;
+  search?: ISearchProps;
 }
 
 /**
@@ -99,20 +95,36 @@ const Settings = ({ themes, search }: ISettingsProps) => {
           <Section>
             <SectionHeadline>Theme:</SectionHeadline>
             <FormContainer>
-              <ThemeHeader>Light</ThemeHeader>
-              <ThemeSelect
-                items={themes}
-                onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
-                current={currentLightTheme}
-                testId="light"
-              ></ThemeSelect>
-              <ThemeHeader>Dark</ThemeHeader>
-              <ThemeSelect
-                items={themes}
-                onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
-                current={currentDarkTheme}
-                testId="dark"
-              ></ThemeSelect>
+              <Table>
+                <tbody>
+                  <TableRow>
+                    <HeadCell>Light</HeadCell>
+                    <HeadCell>Dark</HeadCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <ThemeSelect
+                        items={themes}
+                        onChange={(theme: IThemeProps) =>
+                          setNewLightTheme(theme)
+                        }
+                        current={currentLightTheme}
+                        testId="light"
+                      ></ThemeSelect>
+                    </TableCell>
+                    <TableCell>
+                      <ThemeSelect
+                        items={themes}
+                        onChange={(theme: IThemeProps) =>
+                          setNewDarkTheme(theme)
+                        }
+                        current={currentDarkTheme}
+                        testId="dark"
+                      ></ThemeSelect>
+                    </TableCell>
+                  </TableRow>
+                </tbody>
+              </Table>
             </FormContainer>
             <Button
               data-testid="button-submit"

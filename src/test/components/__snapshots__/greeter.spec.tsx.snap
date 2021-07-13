@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Greeter snapshot test 1`] = `[Function]`;
+exports[`greeter.tsx tests greeter rendering with props 1`] = `[Function]`;
+
+exports[`greeter.tsx tests greeter rendering without props 1`] = `[Function]`;

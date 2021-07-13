@@ -69,14 +69,9 @@ export interface IAppCategoryProps {
 }
 
 export interface IAppListProps {
-  categories?: Array<IAppCategoryProps>;
   apps?: Array<IAppProps>;
+  categories?: Array<IAppCategoryProps>;
 }
-
-export const defaults: IAppListProps = {
-  categories: [],
-  apps: [],
-};
 
 /**
  * Renders a single app shortcut
@@ -135,7 +130,7 @@ export const AppCategory = ({ name, items }: IAppCategoryProps) => (
  * @returns {React.ReactNode} the app list component
  */
 export const AppList = ({ categories, apps }: IAppListProps) => {
-  if (apps || categories) {
+  if (apps || categories)
     return (
       <ListContainer>
         <Headline>Applications</Headline>
@@ -155,9 +150,8 @@ export const AppList = ({ categories, apps }: IAppListProps) => {
         )}
       </ListContainer>
     );
-  } else {
-    return <></>;
-  }
+
+  return <></>;
 };
 
 export default AppList;

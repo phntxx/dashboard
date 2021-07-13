@@ -54,24 +54,31 @@ const props: IGreeterProps = {
   dateformat: "%wd, %m %d%e %y",
 };
 
-it("isBetween test", () => {
-  expect(isBetween(5, 1, 3)).toBeFalsy;
-  expect(isBetween(64, 1, 8)).toBeFalsy;
-  expect(isBetween(-1, -5, -3)).toBeFalsy;
-  expect(isBetween(4, 4, 4)).toBeTruthy;
-  expect(isBetween(3, 1, 8)).toBeTruthy;
-  expect(isBetween(-3, -5, -1)).toBeTruthy;
-});
+describe("greeter.tsx", () => {
+  it("tests isBetween", () => {
+    expect(isBetween(5, 1, 3)).toBeFalsy;
+    expect(isBetween(64, 1, 8)).toBeFalsy;
+    expect(isBetween(-1, -5, -3)).toBeFalsy;
+    expect(isBetween(4, 4, 4)).toBeTruthy;
+    expect(isBetween(3, 1, 8)).toBeTruthy;
+    expect(isBetween(-3, -5, -1)).toBeTruthy;
+  });
 
-it("getExtension test", () => {
-  expect(getExtension(0)).toEqual("th");
-  expect(getExtension(1)).toEqual("st");
-  expect(getExtension(2)).toEqual("nd");
-  expect(getExtension(3)).toEqual("rd");
-  expect(getExtension(15)).toEqual("th");
-});
+  it("tests getExtension", () => {
+    expect(getExtension(0)).toEqual("th");
+    expect(getExtension(1)).toEqual("st");
+    expect(getExtension(2)).toEqual("nd");
+    expect(getExtension(3)).toEqual("rd");
+    expect(getExtension(15)).toEqual("th");
+  });
 
-it("Greeter snapshot test", () => {
-  const { asFragment } = render(<Greeter data={props} />);
-  expect(asFragment).toMatchSnapshot();
+  it("tests greeter rendering with props", () => {
+    const { asFragment } = render(<Greeter greeter={props} />);
+    expect(asFragment).toMatchSnapshot();
+  });
+
+  it("tests greeter rendering without props", () => {
+    const { asFragment } = render(<Greeter />);
+    expect(asFragment).toMatchSnapshot();
+  });
 });

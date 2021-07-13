@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`imprint.tsx Tests Imprint 1`] = `[Function]`;
+exports[`imprint.tsx Tests Imprint rendering with props 1`] = `[Function]`;
 
 exports[`imprint.tsx Tests ImprintField 1`] = `[Function]`;
+
+exports[`imprint.tsx Tests imprint rendering without props 1`] = `[Function]`;
