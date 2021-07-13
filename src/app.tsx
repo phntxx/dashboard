@@ -7,7 +7,7 @@ import BookmarkList from "./components/bookmarks";
 import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
-import { IThemeProps, getTheme, setScheme } from "./lib/theme";
+import { IThemeProps, getTheme, setScheme } from "./lib/useTheme";
 import useFetcher from "./lib/fetcher";
 import useMediaQuery from "./lib/useMediaQuery";
 

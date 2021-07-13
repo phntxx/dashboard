@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import App, { GlobalStyle } from "../app";
-import { IThemeProps } from "../lib/theme";
+import { IThemeProps } from "../lib/useTheme";
 
 const props: IThemeProps = {
   label: "Classic",

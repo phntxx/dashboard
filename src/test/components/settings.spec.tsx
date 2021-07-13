@@ -9,7 +9,7 @@ import Settings, {
   SectionHeadline,
 } from "../../components/settings";
 import { ISearchProps } from "../../components/searchBar";
-import { IThemeProps } from "../../lib/theme";
+import { IThemeProps } from "../../lib/useTheme";
 
 const themes: Array<IThemeProps> = [
   {

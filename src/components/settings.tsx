@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Select from "./select";
 
 import { ISearchProps } from "./searchBar";
-import { setTheme, IThemeProps, getTheme } from "../lib/theme";
+import { setTheme, IThemeProps, getTheme } from "../lib/useTheme";
 import { Button, SubHeadline } from "./elements";
 
 import Modal from "./modal";

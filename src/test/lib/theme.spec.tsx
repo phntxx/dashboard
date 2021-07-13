@@ -1,4 +1,4 @@
-import { getTheme, IThemeProps, setTheme } from "../../lib/theme";
+import { getTheme, IThemeProps, setTheme } from "../../lib/useTheme";
 
 const props: IThemeProps = {
   label: "Classic",

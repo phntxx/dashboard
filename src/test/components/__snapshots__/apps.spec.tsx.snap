@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app.tsx Tests App rendering with newTab 1`] = `[Function]`;
+
+exports[`app.tsx Tests App rendering with newTab 2`] = `[Function]`;
+
+exports[`app.tsx Tests App rendering without newTab 1`] = `[Function]`;
+
+exports[`app.tsx Tests AppCategory rendering 1`] = `[Function]`;
+
+exports[`app.tsx Tests AppCategory rendering 2`] = `[Function]`;
+
+exports[`app.tsx Tests AppList rendering 1`] = `[Function]`;
+
+exports[`app.tsx Tests AppList rendering 2`] = `[Function]`;
+
+exports[`app.tsx Tests AppList rendering 3`] = `[Function]`;
+
+exports[`app.tsx Tests AppList rendering 4`] = `[Function]`;
