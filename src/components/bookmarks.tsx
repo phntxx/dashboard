@@ -37,7 +37,7 @@ export interface IBookmarkGroupProps {
 }
 
 export interface IBookmarkListProps {
-  groups?: Array<IBookmarkGroupProps>;
+  groups: Array<IBookmarkGroupProps>;
 }
 
 /**
@@ -63,24 +63,15 @@ export const BookmarkGroup = ({ name, items }: IBookmarkGroupProps) => (
  * @param {IBookmarkListProps} props props of the given bookmark list
  * @returns {React.ReactNode} the bookmark list component
  */
-const BookmarkList = ({ groups }: IBookmarkListProps) => {
-  if (groups)
-    return (
-      <ListContainer>
-        <Headline>Bookmarks</Headline>
-        <ItemList>
-          {groups.map(({ name, items }, index) => (
-            <BookmarkGroup
-              key={[name, index].join("")}
-              name={name}
-              items={items}
-            />
-          ))}
-        </ItemList>
-      </ListContainer>
-    );
-
-  return <></>;
-};
+const BookmarkList = ({ groups }: IBookmarkListProps) => (
+  <ListContainer>
+    <Headline>Bookmarks</Headline>
+    <ItemList>
+      {groups.map(({ name, items }, index) => (
+        <BookmarkGroup key={[name, index].join("")} name={name} items={items} />
+      ))}
+    </ItemList>
+  </ListContainer>
+);
 
 export default BookmarkList;

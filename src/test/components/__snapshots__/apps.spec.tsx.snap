@@ -17,5 +17,3 @@ exports[`app.tsx Tests AppList rendering 2`] = `[Function]`;
 exports[`app.tsx Tests AppList rendering 3`] = `[Function]`;
 
 exports[`app.tsx Tests AppList rendering 4`] = `[Function]`;
-
-exports[`app.tsx Tests AppList rendering without any props 1`] = `[Function]`;

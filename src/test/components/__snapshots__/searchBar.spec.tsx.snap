@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`searchBar.tsx Tests SearchBar rendering with props 1`] = `[Function]`;
-
-exports[`searchBar.tsx Tests SearchBar rendering without props 1`] = `[Function]`;
+exports[`searchBar.tsx Tests SearchBar rendering 1`] = `[Function]`;

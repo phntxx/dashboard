@@ -2,13 +2,13 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import SearchBar from "./components/searchBar";
 import Greeter from "./components/greeter";
-import { AppList } from "./components/apps";
+import AppList from "./components/appList";
 import BookmarkList from "./components/bookmarks";
 import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
 import { IThemeProps, getTheme, setScheme } from "./lib/useTheme";
-import useFetch from "./lib/useFetch";
+import useFetcher from "./lib/fetcher";
 import useMediaQuery from "./lib/useMediaQuery";
 
 export const GlobalStyle = createGlobalStyle<{ theme: IThemeProps }>`
@@ -33,26 +33,37 @@ const App = () => {
   const {
     appData,
     bookmarkData,
-    searchData,
+    searchProviderData,
     themeData,
     imprintData,
     greeterData,
-  } = useFetch();
+  } = useFetcher();
 
   const theme = getTheme();
   let isDark = useMediaQuery("(prefers-color-scheme: dark)");
-  setScheme(isDark ? "dark-theme" : "light-theme");
+  if (isDark) {
+    setScheme("dark-theme");
+  } else {
+    setScheme("light-theme");
+  }
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div>
-        <SearchBar search={searchData} />
-        <Settings themes={themeData} search={searchData} />
-        <Greeter greeter={greeterData} />
-        <AppList apps={appData?.apps} categories={appData?.categories} />
-        <BookmarkList groups={bookmarkData} />
-        <Imprint imprint={imprintData} />
+        <SearchBar search={searchProviderData?.search} />
+        {(!themeData.error || !searchProviderData.error) && (
+          <Settings
+            themes={themeData?.themes}
+            search={searchProviderData?.search}
+          />
+        )}
+        <Greeter data={greeterData.greeter} />
+        {!appData.error && (
+          <AppList apps={appData.apps} categories={appData.categories} />
+        )}
+        {!bookmarkData.error && <BookmarkList groups={bookmarkData.groups} />}
+        {!imprintData.error && <Imprint imprint={imprintData.imprint} />}
       </div>
     </ThemeProvider>
   );

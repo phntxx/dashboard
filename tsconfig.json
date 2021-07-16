@@ -14,8 +14,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["node_modules/@types", "./src/lib/useFetch.d.ts"]
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "src/test"]
 }

@@ -96,9 +96,4 @@ describe("app.tsx", () => {
       expect(asFragment).toMatchSnapshot();
     });
   });
-
-  it("Tests AppList rendering without any props", () => {
-    const { asFragment } = render(<AppList />);
-    expect(asFragment).toMatchSnapshot();
-  });
 });
