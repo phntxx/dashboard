@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 import { Button } from "./elements";
@@ -42,6 +42,7 @@ export interface ISearchProviderProps {
 }
 
 export interface ISearchProps {
+  autofocus: boolean;
   placeholder: string;
   defaultProvider: string;
   providers: Array<ISearchProviderProps> | undefined;
@@ -83,6 +84,11 @@ const SearchBar = ({ search }: ISearchBarProps) => {
   let [input, setInput] = useState<string>("");
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (search.autofocus) inputRef.current?.focus();
+  }, [search]);
   useEffect(() => setButtonsHidden(input === ""), [input]);
 
   const handleSearchQuery = (e: React.FormEvent) => {
@@ -100,6 +106,7 @@ const SearchBar = ({ search }: ISearchBarProps) => {
   return (
     <Search onSubmit={(e) => handleSearchQuery(e)}>
       <SearchInput
+        ref={inputRef}
         type="text"
         data-testid="search-input"
         value={input}
