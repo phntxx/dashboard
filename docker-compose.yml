@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-	dashboard:
-		image: phntxx/dashboard:latest
-		restart: unless-stopped
-		volumes:
-			- ./data:/app/data
-		ports:
-			- 8080:8080
+  dashboard:
+    image: phntxx/dashboard:latest
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+    ports:
+      - 8080:8080
