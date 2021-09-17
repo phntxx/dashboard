@@ -98,13 +98,15 @@ export const getDateString = (
   let month = months[currentDate.getUTCMonth()];
   let extension = getExtension(day);
   let year = currentDate.getFullYear();
+  let isodate = currentDate.toISOString().slice(0,10);
 
   return format
     .replace("%wd", weekday)
     .replace("%d", day.toString())
     .replace("%e", extension)
     .replace("%m", month)
-    .replace("%y", year.toString());
+    .replace("%y", year.toString())
+    .replace("%isodate", isodate);
 };
 
 /**
