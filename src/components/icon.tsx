@@ -17,6 +17,7 @@ const StyledButton = styled.button`
   border: none;
   padding: 0;
   background: none;
+  font-size: 1rem;
 
   &:hover {
     cursor: pointer;
