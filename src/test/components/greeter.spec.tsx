@@ -68,7 +68,34 @@ it("getExtension test", () => {
   expect(getExtension(1)).toEqual("st");
   expect(getExtension(2)).toEqual("nd");
   expect(getExtension(3)).toEqual("rd");
+  expect(getExtension(4)).toEqual("th");
+  expect(getExtension(5)).toEqual("th");
+  expect(getExtension(6)).toEqual("th");
+  expect(getExtension(7)).toEqual("th");
+  expect(getExtension(8)).toEqual("th");
+  expect(getExtension(9)).toEqual("th");
+  expect(getExtension(10)).toEqual("th");
+  expect(getExtension(11)).toEqual("th");
+  expect(getExtension(12)).toEqual("th");
+  expect(getExtension(13)).toEqual("th");
+  expect(getExtension(14)).toEqual("th");
   expect(getExtension(15)).toEqual("th");
+  expect(getExtension(16)).toEqual("th");
+  expect(getExtension(17)).toEqual("th");
+  expect(getExtension(18)).toEqual("th");
+  expect(getExtension(19)).toEqual("th");
+  expect(getExtension(20)).toEqual("th");
+  expect(getExtension(21)).toEqual("st");
+  expect(getExtension(22)).toEqual("nd");
+  expect(getExtension(23)).toEqual("rd");
+  expect(getExtension(24)).toEqual("th");
+  expect(getExtension(25)).toEqual("th");
+  expect(getExtension(26)).toEqual("th");
+  expect(getExtension(27)).toEqual("th");
+  expect(getExtension(28)).toEqual("th");
+  expect(getExtension(29)).toEqual("th");
+  expect(getExtension(30)).toEqual("th");
+  expect(getExtension(31)).toEqual("st");
 });
 
 it("Greeter snapshot test", () => {

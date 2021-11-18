@@ -70,11 +70,11 @@ export const getGreeting = (greetings: Array<IGreetingProps>): string => {
 export const getExtension = (day: number) => {
   let extension = "th";
 
-  if (day % 10 === 1) {
+  if (day % 10 === 1 && day !== 11) {
     extension = "st";
-  } else if (day % 10 === 2) {
+  } else if (day % 10 === 2 && day !== 12) {
     extension = "nd";
-  } else if (day % 10 === 3) {
+  } else if (day % 10 === 3 && day !== 13) {
     extension = "rd";
   }
 
@@ -93,9 +93,9 @@ export const getDateString = (
 ) => {
   let currentDate = new Date();
 
-  let weekday = weekdays[currentDate.getUTCDay()];
+  let weekday = weekdays[currentDate.getDay()];
   let day = currentDate.getDate();
-  let month = months[currentDate.getUTCMonth()];
+  let month = months[currentDate.getMonth()];
   let extension = getExtension(day);
   let year = currentDate.getFullYear();
   let isodate = currentDate.toISOString().slice(0,10);
