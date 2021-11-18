@@ -7,9 +7,9 @@ import { IconButton } from "./icon";
 const ModalContainer = styled.div`
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 1rem;
   padding: 1rem;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   z-index: 10;
   border: 1px solid ${(props) => props.theme.mainColor};
   background-color: ${(props) => props.theme.backgroundColor};
