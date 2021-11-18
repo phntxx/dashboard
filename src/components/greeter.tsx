@@ -98,7 +98,7 @@ export const getDateString = (
   let month = months[currentDate.getMonth()];
   let extension = getExtension(day);
   let year = currentDate.getFullYear();
-  let isodate = currentDate.toISOString().slice(0,10);
+  let isodate = currentDate.toISOString().slice(0, 10);
 
   return format
     .replace("%wd", weekday)
