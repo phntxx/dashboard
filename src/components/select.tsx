@@ -32,17 +32,27 @@ const Select = ({
     data-testid={"select" + (testId ? "-" + testId : "")}
     onChange={(e) => update(items, onChange, e)}
     className={className}
-    defaultValue={current}
   >
-    {items.map(({ label, value }, index) => (
-      <option
-        data-testid={"option-" + (testId ? testId + "-" : "") + index}
-        key={[label, index].join("")}
-        value={value.toString()}
-      >
-        {label}
-      </option>
-    ))}
+    {items.map(({ label, value }, index) => {
+      if (label === current) {(
+        <option
+            data-testid={"option-" + (testId ? testId + "-" : "") + index}
+            key={[label, index].join("")}
+            value={value.toString()}
+            selected
+          >
+            {label}
+          </option>
+      )} else {(
+        <option
+            data-testid={"option-" + (testId ? testId + "-" : "") + index}
+            key={[label, index].join("")}
+            value={value.toString()}
+          >
+            {label}
+          </option>
+      )}
+    })}
   </select>
 );
 
