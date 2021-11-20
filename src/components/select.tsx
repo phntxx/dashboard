@@ -35,7 +35,8 @@ const Select = ({
   >
     {items.map(({ label, value }, index) => {
       if (label === current) {
-        return <option
+        return (
+          <option
             data-testid={"option-" + (testId ? testId + "-" : "") + index}
             key={[label, index].join("")}
             value={value.toString()}
@@ -43,14 +44,17 @@ const Select = ({
           >
             {label}
           </option>
+        );
       } else {
-        return <option
+        return (
+          <option
             data-testid={"option-" + (testId ? testId + "-" : "") + index}
             key={[label, index].join("")}
             value={value.toString()}
           >
             {label}
           </option>
+        );
       }
     })}
   </select>
