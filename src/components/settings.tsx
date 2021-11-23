@@ -10,6 +10,7 @@ import { Button, SubHeadline } from "./elements";
 import Modal from "./modal";
 
 export const FormContainer = styled.div`
+  display: flex;
   margin-bottom: 1em;
 `;
 
@@ -97,22 +98,26 @@ const Settings = ({ themes, search }: ISettingsProps) => {
       <Modal element="icon" icon="settings" title="Settings">
         {themes && (
           <Section>
-            <SectionHeadline>Theme:</SectionHeadline>
+            <SectionHeadline>Theme</SectionHeadline>
             <FormContainer>
-              <ThemeHeader>Light</ThemeHeader>
-              <ThemeSelect
-                items={themes}
-                onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
-                current={currentLightTheme}
-                testId="light"
-              ></ThemeSelect>
-              <ThemeHeader>Dark</ThemeHeader>
-              <ThemeSelect
-                items={themes}
-                onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
-                current={currentDarkTheme}
-                testId="dark"
-              ></ThemeSelect>
+              <div>
+                <ThemeHeader>Light</ThemeHeader>
+                <ThemeSelect
+                  items={themes}
+                  onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
+                  current={currentLightTheme}
+                  testId="light"
+                ></ThemeSelect>
+              </div>
+              <div>
+                <ThemeHeader>Dark</ThemeHeader>
+                <ThemeSelect
+                  items={themes}
+                  onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
+                  current={currentDarkTheme}
+                  testId="dark"
+                ></ThemeSelect>
+              </div>
             </FormContainer>
             <Button
               data-testid="button-submit"

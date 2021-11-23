@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 export interface IItemProps {
   label: string;
@@ -12,6 +13,11 @@ export interface ISelectProps {
   className?: string;
   testId?: string;
 }
+
+const List = styled.select`
+  border-radius: 0;
+  padding: 0.5rem;
+`;
 
 const update = (
   items: Array<IItemProps>,
@@ -28,7 +34,7 @@ const Select = ({
   className,
   testId,
 }: ISelectProps) => (
-  <select
+  <List
     data-testid={"select" + (testId ? "-" + testId : "")}
     onChange={(e) => update(items, onChange, e)}
     className={className}
@@ -57,7 +63,7 @@ const Select = ({
         );
       }
     })}
-  </select>
+  </List>
 );
 
 export default Select;
