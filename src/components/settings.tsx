@@ -10,7 +10,9 @@ import { Button, SubHeadline } from "./elements";
 import Modal from "./modal";
 
 export const FormContainer = styled.div`
-  display: flex;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-gap: 0.5rem 1rem;
   margin-bottom: 1em;
 `;
 
@@ -56,7 +58,6 @@ const Code = styled.p`
 `;
 
 const ThemeHeader = styled.p`
-  grid-column: 1 / 4;
   color: ${(props) => props.theme.accentColor};
 `;
 
@@ -73,6 +74,16 @@ const ThemeSelect = styled(Select)`
 
   & > option {
     background-color: ${(props) => props.theme.backgroundColor};
+  }
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  @media (max-width: 766px) {
+    flex-direction: column;
   }
 `;
 
@@ -96,73 +107,79 @@ const Settings = ({ themes, search }: ISettingsProps) => {
   if (themes || search) {
     return (
       <Modal element="icon" icon="settings" title="Settings">
-        {themes && (
-          <Section>
-            <SectionHeadline>Theme</SectionHeadline>
-            <FormContainer>
-              <div>
-                <ThemeHeader>Light</ThemeHeader>
-                <ThemeSelect
-                  items={themes}
-                  onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
-                  current={currentLightTheme}
-                  testId="light"
-                ></ThemeSelect>
-              </div>
-              <div>
-                <ThemeHeader>Dark</ThemeHeader>
-                <ThemeSelect
-                  items={themes}
-                  onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
-                  current={currentDarkTheme}
-                  testId="dark"
-                ></ThemeSelect>
-              </div>
-            </FormContainer>
-            <Button
-              data-testid="button-submit"
-              onClick={() => {
-                if (newLightTheme) setTheme("light", newLightTheme);
-                if (newDarkTheme) setTheme("dark", newDarkTheme);
-              }}
-            >
-              Apply
-            </Button>
-            <Button
-              data-testid="button-refresh"
-              onClick={() => window.location.reload()}
-            >
-              Refresh
-            </Button>
-          </Section>
-        )}
-        {search && (
-          <Section>
-            <SectionHeadline>Search Providers</SectionHeadline>
-            <>
-              <Text>Default Search Provider</Text>
-              <Code>{search.defaultProvider}</Code>
-            </>
-            <>
-              {search.providers && (
-                <Table>
-                  <tbody>
-                    <TableRow>
-                      <HeadCell>Search Provider</HeadCell>
-                      <HeadCell>Prefix</HeadCell>
-                    </TableRow>
-                    {search.providers.map(({ name, prefix }, index) => (
-                      <TableRow key={name + index}>
-                        <TableCell>{name}</TableCell>
-                        <TableCell>{prefix}</TableCell>
+        <ContentContainer>
+          {themes && (
+            <Section>
+              <SectionHeadline>Theme</SectionHeadline>
+              <FormContainer>
+                <div>
+                  <ThemeHeader>Light</ThemeHeader>
+                  <ThemeSelect
+                    items={themes}
+                    onChange={(theme: IThemeProps) => setNewLightTheme(theme)}
+                    current={currentLightTheme}
+                    testId="light"
+                  ></ThemeSelect>
+                </div>
+                <div>
+                  <ThemeHeader>Dark</ThemeHeader>
+                  <ThemeSelect
+                    items={themes}
+                    onChange={(theme: IThemeProps) => setNewDarkTheme(theme)}
+                    current={currentDarkTheme}
+                    testId="dark"
+                  ></ThemeSelect>
+                </div>
+                <div>
+                  <Button
+                    data-testid="button-submit"
+                    onClick={() => {
+                      if (newLightTheme) setTheme("light", newLightTheme);
+                      if (newDarkTheme) setTheme("dark", newDarkTheme);
+                    }}
+                  >
+                    Apply
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    data-testid="button-refresh"
+                    onClick={() => window.location.reload()}
+                  >
+                    Refresh
+                  </Button>
+                </div>
+              </FormContainer>
+            </Section>
+          )}
+          {search && (
+            <Section>
+              <SectionHeadline>Search Providers</SectionHeadline>
+              <>
+                <Text>Default Search Provider</Text>
+                <Code>{search.defaultProvider}</Code>
+              </>
+              <>
+                {search.providers && (
+                  <Table>
+                    <tbody>
+                      <TableRow>
+                        <HeadCell>Search Provider</HeadCell>
+                        <HeadCell>Prefix</HeadCell>
                       </TableRow>
-                    ))}
-                  </tbody>
-                </Table>
-              )}
-            </>
-          </Section>
-        )}
+                      {search.providers.map(({ name, prefix }, index) => (
+                        <TableRow key={name + index}>
+                          <TableCell>{name}</TableCell>
+                          <TableCell>{prefix}</TableCell>
+                        </TableRow>
+                      ))}
+                    </tbody>
+                  </Table>
+                )}
+              </>
+            </Section>
+          )}
+        </ContentContainer>
       </Modal>
     );
   } else {

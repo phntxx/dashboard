@@ -28,7 +28,7 @@ export const ItemList = styled.ul`
   padding: 0;
   list-style: none;
 
-  @media (max-width: 750px) {
+  @media (max-width: 766px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 `;

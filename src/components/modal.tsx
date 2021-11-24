@@ -5,14 +5,28 @@ import { Headline } from "./elements";
 import { IconButton } from "./icon";
 
 const ModalContainer = styled.div`
-  position: absolute;
+  position: fixed;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
-  padding: 1rem;
+
+  z-index: 1;
+
+  max-height: 100%;
+
+  overflow-y: auto;
+
+  box-sizing: border-box;
   border: 1px solid ${(props) => props.theme.mainColor};
   background-color: ${(props) => props.theme.backgroundColor};
+
+  padding: 1rem;
+
+  @media (max-width: 766px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Text = styled.p`
@@ -32,6 +46,7 @@ const Text = styled.p`
 
 const TitleContainer = styled.div`
   display: flex;
+
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -70,6 +85,18 @@ const Modal = ({
 
   return (
     <>
+      <ModalContainer hidden={modalHidden}>
+        <TitleContainer>
+          <Headline>{title}</Headline>
+          <IconButton
+            icon="close"
+            testid="close-button"
+            onClick={() => closeModal()}
+          />
+        </TitleContainer>
+        {children}
+      </ModalContainer>
+
       {element === "icon" && (
         <IconButton
           icon={icon ?? ""}
@@ -83,18 +110,6 @@ const Modal = ({
           {text}
         </Text>
       )}
-
-      <ModalContainer hidden={modalHidden}>
-        <TitleContainer>
-          <Headline>{title}</Headline>
-          <IconButton
-            icon="close"
-            testid="close-button"
-            onClick={() => closeModal()}
-          />
-        </TitleContainer>
-        {children}
-      </ModalContainer>
     </>
   );
 };
