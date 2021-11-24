@@ -10,7 +10,6 @@ import { Button, SubHeadline } from "./elements";
 import Modal from "./modal";
 
 export const FormContainer = styled.div`
-  display: flex;
   margin-bottom: 1em;
 `;
 
