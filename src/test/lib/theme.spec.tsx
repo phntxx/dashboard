@@ -1,4 +1,4 @@
-import { getTheme, IThemeProps, setTheme } from "../../lib/useTheme";
+import { getTheme, IThemeProps, setScheme, setTheme } from "../../lib/useTheme";
 
 const props: IThemeProps = {
   label: "Classic",
@@ -28,6 +28,16 @@ const setup = () => {
 };
 
 describe("theme.tsx", () => {
+  it("Tests setScheme", () => {
+    setup();
+
+    let value = "dark";
+
+    setScheme(value);
+    expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(window.localStorage.setItem).toHaveBeenCalledWith("theme", value);
+  });
+
   it("setTheme light test", () => {
     setup();
 

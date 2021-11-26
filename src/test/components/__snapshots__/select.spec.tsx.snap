@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`select.tsx Tests \`current\`-value 1`] = `[Function]`;
-
 exports[`select.tsx Tests \`current\`-value with testId 1`] = `[Function]`;
 
 exports[`select.tsx Tests \`current\`-value without testId 1`] = `[Function]`;
@@ -9,5 +7,3 @@ exports[`select.tsx Tests \`current\`-value without testId 1`] = `[Function]`;
 exports[`select.tsx Tests Select rendering 1`] = `[Function]`;
 
 exports[`select.tsx Tests rendering of multiple Select elements 1`] = `[Function]`;
-
-exports[`select.tsx Tests select rendering 1`] = `[Function]`;
