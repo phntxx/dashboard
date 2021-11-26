@@ -101,8 +101,8 @@ const Settings = ({ themes, search }: ISettingsProps) => {
   const [newLightTheme, setNewLightTheme] = useState<IThemeProps>();
   const [newDarkTheme, setNewDarkTheme] = useState<IThemeProps>();
 
-  const currentLightTheme = getTheme("light").label;
-  const currentDarkTheme = getTheme("dark").label;
+  const currentLightTheme = getTheme("light").value;
+  const currentDarkTheme = getTheme("dark").value;
 
   if (themes || search) {
     return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export interface IItemProps {
@@ -19,51 +19,58 @@ const List = styled.select`
   padding: 0.5rem;
 `;
 
-const update = (
-  items: Array<IItemProps>,
-  onChange: (item: any) => void,
-  e: React.ChangeEvent<HTMLSelectElement>,
-) => {
-  onChange(items.find((item) => item.value.toString() === e.target.value));
-};
-
 const Select = ({
   items,
   onChange,
   current,
   className,
   testId,
-}: ISelectProps) => (
-  <List
-    data-testid={"select" + (testId ? "-" + testId : "")}
-    onChange={(e) => update(items, onChange, e)}
-    className={className}
-  >
-    {items.map(({ label, value }, index) => {
-      if (label === current) {
-        return (
-          <option
-            data-testid={"option-" + (testId ? testId + "-" : "") + index}
-            key={[label, index].join("")}
-            value={value.toString()}
-            selected
-          >
-            {label}
-          </option>
-        );
-      } else {
-        return (
-          <option
-            data-testid={"option-" + (testId ? testId + "-" : "") + index}
-            key={[label, index].join("")}
-            value={value.toString()}
-          >
-            {label}
-          </option>
-        );
-      }
-    })}
-  </List>
-);
+}: ISelectProps) => {
+  const [selected, setSelected] = useState<string | undefined>(current);
+
+  const update = (
+    items: Array<IItemProps>,
+    onChange: (item: any) => void,
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    setSelected(event.target.value);
+    onChange(
+      items.find((item) => item.value.toString() === event.target.value),
+    );
+  };
+
+  return (
+    <List
+      data-testid={"select" + (testId ? `-${testId}` : "")}
+      onChange={(e) => update(items, onChange, e)}
+      className={className}
+      value={selected}
+    >
+      {items.map(({ label, value }, index) => {
+        if (label === current) {
+          return (
+            <option
+              data-testid={"option-" + (testId ? `${testId}-` : "") + index}
+              key={[label, index].join("")}
+              value={value.toString()}
+            >
+              {label}
+            </option>
+          );
+        } else {
+          return (
+            <option
+              data-testid={"option-" + (testId ? `${testId}-` : "") + index}
+              key={[label, index].join("")}
+              value={value.toString()}
+            >
+              {label}
+            </option>
+          );
+        }
+      })}
+    </List>
+  );
+};
 
 export default Select;
