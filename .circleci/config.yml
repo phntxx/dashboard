@@ -86,7 +86,7 @@ jobs:
           name: Build all platforms
           command: |
             docker buildx build \
-            --platform=linux/amd64,linux/arm64/v8,linux/arm/v7,linux/arm/v6 \
+            --platform=linux/amd64,linux/arm64/v8,linux/arm/v7 \
             -t phntxx/dashboard:latest --push .
 
 workflows:
