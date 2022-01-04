@@ -101,6 +101,7 @@ const SearchBar = ({ search }: ISearchBarProps) => {
     <Search onSubmit={(e) => handleSearchQuery(e)}>
       <SearchInput
         type="text"
+        autoFocus
         data-testid="search-input"
         value={input}
         placeholder={search.placeholder}
