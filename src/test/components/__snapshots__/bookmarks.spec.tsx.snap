@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookmarkGroup snapshot test 1`] = `[Function]`;
+exports[`tests rendering of Bookmark with newTab=false 1`] = `[Function]`;
 
-exports[`BookmarkList snapshot test 1`] = `[Function]`;
+exports[`tests rendering of Bookmark with newTab=true 1`] = `[Function]`;
+
+exports[`tests rendering of Bookmark without newTab 1`] = `[Function]`;
+
+exports[`tests rendering of BookmarkGroup 1`] = `[Function]`;
+
+exports[`tests rendering of BookmarkList 1`] = `[Function]`;

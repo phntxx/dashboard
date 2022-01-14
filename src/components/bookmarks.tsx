@@ -1,3 +1,4 @@
+import { link } from "fs";
 import styled from "styled-components";
 import {
   Headline,
@@ -14,7 +15,7 @@ const GroupContainer = styled.div`
   padding: 1rem 0;
 `;
 
-const Bookmark = styled.a`
+const BookmarkElement = styled.a`
   font-weight: 400;
   text-decoration: none;
   color: ${(props) => props.theme.accentColor};
@@ -29,6 +30,7 @@ const Bookmark = styled.a`
 export interface IBookmarkProps {
   name: string;
   url: string;
+  newTab?: boolean;
 }
 
 export interface IBookmarkGroupProps {
@@ -40,6 +42,22 @@ export interface IBookmarkListProps {
   groups: Array<IBookmarkGroupProps>;
 }
 
+export const Bookmark = ({ name, url, newTab }: IBookmarkProps) => {
+  const linkAttrs =
+    newTab !== undefined && newTab
+      ? {
+          target: "_blank",
+          rel: "noopener noreferrer",
+        }
+      : {};
+
+  return (
+    <BookmarkElement href={url} {...linkAttrs}>
+      {name}
+    </BookmarkElement>
+  );
+};
+
 /**
  * Renders a given bookmark group
  * @param {IBookmarkGroupProps} props given props of the bookmark group
@@ -49,10 +67,13 @@ export const BookmarkGroup = ({ name, items }: IBookmarkGroupProps) => (
   <Item>
     <GroupContainer>
       <SubHeadline>{name}</SubHeadline>
-      {items.map(({ name, url }, index) => (
-        <Bookmark key={[name, index].join("")} href={url}>
-          {name}
-        </Bookmark>
+      {items.map(({ name, url, newTab }, index) => (
+        <Bookmark
+          key={[name, index].join("")}
+          name={name}
+          url={url}
+          newTab={newTab}
+        />
       ))}
     </GroupContainer>
   </Item>
