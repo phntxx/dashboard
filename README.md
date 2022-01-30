@@ -71,6 +71,7 @@ $ yarn serve:production
 ```
 
 ### Manual install
+
 ```bash
 $ git clone https://github.com/phntxx/dashboard.git
 $ cd dashboard/
@@ -80,6 +81,7 @@ $ cp -R build/* .
 ```
 
 #### `/etc/nginx/conf.d/dashboard.conf`
+
 ```
 server {
         server_name localhost;
@@ -100,8 +102,6 @@ $ mv html/ /var/www/dashboard
 $ chown -R www-data:www-data
 $ systemctl nginx reload
 ```
-
-
 
 ## Configuration
 
@@ -125,7 +125,8 @@ To show the apps you want to show, change `apps.json` to resemble the following:
           "name": "[Name of the app]",
           "displayURL": "[URL you want to show]",
           "url": "[URL to redirect to]",
-          "icon": "[Icon code]"
+          "icon": "[Icon code]",
+          "newTab": true
         },
         ...
       ]
@@ -137,7 +138,8 @@ To show the apps you want to show, change `apps.json` to resemble the following:
       "name": "[Name of the app]",
       "displayURL": "[URL you want to show]",
       "url": "[URL to redirect to]",
-      "icon": "[Icon code]"
+      "icon": "[Icon code]",
+      "newTab": false
     },
     ...
   ]
@@ -145,6 +147,7 @@ To show the apps you want to show, change `apps.json` to resemble the following:
 ```
 
 Wherein either `apps` or `categories` can be omitted as needed.
+`newTab` is optional and defaults to `false`.
 
 To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there.
 
@@ -160,7 +163,8 @@ To show bookmarks, `bookmarks.json` needs to resemble the following:
       "items": [
         {
           "name": "[Bookmark Name]",
-          "url": "[Bookmark URL]"
+          "url": "[Bookmark URL]",
+          "newTab": true
         },
         ...
       ]
@@ -169,6 +173,8 @@ To show bookmarks, `bookmarks.json` needs to resemble the following:
   ]
 }
 ```
+
+`newTab` is optional and defaults to `false`.
 
 ### Themes
 
