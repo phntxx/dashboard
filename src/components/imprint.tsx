@@ -40,7 +40,7 @@ export interface IImprintProps {
 }
 
 export interface IImprintComponentProps {
-  imprint: IImprintProps;
+  imprint?: IImprintProps;
 }
 
 interface IImprintFieldComponentProps {
@@ -72,41 +72,45 @@ export const onClose = () => {
  * @param {IImprintProps} props contents of the imprint
  * @returns {React.ReactNode} the imprint node
  */
-const Imprint = ({ imprint }: IImprintComponentProps) => (
-  <>
-    <ListContainer>
-      <Headline>About</Headline>
-      <ItemList>
-        <ItemContainer>
-          <SubHeadline>Imprint</SubHeadline>
-          <Modal
-            element="text"
-            text="View Imprint"
-            title="Legal Disclosure"
-            condition={!window.location.href.endsWith("#imprint")}
-            onClose={onClose}
-          >
-            <div>
-              <ModalSubHeadline>
-                Information in accordance with section 5 TMG
-              </ModalSubHeadline>
-              <>
-                {imprint.name && <ImprintField field={imprint.name} />}
-                {imprint.address && <ImprintField field={imprint.address} />}
-                {imprint.email && <ImprintField field={imprint.email} />}
-                {imprint.phone && <ImprintField field={imprint.phone} />}
-                {imprint.url && <ImprintField field={imprint.url} />}
-              </>
-            </div>
-            <div>
-              <ModalSubHeadline>Imprint</ModalSubHeadline>
-              {imprint.text && <Text>{imprint.text}</Text>}
-            </div>
-          </Modal>
-        </ItemContainer>
-      </ItemList>
-    </ListContainer>
-  </>
-);
+const Imprint = ({ imprint }: IImprintComponentProps) => {
+  if (imprint === undefined) return <></>;
+
+  return (
+    <>
+      <ListContainer>
+        <Headline>About</Headline>
+        <ItemList>
+          <ItemContainer>
+            <SubHeadline>Imprint</SubHeadline>
+            <Modal
+              element="text"
+              text="View Imprint"
+              title="Legal Disclosure"
+              condition={!window.location.href.endsWith("#imprint")}
+              onClose={onClose}
+            >
+              <div>
+                <ModalSubHeadline>
+                  Information in accordance with section 5 TMG
+                </ModalSubHeadline>
+                <>
+                  {imprint.name && <ImprintField field={imprint.name} />}
+                  {imprint.address && <ImprintField field={imprint.address} />}
+                  {imprint.email && <ImprintField field={imprint.email} />}
+                  {imprint.phone && <ImprintField field={imprint.phone} />}
+                  {imprint.url && <ImprintField field={imprint.url} />}
+                </>
+              </div>
+              <div>
+                <ModalSubHeadline>Imprint</ModalSubHeadline>
+                {imprint.text && <Text>{imprint.text}</Text>}
+              </div>
+            </Modal>
+          </ItemContainer>
+        </ItemList>
+      </ListContainer>
+    </>
+  );
+};
 
 export default Imprint;

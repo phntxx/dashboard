@@ -46,29 +46,15 @@ const Select = ({
       className={className}
       value={selected}
     >
-      {items.map(({ label, value }, index) => {
-        if (label === current) {
-          return (
-            <option
-              data-testid={"option-" + (testId ? `${testId}-` : "") + index}
-              key={[label, index].join("")}
-              value={value.toString()}
-            >
-              {label}
-            </option>
-          );
-        } else {
-          return (
-            <option
-              data-testid={"option-" + (testId ? `${testId}-` : "") + index}
-              key={[label, index].join("")}
-              value={value.toString()}
-            >
-              {label}
-            </option>
-          );
-        }
-      })}
+      {items.map(({ label, value }, index) => (
+        <option
+          data-testid={"option-" + (testId ? `${testId}-` : "") + index}
+          key={[label, index].join("")}
+          value={value.toString()}
+        >
+          {label}
+        </option>
+      ))}
     </List>
   );
 };

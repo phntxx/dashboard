@@ -8,7 +8,7 @@ import Settings from "./components/settings";
 import Imprint from "./components/imprint";
 
 import { IThemeProps, getTheme, setScheme } from "./lib/useTheme";
-import useFetcher from "./lib/fetcher";
+import useFetch from "./lib/useFetch";
 import useMediaQuery from "./lib/useMediaQuery";
 
 export const GlobalStyle = createGlobalStyle<{ theme: IThemeProps }>`
@@ -33,37 +33,29 @@ const App = () => {
   const {
     appData,
     bookmarkData,
-    searchProviderData,
+    searchData,
     themeData,
     imprintData,
     greeterData,
-  } = useFetcher();
+  } = useFetch();
 
   const theme = getTheme();
   let isDark = useMediaQuery("(prefers-color-scheme: dark)");
-  if (isDark) {
-    setScheme("dark-theme");
-  } else {
-    setScheme("light-theme");
-  }
+  setScheme(isDark ? "dark-theme" : "light-theme");
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div>
-        <SearchBar search={searchProviderData?.search} />
-        {(!themeData.error || !searchProviderData.error) && (
-          <Settings
-            themes={themeData?.themes}
-            search={searchProviderData?.search}
-          />
-        )}
-        <Greeter data={greeterData.greeter} />
-        {!appData.error && (
-          <AppList apps={appData.apps} categories={appData.categories} />
-        )}
-        {!bookmarkData.error && <BookmarkList groups={bookmarkData.groups} />}
-        {!imprintData.error && <Imprint imprint={imprintData.imprint} />}
+        <SearchBar search={searchData.response} />
+        <Settings themes={themeData.response} search={searchData.response} />
+        <Greeter greeter={greeterData.response} />
+        <AppList
+          apps={appData.response?.apps}
+          categories={appData.response?.categories}
+        />
+        <BookmarkList groups={bookmarkData.response?.groups} />
+        <Imprint imprint={imprintData.response} />
       </div>
     </ThemeProvider>
   );

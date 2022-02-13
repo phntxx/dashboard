@@ -20,7 +20,11 @@ const DateText = styled.h3`
 `;
 
 export interface IGreeterComponentProps {
-  data: IGreeterProps;
+  greeter?: IGreeterDataProps;
+}
+
+export interface IGreeterDataProps {
+  greeter: IGreeterProps;
 }
 
 export interface IGreeterProps {
@@ -114,13 +118,21 @@ export const getDateString = (
  * @param {IGreeterComponentProps} data required greeter data
  * @returns {React.ReactNode} the greeter
  */
-const Greeter = ({ data }: IGreeterComponentProps) => (
-  <GreeterContainer>
-    <DateText>
-      {getDateString(data.days, data.months, data.dateformat)}
-    </DateText>
-    <GreetText>{getGreeting(data.greetings)}</GreetText>
-  </GreeterContainer>
-);
+const Greeter = ({ greeter }: IGreeterComponentProps) => {
+  if (greeter === undefined) return <></>;
+
+  return (
+    <GreeterContainer>
+      <DateText>
+        {getDateString(
+          greeter.greeter.days,
+          greeter.greeter.months,
+          greeter.greeter.dateformat,
+        )}
+      </DateText>
+      <GreetText>{getGreeting(greeter.greeter.greetings)}</GreetText>
+    </GreeterContainer>
+  );
+};
 
 export default Greeter;

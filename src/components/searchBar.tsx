@@ -48,7 +48,7 @@ export interface ISearchProps {
 }
 
 interface ISearchBarProps {
-  search: ISearchProps;
+  search?: ISearchProps;
 }
 
 export const handleQueryWithProvider = (
@@ -84,6 +84,8 @@ const SearchBar = ({ search }: ISearchBarProps) => {
   let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
   useEffect(() => setButtonsHidden(input === ""), [input]);
+
+  if (search === undefined) return <></>;
 
   const handleSearchQuery = (e: React.FormEvent) => {
     var query: string = input || "";

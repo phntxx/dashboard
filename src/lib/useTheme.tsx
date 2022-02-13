@@ -6,6 +6,10 @@ export interface IThemeProps extends IItemProps {
   backgroundColor: string;
 }
 
+export interface IThemeDataProps {
+  themes: IThemeProps[];
+}
+
 export const defaultTheme: IThemeProps = {
   label: "Classic",
   value: 0,
