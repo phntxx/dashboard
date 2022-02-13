@@ -98,7 +98,12 @@ it("getExtension test", () => {
   expect(getExtension(31)).toEqual("st");
 });
 
-it("Greeter snapshot test", () => {
-  const { asFragment } = render(<Greeter data={props} />);
+it("Greeter snapshot test with properties", () => {
+  const { asFragment } = render(<Greeter greeter={{ greeter: props }} />);
+  expect(asFragment).toMatchSnapshot();
+});
+
+it("Greeter snapshot test without properties", () => {
+  const { asFragment } = render(<Greeter />);
   expect(asFragment).toMatchSnapshot();
 });

@@ -9,24 +9,26 @@ import Settings, {
   SectionHeadline,
 } from "../../components/settings";
 import { ISearchProps } from "../../components/searchBar";
-import { IThemeProps } from "../../lib/useTheme";
+import { IThemeDataProps } from "../../lib/useTheme";
 
-const themes: Array<IThemeProps> = [
-  {
-    label: "Classic",
-    value: 0,
-    mainColor: "#000000",
-    accentColor: "#1e272e",
-    backgroundColor: "#ffffff",
-  },
-  {
-    label: "Classic",
-    value: 1,
-    mainColor: "#000000",
-    accentColor: "#1e272e",
-    backgroundColor: "#ffffff",
-  },
-];
+const themes: IThemeDataProps = {
+  themes: [
+    {
+      label: "Classic",
+      value: 0,
+      mainColor: "#000000",
+      accentColor: "#1e272e",
+      backgroundColor: "#ffffff",
+    },
+    {
+      label: "Classic",
+      value: 1,
+      mainColor: "#000000",
+      accentColor: "#1e272e",
+      backgroundColor: "#ffffff",
+    },
+  ],
+};
 
 const search: ISearchProps = {
   defaultProvider: "https://test.com?q=",

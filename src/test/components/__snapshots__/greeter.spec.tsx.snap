@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Greeter snapshot test 1`] = `[Function]`;
+exports[`Greeter snapshot test with properties 1`] = `[Function]`;
+
+exports[`Greeter snapshot test without properties 1`] = `[Function]`;
