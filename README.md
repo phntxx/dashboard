@@ -28,6 +28,8 @@ The recommended way of installation is using [Docker](https://docker.com). You c
 
 The Docker image is built on top of [this image](https://github.com/ratisbona-coding/nginx-cloudflare-cache), as it's based on Nginx and also provides functionality to purge the Cloudflare cache every time the container restarts (though this functionality is entirely optional).
 
+The Docker image is available on both [DockerHub](docker) and the GitHub Container Repository (GHCR, see "packages").
+
 1. Using the Docker CLI:
 
 ```sh
