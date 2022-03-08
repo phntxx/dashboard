@@ -214,6 +214,13 @@ For search providers to work, make sure your `search.json` resembles the followi
 }
 ```
 
+You can also customize whether or not the search bar automatically focusses on render by adding
+the following to `search.json`, on the same level where properties like `providers` are located:
+
+```json
+  "autoFocus": true,
+```
+
 ### Imprint
 
 In order for the imprint-modal to show up, make sure your `imprint.json` resembles the following:

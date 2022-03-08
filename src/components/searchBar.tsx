@@ -44,6 +44,7 @@ export interface ISearchProviderProps {
 export interface ISearchProps {
   placeholder: string;
   defaultProvider: string;
+  autoFocus?: boolean;
   providers: Array<ISearchProviderProps> | undefined;
 }
 
@@ -99,6 +100,10 @@ const SearchBar = ({ search }: ISearchBarProps) => {
     e.preventDefault();
   };
 
+  const autoFocus = () => {
+    return search.autoFocus !== undefined ? search.autoFocus : false;
+  };
+
   return (
     <Search onSubmit={(e) => handleSearchQuery(e)}>
       <SearchInput
@@ -106,6 +111,7 @@ const SearchBar = ({ search }: ISearchBarProps) => {
         data-testid="search-input"
         value={input}
         placeholder={search.placeholder}
+        autoFocus={autoFocus()}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setInput(e.target.value)
         }

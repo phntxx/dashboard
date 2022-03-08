@@ -5,7 +5,7 @@ import SearchBar, {
   ISearchProps,
 } from "../../components/searchBar";
 
-const props: ISearchProps = {
+const defaultProps: ISearchProps = {
   defaultProvider: "https://test.com?q=",
   placeholder: "",
   providers: [
@@ -27,7 +27,7 @@ const props: ISearchProps = {
   ],
 };
 
-const setup = () => {
+const setup = (props: ISearchProps = defaultProps) => {
   const searchBar = render(<SearchBar search={props} />);
   const input = searchBar.getByTestId("search-input");
   const clearButton = searchBar.getByTestId("search-clear");
@@ -55,25 +55,25 @@ describe("searchBar.tsx", () => {
   });
 
   it("Tests SearchBar rendering with properties", () => {
-    const { asFragment } = render(<SearchBar search={props} />);
-    expect(asFragment).toMatchSnapshot();
+    const { searchBar } = setup();
+    expect(searchBar.asFragment).toMatchSnapshot();
   });
 
   it("Tests searchBar rendering without properties", () => {
-    const { asFragment } = render(<SearchBar />);
-    expect(asFragment).toMatchSnapshot();
+    const searchBar = render(<SearchBar />);
+    expect(searchBar.asFragment).toMatchSnapshot();
   });
 
   it("Tests handleQueryWithProvider", () => {
-    props.providers?.forEach((provider: ISearchProviderProps) => {
-      handleQueryWithProvider(props, provider.prefix + " test");
+    defaultProps.providers?.forEach((provider: ISearchProviderProps) => {
+      handleQueryWithProvider(defaultProps, provider.prefix + " test");
       expect(window.location.href).toEqual(provider.url + "test");
     });
   });
 
   it("Tests handleQueryWithProvider default", () => {
-    handleQueryWithProvider(props, "test");
-    expect(window.location.href).toEqual(props.defaultProvider + "test");
+    handleQueryWithProvider(defaultProps, "test");
+    expect(window.location.href).toEqual(defaultProps.defaultProvider + "test");
   });
 
   it("Tests handleQueryWithProvider without providers", () => {
@@ -87,12 +87,27 @@ describe("searchBar.tsx", () => {
     expect(window.location.href).toEqual(test.defaultProvider + "test");
   });
 
+  it("Tests SearchBar with autoFocus not set", () => {
+    const { input } = setup();
+    expect(input).not.toHaveFocus();
+  });
+
+  it("Tests SearchBar with autoFocus set to true", () => {
+    const { input } = setup({ ...defaultProps, autoFocus: true });
+    expect(input).toHaveFocus();
+  });
+
+  it("Tests SearchBar with autoFocus set to false", () => {
+    const { input } = setup({ ...defaultProps, autoFocus: false });
+    expect(input).not.toHaveFocus();
+  });
+
   it("Tests SearchBar component with default search", () => {
     const { input, submitButton } = setup();
     fireEvent.change(input, { target: { value: "test" } });
     fireEvent.click(submitButton);
 
-    expect(window.location.href).toEqual(props.defaultProvider + "test");
+    expect(window.location.href).toEqual(defaultProps.defaultProvider + "test");
   });
 
   it("Tests SearchBar component with other search", () => {
@@ -113,6 +128,6 @@ describe("searchBar.tsx", () => {
     fireEvent.click(clearButton);
     fireEvent.click(submitButton);
 
-    expect(window.location.href).toEqual(props.defaultProvider);
+    expect(window.location.href).toEqual(defaultProps.defaultProvider);
   });
 });
