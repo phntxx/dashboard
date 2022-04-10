@@ -56,14 +56,14 @@ export const handleQueryWithProvider = (
   search: ISearchProps,
   query: string,
 ) => {
-  let queryArray: Array<string> = query.split(" ");
-  let prefix: string = queryArray[0];
+  const queryArray: Array<string> = query.split(" ");
+  const prefix: string = queryArray[0];
 
   queryArray.shift();
 
-  let searchQuery: string = queryArray.join(" ");
+  const searchQuery: string = queryArray.join(" ");
 
-  let providerFound: boolean = false;
+  let providerFound = false;
   if (search.providers) {
     search.providers.forEach((provider: ISearchProviderProps) => {
       if (provider.prefix === prefix) {
@@ -81,15 +81,15 @@ export const handleQueryWithProvider = (
  * @param {ISearchBarProps} search - The search providers for the search bar to use
  */
 const SearchBar = ({ search }: ISearchBarProps) => {
-  let [input, setInput] = useState<string>("");
-  let [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
+  const [input, setInput] = useState<string>("");
+  const [buttonsHidden, setButtonsHidden] = useState<boolean>(true);
 
   useEffect(() => setButtonsHidden(input === ""), [input]);
 
   if (search === undefined) return <></>;
 
   const handleSearchQuery = (e: React.FormEvent) => {
-    var query: string = input || "";
+    const query: string = input || "";
 
     if (query.split(" ")[0].includes("/")) {
       handleQueryWithProvider(search, query);

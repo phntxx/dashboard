@@ -49,7 +49,7 @@ interface IFetchProps {
  * Fetches app, bookmark, search, theme and imprint data and returns it.
  */
 export const useFetcher = (): IFetchProps => {
-  let defaults: IDataProps<any> = { error: true };
+  const defaults: IDataProps<any> = { error: true };
 
   const [appData, setAppData] = useState<IDataProps<IAppListProps>>(defaults);
   const [bookmarkData, setBookmarkData] =
@@ -64,7 +64,14 @@ export const useFetcher = (): IFetchProps => {
     useState<IDataProps<IGreeterDataProps>>(defaults);
 
   const callback = useCallback(() => {
-    let files = ["apps", "bookmarks", "search", "themes", "imprint", "greeter"];
+    const files = [
+      "apps",
+      "bookmarks",
+      "search",
+      "themes",
+      "imprint",
+      "greeter",
+    ];
 
     Promise.all(files.map((f) => fetchFile(f))).then(
       ([apps, bookmarks, search, themes, imprint, greeter]: any) => {

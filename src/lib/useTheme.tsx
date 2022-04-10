@@ -58,7 +58,7 @@ export const getTheme = (scheme?: string): IThemeProps => {
     currentScheme = "dark-theme";
   }
 
-  let theme =
+  const theme =
     currentScheme === "dark-theme"
       ? localStorage.getItem("dark-theme")
       : localStorage.getItem("light-theme");

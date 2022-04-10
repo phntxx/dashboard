@@ -55,7 +55,7 @@ export const isBetween = (a: number, b: number, c: number): boolean =>
  * @returns {string} a greeting
  */
 export const getGreeting = (greetings: Array<IGreetingProps>): string => {
-  let hours = Math.floor(new Date().getHours());
+  const hours = Math.floor(new Date().getHours());
   let result = "";
 
   greetings.forEach((greeting) => {
@@ -95,14 +95,14 @@ export const getDateString = (
   months: Array<string>,
   format: string,
 ) => {
-  let currentDate = new Date();
+  const currentDate = new Date();
 
-  let weekday = weekdays[currentDate.getDay()];
-  let day = currentDate.getDate();
-  let month = months[currentDate.getMonth()];
-  let extension = getExtension(day);
-  let year = currentDate.getFullYear();
-  let isodate = currentDate.toISOString().slice(0, 10);
+  const weekday = weekdays[currentDate.getDay()];
+  const day = currentDate.getDate();
+  const month = months[currentDate.getMonth()];
+  const extension = getExtension(day);
+  const year = currentDate.getFullYear();
+  const isodate = currentDate.toISOString().slice(0, 10);
 
   return format
     .replace("%wd", weekday)

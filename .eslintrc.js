@@ -1,5 +1,12 @@
 module.exports = {
-  extends: ["eslint:recommended", "plugin:react-hooks/recommended"],
+  root: true,
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
   rules: {
     maxClassesPerFile: 0,
     maxLineLength: 0,

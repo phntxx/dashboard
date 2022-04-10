@@ -40,7 +40,7 @@ const App = () => {
   } = useFetch();
 
   const theme = getTheme();
-  let isDark = useMediaQuery("(prefers-color-scheme: dark)");
+  const isDark = useMediaQuery("(prefers-color-scheme: dark)");
   setScheme(isDark ? "dark-theme" : "light-theme");
 
   return (
