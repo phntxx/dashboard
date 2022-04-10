@@ -40,7 +40,9 @@ it("tests rendering of Bookmark with newTab=false", () => {
 
 it("tests rendering of Bookmark without newTab", () => {
   let props = bookmarkGroupProps.items[0];
-  const { baseElement } = render(<Bookmark name={props.name} url={props.url} />);
+  const { baseElement } = render(
+    <Bookmark name={props.name} url={props.url} />,
+  );
 
   expect(baseElement).toMatchSnapshot();
 });
