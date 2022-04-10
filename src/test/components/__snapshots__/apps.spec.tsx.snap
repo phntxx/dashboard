@@ -1,19 +1,2007 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`app.tsx Tests App rendering with newTab 1`] = `[Function]`;
+exports[`app.tsx Tests App rendering with newTab 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-ftvSup ceeMji"
+      href="#"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <div
+        class="sc-papXJ Mmocz"
+      >
+        <i
+          class="sc-gsnTZi ctUcHQ"
+        >
+          bug_report
+        </i>
+      </div>
+      <div
+        class="sc-jqUVSM eWGenp"
+      >
+        <div
+          class="sc-kDDrLX fsTHZm"
+        >
+          App Test
+        </div>
+        <p
+          class="sc-iqcoie dsBacJ"
+        >
+          test
+        </p>
+      </div>
+    </a>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests App rendering with newTab 2`] = `[Function]`;
+exports[`app.tsx Tests App rendering with newTab 2`] = `
+<body>
+  <div>
+    <a
+      class="sc-ftvSup ceeMji"
+      href="#"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <div
+        class="sc-papXJ Mmocz"
+      >
+        <i
+          class="sc-gsnTZi ctUcHQ"
+        >
+          bug_report
+        </i>
+      </div>
+      <div
+        class="sc-jqUVSM eWGenp"
+      >
+        <div
+          class="sc-kDDrLX fsTHZm"
+        >
+          App Test
+        </div>
+        <p
+          class="sc-iqcoie dsBacJ"
+        >
+          test
+        </p>
+      </div>
+    </a>
+  </div>
+  <div>
+    <a
+      class="sc-ftvSup ceeMji"
+      href="#"
+    >
+      <div
+        class="sc-papXJ Mmocz"
+      >
+        <i
+          class="sc-gsnTZi ctUcHQ"
+        >
+          bug_report
+        </i>
+      </div>
+      <div
+        class="sc-jqUVSM eWGenp"
+      >
+        <div
+          class="sc-kDDrLX fsTHZm"
+        >
+          App Test
+        </div>
+        <p
+          class="sc-iqcoie dsBacJ"
+        >
+          test
+        </p>
+      </div>
+    </a>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests App rendering without newTab 1`] = `[Function]`;
+exports[`app.tsx Tests App rendering without newTab 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-ftvSup ceeMji"
+      href="#"
+    >
+      <div
+        class="sc-papXJ Mmocz"
+      >
+        <i
+          class="sc-gsnTZi ctUcHQ"
+        >
+          bug_report
+        </i>
+      </div>
+      <div
+        class="sc-jqUVSM eWGenp"
+      >
+        <div
+          class="sc-kDDrLX fsTHZm"
+        >
+          App Test
+        </div>
+        <p
+          class="sc-iqcoie dsBacJ"
+        >
+          test
+        </p>
+      </div>
+    </a>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests AppCategory rendering 1`] = `[Function]`;
+exports[`app.tsx Tests AppCategory rendering 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-evZas csYxrp"
+    >
+      <h3
+        class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+      >
+        Test
+      </h3>
+      <ul
+        class="sc-jSMfEi koolL"
+      >
+        <li
+          class="sc-gKXOVf bbXuui"
+        >
+          <a
+            class="sc-ftvSup ceeMji"
+            href="#"
+          >
+            <div
+              class="sc-papXJ Mmocz"
+            >
+              <i
+                class="sc-gsnTZi ctUcHQ"
+              >
+                bug_report
+              </i>
+            </div>
+            <div
+              class="sc-jqUVSM eWGenp"
+            >
+              <div
+                class="sc-kDDrLX fsTHZm"
+              >
+                App Test
+              </div>
+              <p
+                class="sc-iqcoie dsBacJ"
+              >
+                test
+              </p>
+            </div>
+          </a>
+        </li>
+        <li
+          class="sc-gKXOVf bbXuui"
+        >
+          <a
+            class="sc-ftvSup ceeMji"
+            href="#"
+          >
+            <div
+              class="sc-papXJ Mmocz"
+            >
+              <i
+                class="sc-gsnTZi ctUcHQ"
+              >
+                bug_report
+              </i>
+            </div>
+            <div
+              class="sc-jqUVSM eWGenp"
+            >
+              <div
+                class="sc-kDDrLX fsTHZm"
+              >
+                App Test
+              </div>
+              <p
+                class="sc-iqcoie dsBacJ"
+              >
+                test
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests AppCategory rendering 2`] = `[Function]`;
+exports[`app.tsx Tests AppCategory rendering 2`] = `
+<body>
+  <div>
+    <div
+      class="sc-evZas csYxrp"
+    >
+      <h3
+        class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+      >
+        Test
+      </h3>
+      <ul
+        class="sc-jSMfEi koolL"
+      >
+        <li
+          class="sc-gKXOVf bbXuui"
+        >
+          <a
+            class="sc-ftvSup ceeMji"
+            href="#"
+          >
+            <div
+              class="sc-papXJ Mmocz"
+            >
+              <i
+                class="sc-gsnTZi ctUcHQ"
+              >
+                bug_report
+              </i>
+            </div>
+            <div
+              class="sc-jqUVSM eWGenp"
+            >
+              <div
+                class="sc-kDDrLX fsTHZm"
+              >
+                App Test
+              </div>
+              <p
+                class="sc-iqcoie dsBacJ"
+              >
+                test
+              </p>
+            </div>
+          </a>
+        </li>
+        <li
+          class="sc-gKXOVf bbXuui"
+        >
+          <a
+            class="sc-ftvSup ceeMji"
+            href="#"
+          >
+            <div
+              class="sc-papXJ Mmocz"
+            >
+              <i
+                class="sc-gsnTZi ctUcHQ"
+              >
+                bug_report
+              </i>
+            </div>
+            <div
+              class="sc-jqUVSM eWGenp"
+            >
+              <div
+                class="sc-kDDrLX fsTHZm"
+              >
+                App Test
+              </div>
+              <p
+                class="sc-iqcoie dsBacJ"
+              >
+                test
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-evZas csYxrp"
+    >
+      
+      <ul
+        class="sc-jSMfEi koolL"
+      >
+        <li
+          class="sc-gKXOVf bbXuui"
+        >
+          <a
+            class="sc-ftvSup ceeMji"
+            href="#"
+          >
+            <div
+              class="sc-papXJ Mmocz"
+            >
+              <i
+                class="sc-gsnTZi ctUcHQ"
+              >
+                bug_report
+              </i>
+            </div>
+            <div
+              class="sc-jqUVSM eWGenp"
+            >
+              <div
+                class="sc-kDDrLX fsTHZm"
+              >
+                App Test
+              </div>
+              <p
+                class="sc-iqcoie dsBacJ"
+              >
+                test
+              </p>
+            </div>
+          </a>
+        </li>
+        <li
+          class="sc-gKXOVf bbXuui"
+        >
+          <a
+            class="sc-ftvSup ceeMji"
+            href="#"
+          >
+            <div
+              class="sc-papXJ Mmocz"
+            >
+              <i
+                class="sc-gsnTZi ctUcHQ"
+              >
+                bug_report
+              </i>
+            </div>
+            <div
+              class="sc-jqUVSM eWGenp"
+            >
+              <div
+                class="sc-kDDrLX fsTHZm"
+              >
+                App Test
+              </div>
+              <p
+                class="sc-iqcoie dsBacJ"
+              >
+                test
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests AppList rendering 1`] = `[Function]`;
+exports[`app.tsx Tests AppList rendering 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Uncategorized apps
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests AppList rendering 2`] = `[Function]`;
+exports[`app.tsx Tests AppList rendering 2`] = `
+<body>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Uncategorized apps
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests AppList rendering 3`] = `[Function]`;
+exports[`app.tsx Tests AppList rendering 3`] = `
+<body>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Uncategorized apps
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`app.tsx Tests AppList rendering 4`] = `[Function]`;
+exports[`app.tsx Tests AppList rendering 4`] = `
+<body>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Uncategorized apps
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-eCYdqJ sc-crXcEl kSJDpc ieLYyf"
+        >
+          Test
+        </h3>
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sc-dkzDqf hrrRHr"
+    >
+      <h2
+        class="sc-hKMtZM egklYf"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jSMfEi koolL"
+        >
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-gKXOVf bbXuui"
+          >
+            <a
+              class="sc-ftvSup ceeMji"
+              href="#"
+            >
+              <div
+                class="sc-papXJ Mmocz"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-jqUVSM eWGenp"
+              >
+                <div
+                  class="sc-kDDrLX fsTHZm"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-iqcoie dsBacJ"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div />
+</body>
+`;

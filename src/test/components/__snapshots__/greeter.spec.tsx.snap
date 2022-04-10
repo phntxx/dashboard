@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Greeter snapshot test with properties 1`] = `[Function]`;
+exports[`Greeter snapshot test with properties 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bczRLJ kimCm"
+    >
+      <h3
+        class="sc-dkzDqf jtvEMe"
+      >
+        Sunday, April 10th 2022
+      </h3>
+      <h1
+        class="sc-gsnTZi cdSBOi"
+      >
+        Good night!
+      </h1>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`Greeter snapshot test without properties 1`] = `[Function]`;
+exports[`Greeter snapshot test without properties 1`] = `
+<body>
+  <div />
+</body>
+`;

@@ -1,11 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests rendering of Bookmark with newTab=false 1`] = `[Function]`;
+exports[`tests rendering of Bookmark with newTab=false 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-iBkjds ANOjH"
+      href="#"
+    >
+      Bookmark Test
+    </a>
+  </div>
+</body>
+`;
 
-exports[`tests rendering of Bookmark with newTab=true 1`] = `[Function]`;
+exports[`tests rendering of Bookmark with newTab=true 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-iBkjds ANOjH"
+      href="#"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Bookmark Test
+    </a>
+  </div>
+</body>
+`;
 
-exports[`tests rendering of Bookmark without newTab 1`] = `[Function]`;
+exports[`tests rendering of Bookmark without newTab 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-iBkjds ANOjH"
+      href="#"
+    >
+      Bookmark Test
+    </a>
+  </div>
+</body>
+`;
 
-exports[`tests rendering of BookmarkGroup 1`] = `[Function]`;
+exports[`tests rendering of BookmarkGroup 1`] = `
+<body>
+  <div>
+    <li
+      class="sc-eCYdqJ jcnfPp"
+    >
+      <div
+        class="sc-gKXOVf kDgtUh"
+      >
+        <h3
+          class="sc-dkzDqf dzkwjK"
+        >
+          Test Group
+        </h3>
+        <a
+          class="sc-iBkjds ANOjH"
+          href="#"
+        >
+          Bookmark Test
+        </a>
+      </div>
+    </li>
+  </div>
+</body>
+`;
 
-exports[`tests rendering of BookmarkList 1`] = `[Function]`;
+exports[`tests rendering of BookmarkList 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bczRLJ kimCm"
+    >
+      <h2
+        class="sc-gsnTZi jiVNCT"
+      >
+        Bookmarks
+      </h2>
+      <ul
+        class="sc-hKMtZM jEBHIA"
+      >
+        <li
+          class="sc-eCYdqJ jcnfPp"
+        >
+          <div
+            class="sc-gKXOVf kDgtUh"
+          >
+            <h3
+              class="sc-dkzDqf dzkwjK"
+            >
+              Test Group
+            </h3>
+            <a
+              class="sc-iBkjds ANOjH"
+              href="#"
+            >
+              Bookmark Test
+            </a>
+          </div>
+        </li>
+        <li
+          class="sc-eCYdqJ jcnfPp"
+        >
+          <div
+            class="sc-gKXOVf kDgtUh"
+          >
+            <h3
+              class="sc-dkzDqf dzkwjK"
+            >
+              Test Group
+            </h3>
+            <a
+              class="sc-iBkjds ANOjH"
+              href="#"
+            >
+              Bookmark Test
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+`;

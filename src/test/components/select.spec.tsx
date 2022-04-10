@@ -15,15 +15,15 @@ const items: Array<IItemProps> = [
 
 describe("select.tsx", () => {
   it("Tests Select rendering", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Select items={items} onChange={(item) => onChange(item)}></Select>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests rendering of multiple Select elements", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <>
         <Select
           testId="1"
@@ -38,7 +38,7 @@ describe("select.tsx", () => {
       </>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests Select onChange", () => {
@@ -60,7 +60,7 @@ describe("select.tsx", () => {
   });
 
   it("Tests `current`-value without testId", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Select
         current={items[1].label}
         items={items}
@@ -68,11 +68,11 @@ describe("select.tsx", () => {
       ></Select>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests `current`-value with testId", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Select
         current={items[1].label}
         testId="1"
@@ -81,6 +81,6 @@ describe("select.tsx", () => {
       ></Select>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

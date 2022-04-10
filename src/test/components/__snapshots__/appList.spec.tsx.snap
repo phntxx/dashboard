@@ -1,9 +1,295 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appList.tsx Tests AppList rendering with apps 1`] = `[Function]`;
+exports[`appList.tsx Tests AppList rendering with apps 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-iBkjds ixywls"
+    >
+      <h2
+        class="sc-ftvSup bdxGxw"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        
+        <ul
+          class="sc-jqUVSM egPCCj"
+        >
+          <li
+            class="sc-kDDrLX OpKuo"
+          >
+            <a
+              class="sc-dkzDqf gHJogt"
+              href="#"
+            >
+              <div
+                class="sc-hKMtZM kjGwCV"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-eCYdqJ bcsQqv"
+              >
+                <div
+                  class="sc-jSMfEi bkhPVp"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-gKXOVf EDUWD"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`appList.tsx Tests AppList rendering with categories 1`] = `[Function]`;
+exports[`appList.tsx Tests AppList rendering with categories 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-iBkjds ixywls"
+    >
+      <h2
+        class="sc-ftvSup bdxGxw"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-papXJ sc-crXcEl lhcacf ieLYyf"
+        >
+          Category Test
+        </h3>
+        <ul
+          class="sc-jqUVSM egPCCj"
+        >
+          <li
+            class="sc-kDDrLX OpKuo"
+          >
+            <a
+              class="sc-dkzDqf gHJogt"
+              href="#"
+            >
+              <div
+                class="sc-hKMtZM kjGwCV"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-eCYdqJ bcsQqv"
+              >
+                <div
+                  class="sc-jSMfEi bkhPVp"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-gKXOVf EDUWD"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-kDDrLX OpKuo"
+          >
+            <a
+              class="sc-dkzDqf gHJogt"
+              href="#"
+            >
+              <div
+                class="sc-hKMtZM kjGwCV"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-eCYdqJ bcsQqv"
+              >
+                <div
+                  class="sc-jSMfEi bkhPVp"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-gKXOVf EDUWD"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`appList.tsx Tests AppList rendering with categories and apps 1`] = `[Function]`;
+exports[`appList.tsx Tests AppList rendering with categories and apps 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-iBkjds ixywls"
+    >
+      <h2
+        class="sc-ftvSup bdxGxw"
+      >
+        Applications
+      </h2>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-papXJ sc-crXcEl lhcacf ieLYyf"
+        >
+          Category Test
+        </h3>
+        <ul
+          class="sc-jqUVSM egPCCj"
+        >
+          <li
+            class="sc-kDDrLX OpKuo"
+          >
+            <a
+              class="sc-dkzDqf gHJogt"
+              href="#"
+            >
+              <div
+                class="sc-hKMtZM kjGwCV"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-eCYdqJ bcsQqv"
+              >
+                <div
+                  class="sc-jSMfEi bkhPVp"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-gKXOVf EDUWD"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+          <li
+            class="sc-kDDrLX OpKuo"
+          >
+            <a
+              class="sc-dkzDqf gHJogt"
+              href="#"
+            >
+              <div
+                class="sc-hKMtZM kjGwCV"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-eCYdqJ bcsQqv"
+              >
+                <div
+                  class="sc-jSMfEi bkhPVp"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-gKXOVf EDUWD"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="sc-evZas csYxrp"
+      >
+        <h3
+          class="sc-papXJ sc-crXcEl lhcacf ieLYyf"
+        >
+          Uncategorized apps
+        </h3>
+        <ul
+          class="sc-jqUVSM egPCCj"
+        >
+          <li
+            class="sc-kDDrLX OpKuo"
+          >
+            <a
+              class="sc-dkzDqf gHJogt"
+              href="#"
+            >
+              <div
+                class="sc-hKMtZM kjGwCV"
+              >
+                <i
+                  class="sc-gsnTZi ctUcHQ"
+                >
+                  bug_report
+                </i>
+              </div>
+              <div
+                class="sc-eCYdqJ bcsQqv"
+              >
+                <div
+                  class="sc-jSMfEi bkhPVp"
+                >
+                  App Test
+                </div>
+                <p
+                  class="sc-gKXOVf EDUWD"
+                >
+                  test
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`appList.tsx Tests AppList rendering with neither 1`] = `[Function]`;
+exports[`appList.tsx Tests AppList rendering with neither 1`] = `
+<body>
+  <div />
+</body>
+`;

@@ -85,12 +85,12 @@ describe("settings.tsx", () => {
   });
 
   it("Tests forms", () => {
-    const { asFragment } = render(<FormContainer />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<FormContainer />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests tables", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Table>
         <tbody>
           <TableRow>
@@ -103,26 +103,26 @@ describe("settings.tsx", () => {
       </Table>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests sections", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <Section>
         <SectionHeadline>Test</SectionHeadline>
       </Section>,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests settings rendering", () => {
     propsList.forEach((props) => {
-      const { asFragment } = render(
+      const { baseElement } = render(
         <Settings themes={props.themes} search={props.search} />,
       );
 
-      expect(asFragment).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 

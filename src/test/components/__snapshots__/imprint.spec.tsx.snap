@@ -1,5 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`imprint.tsx Tests Imprint 1`] = `[Function]`;
+exports[`imprint.tsx Tests Imprint 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-bczRLJ kimCm"
+    >
+      <h2
+        class="sc-gsnTZi jiVNCT"
+      >
+        About
+      </h2>
+      <ul
+        class="sc-hKMtZM jEBHIA"
+      >
+        <div
+          class="sc-evZas dWbjhp"
+        >
+          <h3
+            class="sc-dkzDqf dzkwjK"
+          >
+            Imprint
+          </h3>
+          <div
+            class="sc-ftvSup cpmMIl"
+            hidden=""
+          >
+            <div
+              class="sc-jqUVSM izDwOx"
+            >
+              <h2
+                class="sc-gsnTZi jiVNCT"
+              >
+                Legal Disclosure
+              </h2>
+              <button
+                class="sc-gKXOVf inaviU"
+                data-testid="close-button"
+              >
+                <i
+                  class="sc-iBkjds fflOgg"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+            <div>
+              <h3
+                class="sc-dkzDqf sc-kDDrLX dzkwjK jYBHXB"
+              >
+                Information in accordance with section 5 TMG
+              </h3>
+              <a
+                class="sc-crXcEl hLNarr"
+                href="#"
+              >
+                Test Name
+              </a>
+              <a
+                class="sc-crXcEl hLNarr"
+                href="#"
+              >
+                Test Address
+              </a>
+              <a
+                class="sc-crXcEl hLNarr"
+                href="#"
+              >
+                Test Email
+              </a>
+              <a
+                class="sc-crXcEl hLNarr"
+                href="#"
+              >
+                Test Phone
+              </a>
+              <a
+                class="sc-crXcEl hLNarr"
+                href="#"
+              >
+                Test URL
+              </a>
+            </div>
+            <div>
+              <h3
+                class="sc-dkzDqf sc-kDDrLX dzkwjK jYBHXB"
+              >
+                Imprint
+              </h3>
+              <p
+                class="sc-iqcoie fwpsgH"
+              >
+                This is a test!
+              </p>
+            </div>
+          </div>
+          <p
+            class="sc-papXJ gkwCsw"
+            data-testid="toggle-button"
+          >
+            View Imprint
+          </p>
+        </div>
+      </ul>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`imprint.tsx Tests ImprintField 1`] = `[Function]`;
+exports[`imprint.tsx Tests ImprintField 1`] = `
+<body>
+  <div>
+    <a
+      class="sc-crXcEl hLNarr"
+      href="#"
+    >
+      Test Name
+    </a>
+  </div>
+</body>
+`;

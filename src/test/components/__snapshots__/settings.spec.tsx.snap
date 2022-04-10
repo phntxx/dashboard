@@ -1,15 +1,1464 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`settings.tsx Tests forms 1`] = `[Function]`;
+exports[`settings.tsx Tests forms 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-iqcoie mUaeo"
+    />
+  </div>
+</body>
+`;
 
-exports[`settings.tsx Tests sections 1`] = `[Function]`;
+exports[`settings.tsx Tests sections 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-hAZoDl UZCWe"
+    >
+      <h3
+        class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+      >
+        Test
+      </h3>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`settings.tsx Tests settings rendering 1`] = `[Function]`;
+exports[`settings.tsx Tests settings rendering 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Search Providers
+          </h3>
+          <p
+            class="sc-fEOsli OFSxW"
+          >
+            Default Search Provider
+          </p>
+          <p
+            class="sc-bjUoiL KndDd"
+          >
+            https://test.com?q=
+          </p>
+          <table
+            class="sc-crXcEl BVLoO"
+          >
+            <tbody>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Search Provider
+                </th>
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Prefix
+                </th>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Allmusic
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /a
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Discogs
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /di
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Duck Duck Go
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /d
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+</body>
+`;
 
-exports[`settings.tsx Tests settings rendering 2`] = `[Function]`;
+exports[`settings.tsx Tests settings rendering 2`] = `
+<body>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Search Providers
+          </h3>
+          <p
+            class="sc-fEOsli OFSxW"
+          >
+            Default Search Provider
+          </p>
+          <p
+            class="sc-bjUoiL KndDd"
+          >
+            https://test.com?q=
+          </p>
+          <table
+            class="sc-crXcEl BVLoO"
+          >
+            <tbody>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Search Provider
+                </th>
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Prefix
+                </th>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Allmusic
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /a
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Discogs
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /di
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Duck Duck Go
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /d
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+</body>
+`;
 
-exports[`settings.tsx Tests settings rendering 3`] = `[Function]`;
+exports[`settings.tsx Tests settings rendering 3`] = `
+<body>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Search Providers
+          </h3>
+          <p
+            class="sc-fEOsli OFSxW"
+          >
+            Default Search Provider
+          </p>
+          <p
+            class="sc-bjUoiL KndDd"
+          >
+            https://test.com?q=
+          </p>
+          <table
+            class="sc-crXcEl BVLoO"
+          >
+            <tbody>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Search Provider
+                </th>
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Prefix
+                </th>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Allmusic
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /a
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Discogs
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /di
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Duck Duck Go
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /d
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Search Providers
+          </h3>
+          <p
+            class="sc-fEOsli OFSxW"
+          >
+            Default Search Provider
+          </p>
+          <p
+            class="sc-bjUoiL KndDd"
+          >
+            https://test.com?q=
+          </p>
+          <table
+            class="sc-crXcEl BVLoO"
+          >
+            <tbody>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Search Provider
+                </th>
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Prefix
+                </th>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Allmusic
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /a
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Discogs
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /di
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Duck Duck Go
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /d
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+</body>
+`;
 
-exports[`settings.tsx Tests settings rendering 4`] = `[Function]`;
+exports[`settings.tsx Tests settings rendering 4`] = `
+<body>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Search Providers
+          </h3>
+          <p
+            class="sc-fEOsli OFSxW"
+          >
+            Default Search Provider
+          </p>
+          <p
+            class="sc-bjUoiL KndDd"
+          >
+            https://test.com?q=
+          </p>
+          <table
+            class="sc-crXcEl BVLoO"
+          >
+            <tbody>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Search Provider
+                </th>
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Prefix
+                </th>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Allmusic
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /a
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Discogs
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /di
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Duck Duck Go
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /d
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Theme
+          </h3>
+          <div
+            class="sc-iqcoie mUaeo"
+          >
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Light
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-light"
+              >
+                <option
+                  data-testid="option-light-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-light-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <p
+                class="sc-idiyUo fMJLXF"
+              >
+                Dark
+              </p>
+              <select
+                class="sc-bczRLJ laxZOh sc-dIouRR bQrjcO"
+                data-testid="select-dark"
+              >
+                <option
+                  data-testid="option-dark-0"
+                  value="0"
+                >
+                  Classic
+                </option>
+                <option
+                  data-testid="option-dark-1"
+                  value="1"
+                >
+                  Classic
+                </option>
+              </select>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-submit"
+              >
+                Apply
+              </button>
+            </div>
+            <div>
+              <button
+                class="sc-gKXOVf foncKe"
+                data-testid="button-refresh"
+              >
+                Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+  <div>
+    <div
+      class="sc-papXJ dURgvU"
+      hidden=""
+    >
+      <div
+        class="sc-kDDrLX byPpqm"
+      >
+        <h2
+          class="sc-dkzDqf jbDwiw"
+        >
+          Settings
+        </h2>
+        <button
+          class="sc-iBkjds dRHSwq"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-ftvSup cWSRlf"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <div
+        class="sc-hHLeRK eelEQI"
+      >
+        <div
+          class="sc-hAZoDl UZCWe"
+        >
+          <h3
+            class="sc-hKMtZM sc-fnykZs ITLHV hkQEBd"
+          >
+            Search Providers
+          </h3>
+          <p
+            class="sc-fEOsli OFSxW"
+          >
+            Default Search Provider
+          </p>
+          <p
+            class="sc-bjUoiL KndDd"
+          >
+            https://test.com?q=
+          </p>
+          <table
+            class="sc-crXcEl BVLoO"
+          >
+            <tbody>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Search Provider
+                </th>
+                <th
+                  class="sc-ksZaOG iVGklz"
+                >
+                  Prefix
+                </th>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Allmusic
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /a
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Discogs
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /di
+                </td>
+              </tr>
+              <tr
+                class="sc-evZas caYqCy"
+              >
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  Duck Duck Go
+                </td>
+                <td
+                  class="sc-breuTD iQaTRx"
+                >
+                  /d
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button
+      class="sc-iBkjds dRHSwq"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-ftvSup cWSRlf"
+      >
+        settings
+      </i>
+    </button>
+  </div>
+  <div />
+</body>
+`;
 
-exports[`settings.tsx Tests tables 1`] = `[Function]`;
+exports[`settings.tsx Tests tables 1`] = `
+<body>
+  <div>
+    <table
+      class="sc-crXcEl BVLoO"
+    >
+      <tbody>
+        <tr
+          class="sc-evZas caYqCy"
+        >
+          <th
+            class="sc-ksZaOG iVGklz"
+          >
+            Test
+          </th>
+        </tr>
+        <tr
+          class="sc-evZas caYqCy"
+        >
+          <td
+            class="sc-breuTD iQaTRx"
+          >
+            Test
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;
