@@ -1,11 +1,195 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`modal.tsx Tests modal with icon 1`] = `[Function]`;
+exports[`modal.tsx Tests modal with icon 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-ftvSup cpmMIl"
+      hidden=""
+    >
+      <div
+        class="sc-jqUVSM izDwOx"
+      >
+        <h2
+          class="sc-gsnTZi jiVNCT"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="sc-gKXOVf inaviU"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-iBkjds fflOgg"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <p>
+        Hello
+      </p>
+    </div>
+    <button
+      class="sc-gKXOVf inaviU"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-iBkjds fflOgg"
+      />
+    </button>
+  </div>
+</body>
+`;
 
-exports[`modal.tsx Tests modal with icon button 1`] = `[Function]`;
+exports[`modal.tsx Tests modal with icon button 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-ftvSup cpmMIl"
+      hidden=""
+    >
+      <div
+        class="sc-jqUVSM izDwOx"
+      >
+        <h2
+          class="sc-gsnTZi jiVNCT"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="sc-gKXOVf inaviU"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-iBkjds fflOgg"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <p>
+        Hello
+      </p>
+    </div>
+    <button
+      class="sc-gKXOVf inaviU"
+      data-testid="toggle-button"
+    >
+      <i
+        class="sc-iBkjds fflOgg"
+      >
+        bug_report
+      </i>
+    </button>
+  </div>
+</body>
+`;
 
-exports[`modal.tsx Tests modal with neither 1`] = `[Function]`;
+exports[`modal.tsx Tests modal with neither 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-ftvSup cpmMIl"
+      hidden=""
+    >
+      <div
+        class="sc-jqUVSM izDwOx"
+      >
+        <h2
+          class="sc-gsnTZi jiVNCT"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="sc-gKXOVf inaviU"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-iBkjds fflOgg"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <p>
+        Hello
+      </p>
+    </div>
+  </div>
+</body>
+`;
 
-exports[`modal.tsx Tests modal with text button 1`] = `[Function]`;
+exports[`modal.tsx Tests modal with text button 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-ftvSup cpmMIl"
+      hidden=""
+    >
+      <div
+        class="sc-jqUVSM izDwOx"
+      >
+        <h2
+          class="sc-gsnTZi jiVNCT"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="sc-gKXOVf inaviU"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-iBkjds fflOgg"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <p>
+        Hello
+      </p>
+    </div>
+    <p
+      class="sc-papXJ gkwCsw"
+      data-testid="toggle-button"
+    >
+      Test
+    </p>
+  </div>
+</body>
+`;
 
-exports[`modal.tsx Tests modal without onClose behaviour 1`] = `[Function]`;
+exports[`modal.tsx Tests modal without onClose behaviour 1`] = `
+<body>
+  <div>
+    <div
+      class="sc-ftvSup cpmMIl"
+      hidden=""
+    >
+      <div
+        class="sc-jqUVSM izDwOx"
+      >
+        <h2
+          class="sc-gsnTZi jiVNCT"
+        >
+          Test Modal
+        </h2>
+        <button
+          class="sc-gKXOVf inaviU"
+          data-testid="close-button"
+        >
+          <i
+            class="sc-iBkjds fflOgg"
+          >
+            close
+          </i>
+        </button>
+      </div>
+      <p>
+        Hello
+      </p>
+    </div>
+  </div>
+</body>
+`;

@@ -36,25 +36,25 @@ const props: IAppListProps = {
 
 describe("appList.tsx", () => {
   it("Tests AppList rendering with categories and apps", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <AppList categories={props.categories} apps={props.apps} />,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests AppList rendering with categories", () => {
-    const { asFragment } = render(<AppList categories={props.categories} />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<AppList categories={props.categories} />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests AppList rendering with apps", () => {
-    const { asFragment } = render(<AppList apps={props.apps} />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<AppList apps={props.apps} />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests AppList rendering with neither", () => {
-    const { asFragment } = render(<AppList />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<AppList />);
+    expect(baseElement).toMatchSnapshot();
   });
 });

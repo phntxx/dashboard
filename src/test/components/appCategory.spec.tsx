@@ -22,9 +22,9 @@ const props: IAppCategoryProps = {
 };
 
 it("AppCategory snapshot test", () => {
-  const { asFragment } = render(
+  const { baseElement } = render(
     <AppCategory name={props.name} items={props.items} />,
   );
 
-  expect(asFragment).toMatchSnapshot();
+  expect(baseElement).toMatchSnapshot();
 });

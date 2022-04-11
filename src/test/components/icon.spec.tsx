@@ -8,13 +8,13 @@ const props = {
 };
 
 it("Icon test", () => {
-  const { asFragment } = render(<Icon name={props.name} size={props.size} />);
-  expect(asFragment).toMatchSnapshot();
+  const { baseElement } = render(<Icon name={props.name} size={props.size} />);
+  expect(baseElement).toMatchSnapshot();
 });
 
 it("Icon test (no size)", () => {
-  const { asFragment } = render(<Icon name={props.name} />);
-  expect(asFragment).toMatchSnapshot();
+  const { baseElement } = render(<Icon name={props.name} />);
+  expect(baseElement).toMatchSnapshot();
 });
 
 it("IconButton test", () => {
@@ -22,7 +22,7 @@ it("IconButton test", () => {
     <IconButton icon={props.name} onClick={props.onClick} />,
   );
 
-  expect(iconButton.asFragment).toMatchSnapshot();
+  expect(iconButton.baseElement).toMatchSnapshot();
 
   fireEvent.click(screen.getByText(/bug_report/i));
   expect(props.onClick).toHaveBeenCalledTimes(1);

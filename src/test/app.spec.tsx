@@ -12,7 +12,7 @@ const props: IThemeProps = {
 
 describe("app.tsx", () => {
   it("Tests GlobalStyle", () => {
-    const { asFragment } = render(<GlobalStyle theme={props} />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<GlobalStyle theme={props} />);
+    expect(baseElement).toMatchSnapshot();
   });
 });

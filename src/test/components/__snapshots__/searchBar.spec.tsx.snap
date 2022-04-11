@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`searchBar.tsx Tests SearchBar rendering with properties 1`] = `[Function]`;
+exports[`searchBar.tsx Tests SearchBar rendering with properties 1`] = `
+<body>
+  <div>
+    <form
+      class="sc-gKXOVf cxXynI"
+    >
+      <input
+        class="sc-iBkjds kzIHQP"
+        data-testid="search-input"
+        placeholder=""
+        type="text"
+        value=""
+      />
+      <button
+        class="sc-jSMfEi sc-ftvSup SCCAz eeBQsp"
+        data-testid="search-clear"
+        hidden=""
+        type="button"
+      >
+        Clear
+      </button>
+      <button
+        class="sc-jSMfEi sc-ftvSup SCCAz eeBQsp"
+        data-testid="search-submit"
+        hidden=""
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+</body>
+`;
 
-exports[`searchBar.tsx Tests searchBar rendering without properties 1`] = `[Function]`;
+exports[`searchBar.tsx Tests searchBar rendering without properties 1`] = `
+<body>
+  <div />
+</body>
+`;

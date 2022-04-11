@@ -50,7 +50,7 @@ describe("app.tsx", () => {
     const tests = [true, false];
 
     tests.forEach((test: boolean) => {
-      const { asFragment } = render(
+      const { baseElement } = render(
         <App
           name={appProps.name}
           icon={appProps.icon}
@@ -60,12 +60,12 @@ describe("app.tsx", () => {
         />,
       );
 
-      expect(asFragment).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
   it("Tests App rendering without newTab", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <App
         name={appProps.name}
         icon={appProps.icon}
@@ -74,26 +74,26 @@ describe("app.tsx", () => {
       />,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests AppCategory rendering", () => {
     appCategoryProps.forEach((appCategory) => {
-      const { asFragment } = render(
+      const { baseElement } = render(
         <AppCategory name={appCategory.name} items={appCategory.items} />,
       );
 
-      expect(asFragment).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
   it("Tests AppList rendering", () => {
     appListProps.forEach((appList) => {
-      const { asFragment } = render(
+      const { baseElement } = render(
         <AppList apps={appList.apps} categories={appList.categories} />,
       );
 
-      expect(asFragment).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 });

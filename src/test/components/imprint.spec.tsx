@@ -43,8 +43,8 @@ describe("imprint.tsx", () => {
   });
 
   it("Tests Imprint", () => {
-    const { asFragment } = render(<Imprint imprint={props} />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<Imprint imprint={props} />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests onClose with #imprint", () => {
@@ -61,7 +61,7 @@ describe("imprint.tsx", () => {
   });
 
   it("Tests ImprintField", () => {
-    const { asFragment } = render(<ImprintField field={props.name} />);
-    expect(asFragment).toMatchSnapshot();
+    const { baseElement } = render(<ImprintField field={props.name} />);
+    expect(baseElement).toMatchSnapshot();
   });
 });

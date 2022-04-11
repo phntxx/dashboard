@@ -56,12 +56,12 @@ describe("searchBar.tsx", () => {
 
   it("Tests SearchBar rendering with properties", () => {
     const { searchBar } = setup();
-    expect(searchBar.asFragment).toMatchSnapshot();
+    expect(searchBar.baseElement).toMatchSnapshot();
   });
 
   it("Tests searchBar rendering without properties", () => {
     const searchBar = render(<SearchBar />);
-    expect(searchBar.asFragment).toMatchSnapshot();
+    expect(searchBar.baseElement).toMatchSnapshot();
   });
 
   it("Tests handleQueryWithProvider", () => {

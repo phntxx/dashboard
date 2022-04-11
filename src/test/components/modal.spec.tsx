@@ -49,7 +49,7 @@ const setup = (props: IModalProps) => {
 describe("modal.tsx", () => {
   it("Tests modal with icon button", () => {
     const modal = setup(iconProps);
-    expect(modal.asFragment).toMatchSnapshot();
+    expect(modal.baseElement).toMatchSnapshot();
     fireEvent.click(modal.getByTestId("toggle-button"));
     fireEvent.click(modal.getByTestId("close-button"));
     expect(iconProps.onClose).toHaveBeenCalledTimes(2);
@@ -57,7 +57,7 @@ describe("modal.tsx", () => {
 
   it("Tests modal with text button", () => {
     const modal = setup(textProps);
-    expect(modal.asFragment).toMatchSnapshot();
+    expect(modal.baseElement).toMatchSnapshot();
     fireEvent.click(modal.getByTestId("toggle-button"));
     fireEvent.click(modal.getByTestId("close-button"));
     expect(textProps.onClose).toHaveBeenCalledTimes(2);
@@ -65,12 +65,12 @@ describe("modal.tsx", () => {
 
   it("Tests modal with neither", () => {
     const modal = setup(noneProps);
-    expect(modal.asFragment).toMatchSnapshot();
+    expect(modal.baseElement).toMatchSnapshot();
   });
 
   it("Tests modal with icon", () => {
     const modal = setup(invalidIconProps);
-    expect(modal.asFragment).toMatchSnapshot();
+    expect(modal.baseElement).toMatchSnapshot();
     fireEvent.click(modal.getByTestId("toggle-button"));
     fireEvent.click(modal.getByTestId("close-button"));
     expect(invalidIconProps.onClose).toHaveBeenCalledTimes(2);
@@ -78,7 +78,7 @@ describe("modal.tsx", () => {
 
   it("Tests modal without onClose behaviour", () => {
     const modal = setup(noneProps);
-    expect(modal.asFragment).toMatchSnapshot();
+    expect(modal.baseElement).toMatchSnapshot();
     fireEvent.click(modal.getByTestId("close-button"));
     expect(iconProps.onClose).toHaveBeenCalledTimes(0);
   });

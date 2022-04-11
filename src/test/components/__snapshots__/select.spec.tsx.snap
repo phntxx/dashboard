@@ -1,9 +1,114 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`select.tsx Tests \`current\`-value with testId 1`] = `[Function]`;
+exports[`select.tsx Tests \`current\`-value with testId 1`] = `
+<body>
+  <div>
+    <select
+      class="sc-bczRLJ laxZOh"
+      data-testid="select-1"
+    >
+      <option
+        data-testid="option-1-0"
+        value="0"
+      >
+        Test 1
+      </option>
+      <option
+        data-testid="option-1-1"
+        value="1"
+      >
+        Test 2
+      </option>
+    </select>
+  </div>
+</body>
+`;
 
-exports[`select.tsx Tests \`current\`-value without testId 1`] = `[Function]`;
+exports[`select.tsx Tests \`current\`-value without testId 1`] = `
+<body>
+  <div>
+    <select
+      class="sc-bczRLJ laxZOh"
+      data-testid="select"
+    >
+      <option
+        data-testid="option-0"
+        value="0"
+      >
+        Test 1
+      </option>
+      <option
+        data-testid="option-1"
+        value="1"
+      >
+        Test 2
+      </option>
+    </select>
+  </div>
+</body>
+`;
 
-exports[`select.tsx Tests Select rendering 1`] = `[Function]`;
+exports[`select.tsx Tests Select rendering 1`] = `
+<body>
+  <div>
+    <select
+      class="sc-bczRLJ laxZOh"
+      data-testid="select"
+    >
+      <option
+        data-testid="option-0"
+        value="0"
+      >
+        Test 1
+      </option>
+      <option
+        data-testid="option-1"
+        value="1"
+      >
+        Test 2
+      </option>
+    </select>
+  </div>
+</body>
+`;
 
-exports[`select.tsx Tests rendering of multiple Select elements 1`] = `[Function]`;
+exports[`select.tsx Tests rendering of multiple Select elements 1`] = `
+<body>
+  <div>
+    <select
+      class="sc-bczRLJ laxZOh"
+      data-testid="select-1"
+    >
+      <option
+        data-testid="option-1-0"
+        value="0"
+      >
+        Test 1
+      </option>
+      <option
+        data-testid="option-1-1"
+        value="1"
+      >
+        Test 2
+      </option>
+    </select>
+    <select
+      class="sc-bczRLJ laxZOh"
+      data-testid="select-2"
+    >
+      <option
+        data-testid="option-2-0"
+        value="0"
+      >
+        Test 1
+      </option>
+      <option
+        data-testid="option-2-1"
+        value="1"
+      >
+        Test 2
+      </option>
+    </select>
+  </div>
+</body>
+`;

@@ -10,7 +10,7 @@ const props: IAppProps = {
 
 describe("app.tsx", () => {
   it("Tests app rendering with newTab=true", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <App
         name={props.name}
         icon={props.icon}
@@ -20,11 +20,11 @@ describe("app.tsx", () => {
       />,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests app rendering with newTab=false", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <App
         name={props.name}
         icon={props.icon}
@@ -34,11 +34,11 @@ describe("app.tsx", () => {
       />,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it("Tests app rendering without newTab", () => {
-    const { asFragment } = render(
+    const { baseElement } = render(
       <App
         name={props.name}
         icon={props.icon}
@@ -47,6 +47,6 @@ describe("app.tsx", () => {
       />,
     );
 
-    expect(asFragment).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

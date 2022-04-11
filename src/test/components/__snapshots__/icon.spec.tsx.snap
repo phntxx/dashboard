@@ -1,7 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon test (no size) 1`] = `[Function]`;
+exports[`Icon test (no size) 1`] = `
+<body>
+  <div>
+    <i
+      class="sc-gsnTZi ctUcHQ"
+    >
+      bug_report
+    </i>
+  </div>
+</body>
+`;
 
-exports[`Icon test 1`] = `[Function]`;
+exports[`Icon test 1`] = `
+<body>
+  <div>
+    <i
+      about="20px"
+      class="sc-gsnTZi iGhKXa"
+    >
+      bug_report
+    </i>
+  </div>
+</body>
+`;
 
-exports[`IconButton test 1`] = `[Function]`;
+exports[`IconButton test 1`] = `
+<body>
+  <div>
+    <button
+      class="sc-bczRLJ liKoho"
+    >
+      <i
+        class="sc-gsnTZi ctUcHQ"
+      >
+        bug_report
+      </i>
+    </button>
+  </div>
+</body>
+`;

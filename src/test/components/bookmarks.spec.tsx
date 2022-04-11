@@ -22,44 +22,46 @@ const bookmarkListProps: IBookmarkListProps = {
 
 it("tests rendering of Bookmark with newTab=true", () => {
   let props = bookmarkGroupProps.items[0];
-  const { asFragment } = render(
+  const { baseElement } = render(
     <Bookmark name={props.name} url={props.url} newTab={true} />,
   );
 
-  expect(asFragment).toMatchSnapshot();
+  expect(baseElement).toMatchSnapshot();
 });
 
 it("tests rendering of Bookmark with newTab=false", () => {
   let props = bookmarkGroupProps.items[0];
-  const { asFragment } = render(
+  const { baseElement } = render(
     <Bookmark name={props.name} url={props.url} newTab={false} />,
   );
 
-  expect(asFragment).toMatchSnapshot();
+  expect(baseElement).toMatchSnapshot();
 });
 
 it("tests rendering of Bookmark without newTab", () => {
   let props = bookmarkGroupProps.items[0];
-  const { asFragment } = render(<Bookmark name={props.name} url={props.url} />);
+  const { baseElement } = render(
+    <Bookmark name={props.name} url={props.url} />,
+  );
 
-  expect(asFragment).toMatchSnapshot();
+  expect(baseElement).toMatchSnapshot();
 });
 
 it("tests rendering of BookmarkGroup", () => {
-  const { asFragment } = render(
+  const { baseElement } = render(
     <BookmarkGroup
       name={bookmarkGroupProps.name}
       items={bookmarkGroupProps.items}
     />,
   );
 
-  expect(asFragment).toMatchSnapshot();
+  expect(baseElement).toMatchSnapshot();
 });
 
 it("tests rendering of BookmarkList", () => {
-  const { asFragment } = render(
+  const { baseElement } = render(
     <BookmarkList groups={bookmarkListProps.groups} />,
   );
 
-  expect(asFragment).toMatchSnapshot();
+  expect(baseElement).toMatchSnapshot();
 });
