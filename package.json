@@ -38,6 +38,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --config .eslintrc.js",
     "prettier": "prettier --config .prettierrc.js '{data,src}/**/*.{json,ts,tsx}'",
+    "format": "prettier -w --config .prettierrc.js '{data,src}/**/*.{json,ts,tsx}'",
     "http-server:data": "http-server ./ -c-1",
     "http-server:app": "http-server ./build --proxy http://localhost:8080 --port 3000",
     "serve:production": "npm-run-all --parallel http-server:data http-server:app"
