@@ -3,6 +3,7 @@ import Greeter, {
   IGreeterProps,
   isBetween,
   getExtension,
+  getDateString,
 } from "../../components/greeter";
 
 const props: IGreeterProps = {
@@ -98,9 +99,32 @@ it("getExtension test", () => {
   expect(getExtension(31)).toEqual("st");
 });
 
-it("Greeter snapshot test with properties", () => {
-  const { baseElement } = render(<Greeter greeter={{ greeter: props }} />);
-  expect(baseElement).toMatchSnapshot();
+it("getDateString Test", () => {
+  let dates: [Date] = [
+    new Date("2022-04-04T00:00:00"),
+    new Date("2022-04-05T00:00:00"),
+    new Date("2022-04-06T00:00:00"),
+    new Date("2022-04-07T00:00:00"),
+    new Date("2022-04-08T00:00:00"),
+    new Date("2022-04-09T00:00:00"),
+    new Date("2022-04-10T00:00:00"),
+  ];
+
+  let results: [string] = [
+    "Monday, April 4th 2022",
+    "Tuesday, April 5th 2022",
+    "Wednesday, April 6th 2022",
+    "Thursday, April 7th 2022",
+    "Friday, April 8th 2022",
+    "Saturday, April 9th 2022",
+    "Sunday, April 10th 2022",
+  ];
+
+  for (var i = 0; i < dates.length; i++) {
+    expect(
+      getDateString(props.days, props.months, props.dateformat, dates[i]),
+    ).toEqual(results[i]);
+  }
 });
 
 it("Greeter snapshot test without properties", () => {

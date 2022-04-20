@@ -94,8 +94,9 @@ export const getDateString = (
   weekdays: Array<string>,
   months: Array<string>,
   format: string,
+  date?: Date,
 ) => {
-  const currentDate = new Date();
+  const currentDate = date ? date : new Date();
 
   const weekday = weekdays[currentDate.getDay()];
   const day = currentDate.getDate();

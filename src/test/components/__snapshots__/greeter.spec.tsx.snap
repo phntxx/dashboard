@@ -1,26 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Greeter snapshot test with properties 1`] = `
-<body>
-  <div>
-    <div
-      class="sc-bczRLJ kimCm"
-    >
-      <h3
-        class="sc-dkzDqf jtvEMe"
-      >
-        Wednesday, April 20th 2022
-      </h3>
-      <h1
-        class="sc-gsnTZi cdSBOi"
-      >
-        Good afternoon!
-      </h1>
-    </div>
-  </div>
-</body>
-`;
-
 exports[`Greeter snapshot test without properties 1`] = `
 <body>
   <div />
