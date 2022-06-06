@@ -100,7 +100,7 @@ it("getExtension test", () => {
 });
 
 it("getDateString Test", () => {
-  let dates: [Date] = [
+  let dates: Date[] = [
     new Date("2022-04-04T00:00:00"),
     new Date("2022-04-05T00:00:00"),
     new Date("2022-04-06T00:00:00"),
@@ -110,7 +110,7 @@ it("getDateString Test", () => {
     new Date("2022-04-10T00:00:00"),
   ];
 
-  let results: [string] = [
+  let results: string[] = [
     "Monday, April 4th 2022",
     "Tuesday, April 5th 2022",
     "Wednesday, April 6th 2022",
