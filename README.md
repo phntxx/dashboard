@@ -1,10 +1,8 @@
 # Dashboard
 
-[![CircleCI][shield-circleci]][circleci]
 [![Docker Cloud Build Status][shield-docker]][docker]
 [![Docker Image Size (latest)][shield-docker-image]][docker]
 [![codecov][shield-codecov]][codecov]
-[![Dependencies][shield-deps]][repo]
 [![GitHub license][shield-license]][license]
 
 ![Alt text](/screenshot.png?raw=true "screenshot")
@@ -259,10 +257,7 @@ In order for the imprint-modal to show up, make sure your `imprint.json` resembl
 [codecov]: https://codecov.io/gh/phntxx/dashboard
 [repo]: https://github.com/phntxx/dashboard
 [license]: https://github.com/phntxx/dashboard/LICENSE
-[circleci]: https://circleci.com/gh/phntxx/dashboard
 [shield-docker]: https://img.shields.io/docker/cloud/build/phntxx/dashboard
 [shield-docker-image]: https://img.shields.io/docker/image-size/phntxx/dashboard/latest
-[shield-circleci]: https://circleci.com/gh/phntxx/dashboard.svg?style=shield
 [shield-codecov]: https://codecov.io/gh/phntxx/dashboard/branch/master/graph/badge.svg
 [shield-license]: https://img.shields.io/github/license/phntxx/dashboard.svg
-[shield-deps]: https://img.shields.io/david/phntxx/dashboard
