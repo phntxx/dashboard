@@ -34,9 +34,9 @@ The Docker image is available on both [DockerHub](docker) and the GitHub Contain
 $ docker run -d \
   -e CLOUDFLARE_ZONE_ID=[OPTIONAL CLOUDFLARE V4 ZONE ID] \
   -e CLOUDFLARE_PURGE_TOKEN=[OPTIONAL CLOUDFLARE PURGE TOKEN] \
-  -v $(pwd)/data:/app/data
+  -v $(pwd)/data:/app/data \
   -p 8080:8080 \
-  --name dashboard \
+  --name=dashboard \
   phntxx/dashboard
 ```
 
