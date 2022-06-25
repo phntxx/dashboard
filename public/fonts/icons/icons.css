@@ -1,11 +1,10 @@
-/* fallback */
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
+  font-display: block;
   src: url(icons.woff2) format("woff2");
 }
-
 .material-icons {
   font-family: "Material Icons";
   font-weight: normal;
@@ -20,4 +19,6 @@
   direction: ltr;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga";
 }
