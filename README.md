@@ -128,7 +128,7 @@ If you're running into problems with configuring your files and you can't seem t
 
 To show the apps you want to show, change `data/apps.json` to resemble the following:
 
-```json
+```jsonc
 {
   "categories": [
     {
@@ -168,7 +168,7 @@ To find icons, simply go to the [Material Design Icon Library](https://material.
 
 To show bookmarks, `data/bookmarks.json` needs to resemble the following:
 
-```json
+```jsonc
 {
   "groups": [
     {
@@ -193,7 +193,7 @@ To show bookmarks, `data/bookmarks.json` needs to resemble the following:
 
 In order to customize theming, `data/themes.json` needs to resemble this:
 
-```json
+```jsonc
 {
   "themes": [
     {
@@ -212,7 +212,7 @@ In order to customize theming, `data/themes.json` needs to resemble this:
 
 For search providers to work, make sure your `data/search.json` resembles the following:
 
-```json
+```jsonc
 {
   "providers": [
     {
@@ -228,7 +228,7 @@ For search providers to work, make sure your `data/search.json` resembles the fo
 You can also customize whether or not the search bar automatically focusses on render by adding
 the following to `search.json`, on the same level where properties like `providers` are located:
 
-```json
+```jsonc
   "autoFocus": true,
 ```
 
@@ -236,7 +236,7 @@ the following to `search.json`, on the same level where properties like `provide
 
 In order for the imprint-modal to show up, make sure your `data/imprint.json` resembles the following:
 
-```json
+```jsonc
 {
   "imprint": {
     "name": {
