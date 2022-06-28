@@ -28,7 +28,7 @@ The Docker image is built on top of [this image](https://github.com/ratisbona-co
 
 The Docker image is available on both [DockerHub](docker) and the GitHub Container Repository (GHCR, see "packages").
 
-1. Using the Docker CLI:
+#### Using the Docker CLI
 
 ```sh
 $ docker run -d \
@@ -40,7 +40,7 @@ $ docker run -d \
   phntxx/dashboard
 ```
 
-2. Using Docker-Compose:
+#### Using Docker-Compose
 
 ```yml
 version: "3"
@@ -58,62 +58,75 @@ services:
       - 8080:8080
 ```
 
-### Compile from source
+### Manual installation (Linux)
+#### Clone and build
 
-I really don't anticipate people to use this, so go forth at your own risk.
-
-```bash
-$ git clone https://github.com/phntxx/dashboard.git
-$ cd dashboard/
-$ yarn
-$ yarn build
-$ yarn serve:production
+```sh
+git clone https://github.com/phntxx/dashboard.git
+cd dashboard
+yarn
+yarn build
 ```
 
-### Manual install
+#### Move the files
 
-```bash
-$ git clone https://github.com/phntxx/dashboard.git
-$ cd dashboard/
-$ yarn
-$ yarn build
-$ cp -R build/* .
+You can move the files to any different location. This is an example, that the rest of the guide will work with.
+```sh
+mkdir /var/www/dashboard/html
+cp -r build/ data/ src/ /var/www/dashboard/html
 ```
 
-#### `/etc/nginx/conf.d/dashboard.conf`
+#### Configure users and permissions
 
+Only do the next two steps if your `www-data` user does __not__ exist. Check `grep www-data /etc/passwd`
+
+```sh
+groupadd www-data
+useradd -a -G www-data www-data
+chown -R www-data:www-data /var/www/dashboard
 ```
-server {
-        server_name localhost;
-        listen 8080;
+
+#### Configure nginx
+
+Edit the `/etc/nginx/nginx.conf` file. Append the `server {...}` section as shown below, or you can refer to [example nginx.conf config](./nginx.conf) if in doubt. Be mindful of the `user www-data` if you're running other services.
+```nginx
+user www-data;
+
+# ...
+
+http {
+    # ...
+
+    # dashboard server listener
+    server {
+        listen 80;
+        server_name localhost; # edit as needed if using your own domain
         root /var/www/dashboard/html/;
 
         location / {
-                index index.html index.htm;
+           index index.html index.htm;
         }
+    }
 }
 ```
 
-```bash
-$ cd ..
-$ mkdir /var/www/dashboard
-$ mv dashboard/ html
-$ mv html/ /var/www/dashboard
-$ chown -R www-data:www-data
-$ systemctl nginx reload
-```
+#### Last step
+
+As a last step, reload nginx
+`systemctl reload nginx`
+Now you should be able to visit your dashboard at `http://localhost/`
 
 ## Configuration
 
 There's a couple of things you can / need to configure to get Dashboard to look and behave just as you want it to.
 
-If you don't require a specific component, just remove the file from your `data`-directory. Dashboard won't render the components whose files are not present. With no files present, only the greeter will be shown.
+If you don't require a specific component, just remove the file from your `data` directory. Dashboard won't render the components whose files are not present. With no files present, only the greeter will be shown.
 
 If you're running into problems with configuring your files and you can't seem to get them to work, feel free to open an issue, I'd be happy to help! :smile:
 
 ### Apps
 
-To show the apps you want to show, change `apps.json` to resemble the following:
+To show the apps you want to show, change `data/apps.json` to resemble the following:
 
 ```json
 {
@@ -128,10 +141,10 @@ To show the apps you want to show, change `apps.json` to resemble the following:
           "icon": "[Icon code]",
           "newTab": true
         },
-        ...
+        // ...
       ]
     },
-    ...
+    // ...
   ],
   "apps": [
     {
@@ -141,7 +154,7 @@ To show the apps you want to show, change `apps.json` to resemble the following:
       "icon": "[Icon code]",
       "newTab": false
     },
-    ...
+    // ...
   ]
 }
 ```
@@ -149,11 +162,11 @@ To show the apps you want to show, change `apps.json` to resemble the following:
 Wherein either `apps` or `categories` can be omitted as needed.
 `newTab` is optional and defaults to `false`.
 
-To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there.
+To find icons, simply go to the [Material Design Icon Library](https://material.io/icons/) and copy one of the codes for an icon there. If the icon's name contains a space, replace it with an underscore "`_`". 
 
 ### Bookmarks
 
-To show bookmarks, `bookmarks.json` needs to resemble the following:
+To show bookmarks, `data/bookmarks.json` needs to resemble the following:
 
 ```json
 {
@@ -166,10 +179,10 @@ To show bookmarks, `bookmarks.json` needs to resemble the following:
           "url": "[Bookmark URL]",
           "newTab": true
         },
-        ...
+        // ...
       ]
     },
-    ...
+    // ...
   ]
 }
 ```
@@ -178,7 +191,7 @@ To show bookmarks, `bookmarks.json` needs to resemble the following:
 
 ### Themes
 
-In order to customize theming, `themes.json` needs to resemble this:
+In order to customize theming, `data/themes.json` needs to resemble this:
 
 ```json
 {
@@ -190,14 +203,14 @@ In order to customize theming, `themes.json` needs to resemble this:
       "accentColor": "[Accent Color as 6-character hex code]",
       "backgroundColor": "[Background Color as 6-character hex code]"
     },
-    ...
+    // ...
   ]
 }
 ```
 
 ### Search Providers
 
-For search providers to work, make sure your `search.json` resembles the following:
+For search providers to work, make sure your `data/search.json` resembles the following:
 
 ```json
 {
@@ -207,7 +220,7 @@ For search providers to work, make sure your `search.json` resembles the followi
       "url": "[Link that processes searches on that website]",
       "prefix": "[A custom prefix (e.g. '/test')]"
     },
-    ...
+    // ...
   ]
 }
 ```
@@ -221,7 +234,7 @@ the following to `search.json`, on the same level where properties like `provide
 
 ### Imprint
 
-In order for the imprint-modal to show up, make sure your `imprint.json` resembles the following:
+In order for the imprint-modal to show up, make sure your `data/imprint.json` resembles the following:
 
 ```json
 {
@@ -252,6 +265,10 @@ In order for the imprint-modal to show up, make sure your `imprint.json` resembl
 ```
 
 > :exclamation: I haven't quite tested this. I'm not a lawyer and I'm not responsible if you're sued for using this incorrectly.
+
+## Contributing
+Please see [Contributing page](./CONTRIBUTING.md).
+
 
 [docker]: https://hub.docker.com/r/phntxx/dashboard
 [codecov]: https://codecov.io/gh/phntxx/dashboard
