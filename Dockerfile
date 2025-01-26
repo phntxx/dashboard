@@ -7,6 +7,6 @@ RUN yarn install
 COPY . ./
 RUN yarn build
 
-FROM ratisbonacoding/nginx-cloudflare-cache
+FROM nginx
 COPY --from=build /app/build /app
 COPY nginx.conf /etc/nginx/nginx.conf
